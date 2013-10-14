@@ -4,7 +4,10 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 }
 
 require_once DISCUZ_ROOT.'source/plugin/yiqixueba/function.func.php';
+make_page();
+require_cache('main_function_admincp');
+require_cache('main_admincp');
 
-var_dump('sadhasdfsd');
-var_dump($runtime);
+$mokuainame = 'main';
+$mokuaiver = '1.0';
 ?>
