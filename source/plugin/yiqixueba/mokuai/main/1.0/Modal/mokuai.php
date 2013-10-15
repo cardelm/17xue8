@@ -1,12 +1,8 @@
 <?php
-
-
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-
-class plugin_yiqixueba {
+class table_mokuai extends discuz_table{
 
 }
-
 ?>
