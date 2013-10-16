@@ -46,10 +46,10 @@ if(!C::t('common_setting')->skey_exists('yiqixueba_siteurlkey')){
 	);
 	C::t('common_setting')->update_batch($yiqixueba_settings);
 }
-
 if(!C::t('common_setting')->skey_exists('yiqixueba_basepage')){
 	C::t('common_setting')->update('yiqixueba_basepage',md5('ceshi'));
 }
+
 if(!is_dir(DISCUZ_ROOT.'source/plugin/yiqixueba/runtime')){
 	dmkdir(DISCUZ_ROOT.'source/plugin/yiqixueba/runtime');
 }
@@ -67,12 +67,16 @@ file_put_contents(DISCUZ_ROOT.'source/plugin/yiqixueba/runtime/~'.C::t('common_s
 $mokuai = 'main';
 $ver = '1.0';
 $sitekey = C::t('common_setting')->fetch('yiqixueba_siteurlkey');
+$pages = $tables = $templates = $menus = array();
 updatemokuai();
+C::t('common_setting')->update('yiqixueba_menus',serialize($menus));
 unset($mokuai);
 unset($ver);
+
+
 //
 function updatemokuai($path=''){
-	global $mokuai,$ver,$sitekey;
+	global $mokuai,$ver,$sitekey,$pages,$tables,$templates,$menus;
 	$mokuai_dir = DISCUZ_ROOT.'source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$ver;//模块目录
 	clearstatcache();
 	if($path=='')
@@ -98,20 +102,26 @@ function updatemokuai($path=''){
 						if(filemtime($page_file)>filemtime($runtime_file) || !file_exists($runtime_file)){
 							file_put_contents($runtime_file,convert_uudecode(file_get_contents($page_file)));
 						}
+						$pages[$mokuai][] = $new_file;
+						$menus['page'][] = $new_file;
 					}elseif($type == 'Modal'){
-						
 						$table_file = DISCUZ_ROOT.'source/plugin/yiqixueba/table/table_'.md5($sitekey.$new_file).'.php';
 						if(filemtime($path."/".$file)>filemtime($table_file) || !file_exists($table_file)){
-							file_put_contents($table_file,str_replace("class table_".substr($file,0,-4),"class table_".md5($sitekey.$new_file),file_get_contents($path."/".$file)));
+							$neirong_table = file_get_contents($path."/".$file);
+							$neirong_table = str_replace("class table_".substr($file,0,-4),"class table_".md5($sitekey.$new_file),$neirong_table);
+							$neirong_table = str_replace("\$this->_table = '".substr($file,0,-4)."'","\$this->_table = '".md5($sitekey.$new_file)."'",$neirong_table);
+							file_put_contents($table_file,$neirong_table);
+							C::t('#yiqixueba#'.md5($sitekey.$new_file))->create();
 						}
-						
+						$tables[$mokuai][] = $new_file;
+						$menus['table'][] = $new_file;
 					}elseif($type == 'View'){
-						
-						$template_file = DISCUZ_ROOT.'source/plugin/yiqixueba/template/t'.md5($sitekey.$new_file).'.htm';
+						$template_file = DISCUZ_ROOT.'source/plugin/yiqixueba/template/'.md5($sitekey.$new_file).'.htm';
 						if(filemtime($path."/".$file)>filemtime($template_file) || !file_exists($template_file)){
 							file_put_contents($template_file,file_get_contents($path."/".$file));
 						}
-					
+						$templates[$mokuai][] = $new_file;
+						$menus['template'][] = $new_file;
 					}else{
 						$new_file = $new_filename;
 					}
