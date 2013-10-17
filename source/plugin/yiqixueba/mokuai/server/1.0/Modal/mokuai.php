@@ -67,8 +67,5 @@ class table_mokuai extends discuz_table{
 		}
 	}
 
-	public function fetch_all() {
-		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table));
-	}
 }
 ?>

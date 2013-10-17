@@ -2,37 +2,20 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-class table_mokuai extends discuz_table{
+class table_sitegroup extends discuz_table{
 
 	public function __construct() {
-		$this->_table = 'mokuai';
-		$this->_pk    = 'mokuaiid';
+		$this->_table = 'sitegroup';
+		$this->_pk    = 'sitegroupid';
 		parent::__construct();
 	}
 
 	public function create() {
 		global $_G;
 		$fields = "
-		  `mokuaiid` smallint(6) NOT NULL,
-		  `available` tinyint(1) NOT NULL default '0',
-		  `adminid` tinyint(1) unsigned NOT NULL default '0',
-		  `name` varchar(40) NOT NULL default '',
-		  `identifier` varchar(40) NOT NULL default '',
-		  `version` varchar(20) NOT NULL default '',
-		  `description` varchar(255) NOT NULL default '',
-		  `datatables` varchar(255) NOT NULL default '',
-		  `directory` varchar(100) NOT NULL default '',
-		  `copyright` varchar(100) NOT NULL default '',
-		  `modules` text NOT NULL,
-		  `setting` text NOT NULL,
-		  `pages` text NOT NULL,
-		  `temps` text NOT NULL,
-		  `menus` text NOT NULL,
-		  `displayorder` smallint(6) NOT NULL,
-		  `mokuaikey` varchar(32) NOT NULL,
+		  `sitegroupid` smallint(6) NOT NULL,
 		  `updatetime` int(10) unsigned NOT NULL,
-		  PRIMARY KEY  (`mokuaiid`,`identifier`),
-		  UNIQUE KEY `identifier` (`identifier`)
+		  PRIMARY KEY  (`sitegroupid`)
 		";
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
 		if(DB::num_rows($query) == 1) {
@@ -67,8 +50,13 @@ class table_mokuai extends discuz_table{
 		}
 	}
 
-	public function fetch_all() {
-		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table));
+	public function fetch_by_sitegroupid($sitegroupid) {
+		$sitegroup_info = array();
+		if($sitegroupid) {
+			$sitegroup_info = DB::fetch_first('SELECT * FROM %t WHERE sitegroupid=%s', array($this->_table, $sitegroupid));
+		}
+		return $sitegroup_info;
 	}
+
 }
 ?>

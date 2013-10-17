@@ -2,8 +2,7 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-
-require_once DISCUZ_ROOT.'source/plugin/yiqixueba/install.php';
-require_once DISCUZ_ROOT.'source/plugin/yiqixueba/runtime/~'.C::t('common_setting')->fetch('yiqixueba_basepage');
-require_once require_cache('main_yiqixueba');
+require_once DISCUZ_ROOT.'source/plugin/yiqixueba/github.func.php';
+require_once 'C:\GitHub\17xue8/source/plugin/yiqixueba/mokuai/main/'.$github_ver.'/yiqixueba.inc.php';
 ?>
+
