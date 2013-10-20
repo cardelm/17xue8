@@ -13,26 +13,30 @@ class table_mokuai extends discuz_table{
 	public function create() {
 		global $_G;
 		$fields = "
-		  `mokuaiid` smallint(6) NOT NULL,
-		  `available` tinyint(1) NOT NULL default '0',
-		  `adminid` tinyint(1) unsigned NOT NULL default '0',
-		  `name` varchar(40) NOT NULL default '',
-		  `identifier` varchar(40) NOT NULL default '',
-		  `version` varchar(20) NOT NULL default '',
-		  `description` varchar(255) NOT NULL default '',
-		  `datatables` varchar(255) NOT NULL default '',
-		  `directory` varchar(100) NOT NULL default '',
-		  `copyright` varchar(100) NOT NULL default '',
-		  `modules` text NOT NULL,
-		  `setting` text NOT NULL,
-		  `pages` text NOT NULL,
-		  `temps` text NOT NULL,
-		  `menus` text NOT NULL,
-		  `displayorder` smallint(6) NOT NULL,
-		  `mokuaikey` varchar(32) NOT NULL,
-		  `updatetime` int(10) unsigned NOT NULL,
-		  PRIMARY KEY  (`mokuaiid`,`identifier`),
-		  UNIQUE KEY `identifier` (`identifier`)
+			`mokuaiid` smallint(6) NOT NULL auto_increment,
+			`available` tinyint(1) NOT NULL default '0',
+			`adminid` tinyint(1) unsigned NOT NULL default '0',
+			`name` varchar(40) NOT NULL default '',
+			`biaoshi` varchar(40) NOT NULL default '',
+			`version` varchar(20) NOT NULL default '',
+			`description` varchar(255) NOT NULL default '',
+			`datatables` varchar(255) NOT NULL default '',
+			`directory` varchar(100) NOT NULL default '',
+			`copyright` varchar(100) NOT NULL default '',
+			`modules` text NOT NULL,
+			`setting` text NOT NULL,
+			`pages` text NOT NULL,
+			`temps` text NOT NULL,
+			`menus` text NOT NULL,
+			`displayorder` smallint(6) NOT NULL,
+			`mokuaikey` varchar(32) NOT NULL,
+			`updatetime` int(10) unsigned NOT NULL,
+			`price` int(10) NOT NULL,
+			`ico` char(255) NOT NULL,
+			`mokuaiinformation` text NOT NULL,
+			`createtime` int(10) unsigned NOT NULL,
+			`currentversion` tinyint(1) NOT NULL,
+			PRIMARY KEY  (`mokuaiid`)
 		";
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
 		if(DB::num_rows($query) == 1) {
@@ -67,8 +71,40 @@ class table_mokuai extends discuz_table{
 		}
 	}
 
-	public function fetch_all() {
-		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table));
+	public function fetch_all_mokuai() {
+		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." WHERE currentversion = 1 group by biaoshi order by displayorder asc");
+	}
+	public function fetch_all_ver($mokuai) {
+		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." WHERE biaoshi = '".$mokuai."' order by createtime asc");
+	}
+	public function fetch_by_mokuaiid($mokuaiid) {
+		$mokuai_info = array();
+		if($mokuaiid) {
+			$mokuai_info = DB::fetch_first('SELECT * FROM %t WHERE mokuaiid=%s', array($this->_table, $mokuaiid));
+		}
+		return $mokuai_info;
+	}
+	public function fetch_by_mkcount($mokuai) {
+		$mokuai_count = 0;
+		if($mokuai) {
+			$mokuai_count = DB::result_first('SELECT count(*) FROM %t WHERE biaoshi=%s', array($this->_table, $mokuai));
+		}
+		return $mokuai_count;
+	}
+	public function update_curver($biaoshi,$version='') {
+		if($biaoshi) {
+			if($version){
+				DB::update($this->_table,array('currentversion'=>1),array('biaoshi'=>$biaoshi,'version'=>$version));
+			}else{
+				DB::update($this->_table,array('currentversion'=>0),array('biaoshi'=>$biaoshi));
+				//DB::update($this->_table,array('currentversion'=>1),array('biaoshi'=>$biaoshi));
+			}
+		}
+	}
+	public function update_all($data) {
+		if($data) {
+			DB::update($this->_table,$data);
+		}
 	}
 }
 ?>

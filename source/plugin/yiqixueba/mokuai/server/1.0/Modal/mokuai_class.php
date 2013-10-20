@@ -48,5 +48,12 @@ class table_mokuai_class extends discuz_table{
 		}
 	}
 
+	//
+	public function fetch_all(){
+	}//end func
+	//
+	public function insert(){
+	}//end func
+
 }
 ?>

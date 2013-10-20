@@ -1,0 +1,22 @@
+<h1 class="mt">{lang yiqixueba:member_login}</h1>
+<div class="mbw">{lang yiqixueba:member_login_tips}</div>
+<form method="post" autocomplete="off" action="plugin.php?id=yiqixueba:member" class="exfm">
+<input type="hidden" name="formhash" value="{FORMHASH}">
+<input type="hidden" name="referer" value="{echo dreferer()}" />
+<input type="hidden" name="loginsubmit" value="yes">
+<input type="hidden" name="login_yiqixueba_member" value="yes">
+<table cellspacing="0" cellpadding="5">
+	<tr>
+	<th width="60">{lang yiqixueba:member_username}</th>
+	<td>{$_G['username']}</td>
+	</tr>
+	<tr>
+	<th>{lang yiqixueba:member_password}</th>
+	<td><input type="password" name="cppwd" id="cppwd" class="px" /></td>
+	</tr>
+	<tr>
+	<th>&nbsp;</th>
+	<td><button type="submit" name="loginsubmit" id="loginsubmit" class="pn" value="true"><strong>{lang yiqixueba:member_submit}</strong></button></td>
+	</tr>
+</table>
+</form>

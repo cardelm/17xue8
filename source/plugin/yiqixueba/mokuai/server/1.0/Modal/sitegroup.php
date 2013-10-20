@@ -13,9 +13,14 @@ class table_sitegroup extends discuz_table{
 	public function create() {
 		global $_G;
 		$fields = "
-		  `sitegroupid` smallint(6) NOT NULL,
-		  `updatetime` int(10) unsigned NOT NULL,
-		  PRIMARY KEY  (`sitegroupid`)
+			`sitegroupid` smallint(6) NOT NULL auto_increment,
+			`sitegroupname` char(40) NOT NULL,
+			`createtime` int(10) NOT NULL,
+			`updatetime` int(10) unsigned NOT NULL,
+			`versions` text NOT NULL,
+			`status` tinyint(1) NOT NULL,
+			`systemgroup` tinyint(1) NOT NULL,
+			PRIMARY KEY  (`sitegroupid`)
 		";
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
 		if(DB::num_rows($query) == 1) {
@@ -56,6 +61,9 @@ class table_sitegroup extends discuz_table{
 			$sitegroup_info = DB::fetch_first('SELECT * FROM %t WHERE sitegroupid=%s', array($this->_table, $sitegroupid));
 		}
 		return $sitegroup_info;
+	}
+	public function fetch_all() {
+		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." order by sitegroupid asc");
 	}
 
 }

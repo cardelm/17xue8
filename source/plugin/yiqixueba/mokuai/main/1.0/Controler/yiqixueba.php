@@ -4,6 +4,6 @@ if(!defined('IN_DISCUZ')) {
 }
 $submod = getgpc('submod');
 
-dump('yiqixueba:'.yiqixueba_template('main_index'));
-include template('yiqixueba:'.yiqixueba_template('main_index'));
+
+include template(GV('main_index'));
 ?>

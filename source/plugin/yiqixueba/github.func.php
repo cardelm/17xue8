@@ -20,7 +20,7 @@ function check_github_update($path=''){
 
 	if ($handle = opendir($path)) {
 		while (false !== ($file = readdir($handle))) {
-			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "mokuai") {
+			if ($file != "." && $file != ".." && substr($file,0,1) != ".") {
 				if (is_dir($path."/".$file)) {
 					if (!is_dir($out_path."/".$file)){
 						dmkdir($out_path."/".$file);
@@ -63,14 +63,29 @@ if(!C::t('common_setting')->skey_exists('yiqixueba_siteurlkey')){
 
 $sitekey = C::t('common_setting')->fetch('yiqixueba_siteurlkey');
 
+$pages = $tables = $templates = array();
+$mokuaiver = array(
+	'main' => '1.0',
+	'server' => '1.0',
+	'shop' => '1.0',
+	'yqxb' => '1.0',
+	'wxq123' => '1.0',
+	'yikatong' => '1.0',
+	'cheyouhui' => '1.0',
+);
+foreach($mokuaiver as $k=>$v ){
+	update_pages($k,$v);
+	update_table($k,$v);
+	update_template($k,$v);
+}
 
-update_pages('main','1.0');
-update_table('main','1.0');
-update_template('main','1.0');
+C::t('common_setting')->update('yiqixueba_pages',serialize($pages));
+C::t('common_setting')->update('yiqixueba_tables',serialize($tables));
+C::t('common_setting')->update('yiqixueba_templates',serialize($templates));
 
 //更新page页面
 function update_pages($mokuai,$ver){
-	global $sitekey;
+	global $sitekey,$pages;
 	$pages_dir = 'C:/GitHub/17xue8/source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$ver.'/Controler';
 	if ($handle = opendir($pages_dir)) {
 		while (false !== ($file = readdir($handle))) {
@@ -91,13 +106,15 @@ function update_pages($mokuai,$ver){
 						C::t('common_setting')->update('yiqixueba_basepage',$cache_filename);
 					}
 				}
+				$pages[] = $mokuai.'_'.substr($file,0,-4);
 			}
 		}
 	}
+	return $pages;
 }
 //更新table页面
 function update_table($mokuai,$ver){
-	global $sitekey;
+	global $sitekey,$tables;
 	$table_dir = 'C:/GitHub/17xue8/source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$ver.'/Modal';
 	if ($handle = opendir($table_dir)) {
 		while (false !== ($file = readdir($handle))) {
@@ -117,14 +134,16 @@ function update_table($mokuai,$ver){
 						file_put_contents($table_file,$neirong_table);
 						C::t('#yiqixueba#y_'.md5($sitekey.$mokuai.'_'.substr($file,0,-4)))->create();
 					}
+					$tables[] = $mokuai.'_'.substr($file,0,-4);
 				}
 			}
 		}
 	}
+	return $tables;
 }
 //更新template页面
 function update_template($mokuai,$ver){
-	global $sitekey;
+	global $sitekey,$templates;
 	$template_dir = 'C:/GitHub/17xue8/source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$ver.'/View';
 	if ($handle = opendir($template_dir)) {
 		while (false !== ($file = readdir($handle))) {
@@ -133,9 +152,11 @@ function update_template($mokuai,$ver){
 				if(filemtime($template_dir."/".$file)>filemtime($template_file) || !file_exists($template_file)){
 					file_put_contents($template_file,file_get_contents($template_dir."/".$file));
 				}
+				$templates[] = $mokuai.'_'.substr($file,0,-4);
 			}
 		}
 	}
+	return $templates;
 }
 
 function dump($var, $echo=true,$label=null, $strict=true){

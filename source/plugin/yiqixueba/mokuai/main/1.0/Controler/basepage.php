@@ -27,8 +27,14 @@ function GM($tablename){
 //
 function GV($templatename){
 	global $sitekey;
-	$template_file = md5($sitekey.$templatename);
+	$template_file = 'yiqixueba:'.md5($sitekey.$templatename);
 	return $template_file;
 }//
 
+$mokuais = array('main'=>'1.0','server'=>'1.0','shop'=>'1.0','wxq123'=>'1.0','yqxb'=>'1.0');
+foreach($mokuais as $k=>$v ){
+	if(file_exists(GC($k.'_function'))){
+		require_once GC($k.'_function');
+	}
+}
 ?>

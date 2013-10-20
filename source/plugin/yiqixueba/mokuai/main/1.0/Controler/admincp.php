@@ -4,28 +4,33 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 }
 $submod = getgpc('submod');
 $subop = getgpc('subop');
-$admin_menu = $submenus = array();
+$admin_menu = array();
 
-dump('this page is admincp.php');
+$menus_admincp = C::t(GM('main_menus'))->fetch_all('admincp',0);
 
-//$menuk = 0;
-//foreach(getmenus('admincp') as $k=>$v ){
-//	$menukk = 0;
-//	foreach($v as $k1=>$v1 ){
-//		if ( $menuk == 0 && $menukk == 0 && empty($submod) ){
-//			$submod = $k.'_'.$v1;
-//		}
-//		list($m,$p) = explode("_",$submod);
-//		$current_menu = lang('plugin/yiqixueba',$m.'_admincp_menu_'.$p);
-//		$submenus[] = array(lang('plugin/yiqixueba',$k.'_'.'admincp_menu_'.$v1),'plugins&identifier=yiqixueba&pmod=admincp&submod='.$k.'_'.$v1,$submod == $k.'_'.$v1);
-//	}
-//	$admin_menu[] = array(array('menu'=>$current_menu  ? $current_menu  : lang('plugin/yiqixueba',$k.'_admincp_topmenu'),'submenu'=>$submenus),$m == $k);
-//}
-//
-//echo '<style>.floattopempty { height: 15px !important; height: auto; } </style>';
-//showsubmenu($plugin['name'].' '.$plugin['version'],$admin_menu,'<span style="float:right;padding-right:40px;"><a href="plugin.php?id='.$plugin['identifier'].'" target="_blank" class="bold" >'.$plugin['name'].'</a>&nbsp;&nbsp;<a href="plugin.php?id='.$plugin['identifier'].':member"  target="_blank" class="bold" >'.lang('plugin/yiqixueba','member').'</a></span>');
-//
-//require_once require_cache($m.'_admincp_'.$p);
-//
-dump(GV('main_index'));
+$menuk = 0;
+
+foreach($menus_admincp as $mk=>$row ){
+	$sub_menu = C::t(GM('main_menus'))->fetch_all('admincp',$row['menuid']);
+	$menukk = 0;
+	$submenus = array();
+	foreach($sub_menu as $kk => $subrow ){
+		if ( $menuk == 0 && $menukk == 0 && empty($submod) ){
+			$submod = $row['name'].'_'.$subrow['name'];
+		}
+		list($m,$p) = explode("_",$submod);
+		$submenus[] = array($subrow['title'],'plugins&identifier=yiqixueba&pmod=admincp&submod='.$row['name'].'_'.$subrow['name'],$submod == $row['name'].'_'.$subrow['name']);
+		if($submod == $row['name'].'_'.$subrow['name']){
+			$mod_file =  $subrow['modfile'];
+			$curtitle = $subrow['title'];
+			$curmokuai = $row['title'];
+		}
+	}
+	$admin_menu[] = array(array('menu'=>$submod == $row['name'].'_'.$p ? $curtitle : $row['title'],'submenu'=>$submenus),$m == $row['name']);
+}
+
+echo '<style>.floattopempty { height: 15px !important; height: auto; } </style>';
+showsubmenu($plugin['name'].' '.$plugin['version'].' ('.$curmokuai.')',$admin_menu,'<span style="float:right;padding-right:40px;"><a href="plugin.php?id='.$plugin['identifier'].'" target="_blank" class="bold" >'.$plugin['name'].'</a>&nbsp;&nbsp;<a href="plugin.php?id='.$plugin['identifier'].':member"  target="_blank" class="bold" >'.lang('plugin/yiqixueba','member').'</a></span>');
+
+require_once GC($mod_file);
 ?>

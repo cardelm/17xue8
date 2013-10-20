@@ -49,6 +49,9 @@ class table_site extends discuz_table{
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
 	}
+	public function fetch_all() {
+		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table));
+	}
 
 }
 ?>
