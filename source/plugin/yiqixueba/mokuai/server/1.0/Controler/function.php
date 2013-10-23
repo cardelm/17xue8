@@ -81,6 +81,29 @@ function array_sort($arr,$keys,$type='asc'){
 	}
 	return $new_array;
 }
+//
+function deldir($dir) {
+	//先删除目录下的文件：
+	$dh=opendir($dir);
+	while ($file=readdir($dh)) {
+		if($file!="." && $file!="..") {
+			$fullpath=$dir."/".$file;
+			if(!is_dir($fullpath)) {
+				unlink($fullpath);
+			} else {
+				deldir($fullpath);
+			}
+		}
+	}
+
+	closedir($dh);
+	//删除当前文件夹：
+	if(rmdir($dir)) {
+		return true;
+	} else {
+		return false;
+	}
+}//end func
 
 //
 function getmod($type){
@@ -96,24 +119,7 @@ function getmod($type){
 	return $modfile;
 }//end func
 
-//
-function make_mokuai($mokuainame,$mokuaiversion){
 
-	if($mokuainame && $mokuaiversion){
-		$mokuai_dir = MOKUAI_DIR;
-		if(!is_dir($mokuai_dir.'/'.$mokuainame)){
-			dmkdir($mokuai_dir.'/'.$mokuainame);
-		}
-		if(!is_dir($mokuai_dir.'/'.$mokuainame.'/'.$mokuaiversion)){
-			dmkdir($mokuai_dir.'/'.$mokuainame.'/'.$mokuaiversion);
-		}
-		foreach (array('Controler','Modal','View','Data') as $k => $v ){
-			if(!is_dir($mokuai_dir.'/'.$mokuainame.'/'.$mokuaiversion.'/'.$v)){
-				dmkdir($mokuai_dir.'/'.$mokuainame.'/'.$mokuaiversion.'/'.$v);
-			}
-		}
-	}
-}//end func
 
 //
 function get_mokuaipage($mokuai,$version,$ptype){

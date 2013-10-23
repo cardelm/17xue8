@@ -12,64 +12,32 @@ $subop = in_array($subop,$subops) ? $subop : $subops[0];
 //模块信息读取
 require_once libfile('class/xml');
 $mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+$mokuais = array_sort($mokuais,'displayorder','asc');
 $biaoshi = getgpc('biaoshi');
 $version = getgpc('version');
-foreach($mokuais as $k=>$v ){
-	if($v['biaoshi'] == $biaoshi && $v['currentversion'] == $version){
-		$mokuai_info = $v;
-	}
-}
-
-foreach(getmokuais() as $k=>$v ){
-	$data[$v]['biaoshi'] = $v;
-	$mokuaivers = getmokuaivers($v);
-	foreach($mokuaivers as $k1=>$v1 ){
-		$data[$v]['version'][$v1] = array(
-			'name' => $v,
-			'biaoshi' => $v1,
-			'price' => 0,
-			'description' => 'jj',
-			'ico' => $ico,
-			'mokuaiinformation' => 'xq',
-			'available' => 1,
-			'updatetime' => '',
-			'createtime' => filemtime(MOKUAI_DIR.'/'.$v.'/'.$v1)
-		);
-		$versions[] = $v1;
-	}
-	if(count($mokuaivers)==1){
-		$data[$v]['currentversion'] = $mokuaivers[0];
-	}
-}
-
-//$mokuai_xml = array2xml($data, 1);
-//file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv($mokuai_xml,"UTF-8", $_G['charset']."//IGNORE"));
-
-
-
+$mokuai_info = $mokuais[$biaoshi]['version'][$version];
 
 if($subop == 'mokuailist') {
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','server_mokuai_list_tips'));
 		showformheader($this_page.'&subop=mokuailist');
 		showtableheader(lang('plugin/yiqixueba','server_mokuai_list'));
-		showsubtitle(array('', lang('plugin/yiqixueba','mokuai_name'),lang('plugin/yiqixueba','mokuai_description')));
+		showsubtitle(array('', lang('plugin/yiqixueba','mokuai_name'),lang('plugin/yiqixueba','mokuai_description'),'','',lang('plugin/yiqixueba','status')));
 		foreach($mokuais as $mk=>$row ){
 			showtablerow('', array('class="td25"', 'class="td25"', 'style="width:360px"', 'style="width:45px"','','class="td25"'), array(
+				(is_array($row['version']) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$mk.'\', this)">[-]</a>' : '').(is_array($row['version']) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />"),
 
-				($row['version'] ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$row['biaoshi'].'\', this)">[+]</a>' : '').($row['version'] ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[biaoshi]\" />"),
+				"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[]\" value=\"$row[displayorder]\">",
 
-				"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$row[biaoshi]]\" value=\"$row[displayorder]\">",
-
-				"<div><input type=\"text\" class=\"txt\" size=\"15\" name=\"namenew[$row[biaoshi]]\" value=\"".$row['biaoshi']."\"  readonly=\"readonly\"><input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$row[biaoshi]]\" value=\"".($row['name'])."\">"."<a href=\"###\" onclick=\"addrowdirect=1;addrow(this, 1, $row[biaoshi])\" class=\"addchildboard\">".lang('plugin/yiqixueba','add_ver')."</a></div>",
+				"<div><input type=\"text\" class=\"txt\" size=\"15\" name=\"biaoshinew[]\" value=\"".$mk."\"  readonly=\"readonly\"><input type=\"text\" class=\"txt\" size=\"15\" name=\"namenew[]\" value=\"".($row['name'])."\">"."<a href=\"###\" onclick=\"addrowdirect=1;addrow(this, 1, '$mk')\" class=\"addchildboard\">".lang('plugin/yiqixueba','add_ver')."</a></div>",
 
 				"",
 
-				'<input type="hidden" name="upidnew['.$row['biaoshi'].']" value="0" />',
+				$row['currentversion'] ? '<span class="bold">'.$row['name'].'-V'.$row['currentversion'].'</span>  <span class="sml">('.str_replace("yiqixueba_","",$mk).')</span>':'',
 
-				"<input class=\"checkbox\" type=\"checkbox\"  name=\"statusnew[$row[biaoshi]]\" value=\"1\" ".($row['status'] ? ' checked="checked"' : '')." />",
+				"",
 			));
-			showtagheader('tbody', 'subnav_'.$row['biaoshi'], false);
+			showtagheader('tbody', 'subnav_'.$mk, true);
 			foreach ($row['version']  as $kk => $subrow ){
 				$ico = '';
 				if($subrow['ico']!='') {
@@ -78,18 +46,19 @@ if($subop == 'mokuailist') {
 						$ico = $_G['setting']['attachurl'].'common/'.$subrow['ico'].'?'.random(6);
 					}
 				}
-				$op_text = "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaiedit&edittype=ver&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','version')."</a>&nbsp;&nbsp;";
-				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&ptype=source&subop=pagelist&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','pagelist')."</a>&nbsp;&nbsp;";
-				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaisetting&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','mokuaisetting')."</a>&nbsp;&nbsp;";
-				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaiedit&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','edit')."</a>&nbsp;&nbsp;";
-				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaimake&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','mokuai_make')."</a>&nbsp;&nbsp;";
-				$op_text .= '<a href="plugin.php?id=yiqixueba&mokuai=server&submod=mokuaiplay&biaoshi='.$row['biaoshi'].'&version='.$row['currentversion'].'" target="_blank">'.$lang['detail'].'</a>';
-				showtablerow('',  array('class="td25"', 'class="td25"', 'style="width:360px"', 'style="width:45px"','','class="td25"'), array(
-					"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$subrow[biaoshi]\">",
-					"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$subrow[biaoshi]]\" value=\"$subrow[displayorder]\">",
-					"<div class=\"board\"><input type=\"text\" class=\"txt\" size=\"15\" name=\"namenew[$subrow[biaoshi]]\" value=\"".$subrow['biaoshi']."\" readonly=\"readonly\"><input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$subrow[biaoshi]]\" value=\"".$subrow['name']."\"></div>",
-					$ico ?'<img src="'.$ico.'" width="40" height="40" align="left" style="margin-right:5px" />' : '<img src="'.cloudaddons_pluginlogo_url($row['biaoshi']).'" onerror="this.src=\'static/image/admincp/plugin_logo.png\';this.onerror=null" width="40" height="40" align="left" />',
-					$op_text.'<br />'.lang('plugin/yiqixueba','price:').$subrow['price'].lang('plugin/yiqixueba','rmb').'&nbsp;:&nbsp;'.lang('plugin/yiqixueba','status')."<input class=\"checkbox\" type=\"checkbox\"  name=\"statusnew[$subrow[biaoshi]]\" value=\"1\" ".($subrow['status'] ? ' checked="checked"' : '')." />",
+				$op_text = ($kk != $row['currentversion'] && $subrow['available'] ? "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=currentver&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','version')."</a>" : lang('plugin/yiqixueba','version'))."&nbsp;&nbsp;";
+				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&ptype=source&subop=pagelist&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','pagelist')."</a>&nbsp;&nbsp;";
+				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaisetting&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','mokuaisetting')."</a>&nbsp;&nbsp;";
+				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaiedit&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','edit')."</a>&nbsp;&nbsp;";
+				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaimake&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','mokuai_make')."</a>&nbsp;&nbsp;";
+				$op_text .= '<a href="plugin.php?id=yiqixueba&mokuai=server&submod=mokuaiplay&biaoshi='.$mk.'&version='.$row['currentversion'].'" target="_blank">'.$lang['detail'].'</a>';
+				showtablerow('',  array('class="td25"', 'class="td25"', 'style="width:300px"', 'style="width:45px"','','class="td25"'), array(
+					'<input class="checkbox" type="checkbox" name="delete[]" value="'.$mk.'_'.$kk.'">',
+					"<div class=\"board\">&nbsp;</div>",
+					"<input type=\"text\" class=\"txt\" size=\"15\" name=\"vernamenew[$kk]\" value=\"".$kk."\" readonly=\"readonly\">",
+					$ico ?'<img src="'.$ico.'" width="40" height="40" align="left" style="margin-right:5px" />' : '<img src="'.cloudaddons_pluginlogo_url($mk).'" onerror="this.src=\'static/image/admincp/plugin_logo.png\';this.onerror=null" width="40" height="40" align="left" />',
+					$op_text.'<br />'.lang('plugin/yiqixueba','price:').$subrow['price'].lang('plugin/yiqixueba','rmb'),
+					'<input class="checkbox" type="checkbox"  name="statusnew['.$mk.'_'.$kk.']" value="1" '.($subrow['available'] ? ' checked="checked"' : '').' />',
 					));
 			}
 			showtagfooter('tbody');
@@ -98,86 +67,95 @@ if($subop == 'mokuailist') {
 		echo '<tr><td colspan="1"></td><td colspan="8"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_mokuai').'</a></div></td></tr>';
 		showsubmit('submit', 'submit', 'del');
 		showtablefooter();
+		showformfooter();
 		echo <<<EOT
 <script type="text/JavaScript">
 	var rowtypedata = [
-		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<input name="newname[]" value="" size="15" type="text" class="txt"><input name="newtitle[]" value="" size="15" type="text" class="txt">'],[1,'<input type="hidden" name="newupid[]" value="0" />']],
-		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<div class=\"board\"><input name="newname[]" value="" size="15" type="text" class="txt"></div>'], [1,'<input name="newtitle[]" value="" size="15" type="text" class="txt">'], [5, '$modlist<input type="hidden" name="newupid[]" value="{1}" />']]
+		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<input name="newbiaoshi[]" value="" size="15" type="text" class="txt"><input name="newname[]" value="" size="15" type="text" class="txt">'],[3,'']],
+		[[1, '', 'td25'], [1,'<div class=\"board\">&nbsp;</div>', 'td25'], [1, '<input name="newverbiaoshi[]" value="" size="15" type="text" class="txt"><input type="hidden" name="newupbiaoshi[]" value="{1}" />'], [3,'']]
 	];
 </script>
 EOT;
-		showtableheader(lang('plugin/yiqixueba','server_mokuai_list'));
-		foreach($mokuais as $mk=>$row ){
-			$ver_text = '';
-			$ver_array = $del_array = $vers_array = array();
-			foreach ($row['version']  as $vk => $row1 ){
-				$ver_array[] = "<input class=\"checkbox\" type=\"checkbox\" name=\"vernew[".$row['biaoshi']."_".$row1['biaoshi']."]\" value=\"1\" ".($row1['available'] > 0 ? 'checked' : '').">&nbsp;&nbsp;".($row['currentversion'] == $vk ? '<span class="bold">V'.$row1['biaoshi'].'</span>' : '<a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=currentver&biaoshi='.$row['biaoshi'].'&version='.$row1['biaoshi'].'" >V'.$row1['biaoshi'].'</a>');
-				$del_array[] = "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"".$row['biaoshi']."_".$row1['biaoshi']."\">&nbsp;&nbsp;".($row['currentversion'] == $vk ? '<span class="bold">V'.$row1['biaoshi'].'</span>' : '<a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=currentver&biaoshi='.$row['biaoshi'].'&version='.$row1['biaoshi'].'" >V'.$row1['biaoshi'].'</a>');
-				$vers_array[] = ($row['currentversion'] == $vk ? '<span class="bold">V'.$row1['biaoshi'].'</span>' : '<a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=currentver&biaoshi='.$row['biaoshi'].'&version='.$row1['biaoshi'].'" >V'.$row1['biaoshi'].'</a>').'&nbsp;:&nbsp;'.lang('plugin/yiqixueba','status')."<input class=\"checkbox\" type=\"checkbox\" name=\"vernew[".$row['biaoshi']."_".$row1['biaoshi']."]\" value=\"1\" ".($row1['available'] > 0 ? 'checked' : '').">&nbsp;&nbsp;".lang('plugin/yiqixueba','delete')."<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"".$row['biaoshi']."_".$row1['biaoshi']."\">&nbsp;&nbsp;".lang('plugin/yiqixueba','price:').$row1['price'].lang('plugin/yiqixueba','rmb');
-			}
-			$ver_text = implode("&nbsp;&nbsp;|&nbsp;&nbsp;",$ver_array);
-			$del_text = implode("&nbsp;&nbsp;|&nbsp;&nbsp;",$del_array);
-			$vers_text = implode("<br />",$vers_array);
-			$ico = '';
-			if($row['ico']!='') {
-				$ico = str_replace('{STATICURL}', STATICURL, $row['ico']);
-				if(!preg_match("/^".preg_quote(STATICURL, '/')."/i", $ico) && !(($valueparse = parse_url($ico)) && isset($valueparse['host']))) {
-					$ico = $_G['setting']['attachurl'].'common/'.$row['ico'].'?'.random(6);
+	}else{
+		if(is_array($_GET['biaoshinew'])) {
+			foreach($_GET['biaoshinew'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$namenew = trim(dhtmlspecialchars($_GET['namenew'][$k]));
+				$displayordernew = intval($_GET['displayordernew'][$k]);
+				if($v && $namenew){
+					$mokuais[$v]['name'] = $namenew;
+					$mokuais[$v]['displayorder'] = $displayordernew;
 				}
 			}
-
-			$op_text = "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaiedit&edittype=ver&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','version')."</a>&nbsp;&nbsp;";
-			$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&ptype=source&subop=pagelist&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','pagelist')."</a>&nbsp;&nbsp;";
-			$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaisetting&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','mokuaisetting')."</a>&nbsp;&nbsp;";
-			$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaiedit&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','edit')."</a>&nbsp;&nbsp;";
-			$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaimake&biaoshi=$row[biaoshi]&version=$row[currentversion]\" >".lang('plugin/yiqixueba','mokuai_make')."</a>&nbsp;&nbsp;";
-			$op_text .= '<a href="plugin.php?id=yiqixueba&mokuai=server&submod=mokuaiplay&biaoshi='.$row['biaoshi'].'&version='.$row['currentversion'].'" target="_blank">'.$lang['detail'].'</a>';
-			showtablerow('', array('style="width:45px"', 'style="width:320px"', 'valign="top"'), array(
-				$ico ?'<img src="'.$ico.'" width="40" height="40" align="left" style="margin-right:5px" />' : '<img src="'.cloudaddons_pluginlogo_url($row['biaoshi']).'" onerror="this.src=\'static/image/admincp/plugin_logo.png\';this.onerror=null" width="40" height="40" align="left" />',
-				'<span class="bold">'.$row['version'][$row['currentversion']]['name'].'-V'.$row['currentversion'].'</span>  <span class="sml">('.str_replace("yiqixueba_","",$row['biaoshi']).')</span><br />'.lang('plugin/yiqixueba','displayorder')."<input type=\"text\" name=\"newdisplayorder[".$row['biaoshi']."]\" value=\"".intval($row['displayorder'])."\" size=\"2\">".'<br />'.$op_text,
-				$row['description'].$vers_text,
-			));
 		}
-		echo '<tr><td colspan="1"></td><td colspan="8"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=mokuaiedit" class="addtr">'.lang('plugin/yiqixueba','add_mokuai').'</a></div></td></tr>';
-		showsubmit('submit', 'submit', 'del');
-		showtablefooter();
-		showformfooter();
-	}else{
-		//C::t(GM('main_mokuai'))->update_all(array('available'=>0));
-		//dump($_GET);
+		if(is_array($_GET['statusnew'])) {
+			$statusnew = $_GET['statusnew'];
+			foreach($mokuais as $k => $v) {
+				foreach ( $v['version'] as $k1 => $v1 ){
+					$mokuais[$k]['version'][$k1]['available'] = 0;
+					if($statusnew[$k.'_'.$k1] == 1){
+						$mokuais[$k]['version'][$k1]['available'] = 1;
+					}
+				}
+			}
+		}
+		if(is_array($_GET['newbiaoshi'])) {
+			foreach($_GET['newbiaoshi'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$newname = trim(dhtmlspecialchars($_GET['newname'][$k]));
+				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+				if($v && $newname){
+					dmkdir(MOKUAI_DIR.'/'.$v);
+					$mokuais[$v]['name'] = $newname;
+					$mokuais[$v]['displayorder'] = $newdisplayorder;
+				}
+			}
+		}
+		if(is_array($_GET['newverbiaoshi'])) {
+			foreach($_GET['newverbiaoshi'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$newupbiaoshi = trim(dhtmlspecialchars($_GET['newupbiaoshi'][$k]));
+				if($v){
+					dmkdir(MOKUAI_DIR.'/'.$newupbiaoshi.'/'.$v);
+					foreach (array('Controler','Modal','View','Data') as $k1 => $v1 ){
+						if(!is_dir(MOKUAI_DIR.'/'.$newupbiaoshi.'/'.$v.'/'.$v1)){
+							dmkdir(MOKUAI_DIR.'/'.$newupbiaoshi.'/'.$v.'/'.$v1);
+						}
+					}
+					$mokuais[$newupbiaoshi]['version'][$v]['available'] = 0;
+					$mokuaivers = getmokuaivers($newupbiaoshi);
+					if(count($mokuaivers)==1){
+						$mokuais[$newupbiaoshi]['currentversion'] = $mokuaivers[0];
+					}
+				}
+			}
+		}
 		foreach( getgpc('delete') as $k=>$v ){
 			if($v){
 				list ($delbiaoshi,$delversion) = explode("_",$v);
-				dump($v);
+				if($delbiaoshi){
+					if($delversion){
+						unset($mokuais[$delbiaoshi]['version'][$delversion]);
+						deldir(MOKUAI_DIR.'/'.$delbiaoshi.'/'.$delversion);
+					}else{
+						unset($mokuais[$delbiaoshi]);
+						deldir(MOKUAI_DIR.'/'.$delbiaoshi);
+					}
+				}
 			}
 		}
-		foreach( getgpc('vernew') as $k=>$v ){
-			if($v){
-				//C::t(GM('main_mokuai'))->update($k,array('available'=>1));
-			}
-		}
-		foreach( getgpc('statusnew') as $k=>$v ){
-			if($v){
-				//C::t(GM('main_mokuai'))->update($k,array('available'=>1));
-			}
-		}
-		foreach(getgpc('newdisplayorder') as $k => $v ){
-			$mokuais[$k]['displayorder'] = intval($v);
-		}
-		$mokuais =  array_sort($mokuais,'displayorder');
-		//file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
+		//dump($mokuais);
+		$mokuais = array_sort($mokuais,'displayorder','asc');
+		file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba','edit_mokuai_succeed'), 'action='.$this_page.'&subop=admincpmenulist', 'succeed');
 	}
 
 }elseif($subop == 'mokuaiedit') {
-	$edittype = getgpc('edittype');
 	if(!submitcheck('submit')) {
-		showtips(lang('plugin/yiqixueba',$biaoshi && $version ?'edit_mokuai_tips':'add_mokuai_tips'));
+		showtips(lang('plugin/yiqixueba','edit_mokuai_tips'));
 		showformheader($this_page.'&subop=mokuaiedit','enctype');
 		showtableheader(lang('plugin/yiqixueba','mokuai_option'));
-		$biaoshi && $version && !$edittype ? showhiddenfields(array('biaoshi'=>$biaoshi,'version'=>$version)) : '';
-		$edittype ? showhiddenfields(array('edittype'=>$edittype)) : '';
 		$ico = '';
 		if($mokuai_info['version'][$version]['ico']!='') {
 			$ico = str_replace('{STATICURL}', STATICURL, $mokuai_info['version'][$version]['ico']);
@@ -186,18 +164,12 @@ EOT;
 			}
 			$icohtml = '<br /><label><input type="checkbox" class="checkbox" name="delete" value="yes" /> '.$lang['del'].'</label><br /><img src="'.$ico.'" width="40" height="40"/>';
 		}
-		if($edittype){
-			showsetting(lang('plugin/yiqixueba','mokuai_version'),'version','','text','',0,lang('plugin/yiqixueba','mokuai_version_comment'),'','',true);
-			showsetting(lang('plugin/yiqixueba','mokuai_biaoshi'),'mokuai_biaoshi',$mokuai_info['biaoshi'],'text','readonly',0,lang('plugin/yiqixueba','mokuai_biaoshi_comment'),'','',true);
-			showsetting(lang('plugin/yiqixueba','mokuai_name'),'name',$mokuai_info['version'][$version]['name'],'text','',0,lang('plugin/yiqixueba','mokuai_name_comment'),'','',true);
-		}else{
-			showsetting(lang('plugin/yiqixueba','mokuai_biaoshi'),'mokuai_biaoshi',$mokuai_info['biaoshi'],'text',$biaoshi && $version ? 'readonly' : '',0,lang('plugin/yiqixueba','mokuai_biaoshi_comment'),'','',true);
-			showsetting(lang('plugin/yiqixueba','mokuai_name'),'name',$mokuai_info['version'][$version]['name'],'text','',0,lang('plugin/yiqixueba','mokuai_name_comment'),'','',true);
-			showsetting(lang('plugin/yiqixueba','mokuai_version'),'version',$mokuai_info['currentversion'],'text',$biaoshi && $version ? 'readonly' : '',0,lang('plugin/yiqixueba','mokuai_version_comment'),'','',true);
-		}
-		showsetting(lang('plugin/yiqixueba','mokuai_price'),'price',$mokuai_info['version'][$version]['price'],'text','',0,lang('plugin/yiqixueba','mokuai_price_comment'),'','',true);
-		showsetting(lang('plugin/yiqixueba','mokuai_description'),'description',$mokuai_info['version'][$version]['description'],'textarea','',0,lang('plugin/yiqixueba','mokuai_description_comment'),'','',true);
-		showsetting(lang('plugin/yiqixueba','mokuai_ico'),'ico',$mokuai_info['version'][$version]['ico'],'filetext','',0,lang('plugin/yiqixueba','mokuai_ico_comment').$icohtml,'','',true);
+		showsetting(lang('plugin/yiqixueba','mokuai_biaoshi'),'mokuai_biaoshi',$biaoshi,'text','readonly',0,lang('plugin/yiqixueba','mokuai_biaoshi_comment'),'','',true);
+		showsetting(lang('plugin/yiqixueba','mokuai_name'),'name',$mokuais[$biaoshi]['name'],'text','readonly',0,lang('plugin/yiqixueba','mokuai_name_comment'),'','',true);
+		showsetting(lang('plugin/yiqixueba','mokuai_version'),'version',$version,'text','readonly',0,lang('plugin/yiqixueba','mokuai_version_comment'),'','',true);
+		showsetting(lang('plugin/yiqixueba','mokuai_price'),'price',$mokuai_info['price'],'text','',0,lang('plugin/yiqixueba','mokuai_price_comment'),'','',true);
+		showsetting(lang('plugin/yiqixueba','mokuai_description'),'description',$mokuai_info['description'],'textarea','',0,lang('plugin/yiqixueba','mokuai_description_comment'),'','',true);
+		showsetting(lang('plugin/yiqixueba','mokuai_ico'),'ico',$mokuai_info['ico'],'filetext','',0,lang('plugin/yiqixueba','mokuai_ico_comment').$icohtml,'','',true);
 		showtablefooter();
 		showtableheader(lang('plugin/yiqixueba','mokuaiinformation').':');
 		echo '<tr class="noborder" ><td colspan="2" >';
@@ -206,7 +178,7 @@ EOT;
 		echo '<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/plugins/code/prettify.css" />';
 		echo '<script src="source/plugin/yiqixueba/template/kindeditor/lang/zh_CN.js" type="text/javascript"></script>';
 		echo '<script src="source/plugin/yiqixueba/template/kindeditor/prettify.js" type="text/javascript"></script>';
-		echo '<textarea name="mokuaiinformation" style="width:700px;height:200px;visibility:hidden;">'.$mokuai_info['version'][$version]['mokuaiinformation'].'</textarea>';
+		echo '<textarea name="mokuaiinformation" style="width:700px;height:200px;visibility:hidden;">'.$mokuai_info['mokuaiinformation'].'</textarea>';
 		echo '</td></tr>';
 		showsubmit('submit');
 		showtablefooter();
@@ -280,7 +252,6 @@ EOF;
 		cpmsg(lang('plugin/yiqixueba','edit_mokuai_succeed'), 'action='.$this_page.'&subop=mokuailist', 'succeed');
 	}
 }elseif ($subop == 'currentver'){
-	$mukauidata['currentversion'] = $version;
 	$mokuais[$biaoshi]['currentversion'] = $version;
 	file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
 	echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
