@@ -3,6 +3,85 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
+
+
+//直接通过mokuai模块目录读取mokuai数据
+function getmokuais(){
+	$mokuai_array = array();
+	$mokuai_dir = MOKUAI_DIR;
+	if ($handle = opendir($mokuai_dir)) {
+		while (false !== ($file = readdir($handle))) {
+			if ($file != "." && $file != ".." && $file != "index.html" && substr($file,0,1) != ".") {
+				if(is_dir($mokuai_dir.'/'.$file)){
+					$mokuai_array[] = $file;
+				}
+			}
+		}
+	}
+	return $mokuai_array;
+}//end func
+
+//直接通过mokuai模块目录读取mokuaiver数据
+function getmokuaivers($mokuainame){
+	$mokuaiver_array = array();
+	$mokuai_dir = MOKUAI_DIR.'/'.$mokuainame;
+	if ($handle = opendir($mokuai_dir)) {
+		while (false !== ($file = readdir($handle))) {
+			if ($file != "." && $file != ".." && $file != "index.html" && substr($file,0,1) != ".") {
+				if(is_dir($mokuai_dir.'/'.$file)){
+					$mokuaiver_array[] = $file;
+				}
+			}
+		}
+	}
+	return $mokuaiver_array;
+}//end func
+
+//更新模块xml数据
+function update_mokuai($biaoshi,$version,$mukauidata){
+	global $_G;
+	require_once libfile('class/xml');
+	$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+	if(!is_dir(MOKUAI_DIR.'/'.$biaoshi)){
+		$mokuais[$biaoshi]['biaoshi'] = $biaoshi;
+		dmkdir(MOKUAI_DIR.'/'.$biaoshi);
+	}
+	$mokuaivers = getmokuaivers($biaoshi);
+	if(count($mokuaivers)==1){
+		$mokuais[$biaoshi]['currentversion'] = $mokuaivers[0];
+	}
+	if(!is_dir(MOKUAI_DIR.'/'.$biaoshi.'/'.$version)){
+		$mokuais[$biaoshi]['version'][$version]['biaoshi'] = $version;
+		dmkdir(MOKUAI_DIR.'/'.$biaoshi.'/'.$version);
+	}
+	foreach (array('Controler','Modal','View','Data') as $k => $v ){
+		if(!is_dir(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/'.$v)){
+			dmkdir(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/'.$v);
+		}
+	}
+	foreach($mukauidata as $k2=>$v2 ){
+		$mokuais[$biaoshi]['version'][$version][$k2] = $v2;
+	}
+	file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
+}
+//
+function array_sort($arr,$keys,$type='asc'){
+	$keysvalue = $new_array = array();
+	foreach ($arr as $k=>$v){
+		$keysvalue[$k] = $v[$keys];
+	}
+	if($type == 'asc'){
+		asort($keysvalue);
+	}else{
+		arsort($keysvalue);
+	}
+	reset($keysvalue);
+	foreach ($keysvalue as $k=>$v){
+		$new_array[$k] = $arr[$k];
+	}
+	return $new_array;
+}
+
 //
 function getmod($type){
 	$modfile = array();
@@ -19,15 +98,16 @@ function getmod($type){
 
 //
 function make_mokuai($mokuainame,$mokuaiversion){
+
 	if($mokuainame && $mokuaiversion){
-		$mokuai_dir = DISCUZ_ROOT.'source/plugin/yiqixueba/mokuai';
+		$mokuai_dir = MOKUAI_DIR;
 		if(!is_dir($mokuai_dir.'/'.$mokuainame)){
 			dmkdir($mokuai_dir.'/'.$mokuainame);
 		}
 		if(!is_dir($mokuai_dir.'/'.$mokuainame.'/'.$mokuaiversion)){
 			dmkdir($mokuai_dir.'/'.$mokuainame.'/'.$mokuaiversion);
 		}
-		foreach (array('Controler','Modal','View') as $k => $v ){
+		foreach (array('Controler','Modal','View','Data') as $k => $v ){
 			if(!is_dir($mokuai_dir.'/'.$mokuainame.'/'.$mokuaiversion.'/'.$v)){
 				dmkdir($mokuai_dir.'/'.$mokuainame.'/'.$mokuaiversion.'/'.$v);
 			}
@@ -81,5 +161,6 @@ function getmokuailang($biaoshi,$version,$pagename){
 	}
 	return $lang_arr;
 }
+
 
 ?>

@@ -2,6 +2,7 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
+define('MOKUAI_DIR', 'C:\GitHub\17xue8/source/plugin/yiqixueba/mokuai');
 //////////////////////////////////////////////////////////////////
 //程序调试的时候，自动更新github程序
 $this_dir = dirname(__FILE__);
@@ -77,8 +78,9 @@ foreach($mokuaiver as $k=>$v ){
 	update_pages($k,$v);
 	update_table($k,$v);
 	update_template($k,$v);
+	update_lang($k,$v);
 }
-
+writelangfile($nplang);
 C::t('common_setting')->update('yiqixueba_pages',serialize($pages));
 C::t('common_setting')->update('yiqixueba_tables',serialize($tables));
 C::t('common_setting')->update('yiqixueba_templates',serialize($templates));
@@ -158,7 +160,65 @@ function update_template($mokuai,$ver){
 	}
 	return $templates;
 }
+//更新模块的语言包
+function update_lang($mokuainame,$mokuaiver){
+	global $nplang;
+	$mklang_file = MOKUAI_DIR.'/'.$mokuainame.'/'.$mokuaiver.'/lang.php';
+	if(!file_exists($mklang_file)){
+		file_put_contents($mklang_file,"<?php\nif(!defined('IN_DISCUZ')) {\n\texit('Access Denied');\n}\n\n\$plang['scriptlang'] = array(\n\t'' => '',\n);\n\$plang['templatelang'] = array(\n\t'' => '',\n);\n\$plang['installlang'] = array(\n\t'' => '',\n);\n\$plang['systemlang'] = array(\n\t'file' => array(\n\t\t'' => '',\n\t\t),\n\t);\n?>");
+	}
+	include_once $mklang_file;
+	if(!$nplang){
+		$nplang = $plang;
+	}
+		foreach($plang as $k => $v){
+			if($k != 'systemlang'){
+				foreach($v as $k1=>$v1){
+					//$plang[$k][$k1] = diconv($v1,"UTF-8", $_G['charset']."//IGNORE");
+				}
+				$nplang[$k] = array_merge($nplang[$k],$plang[$k]);
+			}else{
+				foreach($v as $k1=>$v1 ){
+					foreach($v1 as $k2=>$v2 ){
+						//$plang[$k][$k1][$k2] = diconv($v2,"UTF-8", $_G['charset']."//IGNORE");
+					}
+					$nplang[$k][$k1] = array_merge($nplang[$k][$k1],$plang[$k][$k1]);
+				}
+			}
+		}
+	return $nplang;
+}//end func
 
+//写语言文件
+function writelangfile($nplang){
+	global $_G;
+	$lang_file = DISCUZ_ROOT.'/data/plugindata/yiqixueba.lang.php';
+	$lang_text = "<?php\n";
+	foreach($nplang as $k=>$v ){
+		$lang_text .= "\$".$k."['yiqixueba'] = array(\n";
+		foreach($v as $k1=>$v1 ){
+			if($k1){
+				if($k != 'systemlang'){
+						$lang_text .= "\t'".$k1."' => '".$v1."',\n";
+
+				}else{
+					$lang_text .= "\t'".$k1."' => array(\n";
+					foreach($v1 as $k2=>$v2 ){
+						if($k2){
+							$lang_text .= "\t\t'".$k2."' => '".$v2."',\n";
+						}
+					}
+					$lang_text .= "\t),\n";
+				}
+			}
+		}
+		$lang_text .= ");\n";
+
+	}
+	$lang_text .= "?>";
+
+	file_put_contents($lang_file,diconv($lang_text,"UTF-8", $_G['charset']."//IGNORE"));
+}
 function dump($var, $echo=true,$label=null, $strict=true){
 	$label = ($label===null) ? '' : rtrim($label) . ' ';
 	if(!$strict) {
