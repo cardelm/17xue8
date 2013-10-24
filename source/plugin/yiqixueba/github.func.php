@@ -85,6 +85,7 @@ C::t('common_setting')->update('yiqixueba_pages',serialize($pages));
 C::t('common_setting')->update('yiqixueba_tables',serialize($tables));
 C::t('common_setting')->update('yiqixueba_templates',serialize($templates));
 
+unset($sitekey);
 //更新page页面
 function update_pages($mokuai,$ver){
 	global $sitekey,$pages;

@@ -70,11 +70,7 @@
 		<input type="hidden" name="mod" value="spacecp" />
 	</form>
 <!--{elseif $subop == 'jiashizhengedit'}-->
-	<ul class="creditl mtm bbda cl">
-	<li><em> 威望: </em>0 </li>
-	<li><em> 金钱: </em>10 </li>
-	<li><em> 贡献: </em>0 </li>
-	</ul>
+	<p>&nbsp;</p>
 	<form id="transferform" name="transferform" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=credit&op=transfer" onsubmit="ajaxpost(this.id, 'return_transfercredit');">
 		<input type="hidden" name="formhash" value="{FORMHASH}" />
 		<input type="hidden" name="transfersubmit" value="true" />

@@ -4,6 +4,5 @@ if(!defined('IN_DISCUZ')) {
 }
 require_once DISCUZ_ROOT.'source/plugin/yiqixueba/github.func.php';
 require_once 'C:\GitHub\17xue8/source/plugin/yiqixueba/mokuai/main/'.$github_ver.'/api.inc.php';
-
 ?>
 

@@ -2,11 +2,11 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-class table_menus extends discuz_table{
+class table_field extends discuz_table{
 
 	public function __construct() {
-		$this->_table = 'menus';
-		$this->_pk    = 'menuid';
+		$this->_table = 'field';
+		$this->_pk    = 'fieldname';
 		parent::__construct();
 	}
 
@@ -14,16 +14,14 @@ class table_menus extends discuz_table{
 		global $_G;
 		//////////////////////////
 		$fields = "
-			`menuid` smallint(6) NOT NULL auto_increment,
-			`type` enum('yiqixueba','member','admincp') NOT NULL,
-			`upid` smallint(6) NOT NULL,
-			`name` char(20) NOT NULL,
-			`title` char(20) NOT NULL,
-			`level` tinyint(1) NOT NULL,
-			`modfile` varchar(255) NOT NULL,
-			`status` tinyint(1) NOT NULL,
-			`displayorder` smallint(3) NOT NULL,
-			PRIMARY KEY  (`menuid`)
+			`fieldname` char(40) NOT NULL,
+			`fieldtitle` char(40) NOT NULL,
+			`fieldtips` char(255) NOT NULL,
+			`fieldclass` char(40) NOT NULL,
+			`fieldparameter` text NOT NULL,
+			`displayorder` smallint(6) NOT NULL,
+			`isrequired` tinyint(1) NOT NULL,
+			PRIMARY KEY  (`fieldname`)
 		";
 		//////////////////////
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
@@ -60,32 +58,19 @@ class table_menus extends discuz_table{
 	}
 
 	//
-	public function fetch_all($type,$upid,$mod = 'main'){
-		$menus = array();
-		if($type){
-			$menus = DB::fetch_all('SELECT * FROM %t WHERE upid='.$upid.' and '.($mod == 'main' ? ' status = 1 and ' : '').' type=%s ORDER BY displayorder asc', array($this->_table, $type));
-		}
-		return $menus;
-	}//end func
+	public function fetch_all_by_fieldtype($fieldtype) {
+		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." WHERE fieldname LIKE '".$fieldtype."_%' order by displayorder asc");
+	}
 	//
-	public function fetch_all_menu($upid,$mod = 'main'){
-		$menus = array();
-		$menus = DB::fetch_all('SELECT * FROM %t WHERE upid='.$upid.' '.($mod == 'main' ? ' and status = 1 ' : ''));
-		return $menus;
-	}//end func
+	public function fetch_all_by_fieldname($fieldname) {
+		return DB::fetch_first("SELECT * FROM ".DB::table($this->_table)." WHERE fieldname = '".$fieldname."'");
+	}
 	//
-	public function fetch_all_by_menuid($menuid){
-		$menus = DB::fetch_first('SELECT * FROM '.DB::table($this->_table).' WHERE '.DB::field('menuid', $menuid));
-		return $menus;
-	}//end func
-
-	//
-	public function delete_by_menuid($menutype, $ids){
-		$ids = dintval($ids, is_array($ids) ? true : false);
-		if($ids) {
-			return DB::delete($this->_table, DB::field('menuid', $ids).' AND '.DB::field('type', $menutype));
-		}
-		return 0;
-	}//end func
+	public function count_by_fieldtype($fieldtype) {
+		return DB::result_first("SELECT count(*) FROM ".DB::table($this->_table)." WHERE fieldname LIKE '".$fieldtype."_%'");
+	}
+	public function fetch_all_by_search($fieldtype = 'jsz', $start = 0, $limit = 0){
+		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." WHERE fieldname LIKE '".$fieldtype."_%' ORDER BY displayorder DESC ".DB::limit($start, $limit));
+	}
 }
 ?>

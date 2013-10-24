@@ -2,10 +2,10 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-$pages =dunserialize(C::t('common_setting')->fetch('yiqixueba_pages'));
-$tables =dunserialize(C::t('common_setting')->fetch('yiqixueba_tables'));
-$templates =dunserialize(C::t('common_setting')->fetch('yiqixueba_templates'));
-//
+//$pages =dunserialize(C::t('common_setting')->fetch('yiqixueba_pages'));
+//$tables =dunserialize(C::t('common_setting')->fetch('yiqixueba_tables'));
+//$templates =dunserialize(C::t('common_setting')->fetch('yiqixueba_templates'));
+////
 function getmenus($menustype = 'admincp'){
 	$outmenus = array();
 	$pages =dunserialize(C::t('common_setting')->fetch('yiqixueba_pages'));
@@ -16,5 +16,10 @@ function getmenus($menustype = 'admincp'){
 		}
 	}
 	return $outmenus;
+}
+
+
+//
+function getsitekey(){
 }
 ?>

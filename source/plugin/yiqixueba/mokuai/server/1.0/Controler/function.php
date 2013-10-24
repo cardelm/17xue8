@@ -64,7 +64,7 @@ function update_mokuai($biaoshi,$version,$mukauidata){
 	}
 	file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
 }
-//
+//数组排序
 function array_sort($arr,$keys,$type='asc'){
 	$keysvalue = $new_array = array();
 	foreach ($arr as $k=>$v){
@@ -81,7 +81,7 @@ function array_sort($arr,$keys,$type='asc'){
 	}
 	return $new_array;
 }
-//
+//递归删除目录
 function deldir($dir) {
 	//先删除目录下的文件：
 	$dh=opendir($dir);
@@ -104,11 +104,10 @@ function deldir($dir) {
 		return false;
 	}
 }//end func
-
 //
-function getmod($type){
+function getmod($mokuai,$ver){
 	$modfile = array();
-	$pages_dir = 'C:/GitHub/17xue8/source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$ver.'/Controler';
+	$pages_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler';
 	if ($handle = opendir($pages_dir)) {
 		while (false !== ($file = readdir($handle))) {
 			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "index.html") {

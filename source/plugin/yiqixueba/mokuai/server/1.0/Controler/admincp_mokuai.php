@@ -6,16 +6,22 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 $this_page = substr($_SERVER['QUERY_STRING'],7,strlen($_SERVER['QUERY_STRING'])-7);
 stripos($this_page,'subop=') ? $this_page = substr($this_page,0,stripos($this_page,'subop=')-1) : $this_page;
 
-$subops = array('mokuailist','mokuaiedit','currentver','pagelist','pluginlang');
+$subops = array('mokuailist','mokuaiedit','currentver','pagelist','pluginlang','mokuainode');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
 //模块信息读取
 require_once libfile('class/xml');
 $mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
-$mokuais = array_sort($mokuais,'displayorder','asc');
+$mokuais = array_sort($mokuais,'displayorder','desc');
 $biaoshi = getgpc('biaoshi');
 $version = getgpc('version');
 $mokuai_info = $mokuais[$biaoshi]['version'][$version];
+
+//人性化记住上次编辑的版本情况
+if(getcookie('debugmokuai')){
+	$debugmks = explode(",",getcookie('debugmokuai'));
+}
+
 
 if($subop == 'mokuailist') {
 	if(!submitcheck('submit')) {
@@ -25,7 +31,7 @@ if($subop == 'mokuailist') {
 		showsubtitle(array('', lang('plugin/yiqixueba','mokuai_name'),lang('plugin/yiqixueba','mokuai_description'),'','',lang('plugin/yiqixueba','status')));
 		foreach($mokuais as $mk=>$row ){
 			showtablerow('', array('class="td25"', 'class="td25"', 'style="width:360px"', 'style="width:45px"','','class="td25"'), array(
-				(is_array($row['version']) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$mk.'\', this)">[-]</a>' : '').(is_array($row['version']) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />"),
+				(is_array($row['version']) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$mk.'\', this)">['.(in_array($mk,$debugmks)? '-' : '+').']</a>' : '').(is_array($row['version']) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />"),
 
 				"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[]\" value=\"$row[displayorder]\">",
 
@@ -37,7 +43,7 @@ if($subop == 'mokuailist') {
 
 				"",
 			));
-			showtagheader('tbody', 'subnav_'.$mk, true);
+			showtagheader('tbody', 'subnav_'.$mk, in_array($mk,$debugmks)? true : false);
 			foreach ($row['version']  as $kk => $subrow ){
 				$ico = '';
 				if($subrow['ico']!='') {
@@ -46,9 +52,10 @@ if($subop == 'mokuailist') {
 						$ico = $_G['setting']['attachurl'].'common/'.$subrow['ico'].'?'.random(6);
 					}
 				}
-				$op_text = ($kk != $row['currentversion'] && $subrow['available'] ? "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=currentver&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','version')."</a>" : lang('plugin/yiqixueba','version'))."&nbsp;&nbsp;";
+				$op_text = ($kk != $row['currentversion'] && $subrow['available'] ? "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=currentver&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','version')."</a>" : '<span class="bold">'.lang('plugin/yiqixueba','version').'</span>')."&nbsp;&nbsp;";
 				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&ptype=source&subop=pagelist&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','pagelist')."</a>&nbsp;&nbsp;";
 				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaisetting&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','mokuaisetting')."</a>&nbsp;&nbsp;";
+				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuainode&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','mokuainode')."</a>&nbsp;&nbsp;";
 				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaiedit&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','edit')."</a>&nbsp;&nbsp;";
 				$op_text .= "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=mokuaimake&biaoshi=$mk&version=$kk\" >".lang('plugin/yiqixueba','mokuai_make')."</a>&nbsp;&nbsp;";
 				$op_text .= '<a href="plugin.php?id=yiqixueba&mokuai=server&submod=mokuaiplay&biaoshi='.$mk.'&version='.$row['currentversion'].'" target="_blank">'.$lang['detail'].'</a>';
@@ -77,6 +84,7 @@ if($subop == 'mokuailist') {
 </script>
 EOT;
 	}else{
+		//原数据提交更新仅模块数据
 		if(is_array($_GET['biaoshinew'])) {
 			foreach($_GET['biaoshinew'] as $k => $v) {
 				$v = dhtmlspecialchars(trim($v));
@@ -88,6 +96,7 @@ EOT;
 				}
 			}
 		}
+		//版本状态更新
 		if(is_array($_GET['statusnew'])) {
 			$statusnew = $_GET['statusnew'];
 			foreach($mokuais as $k => $v) {
@@ -99,23 +108,26 @@ EOT;
 				}
 			}
 		}
+		//新建模块
 		if(is_array($_GET['newbiaoshi'])) {
 			foreach($_GET['newbiaoshi'] as $k => $v) {
 				$v = dhtmlspecialchars(trim($v));
 				$newname = trim(dhtmlspecialchars($_GET['newname'][$k]));
 				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
-				if($v && $newname){
+				if($v && $newname && !in_array($v,array_keys($mokuais))){
 					dmkdir(MOKUAI_DIR.'/'.$v);
 					$mokuais[$v]['name'] = $newname;
 					$mokuais[$v]['displayorder'] = $newdisplayorder;
 				}
 			}
 		}
+		//新建版本
 		if(is_array($_GET['newverbiaoshi'])) {
 			foreach($_GET['newverbiaoshi'] as $k => $v) {
 				$v = dhtmlspecialchars(trim($v));
 				$newupbiaoshi = trim(dhtmlspecialchars($_GET['newupbiaoshi'][$k]));
-				if($v){
+				$debugmokuai_temp[$newupbiaoshi] = 1;
+				if($v && !in_array($v,array_keys($mokuais[$newupbiaoshi]['version']))){
 					dmkdir(MOKUAI_DIR.'/'.$newupbiaoshi.'/'.$v);
 					foreach (array('Controler','Modal','View','Data') as $k1 => $v1 ){
 						if(!is_dir(MOKUAI_DIR.'/'.$newupbiaoshi.'/'.$v.'/'.$v1)){
@@ -129,7 +141,13 @@ EOT;
 					}
 				}
 			}
+			//人性化记住操作的模板
+			if(is_array(array_keys($debugmokuai_temp))){
+				$debugmokuai = array_keys($debugmokuai_temp);
+				dsetcookie('debugmokuai',implode(',',$debugmokuai));
+			}
 		}
+		//版本删除
 		foreach( getgpc('delete') as $k=>$v ){
 			if($v){
 				list ($delbiaoshi,$delversion) = explode("_",$v);
@@ -144,13 +162,11 @@ EOT;
 				}
 			}
 		}
-		//dump($mokuais);
 		$mokuais = array_sort($mokuais,'displayorder','asc');
 		file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba','edit_mokuai_succeed'), 'action='.$this_page.'&subop=admincpmenulist', 'succeed');
 	}
-
 }elseif($subop == 'mokuaiedit') {
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','edit_mokuai_tips'));
@@ -213,6 +229,7 @@ EOF;
 		$mokuai_price	= trim($_GET['price']);
 		$mokuai_description	= dhtmlspecialchars(trim($_GET['description']));
 		$mokuai_information	= trim($_GET['mokuaiinformation']);
+		$mokuai_newtag	= trim($_GET['newtag']);
 
 		if(!$biaoshi){
 			cpmsg(lang('plugin/yiqixueba','mokuai_biaoshi_invalid'), '', 'error');
@@ -247,6 +264,7 @@ EOF;
 			'ico' => $ico,
 			'mokuaiinformation' => $mokuai_information,
 		);
+		dsetcookie('debugmokuai',$biaoshi);//人性化
 		update_mokuai($biaoshi,$version,$data);
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba','edit_mokuai_succeed'), 'action='.$this_page.'&subop=mokuailist', 'succeed');
@@ -411,6 +429,115 @@ EOF;
 		writemokuailang($mokuaiid,$yiqixuebalang);
 		updatepluginlang();
 		cpmsg(lang('plugin/yiqixueba','mokuai_edit_succeed'), 'action='.$this_page.'&subop=pluginlang&mokuaiid='.$mokuaiid.'&pagename='.($page_type =='source' ? 'source' : 'template').'_'.$pagename, 'succeed');
+	}
+}elseif ($subop == 'mokuainode'){
+	if(!submitcheck('submit')) {
+		showtips(lang('plugin/yiqixueba','mokuai_node_tips'));
+		showformheader($this_page.'&subop=mokuainode');
+		showtableheader(lang('plugin/yiqixueba','mokuai_node'));
+		showsubtitle(array('', lang('plugin/yiqixueba','node_name'),lang('plugin/yiqixueba','mokuai_description'),lang('plugin/yiqixueba','status')));
+		foreach(getmod($biaoshi,$version) as $mk=>$row ){
+			showtablerow('', array('class="td25"', 'style="width:260px"', 'style="width:260px"',''), array(
+				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />",
+				$row,
+				'<input name="newname[]" value="" size="35" type="text">',
+				'',
+			));
+		}
+		echo '<tr><td colspan="1"></td><td colspan="8"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_node').'</a></div></td></tr>';
+		showsubmit('submit', 'submit', 'del');
+		showtablefooter();
+		showformfooter();
+		echo <<<EOT
+<script type="text/JavaScript">
+	var rowtypedata = [
+		[[1, '', 'td25'],  [1, '<input name="newnode[]" value="" size="35" type="text">'],[1, '<input name="newname[]" value="" size="25" type="text">'],[1,'']],
+	];
+</script>
+EOT;
+	}else{
+		//原数据提交更新仅模块数据
+		if(is_array($_GET['biaoshinew'])) {
+			foreach($_GET['biaoshinew'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$namenew = trim(dhtmlspecialchars($_GET['namenew'][$k]));
+				$displayordernew = intval($_GET['displayordernew'][$k]);
+				if($v && $namenew){
+					$mokuais[$v]['name'] = $namenew;
+					$mokuais[$v]['displayorder'] = $displayordernew;
+				}
+			}
+		}
+		//版本状态更新
+		if(is_array($_GET['statusnew'])) {
+			$statusnew = $_GET['statusnew'];
+			foreach($mokuais as $k => $v) {
+				foreach ( $v['version'] as $k1 => $v1 ){
+					$mokuais[$k]['version'][$k1]['available'] = 0;
+					if($statusnew[$k.'_'.$k1] == 1){
+						$mokuais[$k]['version'][$k1]['available'] = 1;
+					}
+				}
+			}
+		}
+		//新建模块
+		if(is_array($_GET['newbiaoshi'])) {
+			foreach($_GET['newbiaoshi'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$newname = trim(dhtmlspecialchars($_GET['newname'][$k]));
+				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+				if($v && $newname && !in_array($v,array_keys($mokuais))){
+					dmkdir(MOKUAI_DIR.'/'.$v);
+					$mokuais[$v]['name'] = $newname;
+					$mokuais[$v]['displayorder'] = $newdisplayorder;
+				}
+			}
+		}
+		//新建版本
+		if(is_array($_GET['newverbiaoshi'])) {
+			foreach($_GET['newverbiaoshi'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$newupbiaoshi = trim(dhtmlspecialchars($_GET['newupbiaoshi'][$k]));
+				$debugmokuai_temp[$newupbiaoshi] = 1;
+				if($v && !in_array($v,array_keys($mokuais[$newupbiaoshi]['version']))){
+					dmkdir(MOKUAI_DIR.'/'.$newupbiaoshi.'/'.$v);
+					foreach (array('Controler','Modal','View','Data') as $k1 => $v1 ){
+						if(!is_dir(MOKUAI_DIR.'/'.$newupbiaoshi.'/'.$v.'/'.$v1)){
+							dmkdir(MOKUAI_DIR.'/'.$newupbiaoshi.'/'.$v.'/'.$v1);
+						}
+					}
+					$mokuais[$newupbiaoshi]['version'][$v]['available'] = 0;
+					$mokuaivers = getmokuaivers($newupbiaoshi);
+					if(count($mokuaivers)==1){
+						$mokuais[$newupbiaoshi]['currentversion'] = $mokuaivers[0];
+					}
+				}
+			}
+			//人性化记住操作的模板
+			if(is_array(array_keys($debugmokuai_temp))){
+				$debugmokuai = array_keys($debugmokuai_temp);
+				dsetcookie('debugmokuai',implode(',',$debugmokuai));
+			}
+		}
+		//版本删除
+		foreach( getgpc('delete') as $k=>$v ){
+			if($v){
+				list ($delbiaoshi,$delversion) = explode("_",$v);
+				if($delbiaoshi){
+					if($delversion){
+						unset($mokuais[$delbiaoshi]['version'][$delversion]);
+						deldir(MOKUAI_DIR.'/'.$delbiaoshi.'/'.$delversion);
+					}else{
+						unset($mokuais[$delbiaoshi]);
+						deldir(MOKUAI_DIR.'/'.$delbiaoshi);
+					}
+				}
+			}
+		}
+		$mokuais = array_sort($mokuais,'displayorder','asc');
+		file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
+		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
+		cpmsg(lang('plugin/yiqixueba','edit_mokuai_succeed'), 'action='.$this_page.'&subop=admincpmenulist', 'succeed');
 	}
 }
 
