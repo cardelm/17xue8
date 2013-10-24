@@ -9,10 +9,15 @@ if(file_exists($base_page) && is_file($base_page)){
 }
 $ajaxtype = trim(getgpc('ajaxtype'));
 
-$ajaxdata = 'ygjhgj';
+foreach($mokuais as $k=>$v ){
+	if(file_exists(GC($k.'_ajax'))){
+		require_once GC($k.'_ajax');
+	}
+}
+
 if($win){
-	require_once GC('main_winajax');
+	include template(GV('main_winajax'));
 }else{
-	require_once GC('main_ajax');
+	include template(GV('main_ajax'));
 }
 ?>

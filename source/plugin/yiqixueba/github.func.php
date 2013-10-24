@@ -12,6 +12,7 @@ if ($this_dir == DISCUZ_ROOT.'source\plugin\yiqixueba'){
 //程序调试的时候，自动更新github程序
 function check_github_update($path=''){
 	global $_G;
+	//dump('1');
 	$github_dir = 'C:\GitHub\17xue8';//本地的GitHub的17xue8文件夹
 	clearstatcache();
 	if($path=='')

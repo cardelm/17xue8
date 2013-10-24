@@ -31,7 +31,7 @@ function GV($templatename){
 	return $template_file;
 }//
 
-$mokuais = array('main'=>'1.0','server'=>'1.0','shop'=>'1.0','wxq123'=>'1.0','yqxb'=>'1.0');
+$mokuais = array('main'=>'1.0','server'=>'1.0','shop'=>'1.0','wxq123'=>'1.0','yqxb'=>'1.0','cheyouhui'=>'1.0');
 foreach($mokuais as $k=>$v ){
 	if(file_exists(GC($k.'_function'))){
 		require_once GC($k.'_function');

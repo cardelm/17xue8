@@ -88,7 +88,7 @@
 				<th>{lang yiqixueba:fieldclass}</th>
 				<td>
 					<span class="ftid">
-					<select id="fieldclass" name="fieldclass" class="ps" width="168"  onchange="ajaxget('plugin.php?id=yiqixueba:ajax&ajaxtype=fieldparameter&fieldclass='+this.value, 'parameter');">
+					<select id="fieldclass" name="fieldclass" class="ps" width="168"  onchange="javascript:ajaxget('plugin.php?id=yiqixueba:ajax&ajaxtype=fieldparameter&fieldclass='+this.value, 'parameter', 'parameter');">
 						<!--{loop $fieldclass_array $id $fieldclasstext}-->
 							<option value="$id"{if $_GET[fieldclass]==$id} selected="selected"{/if}>{$fieldclasstext}</option>
 						<!--{/loop}-->
@@ -99,7 +99,7 @@
 			</tr>
 			<tr>
 				<th>{lang yiqixueba:fieldparameter}</th>
-				<td colspan="2"><div>{lang yiqixueba:required}<input type="checkbox" class="checkbox" name="isrequired">&nbsp;&nbsp;&nbsp;&nbsp;<B></B>{lang yiqixueba:displayorder}<input type="text" name="displayorder" size="2" value="{$field_info[displayorder]}"></div>
+				<td colspan="2"><div>{lang yiqixueba:required}<input type="checkbox" class="checkbox" name="isrequired">&nbsp;&nbsp;&nbsp;&nbsp;<B></B>{lang yiqixueba:displayorder}<input type="text" name="displayorder" size="2" value="{$field_info[displayorder]}"></div><br />
 					<div id="parameter">
 					
 					
@@ -118,6 +118,6 @@
 	</form>
 	<script type="text/javascript">
 		simulateSelect('fieldtype');
-		simulateSelect('fieldclass');
+		//simulateSelect('fieldclass');
 	</script>
 <!--{/if}-->

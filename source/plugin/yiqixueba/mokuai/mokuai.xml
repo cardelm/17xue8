@@ -1,42 +1,61 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
-	<item id="cheyouhui">
+	<item id="main">
 		<item id="version">
 			<item id="1.0">
-				<item id="price"><![CDATA[1000]]></item>
-				<item id="description"><![CDATA[车友会]]></item>
-				<item id="ico"><![CDATA[]]></item>
-				<item id="mokuaiinformation"><![CDATA[哈苏德哈师大]]></item>
-				<item id="available"><![CDATA[1]]></item>
-				<item id="name"><![CDATA[车友会]]></item>
-			</item>
-			<item id="2.0">
-				<item id="available"><![CDATA[1]]></item>
-				<item id="name"><![CDATA[车友会]]></item>
 				<item id="price"><![CDATA[0]]></item>
-				<item id="description"><![CDATA[]]></item>
-				<item id="ico"><![CDATA[cf/094558ysb1bwmuwojswfmu.jpg]]></item>
-				<item id="mokuaiinformation"><![CDATA[]]></item>
-			</item>
-		</item>
-		<item id="currentversion"><![CDATA[1.0]]></item>
-		<item id="displayorder"><![CDATA[6]]></item>
-		<item id="name"><![CDATA[车友会]]></item>
-	</item>
-	<item id="yqxb">
-		<item id="version">
-			<item id="1.0">
-				<item id="price"><![CDATA[2500]]></item>
-				<item id="description"><![CDATA[一起学吧模块]]></item>
+				<item id="description"><![CDATA[jj]]></item>
 				<item id="ico"><![CDATA[]]></item>
 				<item id="mokuaiinformation"><![CDATA[xq]]></item>
 				<item id="available"><![CDATA[1]]></item>
-				<item id="name"><![CDATA[一起学吧]]></item>
 			</item>
 		</item>
 		<item id="currentversion"><![CDATA[1.0]]></item>
-		<item id="displayorder"><![CDATA[5]]></item>
-		<item id="name"><![CDATA[一起学吧]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="name"><![CDATA[主程序]]></item>
+	</item>
+	<item id="server">
+		<item id="version">
+			<item id="1.0">
+				<item id="price"><![CDATA[50000]]></item>
+				<item id="description"><![CDATA[jj]]></item>
+				<item id="ico"><![CDATA[]]></item>
+				<item id="mokuaiinformation"><![CDATA[xq]]></item>
+				<item id="available"><![CDATA[1]]></item>
+			</item>
+		</item>
+		<item id="currentversion"><![CDATA[1.0]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="name"><![CDATA[服务端]]></item>
+	</item>
+	<item id="shop">
+		<item id="version">
+			<item id="1.0">
+				<item id="price"><![CDATA[100]]></item>
+				<item id="description"><![CDATA[jj]]></item>
+				<item id="ico"><![CDATA[]]></item>
+				<item id="mokuaiinformation"><![CDATA[xq]]></item>
+				<item id="available"><![CDATA[1]]></item>
+			</item>
+		</item>
+		<item id="currentversion"><![CDATA[1.0]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+		<item id="name"><![CDATA[商家联盟]]></item>
+	</item>
+	<item id="wxq123">
+		<item id="version">
+			<item id="1.0">
+				<item id="price"><![CDATA[1000]]></item>
+				<item id="description"><![CDATA[jj]]></item>
+				<item id="ico"><![CDATA[]]></item>
+				<item id="mokuaiinformation"><![CDATA[xq]]></item>
+				<item id="available"><![CDATA[1]]></item>
+				<item id="name"><![CDATA[微信墙123]]></item>
+			</item>
+		</item>
+		<item id="currentversion"><![CDATA[1.0]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+		<item id="name"><![CDATA[微信墙123]]></item>
 	</item>
 	<item id="yikatong">
 		<item id="biaoshi"><![CDATA[yikatong]]></item>
@@ -54,61 +73,34 @@
 		<item id="displayorder"><![CDATA[4]]></item>
 		<item id="name"><![CDATA[一卡通]]></item>
 	</item>
-	<item id="wxq123">
+	<item id="yqxb">
+		<item id="version">
+			<item id="1.0">
+				<item id="price"><![CDATA[2500]]></item>
+				<item id="description"><![CDATA[一起学吧模块]]></item>
+				<item id="ico"><![CDATA[]]></item>
+				<item id="mokuaiinformation"><![CDATA[xq]]></item>
+				<item id="available"><![CDATA[1]]></item>
+				<item id="name"><![CDATA[一起学吧]]></item>
+			</item>
+		</item>
+		<item id="currentversion"><![CDATA[1.0]]></item>
+		<item id="displayorder"><![CDATA[5]]></item>
+		<item id="name"><![CDATA[一起学吧]]></item>
+	</item>
+	<item id="cheyouhui">
 		<item id="version">
 			<item id="1.0">
 				<item id="price"><![CDATA[1000]]></item>
-				<item id="description"><![CDATA[jj]]></item>
+				<item id="description"><![CDATA[车友会]]></item>
 				<item id="ico"><![CDATA[]]></item>
-				<item id="mokuaiinformation"><![CDATA[xq]]></item>
+				<item id="mokuaiinformation"><![CDATA[哈苏德哈师大]]></item>
 				<item id="available"><![CDATA[1]]></item>
-				<item id="name"><![CDATA[微信墙123]]></item>
+				<item id="name"><![CDATA[车友会]]></item>
 			</item>
 		</item>
 		<item id="currentversion"><![CDATA[1.0]]></item>
-		<item id="displayorder"><![CDATA[3]]></item>
-		<item id="name"><![CDATA[微信墙123]]></item>
-	</item>
-	<item id="shop">
-		<item id="version">
-			<item id="1.0">
-				<item id="price"><![CDATA[100]]></item>
-				<item id="description"><![CDATA[jj]]></item>
-				<item id="ico"><![CDATA[]]></item>
-				<item id="mokuaiinformation"><![CDATA[xq]]></item>
-				<item id="available"><![CDATA[1]]></item>
-			</item>
-		</item>
-		<item id="currentversion"><![CDATA[1.0]]></item>
-		<item id="displayorder"><![CDATA[2]]></item>
-		<item id="name"><![CDATA[商家联盟]]></item>
-	</item>
-	<item id="server">
-		<item id="version">
-			<item id="1.0">
-				<item id="price"><![CDATA[50000]]></item>
-				<item id="description"><![CDATA[jj]]></item>
-				<item id="ico"><![CDATA[]]></item>
-				<item id="mokuaiinformation"><![CDATA[xq]]></item>
-				<item id="available"><![CDATA[1]]></item>
-			</item>
-		</item>
-		<item id="currentversion"><![CDATA[1.0]]></item>
-		<item id="displayorder"><![CDATA[1]]></item>
-		<item id="name"><![CDATA[服务端]]></item>
-	</item>
-	<item id="main">
-		<item id="version">
-			<item id="1.0">
-				<item id="price"><![CDATA[0]]></item>
-				<item id="description"><![CDATA[jj]]></item>
-				<item id="ico"><![CDATA[]]></item>
-				<item id="mokuaiinformation"><![CDATA[xq]]></item>
-				<item id="available"><![CDATA[1]]></item>
-			</item>
-		</item>
-		<item id="currentversion"><![CDATA[1.0]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="name"><![CDATA[主程序]]></item>
+		<item id="displayorder"><![CDATA[6]]></item>
+		<item id="name"><![CDATA[车友会]]></item>
 	</item>
 </root>
