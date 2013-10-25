@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="member_yktbind">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[]]></item>
+		<item id="menu"><![CDATA[]]></item>
+	</item>
+	<item id="admincp_cardmanage">
+		<item id="title"><![CDATA[卡管理]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+</root>

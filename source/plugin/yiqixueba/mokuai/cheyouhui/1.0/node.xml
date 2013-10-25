@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="member_cheliang">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[]]></item>
+		<item id="menu"><![CDATA[]]></item>
+	</item>
+	<item id="member_field">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[]]></item>
+		<item id="menu"><![CDATA[]]></item>
+	</item>
+	<item id="member_index">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[]]></item>
+		<item id="menu"><![CDATA[]]></item>
+	</item>
+	<item id="member_jiashizheng">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[]]></item>
+		<item id="menu"><![CDATA[]]></item>
+	</item>
+</root>

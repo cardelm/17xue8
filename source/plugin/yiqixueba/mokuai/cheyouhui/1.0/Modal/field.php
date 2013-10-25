@@ -72,5 +72,8 @@ class table_field extends discuz_table{
 	public function fetch_all_by_search($fieldtype = 'jsz', $start = 0, $limit = 0){
 		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." WHERE fieldname LIKE '".$fieldtype."_%' ORDER BY displayorder DESC ".DB::limit($start, $limit));
 	}
+	public function update_by_fieldname($fieldname, $data){
+		return DB::update($this->_table,$data,array('fieldname'=>$fieldname));
+	}
 }
 ?>

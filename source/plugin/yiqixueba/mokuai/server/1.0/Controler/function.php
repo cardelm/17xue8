@@ -118,8 +118,6 @@ function getmod($mokuai,$ver){
 	return $modfile;
 }//end func
 
-
-
 //
 function get_mokuaipage($mokuai,$version,$ptype){
 	$mokuaiid_dir = DISCUZ_ROOT.'source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$version.($ptype=='source'? '/Controler' : ($ptype=='template'? '/View' : '/Modal'));

@@ -12,5 +12,4 @@ foreach($mokuais as $k=>$v ){
 		require_once GC($k.'_api');
 	}
 }
-
 ?>

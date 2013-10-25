@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="admincp_index">
+		<item id="title"><![CDATA[联盟商家]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="member_index">
+		<item id="title"><![CDATA[联盟商家]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_shopgroup">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_shopmodel">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_shopfield">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_shopsort">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[4]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_shop">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[5]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_goodsmodel">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[6]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_goods">
+		<item id="title"><![CDATA[商品管理]]></item>
+		<item id="displayorder"><![CDATA[6]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_goodssort">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[7]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+</root>

@@ -1,6 +1,6 @@
 <p class="tbmu bw0">
 	<a{if $subop == 'fieldlist'} class="a"{/if} href="{$this_page}&subop=fieldlist" hidefocus="true">{lang yiqixueba:fieldlist}</a><span class="pipe">|</span>
-	<a{if $subop == 'fieldedit'} class="a"{/if} href="{$this_page}&subop=fieldedit" hidefocus="true">{lang yiqixueba:fieldedit}</a>
+	<a{if $subop == 'fieldedit'} class="a"{/if} href="{$this_page}&subop=fieldedit" hidefocus="true"><!--{if $fname}-->{lang yiqixueba:fieldedit}<input type="hidden" name="fname" value="{$fname}"><!--{else}-->{lang yiqixueba:fieldadd}<!--{/if}--></a>
 </p>
 <ul class="creditl mtm bbda cl">
 <li><em> {lang yiqixueba:zongfield} </em>{$zongnum} </li><li><em> {lang yiqixueba:jszfield} </em>{$sjznum} </li><li><em> {lang yiqixueba:chlfield} </em>{$chlnum} </li>
@@ -46,7 +46,7 @@
 			<td>{$value['fieldtitle']}</td>
 			<td>$fieldclass_array[$value['fieldclass']]</td>
 			<td>&nbsp;</td>
-			<td><a href="{$this_page}&subop=fieldedit&fieldname={$value['fieldname']}">{lang yiqixueba:edit}</a>&nbsp;&nbsp;<a href="{$this_page}&subop=fielddel&fieldname={$value['fieldname']}">{lang yiqixueba:delete}</a></td>
+			<td><a href="{$this_page}&subop=fieldedit&fname={$value['fieldname']}">{lang yiqixueba:edit}</a>&nbsp;&nbsp;<a href="{$this_page}&subop=fielddel&fname={$value['fieldname']}">{lang yiqixueba:delete}</a></td>
 			<td><input type="text" name="displayorder" size="2" value="{$value['displayorder']}"></td>
 		</tr>
 		<!--{/loop}-->
@@ -61,17 +61,26 @@
 		<table cellspacing="0" cellpadding="0" class="tfm mtn">
 			<tr>
 				<th>{lang yiqixueba:fieldtype}</th>
-				<td class="pns"><span class="ftid">
-					<select id="fieldtype" name="fieldtype" class="ps" width="168">
-						<option value="jsz" {if $fieldtype=='jsz'} selected="selected"{/if}>{lang yiqixueba:jszlist}</option>
-						<option value="chl" {if $fieldtype=='chl'} selected="selected"{/if}>{lang yiqixueba:chllist}</option>
-					</select>
-				</span></td>
+				<td class="pns">
+				<!--{if $fname}-->
+					<!--{if $fieldtype=='jsz'}-->{lang yiqixueba:jszlist}<!--{/if}-->
+					<!--{if $fieldtype=='chl'}-->{lang yiqixueba:chllist}<!--{/if}-->
+					<input type="hidden" name="fname" value="{$fname}">
+					<input type="hidden" name="fieldtype" value="{$fieldtype}">
+				<!--{else}-->
+					<span class="ftid">
+						<select id="fieldtype" name="fieldtype" class="ps" width="168">
+							<option value="jsz" {if $fieldtype=='jsz'} selected="selected"{/if}>{lang yiqixueba:jszlist}</option>
+							<option value="chl" {if $fieldtype=='chl'} selected="selected"{/if}>{lang yiqixueba:chllist}</option>
+						</select>
+					</span>
+				<!--{/if}-->
+				</td>
 				<td>{lang yiqixueba:fieldtype_comment}</td>
 			</tr>
 			<tr>
 				<th><span class="rq">*</span>{lang yiqixueba:fieldname}</th>
-				<td><input type="text" name="fieldname"  class="px" style="width:180px;" value="{$name}" /></td>
+				<td><!--{if $fname}-->{$name}<input type="hidden" name="fname" value="{$fname}"><!--{else}--><input type="text" name="fieldname"  class="px" style="width:180px;" value="" /><!--{/if}--></td>
 				<td>{lang yiqixueba:fieldname_comment}</td>
 			</tr>
 			<tr>
@@ -99,13 +108,8 @@
 			</tr>
 			<tr>
 				<th>{lang yiqixueba:fieldparameter}</th>
-				<td colspan="2"><div>{lang yiqixueba:required}<input type="checkbox" class="checkbox" name="isrequired">&nbsp;&nbsp;&nbsp;&nbsp;<B></B>{lang yiqixueba:displayorder}<input type="text" name="displayorder" size="2" value="{$field_info[displayorder]}"></div><br />
-					<div id="parameter">
-					
-					
-					
-					</div>
-					
+				<td colspan="2"><div>{lang yiqixueba:required}<input type="checkbox" class="checkbox" value="1" name="isrequired" {if $field_info[isrequired]}  checked{/if}>&nbsp;&nbsp;<B></B>{lang yiqixueba:displayorder}<input type="text" name="displayorder" size="2" value="{$field_info[displayorder]}"></div><br />
+					<div id="parameter">{$fieldparameterhtml}</div>
 				</td>
 			</tr>
 			<tr>

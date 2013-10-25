@@ -44,11 +44,12 @@ if($subop == 'fieldlist') {
 		$multi = multi($count, $perpage, $page, $theurl);
 	}
 }elseif($subop == 'fieldedit') {
+	$fname = dhtmlspecialchars(trim($_GET['fname']));
 	if(!submitcheck('submit')) {
-		$fieldname = dhtmlspecialchars(trim($_GET['fieldname']));
-		if($fieldname){
-			list($fieldtype,$name) = explode("_",$fieldname);
-			$field_info = C::t(GM('cheyouhui_field'))->fetch_all_by_fieldname($fieldname);
+		if($fname){
+			list($fieldtype,$name) = explode("_",$fname);
+			$field_info = C::t(GM('cheyouhui_field'))->fetch_all_by_fieldname($fname);
+			$fieldparameterhtml = fieldparameterhtml($field_info['fieldclass'],dunserialize($field_info['fieldparameter']));
 		}
 	}else{
 		$fieldname = dhtmlspecialchars(trim($_GET['fieldname']));
@@ -59,24 +60,36 @@ if($subop == 'fieldlist') {
 		$fieldrequired = intval($_GET['isrequired']);
 		$fielddisplayorder = intval($_GET['displayorder']);
 		$fieldparameter = serialize($_GET['parameter']);
-		if(!$fieldname){
-			showmessage(lang('plugin/yiqixueba','nofieldname'));
+		if(!$fname){
+			if(!$fieldname){
+				showmessage(lang('plugin/yiqixueba','nofieldname'));
+			}
+			if(!$fieldtitle){
+				showmessage(lang('plugin/yiqixueba','nofieldtitle'));
+			}
+			$data['fieldname'] = $fieldtype.'_'.$fieldname;
+			$data['fieldtitle'] = $fieldtitle;
+			$data['fieldtips'] = $fieldtips;
+			$data['fieldclass'] = $fieldclass;
+			$data['isrequired'] = $fieldrequired;
+			$data['displayorder'] = $fielddisplayorder;
+			$data['fieldparameter'] = $fieldparameter;
+			C::t(GM('cheyouhui_field'))->insert($data);
+			showmessage(lang('plugin/yiqixueba','addfield_success'), $this_page );
+		}else{
+			//$data['fieldname'] = $fname;
+			$data['fieldtitle'] = $fieldtitle;
+			$data['fieldtips'] = $fieldtips;
+			$data['fieldclass'] = $fieldclass;
+			$data['isrequired'] = $fieldrequired;
+			$data['displayorder'] = $fielddisplayorder;
+			$data['fieldparameter'] = $fieldparameter;
+			C::t(GM('cheyouhui_field'))->update_by_fieldname($fname,$data);
+			showmessage(lang('plugin/yiqixueba','editfield_success'), $this_page );
 		}
-		if(!$fieldtitle){
-			showmessage(lang('plugin/yiqixueba','nofieldtitle'));
-		}
-		$data['fieldname'] = $fieldtype.'_'.$fieldname;
-		$data['fieldtitle'] = $fieldtitle;
-		$data['fieldtips'] = $fieldtips;
-		$data['fieldclass'] = $fieldclass;
-		$data['isrequired'] = $fieldrequired;
-		$data['displayorder'] = $fielddisplayorder;
-		$data['fieldparameter'] = $fieldparameter;
-		C::t(GM('cheyouhui_field'))->insert($data);
-		showmessage(lang('plugin/yiqixueba','addfield_success'), $this_page );
 	}
 }elseif($subop == 'fielddel') {
-	C::t(GM('cheyouhui_field'))->delete(getgpc('fieldname'));
+	C::t(GM('cheyouhui_field'))->delete(getgpc('fname'));
 	showmessage(lang('plugin/yiqixueba','delfield_success'), $this_page );
 }
 

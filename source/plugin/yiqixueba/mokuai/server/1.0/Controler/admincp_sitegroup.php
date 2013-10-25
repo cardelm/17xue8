@@ -141,6 +141,6 @@ if($subop == 'sitegrouplist') {
 		}
 		$data['menus'] = $menus;
 
-		dump($data);
+		//dump($data);
 }
 ?>

@@ -1,26 +1,35 @@
 <?php
+if(!defined('IN_DISCUZ')) {
+	exit('Access Denied');
+}
 
-$scriptlang['yiqixueba'] = array(
-  '' => '',
-  
+$plang['scriptlang'] = array(
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
+	'' => '',
 );
-
-$templatelang['yiqixueba'] = array(
-  '' => '',
-  
+$plang['templatelang'] = array(
+	'' => '',
 );
-
-$installlang['yiqixueba'] = array(
-  '' => '',
-  
+$plang['installlang'] = array(
+	'' => '',
 );
-
-$systemlang['yiqixueba'] = array(
-  'file' => array(
-     '' => '',
-     
-  ),
-  
-);
-
+$plang['systemlang'] = array(
+	'file' => array(
+		'' => '',
+		),
+	);
 ?>

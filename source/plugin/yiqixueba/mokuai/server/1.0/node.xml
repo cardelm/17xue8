@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="admincp_sitegroup">
+		<item id="title"><![CDATA[站长组]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="member_index">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[]]></item>
+		<item id="menu"><![CDATA[]]></item>
+	</item>
+	<item id="admincp_site">
+		<item id="title"><![CDATA[站长管理]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_mokuaiclass">
+		<item id="title"><![CDATA[模块分类]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_menu">
+		<item id="title"><![CDATA[菜单管理]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_mokuai">
+		<item id="title"><![CDATA[模块设计]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+	<item id="admincp_index">
+		<item id="title"><![CDATA[后台首页]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+	</item>
+</root>
