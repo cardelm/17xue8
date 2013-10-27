@@ -104,7 +104,7 @@ function deldir($dir) {
 		return false;
 	}
 }//end func
-//
+//得到程序文件
 function getmod($mokuai,$ver){
 	$modfile = array();
 	$pages_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler';
@@ -117,7 +117,39 @@ function getmod($mokuai,$ver){
 	}
 	return $modfile;
 }//end func
-
+//
+function writesourcefile($mokuai,$ver,$sourcename,$nodetype){
+	if($sourcename){
+		$newsourcefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler/'.$sourcename.'.php';
+		if(!file_exists($newsourcefile)){
+			list($nt,$nn) = explode('_',$sourcename);
+			$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Controler/'.$nodetype.'_example.php');
+			$neirong_temp = str_replace("server_example",$mokuai.'_'.$nn,$neirong_temp);
+			$neirong_temp = str_replace("example",$nn,$neirong_temp);
+			file_put_contents($newsourcefile,$neirong_temp);
+		}
+	}
+}//end func
+//
+function writetablefile($mokuai,$ver,$tablename,$nodetype){
+	if($tablename){
+		$newtablefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Modal/'.$tablename.'.php';
+		if(!file_exists($newtablefile)){
+			$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Modal/example.php');
+			$neirong_temp = str_replace("example",$tablename,$neirong_temp);
+			file_put_contents($newtablefile,$neirong_temp);
+		}
+	}
+}//end func
+//
+function writetemplatefile($mokuai,$ver,$templatename,$nodetype){
+	if($templatename){
+		$newtemplatefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/View/'.$nodetype.'_'.$templatename.'.htm';
+		if(!file_exists($newtemplatefile)){
+			file_put_contents($newtemplatefile,file_get_contents(MOKUAI_DIR.'/server/1.0/View/'.$nodetype.'_example.htm'));
+		}
+	}
+}//end func
 //
 function get_mokuaipage($mokuai,$version,$ptype){
 	$mokuaiid_dir = DISCUZ_ROOT.'source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$version.($ptype=='source'? '/Controler' : ($ptype=='template'? '/View' : '/Modal'));

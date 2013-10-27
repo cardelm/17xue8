@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
-	<item id="member_cheliang">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[]]></item>
-		<item id="menu"><![CDATA[]]></item>
-	</item>
-	<item id="member_field">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[]]></item>
-		<item id="menu"><![CDATA[]]></item>
-	</item>
 	<item id="member_index">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[]]></item>
-		<item id="menu"><![CDATA[]]></item>
+		<item id="title"><![CDATA[会员信息]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[index]]></item>
+	</item>
+	<item id="admincp_test">
+		<item id="title"><![CDATA[测试]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[test]]></item>
+		<item id="template"><![CDATA[]]></item>
 	</item>
 	<item id="member_jiashizheng">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[]]></item>
-		<item id="menu"><![CDATA[]]></item>
+		<item id="title"><![CDATA[车证信息]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="member_field">
+		<item id="title"><![CDATA[字段管理]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[field]]></item>
+		<item id="template"><![CDATA[field]]></item>
 	</item>
 </root>

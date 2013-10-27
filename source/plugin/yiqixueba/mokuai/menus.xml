@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="admincp">
+		<item id="KQQX37aaim">
+			<item id="title"><![CDATA[基础平台]]></item>
+			<item id="displayorder"><![CDATA[1]]></item>
+			<item id="submenu">
+				<item id="y16I98DH2P">
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="title"><![CDATA[平台首页]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[main_admincp_index]]></item>
+				</item>
+				<item id="hp4bUv5w4z">
+					<item id="displayorder"><![CDATA[2]]></item>
+					<item id="title"><![CDATA[模块管理]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[main_admincp_mokuai]]></item>
+				</item>
+				<item id="Mlm7qvG044">
+					<item id="displayorder"><![CDATA[3]]></item>
+					<item id="title"><![CDATA[菜单管理]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_admincp_menu]]></item>
+				</item>
+				<item id="pM0Ro0oB86">
+					<item id="displayorder"><![CDATA[4]]></item>
+					<item id="title"><![CDATA[模块设计]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_admincp_mokuai]]></item>
+				</item>
+				<item id="LmB90G60m0">
+					<item id="displayorder"><![CDATA[5]]></item>
+					<item id="title"><![CDATA[站长组]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_admincp_sitegroup]]></item>
+				</item>
+				<item id="glP2tyTBhP">
+					<item id="displayorder"><![CDATA[6]]></item>
+					<item id="title"><![CDATA[站长管理]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_admincp_site]]></item>
+				</item>
+				<item id="ocswSSNnVW">
+					<item id="displayorder"><![CDATA[7]]></item>
+					<item id="title"><![CDATA[会员组]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[main_admincp_membergroup]]></item>
+				</item>
+				<item id="uJodDXYOrO">
+					<item id="displayorder"><![CDATA[8]]></item>
+					<item id="title"><![CDATA[会员管理]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[main_admincp_member]]></item>
+				</item>
+				<item id="ChLH8HN3Ii">
+					<item id="displayorder"><![CDATA[100]]></item>
+					<item id="title"><![CDATA[例子页面]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_admincp_example]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="cSpt67sP8q">
+			<item id="title"><![CDATA[服务端]]></item>
+			<item id="displayorder"><![CDATA[2]]></item>
+			<item id="submenu">
+				<item id="s7E56BYXEc">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="title"><![CDATA[商家模型]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_admincp_model]]></item>
+				</item>
+				<item id="suG6UsI366">
+					<item id="displayorder"><![CDATA[100]]></item>
+					<item id="title"><![CDATA[例子页面]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_admincp_example]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="rswsh9535p">
+			<item id="title"><![CDATA[联盟商家]]></item>
+			<item id="displayorder"><![CDATA[3]]></item>
+			<item id="submenu">
+				<item id="oTUS0CRezB">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="title"><![CDATA[联盟商家]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_index]]></item>
+				</item>
+				<item id="rOkw6bahNn">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="title"><![CDATA[商家模型]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_shopmodel]]></item>
+				</item>
+				<item id="DY0P025000">
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="title"><![CDATA[商家组]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_shopgroup]]></item>
+				</item>
+				<item id="yfAddbJeW3">
+					<item id="displayorder"><![CDATA[2]]></item>
+					<item id="title"><![CDATA[商家分类]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_shopsort]]></item>
+				</item>
+				<item id="K44f63Oj16">
+					<item id="displayorder"><![CDATA[3]]></item>
+					<item id="title"><![CDATA[商家字段]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_shopfield]]></item>
+				</item>
+				<item id="E7PvFiXufu">
+					<item id="displayorder"><![CDATA[4]]></item>
+					<item id="title"><![CDATA[商家管理]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_shop]]></item>
+				</item>
+				<item id="vuS4GGUwMn">
+					<item id="displayorder"><![CDATA[5]]></item>
+					<item id="title"><![CDATA[商品模型]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_goodsmodel]]></item>
+				</item>
+				<item id="qp02V2KklX">
+					<item id="displayorder"><![CDATA[6]]></item>
+					<item id="title"><![CDATA[商家分类]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_goodssort]]></item>
+				</item>
+				<item id="Jt7Qg6AVGV">
+					<item id="displayorder"><![CDATA[7]]></item>
+					<item id="title"><![CDATA[商品管理]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[shop_admincp_goods]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="z8It7Iz8zi">
+			<item id="title"><![CDATA[一卡通]]></item>
+			<item id="displayorder"><![CDATA[4]]></item>
+			<item id="submenu">
+				<item id="m2t1I7oen2">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="title"><![CDATA[卡管理]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[yikatong_admincp_cardmanage]]></item>
+				</item>
+				<item id="MGK2PN23ZX">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="title"><![CDATA[测试]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[cheyouhui_admincp_test]]></item>
+				</item>
+			</item>
+		</item>
+	</item>
+	<item id="member">
+		<item id="PswE9hcSh9">
+			<item id="title"><![CDATA[会员首页]]></item>
+			<item id="displayorder"><![CDATA[0]]></item>
+			<item id="submenu">
+				<item id="nwe3Pp3tb3">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="upid"><![CDATA[PswE9hcSh9]]></item>
+					<item id="title"><![CDATA[基本信息]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[main_member_index]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+				<item id="uq2glTJj5t">
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="upid"><![CDATA[PswE9hcSh9]]></item>
+					<item id="title"><![CDATA[微信绑定]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[wxq123_member_bind]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+				<item id="tJE9jcsFHv">
+					<item id="displayorder"><![CDATA[2]]></item>
+					<item id="upid"><![CDATA[PswE9hcSh9]]></item>
+					<item id="title"><![CDATA[一卡通绑定]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[wxq123_member_bind]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+				<item id="kMZcWOMob6">
+					<item id="displayorder"><![CDATA[100]]></item>
+					<item id="upid"><![CDATA[PswE9hcSh9]]></item>
+					<item id="title"><![CDATA[例子页面]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[main_member_example]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="tFCPjjfAJg">
+			<item id="title"><![CDATA[后台设计]]></item>
+			<item id="displayorder"><![CDATA[1]]></item>
+			<item id="submenu">
+				<item id="X2d322D0dp">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="upid"><![CDATA[tFCPjjfAJg]]></item>
+					<item id="title"><![CDATA[例子页面]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_member_example]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="R7EkvLDuES">
+			<item id="title"><![CDATA[车友会]]></item>
+			<item id="displayorder"><![CDATA[2]]></item>
+			<item id="submenu">
+				<item id="h4zzhKZo5k">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="upid"><![CDATA[R7EkvLDuES]]></item>
+					<item id="title"><![CDATA[车友首页]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[cheyouhui_member_index]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+				<item id="hsFyUuND1u">
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="upid"><![CDATA[R7EkvLDuES]]></item>
+					<item id="title"><![CDATA[驾驶员证]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[cheyouhui_member_jiashizheng]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+				<item id="BmN6M2fEBo">
+					<item id="displayorder"><![CDATA[3]]></item>
+					<item id="upid"><![CDATA[R7EkvLDuES]]></item>
+					<item id="title"><![CDATA[字段管理]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[cheyouhui_member_field]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="TaTZc4E104">
+			<item id="title"><![CDATA[卡益联盟]]></item>
+			<item id="displayorder"><![CDATA[3]]></item>
+			<item id="submenu">
+				<item id="C2ch20h3HZ">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="upid"><![CDATA[TaTZc4E104]]></item>
+					<item id="title"><![CDATA[一卡通绑定]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[yikatong_member_yktbind]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+			</item>
+		</item>
+	</item>
+	<item id="yiqixueba">
+		<item id="Up5VI9yPI3">
+			<item id="title"><![CDATA[联盟商家]]></item>
+			<item id="displayorder"><![CDATA[0]]></item>
+			<item id="submenu">
+				<item id="m46crwfTym">
+					<item id="displayorder"><![CDATA[100]]></item>
+					<item id="upid"><![CDATA[Up5VI9yPI3]]></item>
+					<item id="title"><![CDATA[例子页面]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[main_yiqixueba_example]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="GqbM16QbNg">
+			<item id="title"><![CDATA[后台设计]]></item>
+			<item id="displayorder"><![CDATA[0]]></item>
+			<item id="submenu">
+				<item id="hePfPT979m">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="upid"><![CDATA[GqbM16QbNg]]></item>
+					<item id="title"><![CDATA[例子页面]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[server_yiqixueba_example]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="m0m0ATnQ9N">
+			<item id="title"><![CDATA[一起学吧]]></item>
+			<item id="displayorder"><![CDATA[0]]></item>
+			<item id="submenu">
+				<item id="gG5cCYk3Y5">
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="upid"><![CDATA[m0m0ATnQ9N]]></item>
+					<item id="title"><![CDATA[模块展示]]></item>
+					<item id="link"><![CDATA[]]></item>
+					<item id="modfile"><![CDATA[main_yiqixueba_mokuai]]></item>
+					<item id="status"><![CDATA[1]]></item>
+				</item>
+			</item>
+		</item>
+	</item>
+</root>

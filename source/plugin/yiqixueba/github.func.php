@@ -90,7 +90,7 @@ unset($sitekey);
 //更新page页面
 function update_pages($mokuai,$ver){
 	global $sitekey,$pages;
-	$pages_dir = 'C:/GitHub/17xue8/source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$ver.'/Controler';
+	$pages_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler';
 	if ($handle = opendir($pages_dir)) {
 		while (false !== ($file = readdir($handle))) {
 			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "index.html") {
@@ -119,18 +119,18 @@ function update_pages($mokuai,$ver){
 //更新table页面
 function update_table($mokuai,$ver){
 	global $sitekey,$tables;
-	$table_dir = 'C:/GitHub/17xue8/source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$ver.'/Modal';
+	$table_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Modal';
 	if ($handle = opendir($table_dir)) {
 		while (false !== ($file = readdir($handle))) {
 			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "index.html") {
 				$table_filename = 'y_'.md5($sitekey.$mokuai.'_'.substr($file,0,-4));
 				$table_file = DISCUZ_ROOT.'source/plugin/yiqixueba/table/table_'.$table_filename.'.php';
 				if(filesize($table_dir."/".$file) == 0){
-					$neirong_temp = file_get_contents('C:/GitHub/17xue8/source/plugin/yiqixueba/mokuai/main/1.0/Modal/example.php');
+					$neirong_temp = file_get_contents(MOKUAI_DIR.'/main/1.0/Modal/example.php');
 					$neirong_temp = str_replace("example",substr($file,0,-4),$neirong_temp);
 					file_put_contents($table_dir."/".$file,$neirong_temp);
 				}
-				if($file != 'example.php'){
+				//if($file != 'example.php'){
 					if ( filemtime($table_dir."/".$file) > filemtime($table_file) || !file_exists($table_file)){
 						$neirong_table = file_get_contents($table_dir."/".$file);
 						$neirong_table = str_replace("class table_".substr($file,0,-4),"class table_".$table_filename,$neirong_table);
@@ -139,7 +139,7 @@ function update_table($mokuai,$ver){
 						C::t('#yiqixueba#y_'.md5($sitekey.$mokuai.'_'.substr($file,0,-4)))->create();
 					}
 					$tables[] = $mokuai.'_'.substr($file,0,-4);
-				}
+				//}
 			}
 		}
 	}
@@ -148,7 +148,7 @@ function update_table($mokuai,$ver){
 //更新template页面
 function update_template($mokuai,$ver){
 	global $sitekey,$templates;
-	$template_dir = 'C:/GitHub/17xue8/source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$ver.'/View';
+	$template_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/View';
 	if ($handle = opendir($template_dir)) {
 		while (false !== ($file = readdir($handle))) {
 			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "index.html") {

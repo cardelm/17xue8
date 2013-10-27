@@ -93,7 +93,7 @@ if($subop == 'fieldlist') {
 	showmessage(lang('plugin/yiqixueba','delfield_success'), $this_page );
 }
 
-$subtpl = GV('cheyouhui_field');
+$subtpl = GV('cheyouhui_member_field');
 
 
 ?>

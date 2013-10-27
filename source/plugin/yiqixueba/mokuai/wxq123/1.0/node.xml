@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
-	<item id="member_bind">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[]]></item>
-		<item id="menu"><![CDATA[]]></item>
-	</item>
 	<item id="admincp_index">
 		<item id="title"><![CDATA[微信墙首页]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
 		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="member_bind">
+		<item id="title"><![CDATA[微信绑定]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
 	</item>
 </root>

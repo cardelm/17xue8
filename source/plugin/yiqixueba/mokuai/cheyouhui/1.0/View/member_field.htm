@@ -1,0 +1,127 @@
+<p class="tbmu bw0">
+	<a{if $subop == 'fieldlist'} class="a"{/if} href="{$this_page}&subop=fieldlist" hidefocus="true">{lang yiqixueba:fieldlist}</a><span class="pipe">|</span>
+	<a{if $subop == 'fieldedit'} class="a"{/if} href="{$this_page}&subop=fieldedit" hidefocus="true"><!--{if $fname}-->{lang yiqixueba:fieldedit}<input type="hidden" name="fname" value="{$fname}"><!--{else}-->{lang yiqixueba:fieldadd}<!--{/if}--></a>
+</p>
+<ul class="creditl mtm bbda cl">
+<li><em> {lang yiqixueba:zongfield} </em>{$zongnum} </li><li><em> {lang yiqixueba:jszfield} </em>{$sjznum} </li><li><em> {lang yiqixueba:chlfield} </em>{$chlnum} </li>
+</ul>
+<p>&nbsp;</p>
+<!--{if $subop == 'fieldlist'}-->
+	<form method="post" action="{$this_page}&subop=fieldlist">
+		<div class="exfm" style="margin-top: 0;">
+			<table cellspacing="0" cellpadding="0">
+				<tr>
+					<th>{lang yiqixueba:fieldtype}:</th>
+					<td>
+						<span class="ftid">
+							<select id="fieldtype" name="fieldtype" class="ps" width="168">
+								<option value="jsz" {if $fieldtype=='jsz'} selected="selected"{/if}>{lang yiqixueba:jszlist}</option>
+								<option value="chl" {if $fieldtype=='chl'} selected="selected"{/if}>{lang yiqixueba:chllist}</option>
+							</select>
+						</span>
+					</td>
+					<td><button type="submit" class="pn" name="search" value="true"><strong>{lang yiqixueba:srch}</strong></button></td>
+				</tr>
+			</table>
+			<script type="text/javascript">
+				simulateSelect('fieldtype');
+			</script>
+		</div>
+	</form>
+	<table summary="{lang memcp_credits_log_payment}" cellspacing="0" cellpadding="0" class="dt">
+		<tr>
+			<th width="80">{lang yiqixueba:fieldtype}</th>
+			<th width="80">{lang yiqixueba:fieldname}</th>
+			<th width="80">{lang yiqixueba:fieldtitle}</th>
+			<th width="80">{lang yiqixueba:fieldclass}</th>
+			<th>{lang yiqixueba:fieldparameter}</th>
+			<th width="80">{lang yiqixueba:operate}</th>
+			<th width="60">{lang yiqixueba:displayorder}</th>
+		</tr>
+		<!--{loop $fields $value}-->
+		<!--{eval list($ftype,$fname) = explode("_",$value['fieldname']);}-->
+		<tr>
+			<td><!--{if $ftype=='jsz'}-->{lang yiqixueba:jszlist}<!--{/if}--><!--{if $ftype=='chl'}-->{lang yiqixueba:chllist}<!--{/if}--></td>
+			<td><!--{if $value[required]}--><span class="rq" title="{lang required}">*</span><!--{/if}-->{$fname}</td>
+			<td>{$value['fieldtitle']}</td>
+			<td>$fieldclass_array[$value['fieldclass']]</td>
+			<td>&nbsp;</td>
+			<td><a href="{$this_page}&subop=fieldedit&fname={$value['fieldname']}">{lang yiqixueba:edit}</a>&nbsp;&nbsp;<a href="{$this_page}&subop=fielddel&fname={$value['fieldname']}">{lang yiqixueba:delete}</a></td>
+			<td><input type="text" name="displayorder" size="2" value="{$value['displayorder']}"></td>
+		</tr>
+		<!--{/loop}-->
+	</table>
+	<!--{if $multi}--><div class="pgs cl mtm">$multi</div><!--{/if}-->
+
+<!--{elseif $subop == 'fieldedit'}-->
+	<form id="transferform" name="transferform" method="post" autocomplete="off" action="{$this_page}&subop=fieldedit">
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<input type="hidden" name="transfersubmit" value="true" />
+		<input type="hidden" name="handlekey" value="transfercredit" />
+		<table cellspacing="0" cellpadding="0" class="tfm mtn">
+			<tr>
+				<th>{lang yiqixueba:fieldtype}</th>
+				<td class="pns">
+				<!--{if $fname}-->
+					<!--{if $fieldtype=='jsz'}-->{lang yiqixueba:jszlist}<!--{/if}-->
+					<!--{if $fieldtype=='chl'}-->{lang yiqixueba:chllist}<!--{/if}-->
+					<input type="hidden" name="fname" value="{$fname}">
+					<input type="hidden" name="fieldtype" value="{$fieldtype}">
+				<!--{else}-->
+					<span class="ftid">
+						<select id="fieldtype" name="fieldtype" class="ps" width="168">
+							<option value="jsz" {if $fieldtype=='jsz'} selected="selected"{/if}>{lang yiqixueba:jszlist}</option>
+							<option value="chl" {if $fieldtype=='chl'} selected="selected"{/if}>{lang yiqixueba:chllist}</option>
+						</select>
+					</span>
+				<!--{/if}-->
+				</td>
+				<td>{lang yiqixueba:fieldtype_comment}</td>
+			</tr>
+			<tr>
+				<th><span class="rq">*</span>{lang yiqixueba:fieldname}</th>
+				<td><!--{if $fname}-->{$name}<input type="hidden" name="fname" value="{$fname}"><!--{else}--><input type="text" name="fieldname"  class="px" style="width:180px;" value="" /><!--{/if}--></td>
+				<td>{lang yiqixueba:fieldname_comment}</td>
+			</tr>
+			<tr>
+				<th><span class="rq">*</span>{lang yiqixueba:fieldtitle}</th>
+				<td><input name="fieldtitle" type="text" class="px" style="width:180px;" value="{$field_info[fieldtitle]}" /></td>
+				<td>{lang yiqixueba:fieldtitle_comment}</td>
+			</tr>
+			<tr>
+				<th>{lang yiqixueba:fieldtips}</th>
+				<td><textarea name="fieldtips" rows="5" cols="34">{$field_info[fieldtips]}</textarea></td>
+				<td>{lang yiqixueba:fieldtips_comment}</td>
+			</tr>
+			<tr>
+				<th>{lang yiqixueba:fieldclass}</th>
+				<td>
+					<span class="ftid">
+					<select id="fieldclass" name="fieldclass" class="ps" width="168"  onchange="javascript:ajaxget('plugin.php?id=yiqixueba:ajax&ajaxtype=fieldparameter&fieldclass='+this.value, 'parameter', 'parameter');">
+						<!--{loop $fieldclass_array $id $fieldclasstext}-->
+							<option value="$id"{if $_GET[fieldclass]==$id} selected="selected"{/if}>{$fieldclasstext}</option>
+						<!--{/loop}-->
+					</select>
+					</span>
+				</td>
+				<td>{lang yiqixueba:fieldclass_comment}</td>
+			</tr>
+			<tr>
+				<th>{lang yiqixueba:fieldparameter}</th>
+				<td colspan="2"><div>{lang yiqixueba:required}<input type="checkbox" class="checkbox" value="1" name="isrequired" {if $field_info[isrequired]}  checked{/if}>&nbsp;&nbsp;<B></B>{lang yiqixueba:displayorder}<input type="text" name="displayorder" size="2" value="{$field_info[displayorder]}"></div><br />
+					<div id="parameter">{$fieldparameterhtml}</div>
+				</td>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				<td colspan="2">
+					<button type="submit" name="submit" id="submit" class="pn" value="true"><em>{lang yiqixueba:submit}</em></button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		simulateSelect('fieldtype');
+		//simulateSelect('fieldclass');
+	</script>
+<!--{/if}-->

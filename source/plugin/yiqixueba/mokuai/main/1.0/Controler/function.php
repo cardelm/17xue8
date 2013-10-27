@@ -22,4 +22,10 @@ function getmenus($menustype = 'admincp'){
 //
 function getsitekey(){
 }
+
+//
+function yiqixueba_serverurl(){
+	$url = 'http://localhost/web/17xue8/plugin.php?id=yiqixueba&submod=main_mokuai';
+	return $url;
+}//end func
 ?>

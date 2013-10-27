@@ -2,11 +2,11 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-class table_example extends discuz_table{
+class table_test extends discuz_table{
 
 	public function __construct() {
-		$this->_table = 'example';
-		$this->_pk    = 'exampleid';
+		$this->_table = 'test';
+		$this->_pk    = 'testid';
 		parent::__construct();
 	}
 
@@ -14,16 +14,16 @@ class table_example extends discuz_table{
 		global $_G;
 		//////////////////////////
 		$fields = "
-			`exampleid` smallint(6) NOT NULL auto_increment,
-			`examplename` varchar(40) NOT NULL default '',
-			`exampletitle` varchar(40) NOT NULL default '',
-			`examplesort` varchar(40) NOT NULL default '',
-			`exampleimages` varchar(40) NOT NULL default '',
+			`testid` smallint(6) NOT NULL auto_increment,
+			`testname` varchar(40) NOT NULL default '',
+			`testtitle` varchar(40) NOT NULL default '',
+			`testsort` varchar(40) NOT NULL default '',
+			`testimages` varchar(40) NOT NULL default '',
 			`description` text NOT NULL,
 			`status` tinyint(1) NOT NULL default '0',
 			`createtime` int(10) unsigned NOT NULL,
 			`updatetime` int(10) unsigned NOT NULL,
-			PRIMARY KEY  (`exampleid`)
+			PRIMARY KEY  (`testid`)
 		";
 		//////////////////////
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
@@ -58,7 +58,7 @@ class table_example extends discuz_table{
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
 	}
-	public function fetch_by_exampleid($exampleid) {
+	public function fetch_by_testid($testid) {
 		$mokuai_info = array();
 		if($mokuaiid) {
 			$mokuai_info = DB::fetch_first('SELECT * FROM %t WHERE mokuaiid=%s', array($this->_table, $mokuaiid));

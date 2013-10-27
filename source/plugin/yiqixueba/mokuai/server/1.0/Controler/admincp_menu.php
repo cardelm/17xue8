@@ -13,6 +13,13 @@ $menus_type = getgpc('menus_type');
 $menus_types = array('admincp','member','yiqixueba');
 $menus_type = in_array($menus_type,$menus_types) ? $menus_type : $menus_types[0];
 
+require_once libfile('class/xml');
+$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+$mokuais = array_sort($mokuais,'displayorder','desc');
+
+$menus = xml2array(file_get_contents(MOKUAI_DIR."/menus.xml"));
+$menus[$menus_type] = array_sort($menus[$menus_type],'displayorder');
+
 
 if($subop == 'menulist') {
 	if(!submitcheck('submit')) {
@@ -20,127 +27,148 @@ if($subop == 'menulist') {
 		foreach ($menus_types as $k => $v ){
 			$menus_link .= '&nbsp;&nbsp;';
 			if($menus_type == $v){
-				$menus_link .= lang('plugin/yiqixueba','menutype_'.$v);
+				$menus_link .= '<span style="color:#000000;">'.lang('plugin/yiqixueba','menutype_'.$v).'</span>';
 			}else{
 				$menus_link .= '<a href = "'.ADMINSCRIPT.'?action='.$this_page.'&menus_type='.$v.'">'.lang('plugin/yiqixueba','menutype_'.$v).'</a>';
 			}
 		}
-		showtips(lang('plugin/yiqixueba','menu_list_tips').lang('plugin/yiqixueba','menutype_'.$menus_type).'</li>');
+		showtips(lang('plugin/yiqixueba','menu_list_tips'));
 		showformheader($this_page.'&subop=menulist');
 		showtableheader(lang('plugin/yiqixueba','menu_list').$menus_link);
-		showsubtitle(array('', 'display_order',lang('plugin/yiqixueba','menu_name'),lang('plugin/yiqixueba','menu_title'),lang('plugin/yiqixueba','modfile'),lang('plugin/yiqixueba','status')));
+		showsubtitle(array('', 'display_order',lang('plugin/yiqixueba','menu_title'),lang('plugin/yiqixueba','modfile'),lang('plugin/yiqixueba','menu_link')));
 		showtagheader('tbody', '', true);
 		
-		$adminmenus = getmenus($menus_type);
-		$menus_admincp = C::t(GM('main_menus'))->fetch_all($menus_type,0,'server');
-		foreach($menus_admincp as $mk=>$row ){
-			$sub_menu = C::t(GM('main_menus'))->fetch_all($menus_type,$row['menuid'],'server');
+		$subtitleclass = array('class="td25"', 'class="td25"', 'style="width:260px"', '');
+		foreach($menus[$menus_type] as $mk=>$row ){
+			$sub_menu = $row['submenu'];
+			$sub_menu = array_sort($sub_menu,'displayorder');
 			
-			showtablerow('', array('class="td25"', 'class="td25"', '', '','','class="td25"'), array(
+			showtablerow('',$subtitleclass, array(
 
-				(count($sub_menu) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$row['menuid'].'\', this)">[+]</a>' : '').(count($sub_menu) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[menuid]\" />"),
+				(count($sub_menu) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$mk.'\', this)">[+]</a>' : '').(count($sub_menu) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />"),
 
-				"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$row[menuid]]\" value=\"$row[displayorder]\">",
+				"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$mk]\" value=\"$row[displayorder]\">",
 
-				"<div><input type=\"text\" class=\"txt\" size=\"15\" name=\"namenew[$row[menuid]]\" value=\"".$row['name']."\"$readonly>"."<a href=\"###\" onclick=\"addrowdirect=1;addrow(this, 1, $row[menuid])\" class=\"addchildboard\">".lang('plugin/yiqixueba','add_submenu')."</a></div>",
+				"<div><input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$mk]\" value=\"".$row['title']."\">"."<a href=\"###\" onclick=\"addrowdirect=1;addrow(this, 1, '$mk')\" class=\"addchildboard\">".lang('plugin/yiqixueba','add_submenu')."</a></div>",
 
-				"<input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$row[menuid]]\" value=\"".($row['title'])."\">",
+				"",
 
-				'<input type="hidden" name="upidnew['.$row['menuid'].']" value="0" />',
+				'',
 
-				"<input class=\"checkbox\" type=\"checkbox\"  name=\"statusnew[$row[menuid]]\" value=\"1\" ".($row['status'] ? ' checked="checked"' : '')." />",
 			));
-			showtagheader('tbody', 'subnav_'.$row['menuid'], false);
+			showtagheader('tbody', 'subnav_'.$mk, false);
 			foreach ($sub_menu  as $kk => $subrow ){
-				$modlist = '<select name="modfilenew['.$subrow['menuid'].']"><option value="">'.lang('plugin/yiqixueba','select_modfile').'</option>';
-				foreach ( $adminmenus as $k => $v ){
-					foreach ($v  as $k1 => $v1 ){
-						$modlist .= '<option value="'.$k.'_'.$menus_type.'_'.$v1.'" '.($subrow['modfile'] == $k.'_'.$menus_type.'_'.$v1 ? ' selected':'' ).'>'.$k.'_'.$v1.'</option>';
+				$modlist = '<select name="modfilenew['.$kk.']"><option value="">'.lang('plugin/yiqixueba','select_modfile').'</option>';
+				foreach ( $mokuais as $k => $v ){
+					$nodes = xml2array(file_get_contents(MOKUAI_DIR.'/'.$k.'/'.$v['currentversion'].'/'.'node.xml'));
+					foreach ($nodes as $k1 => $v1 ){
+						list($nt,$nn) = explode('_',$k1);
+						if($nt == $menus_type && $nn){
+							$modlist .= '<option value="'.$k.'_'.$k1.'" '.($subrow['modfile'] == $k.'_'.$k1 ? ' selected':'' ).'>'.$v['name'].'('.$v['currentversion'].')-'.$v1['title'].'</option>';
+						}
 					}
-
 				}
 				$modlist .= '</select>';
-				showtablerow('', array('class="td25"', 'class="td25"', '', '', '','class="td25"'), array(
-					"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$subrow[menuid]\">",
-					"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$subrow[menuid]]\" value=\"$subrow[displayorder]\">",
-					"<div class=\"board\"><input type=\"text\" class=\"txt\" size=\"15\" name=\"namenew[$subrow[menuid]]\" value=\"".$subrow['name']."\"$readonly></div>",
-					"<input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$subrow[menuid]]\" value=\"".$subrow['title']."\">",
-					$modlist.'<input type="hidden" name="upidnew['.$subrow['menuid'].']" value="'.$row['menuid'].'" />',
-					"<input class=\"checkbox\" type=\"checkbox\"  name=\"statusnew[$subrow[menuid]]\" value=\"1\" ".($subrow['status'] ? ' checked="checked"' : '')." />",
+				showtablerow('', $subtitleclass, array(
+					"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$kk\">",
+					"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$kk]\" value=\"$subrow[displayorder]\">",
+					"<div class=\"board\"><input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$kk]\" value=\"".$subrow['title']."\"></div>",
+					$modlist.'<input type="hidden" name="upidnew['.$kk.']" value="'.$mk.'" />',
+					"<input type=\"text\" class=\"txt\" size=\"15\" name=\"linknew[$kk]\" value=\"".$subrow['link']."\">",
 					));
 			}
 			
 			showtagfooter('tbody');
 		}
 		showtagfooter('tbody');
-		echo '<tr><td colspan="1"></td><td colspan="8"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_menu').'</a></div></td></tr>';
+		echo '<tr><td colspan="1"></td><td colspan="4"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_menu').'</a></div></td></tr>';
 		showsubmit('submit', 'submit', 'del');
 		showtablefooter();
 		showformfooter();
 		$modlist = '<select name="newmodfile[]"><option value="">'.lang('plugin/yiqixueba','select_modfile').'</option>';
-		foreach ( $adminmenus as $k => $v ){
-			foreach ($v  as $k1 => $v1 ){
-				$modlist .= '<option value="'.$k.'_'.$menus_type.'_'.$v1.'">'.$k.'_'.$v1.'</option>';
+		foreach ( $mokuais as $k => $v ){
+			$nodes = xml2array(file_get_contents(MOKUAI_DIR.'/'.$k.'/'.$v['currentversion'].'/'.'node.xml'));
+			foreach ($nodes as $k1 => $v1 ){
+				list($nt,$nn) = explode('_',$k1);
+				if($nt == $menus_type && $nn){
+					$modlist .= '<option value="'.$k.'_'.$k1.'">'.$v['name'].'('.$v['currentversion'].')-'.$v1['title'].'</option>';
+				}
 			}
 		}
 		$modlist .= '</select>';
 		echo <<<EOT
 <script type="text/JavaScript">
 	var rowtypedata = [
-		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<input name="newname[]" value="" size="15" type="text" class="txt">'],[1,'<input name="newtitle[]" value="" size="15" type="text" class="txt"><input type="hidden" name="newupid[]" value="0" />']],
-		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<div class=\"board\"><input name="newname[]" value="" size="15" type="text" class="txt"></div>'], [1,'<input name="newtitle[]" value="" size="15" type="text" class="txt">'], [5, '$modlist<input type="hidden" name="newupid[]" value="{1}" />']]
+		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<input name="newtitle[]" value="" size="15" type="text" class="txt">'],[3, '']],
+		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<div class=\"board\"><input name="newtitle[]" value="" size="15" type="text" class="txt"></div>'], [1,'$modlist'], [1, '<input name="newlink[]" value="" size="15" type="text" class="txt"><input type="hidden" name="newupid[]" value="{1}" />'],[1, '']]
 	];
 </script>
 EOT;
 	}else{
-		if($ids = dimplode($_GET['delete'])) {
-			C::t(GM('main_menus'))->delete_by_menuid($menus_type, $_GET['delete']);
-		}
-
-		if(is_array($_GET['namenew'])) {
-			foreach($_GET['namenew'] as $id => $name) {
-				$name = trim(dhtmlspecialchars($name));
-				$titlenew = trim(dhtmlspecialchars($_GET['titlenew'][$id]));
+		//更新菜单
+		if(is_array($_GET['titlenew'])) {
+			foreach($_GET['titlenew'] as $id => $title) {
+				$title = trim(dhtmlspecialchars($title));
+				$linknew = trim(dhtmlspecialchars($_GET['linknew'][$id]));
 				$displayordernew = intval($_GET['displayordernew'][$id]);
-				$upidnew = intval($_GET['upidnew'][$id]);
+				$upidnew = trim($_GET['upidnew'][$id]);
 				$statusnew = intval($_GET['statusnew'][$id]);
 				$modfilenew = trim($_GET['modfilenew'][$id]);
-				$data = array(
-						'displayorder' => $displayordernew,
-						'upid' => $upidnew,
-						'name' => $name,
-						'title' => $titlenew,
-						'modfile' => $modfilenew,
-						'status' => $statusnew,
-					);
-				//dump($data);
-				if(!empty($titlenew) && !empty($name) && $upidnew == 0 || $upidnew > 0 && !empty($titlenew) && !empty($name) && !empty($modfilenew)) {
-					C::t(GM('main_menus'))->update($id, $data);
+				if(!empty($title) && !$upidnew){
+					$menus[$menus_type][$id]['title'] = $title;
+					$menus[$menus_type][$id]['displayorder'] = $displayordernew;
 				}
-			}
-		}
-
-		if(is_array($_GET['newname'])) {
-			foreach($_GET['newname'] as $k => $v) {
-				$v = dhtmlspecialchars(trim($v));
-				$newtitle = trim(dhtmlspecialchars($_GET['newtitle'][$k]));
-				$newmodfile = trim(dhtmlspecialchars($_GET['newmodfile'][$k]));
-				$newupid = intval($_GET['newupid'][$k]);
-				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
-				if(!empty($newtitle) && !empty($v) && $newupid == 0 || $newupid > 0 && !empty($newtitle) && !empty($v) && !empty($newmodfile)) {
+				if($upidnew && !empty($title) && !empty($modfilenew)){
 					$data = array(
-						'displayorder' => $newdisplayorder,
-						'upid' => $newupid,
-						'name' => $v,
-						'title' => $newtitle,
-						'modfile' => $newmodfile,
-						'type' => $menus_type,
-						'status' => 0,
+						'displayorder' => $displayordernew,
+						'title' => $title,
+						'link' => $linknew,
+						'modfile' => $modfilenew,
 					);
-					C::t(GM('main_menus'))->insert($data);
+					$menus[$menus_type][$upidnew]['submenu'][$id] = $data;
+					$menus[$menus_type][$upidnew]['submenu'] = array_sort($menus[$menus_type][$upidnew]['submenu'],'displayorder');
 				}
 			}
 		}
+		//新建菜单
+		if(is_array($_GET['newtitle'])) {
+			foreach($_GET['newtitle'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$newlink = trim(dhtmlspecialchars($_GET['newlink'][$k]));
+				$newmodfile = trim(dhtmlspecialchars($_GET['newmodfile'][$k]));
+				$newupid = trim($_GET['newupid'][$k]);
+				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+				if(!empty($v) && !$newupid ){
+					$mid = random(10);
+					$menus[$menus_type][$mid]['displayorder'] = $newdisplayorder;
+					$menus[$menus_type][$mid]['title'] = $v;
+				}
+				if($newupid && !empty($v) && !empty($newmodfile)) {
+					$smid = random(10);
+					$menus[$menus_type][$newupid]['submenu'][$smid]['displayorder'] = $newdisplayorder;
+					$menus[$menus_type][$newupid]['submenu'][$smid]['title'] = $v;
+					$menus[$menus_type][$newupid]['submenu'][$smid]['link'] = $newlink;
+					$menus[$menus_type][$newupid]['submenu'][$smid]['modfile'] = $newmodfile;
+					$menus[$menus_type][$newupid]['submenu'] = array_sort($menus[$menus_type][$newupid]['submenu'],'displayorder');
+				}
+			}
+		}
+		//删除菜单
+		if($ids = dimplode($_GET['delete'])) {
+			$ida = explode(',',$ids);
+			foreach ( $menus[$menus_type] as $k => $v ){
+				if(in_array("'".$k."'",$ida)){
+					unset($menus[$menus_type][$k]);
+				}
+				foreach ( $v['submenu'] as $k1 => $v1 ){
+					if(in_array("'".$k1."'",$ida)){
+						unset($menus[$menus_type][$k]['submenu'][$k1]);
+					}
+				}
+			}
+		}
+		$menus[$menus_type] = array_sort($menus[$menus_type],'displayorder');
+		file_put_contents (MOKUAI_DIR."/menus.xml",diconv(array2xml($menus, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba','menu_edit_succeed'), 'action='.$this_page.'&subop=menulist', 'succeed');
 	}

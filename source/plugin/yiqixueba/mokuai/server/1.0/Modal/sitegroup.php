@@ -54,17 +54,5 @@ class table_sitegroup extends discuz_table{
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
 	}
-
-	public function fetch_by_sitegroupid($sitegroupid) {
-		$sitegroup_info = array();
-		if($sitegroupid) {
-			$sitegroup_info = DB::fetch_first('SELECT * FROM %t WHERE sitegroupid=%s', array($this->_table, $sitegroupid));
-		}
-		return $sitegroup_info;
-	}
-	public function fetch_all() {
-		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." order by sitegroupid asc");
-	}
-
 }
 ?>
