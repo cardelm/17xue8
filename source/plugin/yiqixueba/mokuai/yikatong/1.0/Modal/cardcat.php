@@ -2,11 +2,11 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-class table_model extends discuz_table{
+class table_cardcat extends discuz_table{
 
 	public function __construct() {
-		$this->_table = 'model';
-		$this->_pk    = 'modelid';
+		$this->_table = 'cardcat';
+		$this->_pk    = 'cardcatid';
 		parent::__construct();
 	}
 
@@ -14,10 +14,21 @@ class table_model extends discuz_table{
 		global $_G;
 		//////////////////////////
 		$fields = "
-			`modelid` smallint(6) NOT NULL auto_increment,
-			`name` varchar(40) NOT NULL default '',
-			`title` varchar(40) NOT NULL default '',
-			PRIMARY KEY  (`modelid`)
+			`cardcatid` smallint(6) unsigned NOT NULL auto_increment,
+			`cardcatname` char(50) character set gbk NOT NULL,
+			`cardcatdescription` text character set gbk NOT NULL,
+			`cardjine` int(10) unsigned NOT NULL,
+			`cardpice` int(10) unsigned NOT NULL,
+			`cardyouxiaoqi` int(10) unsigned NOT NULL,
+			`carddzyouxiaoqi` char(10) character set gbk NOT NULL,
+			`status` tinyint(1) NOT NULL,
+			`cardcatico` varchar(255) character set gbk NOT NULL,
+			`cardkaishi` int(10) unsigned NOT NULL,
+			`cardtype` char(20) character set gbk NOT NULL,
+			`cardjifen` int(10) NOT NULL,
+			`cardqingling` varchar(255) character set gbk NOT NULL,
+			`shopid` mediumint(8) NOT NULL,
+			PRIMARY KEY  (`cardcatid`)
 		";
 		//////////////////////
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));

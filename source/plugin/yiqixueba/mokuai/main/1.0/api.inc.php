@@ -7,9 +7,5 @@ $base_page = DISCUZ_ROOT.'source/plugin/yiqixueba/runtime/~'.C::t('common_settin
 if(file_exists($base_page) && is_file($base_page)){
 	require_once $base_page;
 }
-foreach($mokuais as $k=>$v ){
-	if(file_exists(GC($k.'_api'))){
-		require_once GC($k.'_api');
-	}
-}
+require_once GC('main_api');
 ?>

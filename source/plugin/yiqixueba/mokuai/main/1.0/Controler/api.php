@@ -21,6 +21,7 @@ $indata = dunserialize($indata);
 ////////////////////////////////////////
 list($mokuai,$action) = explode("_",$apiaction);
 $api_file = $action ? $mokuai.'_api_'.$action : 'main_api_'.$action;
+//dump($api_file);
 if(file_exists(GC($api_file))){
 	require_once GC($api_file);
 }

@@ -14,20 +14,6 @@
 		<item id="template"><![CDATA[yktbind]]></item>
 		<item id="table"><![CDATA[yktbind]]></item>
 	</item>
-	<item id="api_test">
-		<item id="title"><![CDATA[测试]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[0]]></item>
-		<item id="table"><![CDATA[]]></item>
-		<item id="template"><![CDATA[]]></item>
-	</item>
-	<item id="ajax_test">
-		<item id="title"><![CDATA[测试]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[0]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table"><![CDATA[]]></item>
-	</item>
 	<item id="admincp_cardmanage">
 		<item id="title"><![CDATA[卡管理]]></item>
 		<item id="displayorder"><![CDATA[1]]></item>

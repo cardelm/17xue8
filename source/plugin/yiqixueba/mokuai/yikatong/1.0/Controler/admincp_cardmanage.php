@@ -10,7 +10,7 @@ $subops = array('cardcatlist','cardcatedit','makecard','cardimport','cardexport'
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
 $cardcatid = getgpc('cardcatid');
-$cardcat_info = $cardcatid ? DB::fetch_first("SELECT * FROM ".DB::table('yiqixueba_yikatong_cardcat')." WHERE cardcatid=".$cardcatid) : array();
+$cardcat_info = C::t(GM('yikatong_cardcat'))->fetch($cardcatid);
 $cardcat_info['cardkaishi'] = $cardcat_info['cardkaishi'] ? dgmdate($cardcat_info['cardkaishi'], 'd') : '';
 $cardcat_info['cardyouxiaoqi'] = $cardcat_info['cardyouxiaoqi'] ? dgmdate($cardcat_info['cardyouxiaoqi'], 'd'):'';
 $cardcat_info['cardqingling'] = $cardcat_info['cardqingling'] ? dgmdate($cardcat_info['cardqingling'], 'd'):'';
@@ -23,8 +23,10 @@ if($subop == 'cardcatlist') {
 		showformheader($this_page.'&subop=cardcatlist');
 		showtableheader(lang('plugin/yiqixueba','cardcat_list'));
 		showsubtitle(array('', lang('plugin/yiqixueba','cardcatname'),lang('plugin/yiqixueba','cardtype'), lang('plugin/yiqixueba','cardjifen'),lang('plugin/yiqixueba','cardyouxiaoqi'),lang('plugin/yiqixueba','cardnum'), lang('plugin/yiqixueba','status'), ''));
-		//$query = DB::query("SELECT * FROM ".DB::table('yiqixueba_yikatong_cardcat')." order by cardcatid asc");
-		while($row = DB::fetch($query)) {
+		//$query = DB::query("SELECT * FROM ".DB::table('yiqixueba_yikatong_cardcatcat')." order by cardcatid asc");
+		$cards = C::t(GM('yikatong_cardcat'))->range();
+		foreach($cards as $k=>$row ){
+		//while($row = DB::fetch($query)) {
 			$cardcatico = '';
 			if($row['cardcatico']!='') {
 				$cardcatico = str_replace('{STATICURL}', STATICURL, $row['cardcatico']);
@@ -46,7 +48,7 @@ if($subop == 'cardcatlist') {
 				lang('plugin/yiqixueba','kaishi').':'.$row['cardkaishi'].'<br />'.
 				lang('plugin/yiqixueba','jieshu').':'.$row['cardyouxiaoqi'].'<br />'.
 				lang('plugin/yiqixueba','qingling').':'.$row['cardqingling'],
-				DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_yikatong_card')." WHERE cardcatid=".$row['cardcatid']),
+				C::t(GM('yikatong_cardcat'))->count(),
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"statusnew[".$row['cardcatid']."]\" value=\"1\" ".($row['status'] > 0 ? 'checked' : '').">",
 				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=cardcatedit&cardcatid=$row[cardcatid]\" class=\"act\">".lang('plugin/yiqixueba','edit')."</a><br /><a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=makecard&cardcatid=$row[cardcatid]\" class=\"act\">".lang('plugin/yiqixueba','makecard')."</a><br /><a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=cardimport&cardcatid=$row[cardcatid]\" class=\"act\">".lang('plugin/yiqixueba','import')."</a><br /><a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=cardexport&cardcatid=$row[cardcatid]\" class=\"act\">".lang('plugin/yiqixueba','export')."</a><br /><a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=cardlist&cardcatid=$row[cardcatid]\" class=\"act\">".lang('plugin/yiqixueba','view')."</a>",
 			));
@@ -141,20 +143,21 @@ EOF;
 		$datas['cardcatdescription'] = stripslashes($_POST['cardcatdescription']);
 		foreach ( $datas as $k=>$v) {
 			$data[$k] = htmlspecialchars(trim($v));
-			if(!DB::result_first("describe ".DB::table('yiqixueba_yikatong_cardcat')." ".$k)) {
-				$sql = "alter table ".DB::table('yiqixueba_yikatong_cardcat')." add `".$k."` varchar(255) not Null;";
-				runquery($sql);
-			}
+			//if(!DB::result_first("describe ".DB::table('yiqixueba_yikatong_cardcatcat')." ".$k)) {
+				//$sql = "alter table ".DB::table('yiqixueba_yikatong_cardcatcat')." add `".$k."` varchar(255) not Null;";
+				//runquery($sql);
+			//}
 		}
 		$data['cardkaishi'] = strtotime(trim($data['cardkaishi']));
 		$data['cardyouxiaoqi'] = strtotime(trim($data['cardyouxiaoqi']));
 		$data['cardqingling'] = strtotime(trim($data['cardqingling']));
 		$data['cardqingling'] = strtotime(trim($data['cardqingling']));
 		if($cardcatid) {
-			DB::update('yiqixueba_yikatong_cardcat',$data,array('cardcatid'=>$cardcatid));
+			C::t(GM('yikatong_cardcat'))->update($cardcatid,$data);
 		}else{
-			DB::insert('yiqixueba_yikatong_cardcat',$data);
+			C::t(GM('yikatong_cardcat'))->insert($data);
 		}
+		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba', 'cardcat_edit_succeed'), 'action='.$this_page.'&subop=cardcatlist', 'succeed');
 	}
 }elseif($subop == 'makecard') {
@@ -184,7 +187,7 @@ EOF;
 		$startno = intval($_POST['card_start']);
 		$addnum = intval($_POST['card_num']);
 		$cardtype = intval($_POST['card_islogin']);
-		$cardpici = intval(DB::result_first("SELECT cardpici FROM ".DB::table('yiqixueba_yikatong_card')." order by cardpici desc"))+1;
+		$cardpici = intval(DB::result_first("SELECT cardpici FROM ".DB::table('yiqixueba_yikatong_cardcat')." order by cardpici desc"))+1;
 		$noprefix = dhtmlspecialchars(trim($_POST['card_pre']));
 		$cardpasstype = dhtmlspecialchars(trim($_POST['cardpass_type']));
 		$adds = array();
@@ -205,7 +208,7 @@ EOF;
 			$data['cardcatid'] = $cardcatid;
 			$data['maketime'] = $_G['timestamp'];
 			$data['status'] = 0;
-			if (DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_yikatong_card')." WHERE cardno='".$no."'")==0){
+			if (DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_yikatong_cardcat')." WHERE cardno='".$no."'")==0){
 				if ($cardtype){
 					if(DB::result_first("SELECT count(*) FROM ".DB::table('common_member')." WHERE username='".$no."'")==0){
 						$wordpass = $adds[$i];
@@ -244,9 +247,10 @@ EOF;
 					$data['uid'] = 0;
 				}
 				$insertnum++;
-				DB::insert('yiqixueba_yikatong_card', $data);
+				C::t(GM('yikatong_card'))->insert($data);
 			}
 		}
+		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg($insertnum.lang('plugin/yiqixueba', 'cardcat_make_succeed'), 'action='.$this_page.'&subop=cardcatlist', 'succeed');
 	}
 }elseif($subop == 'cardexport') {
@@ -262,7 +266,7 @@ EOF;
 		showformfooter();
 	}else{
 		dump($cardcat_info);
-		$cardpici = intval(DB::result_first("SELECT cardpici FROM ".DB::table('yiqixueba_yikatong_card')." order by cardpici desc"))+1;
+		$cardpici = intval(DB::result_first("SELECT cardpici FROM ".DB::table('yiqixueba_yikatong_cardcat')." order by cardpici desc"))+1;
 		if($_FILES['import_file']["size"]>200000){
 			cpmsg('文件太大了，上传文件应少于20M');
 		}else{
@@ -290,7 +294,7 @@ EOF;
 				$daoru_data['maketime'] = $_G['timestamp'];
 				$daoru_data['status'] = 0;
 				dump($daoru_data);
-				if (DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_yikatong_card')." WHERE cardno='".$no."'")==0){
+				if (DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_yikatong_cardcat')." WHERE cardno='".$no."'")==0){
 					if ($cardtype){
 						if(DB::result_first("SELECT count(*) FROM ".DB::table('common_member')." WHERE username='".$no."'")==0){
 							$wordpass = $adds[$i];
@@ -329,7 +333,7 @@ EOF;
 						$daoru_data['uid'] = 0;
 					}
 					$insertnum++;
-					//DB::insert('yiqixueba_yikatong_card', $daoru_data);
+					//DB::insert('yiqixueba_yikatong_cardcat', $daoru_data);
 				}
 				cpmsg($insertnum.lang('plugin/yiqixueba', 'cardcat_daoru_succeed'), 'action='.$this_page.'&subop=cardcatlist', 'succeed');
 			}
@@ -355,7 +359,7 @@ EOF;
 		echo lang('plugin/yiqixueba','cardno').'&nbsp;&nbsp;<input type="text" name="cardno" value="'.$cardno.'" size="10">&nbsp;&nbsp;'.lang('plugin/yiqixueba','carduid').'&nbsp;&nbsp;<input type="text" name="carduname" value="'.$carduname.'" size="10">&nbsp;&nbsp;';
 		//批次选择
 		$cardpici_select = '<select name="cardpici"><option value="">'.lang('plugin/yiqixueba','all').'</option>';
-		$query = DB::query("SELECT cardpici FROM ".DB::table('yiqixueba_yikatong_card')." group  by cardpici");
+		$query = DB::query("SELECT cardpici FROM ".DB::table('yiqixueba_yikatong_cardcat')." group  by cardpici");
 		while($row = DB::fetch($query)) {
 			$cardpici_select .= '<option value="'.$row['cardpici'].'" '.($cardpici == $row['cardpici'] ? ' selected' : '').'>'.$row['cardpici'].'</option>';
 		}
@@ -381,10 +385,10 @@ EOF;
 			$where = " where ".substr($where,4,strlen($where)-4);
 		}
 
-		$cardcount = DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_yikatong_card').$where);
+		$cardcount = DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_yikatong_cardcat').$where);
 		$multi = multi($cardcount, $perpage, $page, ADMINSCRIPT."?action=".$this_page."&subop=cardlist".$get_text);
 
-		$query = DB::query("SELECT * FROM ".DB::table('yiqixueba_yikatong_card').$where." order by cardnoid asc limit ".$start.", ".$perpage);
+		$query = DB::query("SELECT * FROM ".DB::table('yiqixueba_yikatong_cardcat').$where." order by cardnoid asc limit ".$start.", ".$perpage);
 		$xuhao = 1;
 		while($row = DB::fetch($query)) {
 			showtablerow('', array('class="td25"','class="td25"','class="td23"', 'class="td23"', 'class="td25"','class="td25"','class="td23"','class="td25"',''), array(
@@ -418,7 +422,7 @@ EOF;
 				if(intval(getgpc('fafanguid')) && DB::result_first("SELECT count(*) FROM ".DB::table('common_member')." WHERE uid=".intval(getgpc('fafanguid')))) {
 					$fafangnum = 0;
 					foreach ( getgpc('piliang') as $k=>$cardid) {
-						DB::update('yiqixueba_yikatong_card',array('fafanguid'=>intval(getgpc('fafanguid'))),array('cardnoid'=>$cardid,'fafanguid'=>0));
+						DB::update('yiqixueba_yikatong_cardcat',array('fafanguid'=>intval(getgpc('fafanguid'))),array('cardnoid'=>$cardid,'fafanguid'=>0));
 						$fafangnum++;
 					}
 					cpmsg($fafangnum.lang('plugin/yiqixueba', 'card_fafang_succeed'), 'action='.$this_page.'&subop=cardlist', 'succeed');
@@ -428,7 +432,7 @@ EOF;
 				if(trim(getgpc('indelma')) == trim(getgpc('delma'))) {
 					$delnum = 0;
 					foreach ( getgpc('piliang') as $k=>$cardid) {
-						DB::delete('yiqixueba_yikatong_card',array('cardnoid'=>$cardid,'uid'=>0));
+						DB::delete('yiqixueba_yikatong_cardcat',array('cardnoid'=>$cardid,'uid'=>0));
 						$delnum++;
 					}
 					cpmsg($delnum.lang('plugin/yiqixueba', 'card_del_succeed'), 'action='.$this_page.'&subop=cardlist', 'succeed');

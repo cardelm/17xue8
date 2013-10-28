@@ -10,7 +10,7 @@ $subops = array('shopsortlist','shopsortedit');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
 $shopsortid = getgpc('shopsortid');
-$shopsort_info = $shopsortid ? DB::fetch_first("SELECT * FROM ".DB::table('yiqixueba_shop_shopsort')." WHERE shopsortid=".$shopsortid) : array();
+$shopsort_info = C::t(GM('shop_shopsort'))->fetch($shopsortid);
 
 $sortupid = intval(getgpc('sortupid'));
 
@@ -38,8 +38,8 @@ if($subop == 'shopsortlist') {
 		showtableheader(lang('plugin/yiqixueba','shopsort_list'));
 		showsubtitle(array('', lang('plugin/yiqixueba','shopsortname'),lang('plugin/yiqixueba','shopsorttitle'), lang('plugin/yiqixueba','displayorder'), ''));
 
-		//$query = DB::query("SELECT * FROM ".DB::table('yiqixueba_shop_shopsort')." where sortupid = ".$sortupid." order by displayorder asc");
-		while($row = DB::fetch($query)) {
+		$shopsorts = C::t(GM('shop_shopsort'))->range();
+		foreach($shopsorts as $k=>$row ){
 			showtablerow('', array('class="td25"','class="td23"', 'class="td23"', 'class="td25"',''), array(
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[shopsortid]\">",
 				str_repeat("--",$row['sortlevel']-1).$row['sortname'],
@@ -108,10 +108,11 @@ if($subop == 'shopsortlist') {
 		$data['displayorder'] = htmlspecialchars(trim($_GET['displayorder']));
 
 		if($shopsortid) {
-			DB::update('yiqixueba_shop_shopsort',$data,array('shopsortid'=>$shopsortid));
+			C::t(GM('shop_shopsort'))->update($shopsortid,$data);
 		}else{
-			DB::insert('yiqixueba_shop_shopsort',$data);
+			C::t(GM('shop_shopsort'))->insert($data);
 		}
+		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba', 'shopsort_edit_succeed'), 'action='.$this_page.'&subop=shopsortlist', 'succeed');
 	}
 }

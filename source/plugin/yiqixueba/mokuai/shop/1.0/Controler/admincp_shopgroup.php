@@ -10,7 +10,7 @@ $subops = array('shopgrouplist','shopgroupedit');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
 $shopgroupid = getgpc('shopgroupid');
-$shopgroup_info = $shopgroupid ? DB::fetch_first("SELECT * FROM ".DB::table('yiqixueba_shop_group')." WHERE shopgroupid=".$shopgroupid) : array();
+$shopgroup_info = C::t(GM('shop_shopgroup'))->fetch($shopgroupid);
 
 if($subop == 'shopgrouplist') {
 	if(!submitcheck('submit')) {
@@ -18,8 +18,8 @@ if($subop == 'shopgrouplist') {
 		showformheader($this_page.'&subop=shopgrouplist');
 		showtableheader(lang('plugin/yiqixueba','shopgroup_list'));
 		showsubtitle(array('', lang('plugin/yiqixueba','shopgroupname'),lang('plugin/yiqixueba','shopnum'), lang('plugin/yiqixueba','shopgroupquanxian'), lang('plugin/yiqixueba','status'), ''));
-		//$query = DB::query("SELECT * FROM ".DB::table('yiqixueba_shop_group')." order by shopgroupid asc");
-		while($row = DB::fetch($query)) {
+		$shopgroups = C::t(GM('shop_shopgroup'))->range();
+		foreach($shopgroups as $k=>$row ){
 			$shopgroupico = '';
 			if($row['shopgroupico']!='') {
 				$shopgroupico = str_replace('{STATICURL}', STATICURL, $row['shopgroupico']);
@@ -33,7 +33,8 @@ if($subop == 'shopgrouplist') {
 			showtablerow('', array('class="td25"','class="td23"', 'class="td25"', 'class="td28"','class="td25"',''), array(
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[shopgroupid]\">",
 				$shopgroupico.$row['shopgroupname'],
-				DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_brand_shop')." WHERE shopgroupid=".$row['shopgroupid']),
+				//DB::result_first("SELECT count(*) FROM ".DB::table('yiqixueba_brand_shop')." WHERE shopgroupid=".$row['shopgroupid']),
+				'',
 				lang('plugin/yiqixueba','inshoufei').':'.$row['inshoufei'].'&nbsp;&nbsp;'.lang('plugin/yiqixueba','inshoufeiqixian').':'.$row['inshoufeiqixian'],
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"statusnew[".$row['shopgroupid']."]\" value=\"1\" ".($row['status'] > 0 ? 'checked' : '').">",
 				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=shopgroupedit&shopgroupid=$row[shopgroupid]\" class=\"act\">".lang('plugin/yiqixueba','edit')."</a>",
@@ -182,16 +183,17 @@ EOF;
 			}else{
 				$data[$k] = htmlspecialchars(trim($v));
 			}
-			if(!DB::result_first("describe ".DB::table('yiqixueba_shop_group')." ".$k)) {
-				$sql = "alter table ".DB::table('yiqixueba_shop_group')." add `".$k."` varchar(255) not Null;";
-				runquery($sql);
-			}
+			//if(!DB::result_first("describe ".DB::table('yiqixueba_shop_group')." ".$k)) {
+				//$sql = "alter table ".DB::table('yiqixueba_shop_group')." add `".$k."` varchar(255) not Null;";
+				//runquery($sql);
+			//}
 		}
 		if($shopgroupid) {
-			DB::update('yiqixueba_shop_group',$data,array('shopgroupid'=>$shopgroupid));
+			C::t(GM('shop_shopgroup'))->update($shopgroupid,$data);
 		}else{
-			DB::insert('yiqixueba_shop_group',$data);
+			C::t(GM('shop_shopgroup'))->insert($data);
 		}
+		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba', 'shopgroup_edit_succeed'), 'action='.$this_page.'&subop=shopgrouplist', 'succeed');
 	}
 

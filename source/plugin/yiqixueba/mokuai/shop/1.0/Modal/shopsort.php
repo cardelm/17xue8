@@ -2,11 +2,11 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-class table_card extends discuz_table{
+class table_shopsort extends discuz_table{
 
 	public function __construct() {
-		$this->_table = 'card';
-		$this->_pk    = 'cardid';
+		$this->_table = 'shopsort';
+		$this->_pk    = 'shopsortid';
 		parent::__construct();
 	}
 
@@ -14,18 +14,15 @@ class table_card extends discuz_table{
 		global $_G;
 		//////////////////////////
 		$fields = "
-			`cardnoid` mediumint(8) unsigned NOT NULL auto_increment,
-			`cardcatid` smallint(3) NOT NULL,
-			`cardpici` smallint(3) NOT NULL,
-			`cardno` char(20) character set gbk NOT NULL,
-			`cardpass` char(32) character set gbk NOT NULL,
-			`cardtype` tinyint(1) NOT NULL,
-			`uid` mediumint(8) NOT NULL,
-			`status` tinyint(1) NOT NULL,
-			`maketime` int(10) unsigned NOT NULL,
-			`bindtime` int(10) unsigned NOT NULL,
-			`fafanguid` mediumint(8) default NULL,
-			PRIMARY KEY  (`cardnoid`)
+			`shopsortid` smallint(6) unsigned NOT NULL auto_increment,
+			`upmokuai` smallint(6) NOT NULL,
+			`sortname` char(20) character set gbk NOT NULL,
+			`sorttitle` char(20) character set gbk NOT NULL,
+			`sortlevel` smallint(6) NOT NULL,
+			`sortupid` smallint(6) NOT NULL,
+			`displayorder` smallint(6) NOT NULL,
+			`upids` text character set gbk NOT NULL,
+			PRIMARY KEY  (`shopsortid`)
 		";
 		//////////////////////
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
@@ -59,6 +56,13 @@ class table_card extends discuz_table{
 		} else {
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
+	}
+	public function fetch_by_shopsortid($shopsortid) {
+		$mokuai_info = array();
+		if($mokuaiid) {
+			$mokuai_info = DB::fetch_first('SELECT * FROM %t WHERE mokuaiid=%s', array($this->_table, $mokuaiid));
+		}
+		return $mokuai_info;
 	}
 
 }

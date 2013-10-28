@@ -6,16 +6,23 @@ class table_site extends discuz_table{
 
 	public function __construct() {
 		$this->_table = 'site';
-		$this->_pk    = 'siteid';
+		$this->_pk    = 'siteurl';
 		parent::__construct();
 	}
 
 	public function create() {
 		global $_G;
 		$fields = "
-		  `siteid` smallint(6) NOT NULL,
-		  `updatetime` int(10) unsigned NOT NULL,
-		  PRIMARY KEY  (`siteid`)
+			`siteurl` varchar(255) NOT NULL,
+			`salt` char(6) NOT NULL,
+			`charset` char(20) NOT NULL,
+			`clientip` char(15) NOT NULL,
+			`version` char(50) NOT NULL,
+			`sitekey` char(32) NOT NULL,
+			`sitegroup` char(10) NOT NULL,
+			`installtime` int(10) unsigned NOT NULL,
+			`updatetime` int(10) unsigned NOT NULL,
+			PRIMARY KEY  (`siteurl`)
 		";
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
 		if(DB::num_rows($query) == 1) {
@@ -48,9 +55,6 @@ class table_site extends discuz_table{
 		} else {
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
-	}
-	public function fetch_all() {
-		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table));
 	}
 
 }

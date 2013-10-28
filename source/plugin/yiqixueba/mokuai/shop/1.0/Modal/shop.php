@@ -2,11 +2,11 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-class table_card extends discuz_table{
+class table_shop extends discuz_table{
 
 	public function __construct() {
-		$this->_table = 'card';
-		$this->_pk    = 'cardid';
+		$this->_table = 'shop';
+		$this->_pk    = 'shopid';
 		parent::__construct();
 	}
 
@@ -14,30 +14,44 @@ class table_card extends discuz_table{
 		global $_G;
 		//////////////////////////
 		$fields = "
-			`cardnoid` mediumint(8) unsigned NOT NULL auto_increment,
-			`cardcatid` smallint(3) NOT NULL,
-			`cardpici` smallint(3) NOT NULL,
-			`cardno` char(20) character set gbk NOT NULL,
-			`cardpass` char(32) character set gbk NOT NULL,
-			`cardtype` tinyint(1) NOT NULL,
+			`shopid` mediumint(8) unsigned NOT NULL auto_increment,
+			`shopname` char(50) character set gbk NOT NULL,
+			`shopalias` char(40) character set gbk NOT NULL,
+			`shopvideo` varchar(255) character set gbk NOT NULL,
+			`shoplocation` char(40) character set gbk NOT NULL,
+			`dist` char(50) character set gbk NOT NULL,
+			`comy` char(50) character set gbk NOT NULL,
+			`shopintroduction` varchar(255) character set gbk NOT NULL,
+			`shopinformation` text character set gbk NOT NULL,
+			`shoprecommend` smallint(3) NOT NULL,
+			`shoplevel` smallint(3) NOT NULL,
 			`uid` mediumint(8) NOT NULL,
+			`shopdianyuan` text character set gbk NOT NULL,
+			`createtime` int(10) unsigned NOT NULL,
+			`renlingtime` int(10) NOT NULL,
 			`status` tinyint(1) NOT NULL,
-			`maketime` int(10) unsigned NOT NULL,
-			`bindtime` int(10) unsigned NOT NULL,
-			`fafanguid` mediumint(8) default NULL,
-			PRIMARY KEY  (`cardnoid`)
+			`shopsort` smallint(3) NOT NULL,
+			`shoplogo` varchar(100) character set gbk NOT NULL,
+			`address` varchar(100) character set gbk NOT NULL,
+			`phone` varchar(20) character set gbk NOT NULL,
+			`lianxiren` varchar(20) character set gbk NOT NULL,
+			`qq` varchar(20) character set gbk NOT NULL,
+			`upmokuai` varchar(255) NOT NULL,
+			`businessid` mediumint(8) unsigned NOT NULL,
+			`upshopid` mediumint(8) unsigned NOT NULL,
+			PRIMARY KEY  (`shopid`)
 		";
 		//////////////////////
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
 		if(DB::num_rows($query) == 1) {
-			//DB::query('DROP TABLE '.DB::table($this->_table));
+			DB::query('DROP TABLE '.DB::table($this->_table));
 		}
-		if(DB::num_rows($query) != 1) {
+		//if(DB::num_rows($query) != 1) {
 			$create_table_sql = "CREATE TABLE ".DB::table($this->_table)." ($fields) TYPE=MyISAM;";
 			$db = DB::object();
 			$create_table_sql = $this->syntablestruct($create_table_sql, $db->version() > '4.1', $_G['config']['db']['1']['dbcharset']);
 			DB::query($create_table_sql);
-		}
+		//}
 	}
 
 	public function syntablestruct($sql, $version, $dbcharset) {
@@ -59,6 +73,13 @@ class table_card extends discuz_table{
 		} else {
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
+	}
+	public function fetch_by_shopid($shopid) {
+		$mokuai_info = array();
+		if($mokuaiid) {
+			$mokuai_info = DB::fetch_first('SELECT * FROM %t WHERE mokuaiid=%s', array($this->_table, $mokuaiid));
+		}
+		return $mokuai_info;
 	}
 
 }

@@ -433,24 +433,13 @@ EOF;
 	}
 }elseif ($subop == 'mokuainode'){
 	dsetcookie('debugmokuai',$biaoshi);//人性化
-	$nodetype = getgpc('nodetype');
-	$nodexml_file = MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/node.xml';
-	$nodes = xml2array(file_get_contents($nodexml_file));
-	$nodefile = getmod($biaoshi,$version);
-	foreach($nodefile as $mk=>$row ){
-		if(!in_array($row,array('function','api','ajax'))){
-			$nodes[$row]['title'] = $nodes[$row]['title'];
-			$nodes[$row]['displayorder'] = $nodes[$row]['displayorder'];
-			$nodes[$row]['menu'] = $nodes[$row]['menu'];
-			$nodes[$row]['table'] = $nodes[$row]['table'];
-			$nodes[$row]['template'] = $nodes[$row]['template'];
-		}
-	}
-	file_put_contents ($nodexml_file,diconv(array2xml($nodes, 1),"UTF-8", $_G['charset']."//IGNORE"));
 
-	$nodes = xml2array(file_get_contents($nodexml_file));
+	$nodetype = getgpc('nodetype');
 	$nodetypes = array('admincp','member','yiqixueba','hook');
 	$nodetype = in_array($nodetype,$nodetypes) ? $nodetype : $nodetypes[0];
+
+	$nodexml_file = MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/node.xml';
+	$nodes = xml2array(file_get_contents($nodexml_file));
 	foreach($nodetypes as $k=>$v ){
 		$nodetype_link	.= '&nbsp;&nbsp;'.($nodetype == $v ? '<span style="color:#000000;">'.lang('plugin/yiqixueba','node_'.$v).'</span>' :'<a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$v.'">'.lang('plugin/yiqixueba','node_'.$v).'</a>');
 	}

@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<style type="text/css">
+body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+#l-map{height:100%;width:100%;float:left;border-right:2px solid #bcbcbc;}
+#r-result{height:10%;width:85%;float:left;}
+#mapbutton{height:10%;width:15%;float:left;}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+<title>一卡通店铺地图</title>
+</head>
+<body>
+<div id="l-map"></div>
+</body>
+</html>
+<script type="text/javascript">
+	var xzb = parent.document.getElementById("baidu_x").value;
+	var yzb = parent.document.getElementById("baidu_y").value;
+	xzb = xzb==''?116.331398:xzb;
+	yzb = yzb==''?39.897445:yzb;
+	var map = new BMap.Map("l-map");
+	var point = new BMap.Point(xzb,yzb);
+	map.centerAndZoom(point,14);
+	map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_HYBRID_MAP]}));     
+	map.addControl(new BMap.ScaleControl());                    // 添加默认比例尺控件
+	map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+	biaozhu();
+
+	function biaozhu(){
+		var p = map.getCenter();
+
+		var marker = new BMap.Marker(p), px = map.pointToPixel(p);
+		map.addOverlay(marker);
+		marker.enableDragging();    
+		p = marker.getPosition();
+		parent.document.getElementById("baidu_x").value = p.lng ;
+		parent.document.getElementById("baidu_y").value = p.lat  ;
+		marker.addEventListener("dragend", function(){
+			p = marker.getPosition();  
+			parent.document.getElementById("baidu_x").value = p.lng ;
+			parent.document.getElementById("baidu_y").value = p.lat  ;
+
+		});
+	}
+</script>
