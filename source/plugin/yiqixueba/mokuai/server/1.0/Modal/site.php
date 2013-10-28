@@ -26,14 +26,14 @@ class table_site extends discuz_table{
 		";
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
 		if(DB::num_rows($query) == 1) {
-			//DB::query('DROP TABLE '.DB::table($this->_table));
+			DB::query('DROP TABLE '.DB::table($this->_table));
 		}
-		if(DB::num_rows($query) != 1) {
+		//if(DB::num_rows($query) != 1) {
 			$create_table_sql = "CREATE TABLE ".DB::table($this->_table)." ($fields) TYPE=MyISAM;";
 			$db = DB::object();
 			$create_table_sql = $this->syntablestruct($create_table_sql, $db->version() > '4.1', $_G['config']['db']['1']['dbcharset']);
 			DB::query($create_table_sql);
-		}
+		//}
 	}
 
 	public function syntablestruct($sql, $version, $dbcharset) {

@@ -2,6 +2,21 @@
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
+	$installdata = array();
+	require_once DISCUZ_ROOT.'/source/discuz_version.php';
+	$installdata['sitegroup'] = 'QiMzl6m9o6';
+	$installdata['charset'] = $_G['charset'];
+	$installdata['clientip'] = $_G['clientip'];
+	$installdata['siteurl'] = $_G['siteurl'];
+	$installdata['version'] = DISCUZ_VERSION.'-'.DISCUZ_RELEASE.'-'.DISCUZ_FIXBUG;
+	$installdata = serialize($installdata);
+	$installdata = base64_encode($installdata);
+	$api_url = 'http://localhost/web/17xue8/plugin.php?id=yiqixueba:api&apiaction=server_install&indata='.$installdata.'&sign='.md5(md5($installdata));
+	$xml = @file_get_contents($api_url);
+	require_once libfile('class/xml');
+	$outdata = is_array(xml2array($xml)) ? xml2array($xml) : $xml;
+
+	//dump($outdata);
 
 $subops = array('sitegrouplist','sitegroupedit','sitegroupexport');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
@@ -163,11 +178,32 @@ if($subop == 'sitegrouplist') {
 			$enmokuais = array_unique(array_merge($sitegroups[$sitegroupid]['installmokuai'],$sitegroups[$sitegroupid]['upgrademokuai']));
 			showsetting(lang('plugin/yiqixueba','enuser_mokuai'),array('installmokuai',$mksettings),$enmokuais,'mcheckbox','disabled="disabled"',0,lang('plugin/yiqixueba','sitegroup_name_comment'),'','',true);
 			showtablefooter();
-			showtableheader(lang('plugin/yiqixueba','sitegroup_menu_option'));
-			showsetting(lang('plugin/yiqixueba','sitegroup_default_menu'),'defaultmenu',1,'radio','',0,lang('plugin/yiqixueba','sitegroup_default_menu_comment'),'','',true);//radio
+			showtableheader(lang('plugin/yiqixueba','sitegroup_menu_option'), 'nobottom');
+
+			$defaultmenu = $_GET['defaultmenu']?$_GET['defaultmenu']:0;
+			showsetting(lang('plugin/yiqixueba','sitegroup_customize_menu'), array('defaultmenu', array(
+				array(1, cplang('yes'), array('customize_menu' => '')),
+				array(0, cplang('no'), array('customize_menu' => 'none'))
+			), TRUE), $defaultmenu, 'mradio','',0,lang('plugin/yiqixueba','sitegroup_customize_menu_comment'),'','',true);
+			showtablefooter();
+				showtagheader('div', 'customize_menu', $defaultmenu);
+				showtableheader(lang('plugin/yiqixueba','menu_list'), 'noborder fixpadding');
+				showsubtitle(array('', 'display_order',lang('plugin/yiqixueba','menu_title'),lang('plugin/yiqixueba','modfile'),lang('plugin/yiqixueba','menu_link')));
+				//echo $typeselect;
+				echo '<tr><td colspan="1"></td><td colspan="4"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_menu').'</a></div></td></tr>';
+				showtablefooter();
+				showtagfooter('div');
 			showsubmit('submit');
 			showtablefooter();
 			showformfooter();
+		echo <<<EOT
+<script type="text/JavaScript">
+	var rowtypedata = [
+		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<input name="newtitle[]" value="" size="15" type="text" class="txt">'],[3, '']],
+		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<div class=\"board\"><input name="newtitle[]" value="" size="15" type="text" class="txt"></div>'], [1,'$modlist'], [1, '<input name="newlink[]" value="" size="15" type="text" class="txt"><input type="hidden" name="newupid[]" value="{1}" />'],[1, '']]
+	];
+</script>
+EOT;
 		} else {
 			if(intval($_GET['defaultmenu'])){
 				$sitegroups[$sitegroupid]['menu'] = $sitegroups[$sitegroupid]['nodes'];
@@ -182,6 +218,11 @@ if($subop == 'sitegrouplist') {
 	$install_file = MOKUAI_DIR.'/'.diconv($sitegroups[$sitegroupid]['name'],$_G['charset'], "gb2312//IGNORE").'_install.php';
 	$install_text = "<?php\nif(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {\n\texit('Access Denied');\n}\n\nif(fsockopen('localhost', 80)){\n\t\$installdata = array();\n\trequire_once DISCUZ_ROOT.'/source/discuz_version.php';\n\t\$installdata['sitegroup'] = '$sitegroupid';\n\t\$installdata['charset'] = \$_G['charset'];\n\t\$installdata['clientip'] = \$_G['clientip'];\n\t\$installdata['siteurl'] = \$_G['siteurl'];\n\t\$installdata['version'] = DISCUZ_VERSION.'-'.DISCUZ_RELEASE.'-'.DISCUZ_FIXBUG;\n\t\$installdata = serialize(\$installdata);\n\t\$installdata = base64_encode(\$installdata);\n\t\$api_url = '".$_G['siteurl']."plugin.php?id=yiqixueba:api&apiaction=server_install&indata='.\$installdata.'&sign='.md5(md5(\$installdata));\n\t\$xml = @file_get_contents(\$api_url);\n\trequire_once libfile('class/xml');\n\t\$outdata = is_array(xml2array(\$xml)) ? xml2array(\$xml) : \$xml;\n}else{\n\texit(lang('plugin/yiqixueba','check_connection'));\n}\n?>";
 	file_put_contents($install_file,$install_text);
+
+	dump($sitegroups[$sitegroupid]['installmokuai']);
+
+
+
 	echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 	cpmsg(lang('plugin/yiqixueba','export_sitegroup_succeed'), 'action='.$this_page.'&subop=sitegrouplist', 'succeed');
 }

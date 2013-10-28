@@ -57,12 +57,23 @@ class table_shopsort extends discuz_table{
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
 	}
-	public function fetch_by_shopsortid($shopsortid) {
-		$mokuai_info = array();
-		if($mokuaiid) {
-			$mokuai_info = DB::fetch_first('SELECT * FROM %t WHERE mokuaiid=%s', array($this->_table, $mokuaiid));
+	public function fetch_by_upids($sortupid) {
+		if($sortupid) {
+			$sort_info = DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." WHERE sortupid = ".$sortupid." order by concat(upids,'-',shopsortid) asc");
+		}else{
+			$sort_info = DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." order by concat(upids,'-',shopsortid) asc");
 		}
-		return $mokuai_info;
+		return $sort_info;
+	}
+	public function fetch_result_upids_by_shopsortid($shopsortid) {
+		if($sortupid) {
+			return DB::result_first("SELECT upids FROM ".DB::table($this->_table)." WHERE shopsortid=".intval($shopsortid));
+		}
+	}
+	public function fetch_result_sortlevel_by_shopsortid($shopsortid) {
+		if($sortupid) {
+			return DB::result_first("SELECT sortlevel FROM ".DB::table($this->_table)." WHERE shopsortid=".intval($shopsortid));
+		}
 	}
 
 }
