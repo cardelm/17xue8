@@ -22,6 +22,7 @@ $subops = array('sitegrouplist','sitegroupedit','sitegroupexport');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 $menus_type = getgpc('menus_type');
 
+$systemgroups = array('ViI7m2R9QM','QiMzl6m9o6','DAxEAvi2ie');
 $menus_types = array('admincp','member','yiqixueba');
 $menus_type = in_array($menus_type,$menus_types) ? $menus_type : $menus_types[0];
 
@@ -48,17 +49,29 @@ if($subop == 'sitegrouplist') {
 		showtips(lang('plugin/yiqixueba','sitegroup_list_tips'));
 		showformheader($this_page.'&subop=sitegrouplist');
 		showtableheader(lang('plugin/yiqixueba','sitegroup_list'));
-		showsubtitle(array('','display_order', lang('plugin/yiqixueba','sitegroup_name'),lang('plugin/yiqixueba','sitegroup_access'),''));
+		showsubtitle(array('','display_order', lang('plugin/yiqixueba','sitegroup_id'),lang('plugin/yiqixueba','sitegroup_name'),lang('plugin/yiqixueba','sitegroup_access'),lang('plugin/yiqixueba','sitegroup_menu'),''));
 		foreach($sitegroups as $k=>$row ){
-			showtablerow('', array('class="td25"','class="td25"', 'style="width:100px"', 'valign="top" style="width:610px"',''), array(
-				$row['systemgroup'] ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$k\" />",
+			foreach($mokuais as $k1=>$v1 ){
+				if(in_array($k1,$row['installmokuai']) && $k1 != 'main' || in_array($k1,$row['upgrademokuai'] )){
+					if(in_array($k1,$row['installmokuai']) && in_array($k1,$row['upgrademokuai'])){
+						$mktext[$k] .= '<span class="bold">'.$v1['name'].'</span>';
+					}else{
+						$mktext[$k] .= $v1['name'];
+					}
+					$mktext[$k] .= '&nbsp;&nbsp;';
+				}
+			}
+			showtablerow('', array('class="td25"','class="td25"', 'style="width:100px"','style="width:100px"', 'valign="top" style="width:610px"','',''), array(
+				in_array($k,$systemgroups) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$k\" />",
 				"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$k]\" value=\"".intval($row['displayorder'])."\">",
+				$k,
 				'<span class="bold">'.$row['name'].'</span>',
-				'',
-				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupedit&menus_type=$menus_type&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','edit')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupexport&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','export')."</a>",
+				$k == $systemgroups[2] ? lang('plugin/yiqixueba','all_mokuai'):$mktext[$k],
+				$row['defaultmenu'] ? lang('plugin/yiqixueba','customize') : lang('plugin/yiqixueba','default'),
+				$k != $systemgroups[2] ? "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupedit&menus_type=$menus_type&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','edit')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupexport&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','export')."</a>" : '',
 			));
 		}
-		echo '<tr><td></td><td colspan="4"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=sitegroupedit" class="addtr" >'.lang('plugin/yiqixueba','add_sitegroup').'</a></div></td></tr>';
+		echo '<tr><td></td><td colspan="6"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=sitegroupedit" class="addtr" >'.lang('plugin/yiqixueba','add_sitegroup').'</a></div></td></tr>';
 		showsubmit('submit', 'submit', 'del');
 		showtablefooter();
 		showformfooter();
@@ -125,7 +138,6 @@ if($subop == 'sitegrouplist') {
 				$installmks = array('main');
 			}
 			$sitegroups[$sid]['name'] = $sitegroup_name;
-			$sitegroups[$sid]['displayorder'] = 0;
 			$sitegroups[$sid]['installmokuai'] = $installmks;
 			$sitegroups[$sid]['upgrademokuai'] = $_POST['upgrademokuai'];
 			$sitegroups = array_sort($sitegroups,'displayorder');
@@ -169,7 +181,20 @@ if($subop == 'sitegrouplist') {
 			cpmsg(lang('plugin/yiqixueba','sitegroup_select_node_succeed'), 'action='.$this_page.'&subop=sitegroupedit&step=3&sitegroupid='.$sitegroupid, 'succeed');
 		}
 	}elseif($step == 3){
+		$menus_type = getgpc('menus_type');
+		$menus_types = array('admincp','member','yiqixueba');
+		$menus_type = in_array($menus_type,$menus_types) ? $menus_type : $menus_types[0];
+
 		if(!submitcheck('submit')) {
+			$menus_link = '';
+			foreach ($menus_types as $k => $v ){
+				$menus_link .= '&nbsp;&nbsp;';
+				if($menus_type == $v){
+					$menus_link .= '<span style="color:#000000;">'.lang('plugin/yiqixueba','menutype_'.$v).'</span>';
+				}else{
+					$menus_link .= '<a href = "'.ADMINSCRIPT.'?action='.$this_page.'&subop=sitegroupedit&sitegroupid='.$sitegroupid.'&step=3&defaultmenu=1&menus_type='.$v.'">'.lang('plugin/yiqixueba','menutype_'.$v).'</a>';
+				}
+			}
 			showtips(lang('plugin/yiqixueba','select_menu_tips'));
 			showformheader($this_page.'&subop=sitegroupedit&step=3');
 			showtableheader(lang('plugin/yiqixueba','sitegroup_option'));
@@ -180,22 +205,78 @@ if($subop == 'sitegrouplist') {
 			showtablefooter();
 			showtableheader(lang('plugin/yiqixueba','sitegroup_menu_option'), 'nobottom');
 
-			$defaultmenu = $_GET['defaultmenu']?$_GET['defaultmenu']:0;
+			$defaultmenu = $_GET['defaultmenu']?$_GET['defaultmenu']:$sitegroups[$sitegroupid]['defaultmenu'];
 			showsetting(lang('plugin/yiqixueba','sitegroup_customize_menu'), array('defaultmenu', array(
 				array(1, cplang('yes'), array('customize_menu' => '')),
 				array(0, cplang('no'), array('customize_menu' => 'none'))
 			), TRUE), $defaultmenu, 'mradio','',0,lang('plugin/yiqixueba','sitegroup_customize_menu_comment'),'','',true);
 			showtablefooter();
 				showtagheader('div', 'customize_menu', $defaultmenu);
-				showtableheader(lang('plugin/yiqixueba','menu_list'), 'noborder fixpadding');
+				showtableheader($menus_link);
 				showsubtitle(array('', 'display_order',lang('plugin/yiqixueba','menu_title'),lang('plugin/yiqixueba','modfile'),lang('plugin/yiqixueba','menu_link')));
-				//echo $typeselect;
+
+				$subtitleclass = array('class="td25"', 'class="td25"', 'style="width:260px"', '');
+				foreach($sitegroups[$sitegroupid]['cmenus'][$menus_type] as $mk=>$row ){
+					$sub_menu = $row['submenu'];
+					$sub_menu = array_sort($sub_menu,'displayorder');
+
+					showtablerow('',$subtitleclass, array(
+
+						(count($sub_menu) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$mk.'\', this)">[+]</a>' : '').(count($sub_menu) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />"),
+
+						"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$mk]\" value=\"$row[displayorder]\">",
+
+						"<div><input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$mk]\" value=\"".$row['title']."\">"."<a href=\"###\" onclick=\"addrowdirect=1;addrow(this, 1, '$mk')\" class=\"addchildboard\">".lang('plugin/yiqixueba','add_submenu')."</a></div>",
+
+						"",
+
+						'',
+
+					));
+					showtagheader('tbody', 'subnav_'.$mk, false);
+					foreach ($sub_menu  as $kk => $subrow ){
+						$modlist = '<select name="modfilenew['.$kk.']"><option value="">'.lang('plugin/yiqixueba','select_modfile').'</option>';
+						foreach ( $sitegroups[$sitegroupid]['nodes'] as $k => $v ){
+							list($m,$t,$n) = explode("_",$v);
+							$nodes = xml2array(file_get_contents(MOKUAI_DIR.'/'.$m.'/'.$mokuais[$m]['currentversion'].'/'.'node.xml'));
+							if($t == $menus_type && $n){
+								$modlist .= '<option value="'.$m.'_'.$n.'" '.($subrow['modfile'] == $m.'_'.$n ? ' selected':'' ).'>'.$mokuais[$m]['name'].'('.$mokuais[$m]['currentversion'].')-'.$nodes[$t.'_'.$n]['title'].'</option>';
+							}
+						}
+						$modlist .= '</select>';
+						//dump($modlist);
+						showtablerow('', $subtitleclass, array(
+							"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$kk\">",
+							"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$kk]\" value=\"$subrow[displayorder]\">",
+							"<div class=\"board\"><input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$kk]\" value=\"".$subrow['title']."\"></div>",
+							$modlist.'<input type="hidden" name="upidnew['.$kk.']" value="'.$mk.'" />',
+							"<input type=\"text\" class=\"txt\" size=\"15\" name=\"linknew[$kk]\" value=\"".$subrow['link']."\">",
+							));
+					}
+
+					showtagfooter('tbody');
+
+				}
+
 				echo '<tr><td colspan="1"></td><td colspan="4"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_menu').'</a></div></td></tr>';
 				showtablefooter();
+				showtableheader();
+				showsetting(lang('plugin/yiqixueba','customize_succeed'),'customize',0,'radio','',0,lang('plugin/yiqixueba','sitegroup_name_comment'),'','',true);
+				showtablefooter();
 				showtagfooter('div');
-			showsubmit('submit');
+			showtableheader();
+			showsubmit('submit','submit','del');
 			showtablefooter();
 			showformfooter();
+			$modlist = '<select name="newmodfile[]"><option value="">'.lang('plugin/yiqixueba','select_modfile').'</option>';
+			foreach ($sitegroups[$sitegroupid]['nodes'] as $k => $v ){
+				list($m,$t,$n) = explode("_",$v);
+				$nodes = xml2array(file_get_contents(MOKUAI_DIR.'/'.$m.'/'.$mokuais[$m]['currentversion'].'/'.'node.xml'));
+				if($t == $menus_type && $n){
+					$modlist .= '<option value="'.$m.'_'.$n.'">'.$mokuais[$m]['name'].'('.$mokuais[$m]['currentversion'].')-'.$nodes[$t.'_'.$n]['title'].'</option>';
+				}
+			}
+			$modlist .= '</select>';
 		echo <<<EOT
 <script type="text/JavaScript">
 	var rowtypedata = [
@@ -205,10 +286,91 @@ if($subop == 'sitegrouplist') {
 </script>
 EOT;
 		} else {
-			if(intval($_GET['defaultmenu'])){
-				$sitegroups[$sitegroupid]['menu'] = $sitegroups[$sitegroupid]['nodes'];
-			}
+			if(!intval($_GET['defaultmenu'])){
 
+				$menus_types = array('admincp','member','yiqixueba');
+				foreach($sitegroups[$sitegroupid]['nodes'] as $k=>$v ){
+					list($m,$t,$n) = explode("_",$v);
+					$sitegroups_menus[$t][$m]['title'] = $mokuais[$m]['name'];
+					$sitegroups_menus[$t][$m]['displayorder'] = $mokuais[$m]['displayorder'];
+					$temp_nodes = xml2array(file_get_contents(MOKUAI_DIR.'/'.$m.'/'.$mokuais[$m]['currentversion'].'/node.xml'));
+					$sitegroups_menus[$t][$m]['submenu'][$n]['title'] = $temp_nodes[$t.'_'.$n]['title'];
+					$sitegroups_menus[$t][$m]['submenu'][$n]['displayorder'] =  $temp_nodes[$t.'_'.$n]['displayorder'];
+					$sitegroups_menus[$t][$m]['submenu'][$n]['modfile'] =  $v;
+				}
+				$sitegroups[$sitegroupid]['menus'] = $sitegroups_menus;
+			}else{
+				if(!intval($_GET['customize'])){
+					//更新菜单
+					if(is_array($_GET['titlenew'])) {
+						foreach($_GET['titlenew'] as $id => $title) {
+							$title = trim(dhtmlspecialchars($title));
+							$linknew = trim(dhtmlspecialchars($_GET['linknew'][$id]));
+							$displayordernew = intval($_GET['displayordernew'][$id]);
+							$upidnew = trim($_GET['upidnew'][$id]);
+							$statusnew = intval($_GET['statusnew'][$id]);
+							$modfilenew = trim($_GET['modfilenew'][$id]);
+							if(!empty($title) && !$upidnew){
+								$cmenus[$menus_type][$id]['title'] = $title;
+								$cmenus[$menus_type][$id]['displayorder'] = $displayordernew;
+							}
+							if($upidnew && !empty($title) && !empty($modfilenew)){
+								$data = array(
+									'displayorder' => $displayordernew,
+									'title' => $title,
+									'link' => $linknew,
+									'modfile' => $modfilenew,
+								);
+								$cmenus[$menus_type][$upidnew]['submenu'][$id] = $data;
+								$cmenus[$menus_type][$upidnew]['submenu'] = array_sort($cmenus[$menus_type][$upidnew]['submenu'],'displayorder');
+							}
+						}
+					}
+					//新建菜单
+					if(is_array($_GET['newtitle'])) {
+						foreach($_GET['newtitle'] as $k => $v) {
+							$v = dhtmlspecialchars(trim($v));
+							$newlink = trim(dhtmlspecialchars($_GET['newlink'][$k]));
+							$newmodfile = trim(dhtmlspecialchars($_GET['newmodfile'][$k]));
+							$newupid = trim($_GET['newupid'][$k]);
+							$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+							if(!empty($v) && !$newupid ){
+								$mid = random(10);
+								$cmenus[$menus_type][$mid]['displayorder'] = $newdisplayorder;
+								$cmenus[$menus_type][$mid]['title'] = $v;
+							}
+							if($newupid && !empty($v) && !empty($newmodfile)) {
+								$smid = random(10);
+								$cmenus[$menus_type][$newupid]['submenu'][$smid]['displayorder'] = $newdisplayorder;
+								$cmenus[$menus_type][$newupid]['submenu'][$smid]['title'] = $v;
+								$cmenus[$menus_type][$newupid]['submenu'][$smid]['link'] = $newlink;
+								$cmenus[$menus_type][$newupid]['submenu'][$smid]['modfile'] = $newmodfile;
+								$cmenus[$menus_type][$newupid]['submenu'] = array_sort($cmenus[$menus_type][$newupid]['submenu'],'displayorder');
+							}
+						}
+					}
+					//删除菜单
+					if($ids = dimplode($_GET['delete'])) {
+						$ida = explode(',',$ids);
+						foreach ( $cmenus[$menus_type] as $k => $v ){
+							if(in_array("'".$k."'",$ida)){
+								unset($cmenus[$menus_type][$k]);
+							}
+							foreach ( $v['submenu'] as $k1 => $v1 ){
+								if(in_array("'".$k1."'",$ida)){
+									unset($cmenus[$menus_type][$k]['submenu'][$k1]);
+								}
+							}
+						}
+					}
+					$cmenus[$menus_type] = array_sort($cmenus[$menus_type],'displayorder');
+					$sitegroups[$sitegroupid]['cmenus'][$menus_type] = $cmenus[$menus_type];
+					file_put_contents (MOKUAI_DIR."/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
+
+					cpmsg(lang('plugin/yiqixueba','menu_edit_succeed'), 'action='.$this_page.'&subop=sitegroupedit&sitegroupid='.$sitegroupid.'&step=3&defaultmenu=1', 'succeed');
+				}
+			}
+			$sitegroups[$sitegroupid]['defaultmenu'] = intval($_GET['defaultmenu']);
 			echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 			file_put_contents (MOKUAI_DIR."/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
 			cpmsg(lang('plugin/yiqixueba','edit_sitegroup_succeed'), 'action='.$this_page.'&subop=sitegrouplist', 'succeed');
@@ -219,11 +381,16 @@ EOT;
 	$install_text = "<?php\nif(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {\n\texit('Access Denied');\n}\n\nif(fsockopen('localhost', 80)){\n\t\$installdata = array();\n\trequire_once DISCUZ_ROOT.'/source/discuz_version.php';\n\t\$installdata['sitegroup'] = '$sitegroupid';\n\t\$installdata['charset'] = \$_G['charset'];\n\t\$installdata['clientip'] = \$_G['clientip'];\n\t\$installdata['siteurl'] = \$_G['siteurl'];\n\t\$installdata['version'] = DISCUZ_VERSION.'-'.DISCUZ_RELEASE.'-'.DISCUZ_FIXBUG;\n\t\$installdata = serialize(\$installdata);\n\t\$installdata = base64_encode(\$installdata);\n\t\$api_url = '".$_G['siteurl']."plugin.php?id=yiqixueba:api&apiaction=server_install&indata='.\$installdata.'&sign='.md5(md5(\$installdata));\n\t\$xml = @file_get_contents(\$api_url);\n\trequire_once libfile('class/xml');\n\t\$outdata = is_array(xml2array(\$xml)) ? xml2array(\$xml) : \$xml;\n}else{\n\texit(lang('plugin/yiqixueba','check_connection'));\n}\n?>";
 	file_put_contents($install_file,$install_text);
 
-	dump($sitegroups[$sitegroupid]['installmokuai']);
+	if($sitegroups[$sitegroupid]['defaultmenu']){
+		dump($sitegroups[$sitegroupid]['cmenus']);
+	}else{
+		dump($sitegroups[$sitegroupid]['menus']);
+	}
+
 
 
 
 	echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-	cpmsg(lang('plugin/yiqixueba','export_sitegroup_succeed'), 'action='.$this_page.'&subop=sitegrouplist', 'succeed');
+	//cpmsg(lang('plugin/yiqixueba','export_sitegroup_succeed'), 'action='.$this_page.'&subop=sitegrouplist', 'succeed');
 }
 ?>

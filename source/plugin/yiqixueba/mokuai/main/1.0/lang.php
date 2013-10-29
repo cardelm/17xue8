@@ -5,11 +5,11 @@ if(!defined('IN_DISCUZ')) {
 
 $plang['scriptlang'] = array(
 	'member' => '会员中心',
-	'' => '',
-	'' => '',
-	'' => '',
-	'' => '',
-	'' => '',
+	'membergroup_name' => '会员组名称',
+	'membergroup_list' => '会员组列表',
+	'add_membergroup' => '新建会员组',
+	'membergroup_option' => '会员组选项',
+	'membergroup_access' => '会员组权限',
 	'' => '',
 	'' => '',
 	'' => '',

@@ -7,15 +7,15 @@ $subops = array('membergrouplist','membergroupedit');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
 $membergroupid = getgpc('membergroupid');
-$membergroup_info = C::t(GM('main_membergroup'))->fetch_by_membergroupid($membergroupid);
+$membergroup_info = C::t(GM('main_membergroup'))->fetch($membergroupid);
 
 if($subop == 'membergrouplist') {
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','membergroup_list_tips'));
 		showformheader($this_page.'&subop=membergrouplist');
 		showtableheader(lang('plugin/yiqixueba','membergroup_list'));
-		showsubtitle(array('', lang('plugin/yiqixueba','membergroup_sname'),lang('plugin/yiqixueba','membergroup_access'),lang('plugin/yiqixueba','status'),''));
-		$mokuais_row = C::t(GM('main_membergroup'))->fetch_all();
+		showsubtitle(array('', lang('plugin/yiqixueba','membergroup_name'),lang('plugin/yiqixueba','membergroup_access'),lang('plugin/yiqixueba','status'),''));
+		$mokuais_row = C::t(GM('main_membergroup'))->range();
 		foreach($mokuais_row as $k=>$row ){
 			$vervalues = array();
 			$vervalues[0] = 0;
@@ -69,7 +69,7 @@ if($subop == 'membergrouplist') {
 				list($mokuai) = explode("_",$subrow['modfile']);
 				$vers[] = array($subrow['menuid'],$subrow['title'].'('.$mokuai.')');
 			}
-			
+
 			showsetting($row['title'],array('versions',$vers),dunserialize($membergroup_info['versions']),'mcheckbox','',0,lang('plugin/yiqixueba','membergroup_access_comment'),'','',true);
 		}
 		showsubmit('submit');

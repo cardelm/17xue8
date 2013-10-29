@@ -7,19 +7,12 @@
 		<item id="table"><![CDATA[]]></item>
 		<item id="template"><![CDATA[]]></item>
 	</item>
-	<item id="admincp_sitegroup">
-		<item id="title"><![CDATA[站长组]]></item>
+	<item id="yiqixueba_view">
+		<item id="title"><![CDATA[浏览前台页面]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="table"><![CDATA[]]></item>
-		<item id="template"><![CDATA[]]></item>
-	</item>
-	<item id="admincp_mokuai">
-		<item id="title"><![CDATA[模块设计]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[]]></item>
-		<item id="template"><![CDATA[]]></item>
+		<item id="template"><![CDATA[view]]></item>
 	</item>
 	<item id="admincp_site">
 		<item id="title"><![CDATA[站长管理]]></item>
@@ -35,12 +28,26 @@
 		<item id="table"><![CDATA[]]></item>
 		<item id="template"><![CDATA[]]></item>
 	</item>
-	<item id="yiqixueba_example">
+	<item id="admincp_mokuai">
+		<item id="title"><![CDATA[模块设计]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="admincp_sitegroup">
+		<item id="title"><![CDATA[站长组]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="admincp_example">
 		<item id="title"><![CDATA[例子页面]]></item>
 		<item id="displayorder"><![CDATA[100]]></item>
 		<item id="menu"><![CDATA[0]]></item>
 		<item id="table"><![CDATA[example]]></item>
-		<item id="template"><![CDATA[example]]></item>
+		<item id="template"><![CDATA[]]></item>
 	</item>
 	<item id="member_example">
 		<item id="title"><![CDATA[例子页面]]></item>
@@ -49,11 +56,11 @@
 		<item id="table"><![CDATA[example]]></item>
 		<item id="template"><![CDATA[example]]></item>
 	</item>
-	<item id="admincp_example">
+	<item id="yiqixueba_example">
 		<item id="title"><![CDATA[例子页面]]></item>
 		<item id="displayorder"><![CDATA[100]]></item>
 		<item id="menu"><![CDATA[0]]></item>
 		<item id="table"><![CDATA[example]]></item>
-		<item id="template"><![CDATA[]]></item>
+		<item id="template"><![CDATA[example]]></item>
 	</item>
 </root>

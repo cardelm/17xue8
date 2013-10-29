@@ -3,8 +3,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-
-
 //直接通过mokuai模块目录读取mokuai数据
 function getmokuais(){
 	$mokuai_array = array();
