@@ -39,17 +39,17 @@ function getmokuaivers($mokuainame){
 function update_mokuai($biaoshi,$version,$mukauidata){
 	global $_G;
 	require_once libfile('class/xml');
-	$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+	$mokuais = $mokuais_temp = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
 	if(!is_dir(MOKUAI_DIR.'/'.$biaoshi)){
-		$mokuais[$biaoshi]['biaoshi'] = $biaoshi;
+		$mokuais_temp[$biaoshi]['biaoshi'] = $biaoshi;
 		dmkdir(MOKUAI_DIR.'/'.$biaoshi);
 	}
 	$mokuaivers = getmokuaivers($biaoshi);
 	if(count($mokuaivers)==1){
-		$mokuais[$biaoshi]['currentversion'] = $mokuaivers[0];
+		$mokuais_temp[$biaoshi]['currentversion'] = $mokuaivers[0];
 	}
 	if(!is_dir(MOKUAI_DIR.'/'.$biaoshi.'/'.$version)){
-		$mokuais[$biaoshi]['version'][$version]['biaoshi'] = $version;
+		$mokuais_temp[$biaoshi]['version'][$version]['biaoshi'] = $version;
 		dmkdir(MOKUAI_DIR.'/'.$biaoshi.'/'.$version);
 	}
 	foreach (array('Controler','Modal','View','Data') as $k => $v ){
@@ -58,9 +58,14 @@ function update_mokuai($biaoshi,$version,$mukauidata){
 		}
 	}
 	foreach($mukauidata as $k2=>$v2 ){
-		$mokuais[$biaoshi]['version'][$version][$k2] = $v2;
+		$mokuais_temp[$biaoshi]['version'][$version][$k2] = $v2;
 	}
-	file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
+	if($mokuais != $mokuais_temp){
+		$mokuais = $mokuais_temp;
+		$mokuais = array_sort($mokuais,'displayorder','asc');
+		file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
+	}
+
 }
 //数组排序
 function array_sort($arr,$keys,$type='asc'){
@@ -150,7 +155,7 @@ function writetemplatefile($mokuai,$ver,$templatename,$nodetype){
 }//end func
 //
 function get_mokuaipage($mokuai,$version,$ptype){
-	$mokuaiid_dir = DISCUZ_ROOT.'source/plugin/yiqixueba/mokuai/'.$mokuai.'/'.$version.($ptype=='source'? '/Controler' : ($ptype=='template'? '/View' : '/Modal'));
+	$mokuaiid_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$version.($ptype=='source'? '/Controler' : ($ptype=='template'? '/View' : '/Modal'));
 	if ($handle = opendir($mokuaiid_dir)) {
 		while (false !== ($file = readdir($handle))) {
 			if ($file != "." && $file != ".." && $file != "index.html" && substr($file,0,1) != ".") {

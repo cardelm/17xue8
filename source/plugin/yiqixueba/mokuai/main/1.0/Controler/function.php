@@ -41,19 +41,6 @@ function api_indata($apiaction,$indata=array()){
 		//return false;
 	//}
 }//end func
-//
-function getmenus($menustype = 'admincp'){
-	$outmenus = array();
-	$pages =dunserialize(C::t('common_setting')->fetch('yiqixueba_pages'));
-	foreach($pages as $k=>$v ){
-		list($mokuai,$mtype,$mod) = explode("_",$v);
-		if($mod && $mtype == $menustype){
-			$outmenus[$mokuai][] = $mod;
-		}
-	}
-	return $outmenus;
-}
-
 
 //得到站长key值
 function getsitekey(){

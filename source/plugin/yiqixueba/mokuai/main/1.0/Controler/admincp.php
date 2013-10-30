@@ -9,23 +9,23 @@ $admin_menu = array();
 $menus_admincp = C::t(GM('main_menus'))->fetch_all('admincp',0);
 
 $menuk = 0;
-
 foreach($menus_admincp as $mk=>$row ){
 	$sub_menu = C::t(GM('main_menus'))->fetch_all('admincp',$row['menuid']);
 	$menukk = 0;
 	$submenus = array();
 	$cursubtitle = $curmokuai = '';
 	foreach($sub_menu as $kk => $subrow ){
+
 		if ( $menuk == 0 && $menukk == 0 && empty($submod) ){
-			$submod = $subrow['name'];
+			$submod = $row['name'].'_'.$subrow['name'];
 		}
-		if($submod == $subrow['name']){
+		if($submod == $row['name'].'_'.$subrow['name']){
 			$curtitle = $row['title'];
 			$cursubtitle = $subrow['title'];
 			$curmokuai = $row['name'];
 			$mod_file =  $subrow['modfile'];
 		}
-		$submenus[] = array($subrow['title'],'plugins&identifier=yiqixueba&pmod=admincp&submod='.$subrow['name'],$mod_file == $subrow['modfile']);
+		$submenus[] = array($subrow['title'],'plugins&identifier=yiqixueba&pmod=admincp&submod='.$row['name'].'_'.$subrow['name'],$mod_file == $subrow['modfile']);
 		$menukk++;
 	}
 	$admin_menu[] = array(array('menu'=> $cursubtitle ? $cursubtitle : $row['title'],'submenu'=>$submenus),$curmokuai == $row['name']);
@@ -37,6 +37,7 @@ showsubmenu($plugin['name'].' '.$plugin['version'].' ('.$curtitle.')',$admin_men
 
 $this_page = substr($_SERVER['QUERY_STRING'],7,strlen($_SERVER['QUERY_STRING'])-7);
 stripos($this_page,'subop=') ? $this_page = substr($this_page,0,stripos($this_page,'subop=')-1) : $this_page;
+
 
 require_once GC($mod_file);
 ?>

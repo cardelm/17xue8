@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
+	<item id="admincp_index">
+		<item id="title"><![CDATA[平台首页]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
 	<item id="yiqixueba_index">
 		<item id="title"><![CDATA[一起学吧]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="table"><![CDATA[]]></item>
 		<item id="template"><![CDATA[index]]></item>
+	</item>
+	<item id="member_index">
+		<item id="title"><![CDATA[基本信息]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[member]]></item>
+		<item id="template"><![CDATA[]]></item>
 	</item>
 	<item id="yiqixueba_mokuai">
 		<item id="title"><![CDATA[模块展示]]></item>
@@ -19,20 +33,6 @@
 		<item id="displayorder"><![CDATA[0]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="table"><![CDATA[setting]]></item>
-		<item id="template"><![CDATA[]]></item>
-	</item>
-	<item id="member_index">
-		<item id="title"><![CDATA[基本信息]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[member]]></item>
-		<item id="template"><![CDATA[]]></item>
-	</item>
-	<item id="admincp_index">
-		<item id="title"><![CDATA[平台首页]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[]]></item>
 		<item id="template"><![CDATA[]]></item>
 	</item>
 	<item id="admincp_membergroup">

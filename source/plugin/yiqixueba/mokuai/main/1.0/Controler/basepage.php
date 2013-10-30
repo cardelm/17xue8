@@ -13,11 +13,6 @@ function GC($pagename){
 	return $cache_file;
 }//
 
-//dump(file_exists(GC('main_function')));
-//dump((DISCUZ_ROOT.'source/plugin/yiqixueba/table/table_'.GM('main_mokuai')));
-//dump(file_exists(DISCUZ_ROOT.'source/plugin/yiqixueba/table/table_'.GM('main_mokuai').'.php'));
-//dump(GM('main_mokuai'));
-//dump(C::t(GM('main_mokuai'))->fetch_all());
 //
 function GM($tablename){
 	global $sitekey;

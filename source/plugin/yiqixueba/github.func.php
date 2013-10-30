@@ -2,12 +2,12 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-define('MOKUAI_DIR', 'C:\GitHub\17xue8/source/plugin/yiqixueba/mokuai');
+//define('MOKUAI_DIR', 'C:\GitHub\17xue8/source/plugin/yiqixueba/mokuai');
 //////////////////////////////////////////////////////////////////
 //程序调试的时候，自动更新github程序
 $this_dir = dirname(__FILE__);
 if ($this_dir == DISCUZ_ROOT.'source\plugin\yiqixueba'){
-	check_github_update();
+	//check_github_update();
 }
 //程序调试的时候，自动更新github程序
 function check_github_update($path=''){
@@ -22,7 +22,7 @@ function check_github_update($path=''){
 
 	if ($handle = opendir($path)) {
 		while (false !== ($file = readdir($handle))) {
-			if ($file != "." && $file != ".." && substr($file,0,1) != ".") {
+			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "mokuai") {
 				if (is_dir($path."/".$file)) {
 					if (!is_dir($out_path."/".$file)){
 						dmkdir($out_path."/".$file);
