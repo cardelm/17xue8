@@ -17,6 +17,10 @@ $biaoshi = getgpc('biaoshi');
 $version = getgpc('version');
 $mokuai_info = $mokuais[$biaoshi]['version'][$version];
 
+$nodetype = getgpc('nodetype');
+$nodetypes = array('global','admincp','member','yiqixueba','hook');
+$nodetype = in_array($nodetype,$nodetypes) ? $nodetype : $nodetypes[0];
+
 //人性化记住上次编辑的版本情况
 if(getcookie('debugmokuai')){
 	$debugmks = explode(",",getcookie('debugmokuai'));
@@ -30,6 +34,7 @@ if($subop == 'mokuailist') {
 		showtableheader(lang('plugin/yiqixueba','server_mokuai_list'));
 		showsubtitle(array('', lang('plugin/yiqixueba','mokuai_name'),lang('plugin/yiqixueba','mokuai_description'),'','',lang('plugin/yiqixueba','status')));
 		foreach($mokuais as $mk=>$row ){
+			
 			showtablerow('', array('class="td25"', 'class="td25"', 'style="width:350px"', 'style="width:45px"','','class="td25"'), array(
 				(is_array($row['version']) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$mk.'\', this)">['.(in_array($mk,$debugmks)? '-' : '+').']</a>' : '').(is_array($row['version']) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />"),
 
@@ -373,40 +378,34 @@ EOF;
 		cpmsg(lang('plugin/yiqixueba','page_edit_succeed'), 'action='.$this_page.'&subop=pagelist&biaoshi='.$biaoshi.'&version='.$version, 'succeed');
 	}
 }elseif ($subop == 'pluginlang'){
-	$page_type = getgpc('page_type');
-	$nodetype = getgpc('nodetype');
-	$pagename = getgpc('pagename');
-	list($page_type) = explode("_",$pagename);
-	$mokuai_lang_file = DISCUZ_ROOT.'source/plugin/yiqixueba/mokuai/'.$biaoshi.'/'.$version.'/lang.php';
-	if(file_exists($mokuai_lang_file)){
-		require($mokuai_lang_file);
-	}
-	$xml_file = DISCUZ_ROOT.'source/plugin/yiqixueba/discuz_plugin_yiqixueba.xml';
-	if(file_exists($xml_file)){
-		require_once libfile('class/xml');
-		$temp_lang = xml2array(file_get_contents($xml_file));
-	}
-	//dump($temp_lang['Data']['language']);
+	$nodes = $nodes_temp = xml2array(file_get_contents(MOKUAI_DIR."/".$biaoshi."/".$version."/node.xml"));
+	dump($_GET);
+	//dump($nodes);
+	$node = getgpc('node');
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','pluginlang_tips'));
 		showformheader($this_page.'&subop=pluginlang');
 		showtableheader('search');
-		$pagenames = get_mokuaipage($biaoshi,$version,$page_type);
-		$pagename = $pagename ? $pagename : $pagenames[0];
 		echo '<tr><td>';
-		echo '<select name="pagename">';
-		foreach($pagenames as $k=>$v ){
-			echo '<option value="'.$v.'" '.($pagename == $page_type.'_'.$v ? ' selected' : '').'>'.$v.'</option>';
+		echo '<select name="node">';
+		foreach($nodes as $k=>$v ){
+			list($nt,$nn) = explode("_",$k);
+			if(!$nn){
+				$nt = 'global';
+				$nn = $node;
+			}
+			echo '<option value="'.$k.'" '.($node == $nn && $nodetype == $nt ? ' selected' : '').'>'.lang('plugin/yiqixueba','node_'.$nt).'-'.$v['title'].'</option>';
 		}
 		echo '</select>';
+		echo "&nbsp;&nbsp;<input type=\"text\" name=\"\">";
 		echo "&nbsp;&nbsp;<input class=\"btn\" type=\"submit\" value=\"$lang[search]\" /></td></tr>";
 		showtablefooter();
 		showtableheader(lang('plugin/yiqixueba','pluginlang_edit').'&nbsp;&nbsp;'.$mokuai_info['name'].'-'.$mokuai_info['version']);
-		$mokuaiid ? showhiddenfields(array('mokuaiid'=>$mokuaiid)) : '';
-		$mokuai_langs = getmokuailang($mokuai_info['biaoshi'],$mokuai_info['version'],$pagename);
+		$mokuai_langs = getmokuailang($biaoshi,$version,$nodetype == 'global' ? $node : $nodetype.'_'.$node);
+		//dump($mokuai_langs);
 		showhiddenfields(array('page_type'=>$page_type));
-		foreach($mokuai_langs[$page_type] as $k=>$v ){
-			showsetting('['.$v.']','yiqixueba_lang['.$v.']',$yiqixuebalang[$page_type][$v],'text','',0,'','','',true);
+		foreach($mokuai_langs['source'] as $k=>$v ){
+			showsetting('['.$v.']','yiqixueba_lang['.$v.']',lang('plugin/yiqixueba',$v),'text','',0,'','','',true);
 		}
 		showsubmit('submit');
 		showtablefooter();
@@ -421,10 +420,8 @@ EOF;
 		cpmsg(lang('plugin/yiqixueba','mokuai_edit_succeed'), 'action='.$this_page.'&subop=pluginlang&mokuaiid='.$mokuaiid.'&pagename='.($page_type =='source' ? 'source' : 'template').'_'.$pagename, 'succeed');
 	}
 }elseif ($subop == 'mokuainode'){
+	$nodes = $nodes_temp = xml2array(file_get_contents(MOKUAI_DIR."/".$biaoshi."/".$version."/node.xml"));
 	dsetcookie('debugmokuai',$biaoshi);//人性化
-
-	$nodetypes = array('global','admincp','member','yiqixueba','hook');
-	$nodetype = in_array($nodetype,$nodetypes) ? $nodetype : $nodetypes[0];
 	function getselectdivarray($nodetype){
 		global $nodetypes;
 		foreach($nodetypes as $k=>$v ){
@@ -433,24 +430,19 @@ EOF;
 		return $select_div_array;
 	}
 
-	$nodes = $mokuais[$biaoshi]['version'][$version]['node'];
 	foreach($nodetypes as $k=>$v ){
 		$select_array[] = array($v,lang('plugin/yiqixueba','node_'.$v),getselectdivarray($v));
 	}
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','mokuai_node_tips'));
 		showformheader($this_page.'&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype);
-		showtableheader();
-		showtablerow('',array('class="td25"',''),array(lang('plugin/yiqixueba','current_mokuai'),'<span class="bold">'.$mokuais[$biaoshi]['name'].'-V'.$version.'</span>'));
-		showtablefooter();
-		showtableheader();
-		showsetting(lang('plugin/yiqixueba','nodetype'), array('nodetype', $select_array, TRUE), $nodetype, 'mradio','',0,'','','',true);
-		showtablefooter();
-		showtableheader();
+		showtableheader(lang('plugin/yiqixueba','mokuai_info'));
+		showsetting(lang('plugin/yiqixueba','current_mokuai'), '', '', '<span class="bold">'.$mokuais[$biaoshi]['name'].'-V'.$version.'</span>','',0,'','','',true);
+		showsetting(lang('plugin/yiqixueba','nodetype'), array('nodetype', $select_array), $nodetype, 'mradio','',0,lang('plugin/yiqixueba','nodetype_comment'),'','',true);
 		showtablefooter();
 		foreach($nodetypes as $k=>$v ){
 			showtagheader('div', 'div_'.$v, $v == $nodetype );
-			showtableheader();
+			showtableheader(lang('plugin/yiqixueba','node_'.$v));
 			if(in_array($v,array('admincp','member','yiqixueba'))){
 				$subtitleclass = array('class="td25"','style="width:60px"', 'style="width:120px"','style="width:120px"','style="width:60px"','style="width:120px"',($v == 'admincp' ? '' : 'style="width:120px"'),'');
 				showsubtitle(array('', lang('plugin/yiqixueba','node_menu_order'),lang('plugin/yiqixueba','node_name'),lang('plugin/yiqixueba','node_title'),lang('plugin/yiqixueba','node_menu'),lang('plugin/yiqixueba','node_table'),($v == 'admincp' ? '' : lang('plugin/yiqixueba','node_template')),''),'header',$subtitleclass);
@@ -481,11 +473,13 @@ EOF;
 						in_array($v,array('admincp','member','yiqixueba')) ? "<input class=\"checkbox\" type=\"checkbox\" name=\"menunew[".$mk."]\" value=\"1\" ".($row['menu']?' checked="checked"':'')."/>" : "",
 						in_array($v,array('admincp','member','yiqixueba')) ? ($row['table'] ? implode(',',$row['table']) : "<input class=\"txt\" type=\"text\" name=\"tablenew[".$mk."]\" value=\"".implode(',',$row['table'])."\" />") : "",
 						!in_array($v,array('admincp','member','yiqixueba')) ? '' :( $v == 'admincp' ? '' : ($row['template'] ? implode(',',$row['template']) : "<input class=\"txt\" type=\"text\" name=\"templatenew[".$mk."]\" value=\"".$row['template']."\" />")),
-						"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=nodeedit&biaoshi=$biaoshi&version=$version&nodetype=$nodetype&node=$nn\" >".lang('plugin/yiqixueba','edit')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=pluginlang&biaoshi=$biaoshi&version=$version&nodetype=$nodetype&node=$nn\" >".lang('plugin/yiqixueba','pluginlang')."</a>&nbsp;&nbsp;".$view_link,
+						"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=nodeedit&biaoshi=$biaoshi&version=$version&nodetype=$v&node=".($nn ? $nn : $mk)."\" >".lang('plugin/yiqixueba','edit')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=pluginlang&biaoshi=$biaoshi&version=$version&nodetype=$v&node=".($nn ? $nn : $mk)."\" >".lang('plugin/yiqixueba','pluginlang')."</a>&nbsp;&nbsp;".$view_link,
 					));
 				}
 			}
-			echo '<tr><td colspan="1"></td><td colspan="8"><div><a href="###" onclick="addrow(this, '.$addrow.', \''.$v.'\')" class="addtr">'.lang('plugin/yiqixueba','add_node').'</a></div></td></tr>';
+			if($v != 'global'){
+				echo '<tr><td colspan="1"></td><td colspan="8"><div><a href="###" onclick="addrow(this, '.$addrow.', \''.$v.'\')" class="addtr">'.lang('plugin/yiqixueba','add_node').'</a></div></td></tr>';
+			}
 			showtablefooter();
 			showtagfooter('div');
 		}
@@ -505,7 +499,6 @@ EOF;
 </script>
 EOT;
 	}else{
-		$nodes = $mokuais[$biaoshi]['version'][$version]['node'];
 		//原数据提交更新仅节点数据
 		if(is_array($_GET['titlenew'])) {
 			foreach($_GET['titlenew'] as $k => $v) {
@@ -533,8 +526,8 @@ EOT;
 					$nodes[$nnk]['title'] = $newtitle;
 					$nodes[$nnk]['displayorder'] = intval($_GET['newdisplayorder'][$k]);
 					$nodes[$nnk]['menu'] = intval($_GET['newmenu'][$k]);
-					$nodes[$nnk]['table'] = explode(",",trim(dhtmlspecialchars($_GET['newtable'][$k])));
-					$nodes[$nnk]['template'] =  explode(trim(dhtmlspecialchars($_GET['newtemplate'][$k])));
+					$nodes[$nnk]['table'] = trim(dhtmlspecialchars($_GET['newtable'][$k]));
+					$nodes[$nnk]['template'] = trim(dhtmlspecialchars($_GET['newtemplate'][$k]));
 				}
 				//writesourcefile($biaoshi,$version,$nodetype.'_'.$v,$nodetype);
 				//writetablefile($biaoshi,$version,$nodes[$nodetype.'_'.$v]['table'],$nodetype);
@@ -576,15 +569,15 @@ EOT;
 		}
 		//dump($nodes);
 		$nodes = array_sort($nodes,'displayorder','asc');
-		$mokuais_temp[$biaoshi]['version'][$version]['node'] = $nodes;
-		if($mokuais != $mokuais_temp){
-			$mokuais = $mokuais_temp;
-			$mokuais = array_sort($mokuais,'displayorder','asc');
-			file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
+		$nodes_temp = $nodes;
+		if($nodes != $nodes_temp){
+			$nodes = $nodes_temp;
+			$nodes = array_sort($nodes,'displayorder','asc');
+			//file_put_contents (MOKUAI_DIR."/".$biaoshi."/".$version."/node.xml",diconv(array2xml($nodes, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		}
 		//dump($nodes);
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		cpmsg(lang('plugin/yiqixueba','edit_node_succeed'), 'action='.$this_page.'&&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype, 'succeed');
+		//cpmsg(lang('plugin/yiqixueba','edit_node_succeed'), 'action='.$this_page.'&&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype, 'succeed');
 	}
 }elseif ($subop == 'nodeview'){
 	dsetcookie('debugmokuai',$biaoshi);//人性化

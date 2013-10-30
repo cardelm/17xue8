@@ -166,19 +166,15 @@ function get_mokuaipage($mokuai,$version,$ptype){
 	return $page_array;
 }//end func
 function getmokuailang($biaoshi,$version,$pagename){
-	if(substr($pagename,0,7)=='source_'){
-		$page_type = 'source';
-		$page_name = str_replace('source_','',$pagename).'.php';
-		$lang_text = file_get_contents(DISCUZ_ROOT.'source/plugin/yiqixueba/mokuai/'.$biaoshi.'/'.$version.'/Controler/'.$page_name);
-		$lang_arr0 = explode("lang('plugin/yiqixueba','",$lang_text);//*yiqixueba_lang_biaoshi*
-		foreach($lang_arr0 as $k=>$v ){
-			//dump(stripos($v,'*yiqixueba_lang_biaoshi*'));
-			$lang_arr1 = array();
-			if($k>0){
-				$lang_arr1 = explode("')",$v);
-				if($lang_arr1[0]&& !in_array($lang_arr1[0],$lang_arr['source'])&& !stripos($v,'*yiqixueba_lang_biaoshi*')){
-					$lang_arr['source'][] = $lang_arr1[0];
-				}
+	$page_name = str_replace('source_','',$pagename).'.php';
+	$lang_text = file_get_contents(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/Controler/'.$page_name);
+	$lang_arr0 = explode("lang('plugin/yiqixueba','",$lang_text);//*yiqixueba_lang_biaoshi*
+	foreach($lang_arr0 as $k=>$v ){
+		$lang_arr1 = array();
+		if($k>0){
+			$lang_arr1 = explode("')",$v);
+			if($lang_arr1[0]&& !in_array($lang_arr1[0],$lang_arr['source'])&& !stripos($v,'*yiqixueba_lang_biaoshi*')){
+				$lang_arr['source'][] = $lang_arr1[0];
 			}
 		}
 	}
