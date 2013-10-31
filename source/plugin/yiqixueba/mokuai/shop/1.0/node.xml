@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
+	<item id="function">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
+	<item id="ajax">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
 	<item id="member_member">
 		<item id="title"><![CDATA[会员管理]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
+	<item id="yiqixueba_shoplist">
+		<item id="title"><![CDATA[商家展示]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="member_index">
+		<item id="title"><![CDATA[基本信息]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
+	<item id="member_shop">
+		<item id="title"><![CDATA[商铺管理]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
+	<item id="yiqixueba_shopindex">
+		<item id="title"><![CDATA[商家联盟]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="table">
@@ -47,67 +115,6 @@
 		</item>
 		<item id="pages"><![CDATA[
 						]]></item>
-	</item>
-	<item id="yiqixueba_shopindex">
-		<item id="title"><![CDATA[商家联盟]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-		<item id="template">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-	</item>
-	<item id="member_index">
-		<item id="title"><![CDATA[基本信息]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-		<item id="table">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-	</item>
-	<item id="function">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[0]]></item>
-		<item id="table">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-		<item id="template">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="ajax">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[0]]></item>
-		<item id="table">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-		<item id="template">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="member_shop">
-		<item id="title"><![CDATA[商铺管理]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table">
-			<item id="0"><![CDATA[]]></item>
-		</item>
-		<item id="template">
-			<item id="0"><![CDATA[]]></item>
-		</item>
 	</item>
 	<item id="admincp_shopgroup">
 		<item id="title"><![CDATA[商家组]]></item>
@@ -174,8 +181,8 @@
 			<item id="0"><![CDATA[shop]]></item>
 		</item>
 	</item>
-	<item id="admincp_goodsmodel">
-		<item id="title"><![CDATA[商品模型]]></item>
+	<item id="admincp_goods">
+		<item id="title"><![CDATA[商品管理]]></item>
 		<item id="displayorder"><![CDATA[6]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="pages"><![CDATA[
@@ -187,8 +194,8 @@
 			<item id="0"><![CDATA[]]></item>
 		</item>
 	</item>
-	<item id="admincp_goods">
-		<item id="title"><![CDATA[商品管理]]></item>
+	<item id="admincp_goodsmodel">
+		<item id="title"><![CDATA[商品模型]]></item>
 		<item id="displayorder"><![CDATA[6]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="pages"><![CDATA[

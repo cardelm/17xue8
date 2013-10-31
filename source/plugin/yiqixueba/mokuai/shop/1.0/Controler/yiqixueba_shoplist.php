@@ -7,5 +7,5 @@ $navtitle = lang('plugin/yiiqxueba','shop');
 
 $temp = 'default';
 $styledir = 'source/plugin/yiqixueba/template/style/shop/'.$temp;
-include template(GV('shop_yiqixueba_'.$temp.'_shopindex'));
+include template(GV('shop_yiqixueba_'.$temp.'_shoplist'));
 ?>

@@ -1,0 +1,407 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* CSS Document */
+/* KISSY CSS Reset */
+html{_background-image:url(about:blank);_background-attachment:fixed;}
+body,h1,h2,h3,h4,h5,h6,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea{margin:0;padding:0;}
+body,button,input,select,textarea,font {font-size:12px; color:#555555;}
+body{background:#fffaee;}
+h1,h2,h3,h4,h5,h6,button,input,select,textarea {font-size:100%;}
+label,input,select {vertical-align:middle;}
+address,cite,em {font-style:normal;}
+fieldset{cursor:pointer;}
+img{border:none;}
+ul,ol {list-style:none;}
+table {border-collapse:collapse}
+sub {vertical-align:text-bottom;}
+sup {position:relative;top:-1px;left:2px;font:11px/normal tahoma;vertical-align:text-top;}
+small {font-size:12px;}
+legend {color:#333;}
+*{padding:0; margin:0; list-style:none;}
+/* color */
+
+/* button */
+.btn_red_80, a.btn_red_80:hover {
+    background: url(http://www.pailezu.com/static/theme/newpl/images/shopping_cart.png) no-repeat scroll -125px -180px transparent;
+    border: medium none;
+    color: #F7F4F7;
+    cursor: pointer;
+    display: inline-block;
+    font: bold 14px/30px "Arial";
+    height: 30px;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    width: 80px;
+}
+	.btn_red_100, a.btn_red_100:hover {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	border: none;
+	background: url(http://www.pailezu.com/static/theme/newpl/images/shopping_cart.png) no-repeat -125px -140px;
+	color: white;
+	font-size: 13px;
+	text-align: center;
+	margin: 0 10px 10px 0;
+	cursor: pointer;
+}
+.btn_gray_80, a.btn_gray_80:hover {
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	border: none;
+	background: url(http://www.pailezu.com/static/theme/newpl/images/shopping_cart.png) no-repeat -144px -220px;
+	color: #555;
+	font-size: 13px;
+	text-align: center;
+	margin: 0 10px 10px 0;
+	cursor: pointer;
+}
+     
+/* default color */
+a{text-decoration:none; color:#333333;}
+ul,li{padding:0; margin:0;}
+/*-------------------------------
+  end: reset */
+  
+/*public start*/
+.red{color:red;}
+.f14{font-size:14px;}
+.logo,.hd_city,.city_arrow,.search,.nologin a.logonuser,.mouse_top,.mouse_bottom,.list_method a.current,.list_method a.currentup,.list_method a,.pages a.prev,.pages a.next,.tosee,.footlist p,.qqsale,.credit,.greensite,.safesite,.caifutong,.kefu,.tousu,.hezuo,.backToTop,.tobuy,.buybutton,.totalbuy em,.nomoney,.noreturn,.hasmoney,.hasreturn,.collect,.tabright em,.tabright a.current,.price_tags,.truck,.globe,.sendcity,.sendtime,.signtext,.watch,.plus,.minus,.zhifubao,.caifut,.topay,.warntips,.checkbox,.registe li input.reg_sub,.registe li input.login_sub,.detail_send_pos,.detail_send_ems,.detail_send_ran,.detail_send_cit,.detail_send_tim,.detail_send_pro,.saleoff,.box li input.reg_sub,.box li input.login_sub,.stepa,.sub_submit,.service_qqbox,.return,.servicetel,.retuanarr,.sevenbg,.qualitybg,.returnsbg,.buybutton:hover,.topay:hover,.list_method a.pricedown,.paylink,.paylink:hover,.notices,.online,.product_btn,.watchit,.seeit{background:url(http://www.pailezu.com/static/theme/newpl/images/bg.png) no-repeat;}
+.extend{width:100%;}
+.nomalwidth{width:950px; margin:0 auto;}
+.headbg{width:100%; height:36px; line-height:36px; background:url(http://www.pailezu.com/static/theme/newpl/images/navbg.jpg) repeat-x; margin:20px 0 0 0;}
+.logo_search{width:730px; padding:20px 0 0 0; float:left;}
+.logo{width:168px; height:77px; background-position:0px 0px; float:left;}
+.logo a{width:168px; height:77px; display:block;}
+.hd_city{width:72px; height:28px; background-position:-175px 0px; float:left; margin:49px 0 0 10px; display:inline;}
+.city_arrow{color:#646364; font-size:14px; font-weight:bold; background-position:-441px 0px; display:block; text-align:center; padding-right:16px; margin-top:4px;}
+.search{width:388px; height:34px; background-position:0px -407px; float:left; margin:41px 0 0 50px; padding:2px 0 0 26px;}
+.keyword{color:#b2b2b2; width:295px; height:27px; line-height:27px; border:0px;}
+.submit{width:81px; height:34px; background:none; border:0px; cursor:pointer; margin:-3px 0 0 5px; font-size:14px; color:#ffffff; font-weight:bold;}
+.goodwill{float:right; display:inline; margin-top:30px; position:relative;}
+.hd_login{width:252px; padding:5px; position:absolute; top:-30px; right:0;}
+.hd_login a{float:left; font-family:"微软雅黑"; color:#333333; margin:0 3px;}
+.hd_qq{height:22px; background:url(http://www.pailezu.com/static/theme/newpl/images/qq.png) no-repeat; padding-left:18px; color:#D80000;font-family:"微软雅黑"; float:left; margin:0 8px; position:relative; z-index:3; cursor:pointer; font-weight:bold;}
+.hd_login a.hd_kd{background:url(http://www.pailezu.com/static/theme/newpl/images/ico_kd.png) no-repeat; padding-left:23px;}
+.hd_login a.hd_sc{background:url(http://www.pailezu.com/static/theme/newpl/images/ico_sc.png) no-repeat; padding-left:23px; margin-left:6px;}
+.hideqq{width:180px; background:#FFFAEE; border:1px solid #FF4000; padding:8px 0 8px 20px; position:absolute; right:-32px; top:18px;  position:absolute; display:none;}
+.hideqq a{background:url(http://www.pailezu.com/static/theme/newpl/images/qq.png) no-repeat; padding-left:20px; color:#333333; margin:0 5px;}
+.goodwill dl{float:left; padding-top:12px;}
+.goodwill dl dt,.goodwill dl dd{border-right:1px solid #ccada3;}
+.goodwill dl dd{text-align:center; padding-top:5px;}
+.goodwill dl dd a{color:#992600;}
+.seven{width:70px;}
+.seven dt{padding:0 18px;}
+.sevenbg{width:32px; height:35px; background-position:-143px -447px; display:block;}
+.quality{width:68px;}
+.quality dt{padding:0 17px;}
+.qualitybg{width:32px; height:35px; background-position:-178px -447px; display:block;}
+.returns{width:62px;}
+.returns dt{padding:0 14px;}
+.goodwill .returns dt,.goodwill .returns dd{border:0px;}
+.returnsbg{width:32px; height:35px; background-position:-215px -447px; display:block;}
+.hd_menu{width:950px;}
+.hd_nav{float:left;}
+.hd_nav ul li{float:left; height:36px; line-height:36px; display:inline;}
+/*.hd_nav ul li a{width:83px; text-align:center; height:36px; line-height:36px; float:left; color:#ffffff; font-size:16px; font-weight:bold; margin:0 3px;}
+.hd_nav ul li a:hover,.hd_nav ul li a.current{width: 81px; height:34px; line-height:34px; color:#ffff00; background:url(http://www.pailezu.com/static/theme/newpl/images/navabg.jpg) repeat-x; border:1px solid #661201;}*/
+.hd_nav ul li a{text-align:center; height:36px; line-height:36px; float:left; color:#ffffff; font-size:16px; font-weight:bold; margin:0 3px; display:block;}
+.hd_nav ul li a.long{width:92px;}
+.hd_nav ul li a.short{width:55px;}
+.hd_nav ul li a.short:hover,.hd_nav ul li a.shortcur{width:53px; height:34px; line-height:34px; color:#ffff00; background:url(http://www.pailezu.com/static/theme/newpl/images/navabg.jpg) repeat-x; border:1px solid #661201;}
+.hd_nav ul li a.long:hover,.hd_nav ul li a.longcur{width:90px; height:34px; line-height:34px; color:#ffff00; background:url(http://www.pailezu.com/static/theme/newpl/images/navabg.jpg) repeat-x; border:1px solid #661201;}
+.nav_right{float:right; font-size:14px; font-weight:bold; height:34px; line-height:34px;}
+.nologin{color:#ffffff;}
+.nologin,.logined{float:left;}
+.nologin a{color:#ffffff; margin:0 12px; font-weight:bold; display:inline-block;}
+.nologin a.logonuser{background-position:-484px -69px; padding-left:20px;}
+.nologin a:hover{color:#ffcc55;}
+.logined ul li{color:#ffffff; float:left; margin:0 10px;}
+.logined ul li a{color:#ffffff;}
+.mycenter{position:relative; padding:0 8px; z-index:2;}
+.mycenter a i{border:3px dashed transparent; font-size:0; height:0; line-height:0; position:absolute; width:0; top:16px; margin-left:8px; border-top:3px solid #ffffff;}
+.mycenter dl{width:96px; position:absolute; left:0; top:4px; background:#ffffff; padding:5px 0px; border:1px solid #a7a6a6; border-radius:5px; display:none; font-size:14px;}
+.mycenter dl dd{border-bottom:1px solid #cccccc;}
+.mycenter dl dd,.mycenter dl dt{height:26px; line-height:26px; padding:0 8px; position:relative;}
+.mycenter dl dt i{border:3px dashed transparent; font-size:0; height:0; line-height:0; position:absolute; width:0; top:10px; margin-left:4px; border-top:3px solid #333333;}
+.mycenter dl dt a{color:#333333;}
+.mycenter dl dd a{color:#333333; font-size:12px; font-weight:normal;}
+.mycenter dl dt a:hover,.mycenter dl dd a:hover{color:#ff4000;}
+.history_view{float:left; padding:0 5px 0 8px; position:relative; z-index:10; margin-right:8px;}
+.view_hover{color:#ffcc55; background:#ffffff; border:1px solid #d4d4d4; border-bottom:0px; top:1px; margin-top:-1px;}
+.view_link{position:relative; padding-right:20px; color:#ffffff;}
+.view_hover .view_link{color:#333333;}
+.view_link i{border:3px dashed transparent; font-size:0; height:0; line-height:0; position:absolute; width:0; top:7px; right:10px; border-top:3px solid #ffffff;}
+.view_hover i{border-top:3px solid #333333;}
+.history_view p{width:100%; height:1px; overflow:hidden; position:absolute; top:34px; background:#ffffff; z-index:110; left:0; display:none; _width:101px;}
+.view_hover p{display:block;}
+.view_list{width:217px; background-color:#FFFFFF; border-color:-moz-use-text-color #D4D4D4 #D4D4D4; border:1px solid #D4D4D4; border-width:1px; box-shadow: 1px 1px 2px rgba(203, 203, 203, 0.5); color:#666666; padding:5px 0; position:absolute; right:-1px; top:34px; z-index:100; display:none; _right:-2px;}
+.view_list li{color:#666666; height:55px; overflow:hidden; padding:10px 13px;}
+.view_list li img{float:left; margin:2px 10px 0 0;}
+.view_list li h5{font-weight:normal; height:32px; line-height:16px; margin-bottom:4px; overflow:hidden;}
+.view_list li .title_link{color:#666666; font-size:12px;}
+.price_link{display:block; height:18px; line-height:18px; overflow:hidden; text-overflow:ellipsis;  white-space:nowrap;}
+.deal_price{color:#EE5238; font:bold 12px/12px arial,sans-serif; padding-right: 10px;}
+.old_price{text-decoration:line-through; font:bold 12px/12px arial,sans-serif; color:#666666;}
+.view_list li.history_clear{height:40px; line-height:40px; text-align:center; font-size:12px;}
+.view_list li.history_clear a:hover{text-decoration:underline;}
+
+.banners{margin-top:10px;}
+.banner_one{width:710px; height:90px; float:left; position:relative; overflow:hidden;}
+.banner_one ul{position:absolute; top:0; left:0;}
+.mouse_direction{width:45px; height:90px; position:absolute; right:0; top:0; z-index:2; display:none;}
+.mouse_top{width:45px; height:45px; background-position:0px -79px; cursor:pointer;}
+.mouse_bottom{width:45px; height:45px; cursor:pointer; background-position:0px -124px;}
+.banner_two{width:230px; height:90px; float:right;}
+/*public end*/
+
+.hottags{width:936px; height:28px; border:1px solid #cccccc; line-height:28px; color:#333333; padding-left:13px; background:url(http://www.pailezu.com/static/theme/newpl/images/tagsbg.jpg) repeat-x; margin-top:10px;}
+.hottags span{font-weight:bold;}
+.hottags a{margin:0 8px; color:#333333;}
+.hottags a:hover,.hottags a.current{color:#ff4000;}
+.index_class{width:920px; border:1px solid #cccccc; padding:0 14px; border-top:0px; border-bottom:0px; background:#ffffff; position:relative;}
+.first_class{width:920px; padding-top:10px; margin-bottom:5px;}
+.cls_title{width:40px; float:left; margin-top:2px; display:inline; line-height:22px;}
+.cls_title span{font-weight:bold;}
+.cls_con{width:875px; float:left;}
+.cls_con a,.second_class a{height:22px; line-height:22px; margin:2px 3px; padding:0 4px; display:inline-block; }
+.cls_con a:hover,.cls_con a.current{background:#ff4000; color:#ffffff;}
+.second_class{width:883px; line-height:32px; margin:5px 0 0 0; background:#fff9ec; border:1px solid #ffc7ad; padding-left:37px; display:none; position:absolute; top:38px;}
+.second_class a:hover{color:#ff3e00;}
+.page{width:920px; border:1px solid #cccccc; padding:0 14px; background:#ffffff;}
+.list_method{float:left; line-height:32px; margin:6px 0;}
+.list_method span{font-size:14px; font-weight:bold;}
+.list_method a{width:24px; display:inline-block; margin:0 4px; color:#000000; background-position:-467px -129px; padding-right:10px;}
+.list_method a.defcol{background:none; color:#ff4000; margin-left:0px; padding-right:0px;}
+.list_method a.default{background:none; margin-left:0px; padding-right:0px;}
+.list_method a.current{background-position:-468px -99px; color:#ff4000;width:24px;}
+.list_method a.currentup{background-position:-468px -163px; color:#ff4000;width:24px;}
+.list_method a.pricedown{background-position:-446px -25px;}
+.pages{padding:6px 0; margin:6px 0; text-align:right;}
+.pages span{color:#333333;}
+.pages a{width:20px; height:20px; line-height:20px; margin:0 2px; border:1px solid #cccccc; text-align:center; display:inline-block;}
+.pages a:hover,.pages a.current{border:1px solid #ff4000; color:#ff4000;}
+.pages a.first,.pages a.last{width:32px;}
+.pages a.prev{width:54px; background-position:-494px -22px;}
+.pages a.next{width:54px; background-position:-449px -195px;}
+
+.goods{width:950px; margin-top:10px;}
+.goodsborder{width:298px; height:307px; float:left; margin:0 25px 25px 0; padding:1px; float:left; background:#cccccc; display:inline; position:relative;}
+.goods_list{width:280px; height:289px; padding:9px; background:#ffffff;}
+.adminpx{width:96px; height:40px; line-height:40px; border:1px solid #ff4000; position:absolute; top:0; left:0; background:#ffffff; padding:0 2px;}
+.eb_sort_order{width:55px; height:26px; line-height:26px;}
+.clear{clear:both; height:0; overflow:hidden;}
+.lastmargin{margin-bottom:0px;}
+.list_hover{background:#ff5500;}
+.goods_img,.goods_price,.buycount{width:280px;}
+.goods_img img{border:1px solid #e6e6e6;}
+.goods_title{width:280px; color:#4c4c4c; line-height:20px; font-size:14px; margin:4px 0;}
+.goods_title a{color:#4c4c4c;}
+.goods_title a:hover{color:#ff4000;}
+.goods_price{width:280px; padding-top:5px;}
+.goods_price span{font-size:26px; font-family:Arial, Helvetica, sans-serif; color:#ff4000; font-weight:bold; float:left;}
+.tosee{float:right; width:92px; height:32px; background-position:-258px 0px;}
+.buycount{padding-top:5px;}
+.orignal_price{float:left; font-family:Arial, Helvetica, sans-serif; color:#4d4d4d;}
+.baught{float:right; color:#4d4d4d; font-size:14px;}
+.baught font{color:#349900; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;}
+.norightmargin{margin-right:0px;}
+
+.foot{border-top:5px solid #ff4000; margin-top:70px;}
+.footer{border-bottom:1px solid #cccccc; margin-bottom:20px; border-right:1px dashed #cccccc; border-left:1px dashed #cccccc; width:948px;}
+.footlist{width:125px; height:177px; border-right:1px dashed #cccccc; float:left; padding:20px 0 20px 24px;}
+.footlist p{background-position:-489px -216px; padding-left:15px; color:#333333; font-weight:bold; font-size:14px;}
+.footlist ul li{height:32px; line-height:32px; color:#4c4c4c; padding-left:15px;}
+.footlist ul li a{color:#4c4c4c;}
+.footlist ul li a:hover{color:#ff4000; text-decoration:underline;}
+.foot_service{width:320px; float:left; padding-top:20px; text-align:center;}
+.foot_logo{ display:inline-block;}
+.qqservice{width:270px; padding:10px 0 0 50px; display:inline-block;}
+.qqsale{width:82px; height:32px; line-height:32px; background-position:-49px -79px; display:block; float:left; margin-right:5px; color:#ff4000; font-size:14px; padding-left:20px;}
+.saleafter{color:#3d9e0d;}
+.qqsale:hover{text-decoration:none;}
+.service_time{width:320px; color:#4c4c4c; padding-top:10px;}
+.service_time font{color:#ff4000; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:14px;}
+.corpyright{margin-top:15px; text-align:center; padding-bottom:30px;}
+.corpyright p{margin:8px 0;}
+.corpyright p a:hover{text-decoration:none;}
+.foot_icon{width:692px; margin:0 auto; text-align:center;}
+.credit{width:108px; height:40px; background-position:-46px -123px; display:inline-block; margin-right:3px;}
+.greensite{width:108px; height:40px; background-position:-157px -123px; display:inline-block; margin-right:3px;}
+.safesite{width:108px; height:40px; background-position:-157px -77px; display:inline-block; margin-right:3px;}
+.caifutong{width:85px; height:40px; background-position:-264px -77px; display:inline-block;}
+
+.rightfloat{width:100px; position:fixed; _position: absolute; bottom: 250px; right:20px; _bottom: auto; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)+200||0)));  z-index:1000;}
+/*service_box*/
+.service_box{width:100px; position:absolute; top:0; left:0;}
+.service_content{width:78px; border:1px solid #cccccc; background:#ffffff; border-top:0px; border-bottom:0px; padding:6px 10px;}
+.worktime{text-align:center; border-bottom:1px dashed #bfbfbf; margin-bottom:8px;}
+.service_qqbox{width:55px; height:24px; line-height:24px; padding-left:23px; background-position:-344px -35px; display:inline-block; margin-bottom:8px;}
+.redqq{color:#ff4000;}
+.grennqq{color:#3d9e0d;}
+.servicetel{font-size:12px; color:#000000; background-position:-482px -576px; padding-left:20px;}
+.telnum{color:#ff5500; font-family:Arial, Helvetica, sans-serif; text-align:center; font-weight:bold; padding-bottom:4px; border-bottom:1px dashed #bfbfbf; margin-top:4px;}
+.backToTop{color:#000000; background-position:-66px -209px; padding:1px 0 0 20px; margin:4px 0 4px 3px; display:block; cursor:pointer;}
+
+
+.leftfloat{width:74px; height:321px; background:url(http://www.pailezu.com/static/theme/newpl/images/leftfloat.jpg) no-repeat right top; position:fixed; _position: absolute; top: 210px; left:20px; cursor: pointer; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)+122||0))); overflow:hidden; z-index:1000;}
+.allhover:hover,.allselect,.clothhover:hover,.clothselect,.foothover:hover,.footselect,.peishihover:hover,.peishiselect,.homehover:hover,.homeselect,.washhover:hover,.washselect,.facehover:hover,.faceselect,.foodhover:hover,.foodselect,.childhover:hover,.childselect,.dianhover:hover,.dianselect{background:url(http://www.pailezu.com/static/theme/newpl/images/selected.jpg)}
+ 
+.leftfloat ul li{width:74px; height:40px;}
+.leftfloat ul li a{width:74px; height:40px; display:block;}
+.allhover:hover,.allselect,{background-position:0px 0px;}
+.clothhover:hover,.clothselect{background-position:0px -40px;}
+.foothover:hover,.footselect{background-position:0px -80px;}
+.peishihover:hover,.peishiselect{background-position:0px -120px;}
+.homehover:hover,.homeselect{background-position:0px -160px;}
+.washhover:hover,.washselect{background-position:0px -200px;}
+.facehover:hover,.faceselect{background-position:0px -240px;}
+.foodhover:hover,.foodselect{background-position:0px -280px;}
+.childhover:hover,.childselect{background-position:0px -320px;}
+.dianhover:hover,.dianselect{background-position:0px -360px;}
+
+.boxy-modal-blackout{position:absolute; background:#000000; left:0; top:0;}
+.boxy-wrapper{empty-cells:show;}
+#pagemasker{display:none;}
+#dialog_box{}
+.dialogbox{width:800px; background:#ffffff;}
+
+/*清除浮动：*/
+.clearfix:before,.clearfix:after{content:"."; display:block; visibility:hidden; height:0; line-height:0; font-size:0;}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1;}
+
+/* validateengine*/
+.inputContainer{float:left;position:relative;}
+.formError{display:block;position:absolute;top:300px;left:300px;cursor:pointer;z-index:15000;}
+.ajaxSubmit{display:none;padding:20px;border:1px solid #999;background:#55ea55;}
+.formError .formErrorContent{position:relative;width:100%;background:#ee0101;color:#fff;width:150px;padding:4px 10px 4px 10px;border:2px solid #ddd;border-radius:6px;box-shadow:0 0 6px #000;font:12px/1.7 "\5b8b\4f53",Tahoma;z-index:15001;}
+.greenPopup .formErrorContent{background:#33be40;}
+.blackPopup .formErrorContent{background:#393939;color:#fff;}
+.formError .formErrorArrow{position:relative;width:15px;margin:-2px 0 0 13px;z-index:15006;}
+.formError .formErrorArrowBottom{margin:0px 0 0 12px;top:2px;box-shadow:none;}
+.formError .formErrorArrow div{display:block;height:1px;margin:0 auto;border-left:2px solid #ddd;border-right:2px solid #ddd;background:#ee0101;box-shadow:0 2px 3px #444;font:0/0 Tahoma;}
+.formError .formErrorArrowBottom div{box-shadow:none;}
+.greenPopup .formErrorArrow div{background:#33be40;}
+.blackPopup .formErrorArrow div{background:#393939;color:#fff;}
+.formError .formErrorArrow .line10{width:15px;border:none;}
+.formError .formErrorArrow .line9{width:13px;border:none;}
+.formError .formErrorArrow .line8{width:11px;}
+.formError .formErrorArrow .line7{width:9px;}
+.formError .formErrorArrow .line6{width:7px;}
+.formError .formErrorArrow .line5{width:5px;}
+.formError .formErrorArrow .line4{width:3px;}
+.formError .formErrorArrow .line3{width:1px;border-left:2px solid #ddd;border-right:2px solid #ddd;border-bottom:0 solid #ddd;}
+.formError .formErrorArrow .line2{width:3px;border:none;background:#ddd;}
+.formError .formErrorArrow .line1{width:1px;border:none;background:#ddd;}
+
+/*address select*/
+.firstbox {width: 170px; float: left; margin-right: 10px;  position: relative; }
+.borderfirst { margin-right: 0;}
+.firstbox span {display: inline-block;  float: left;  width: 25px; margin-top:4px;}
+.firstbox p { background: url(http://www.pailezu.com/static/theme/newpl/images/selectarrow.jpg) no-repeat scroll right 1px transparent;  border: 1px solid #CCCCCC; display: inline-block;  float: left;  height: 23px;padding-left: 5px; width: 133px;}
+.firstbox p.selectup{background: url(http://www.pailezu.com/static/theme/newpl/images/selectup.jpg) no-repeat scroll right 1px transparent;}
+.firstbox p input { border: 0 none; color: #333333;height: 21px;line-height: 21px; width: 111px;}
+.secondbox {border:1px solid #cccccc; display: none;  left: 0; line-height: 22px; position: absolute; top: 22px; width: 138px;  z-index: 1000; background:#ffffff;}
+.secondbox h3 { color: #989898; height: 26px; line-height: 26px; padding-left: 5px; width: 138px;}
+.secondbox ul { max-height: 250px; overflow-x: hidden; overflow-y: auto; width: 138px; overflow-y:scroll; overflow-x:hidden; _height:expression(this.scrollHeight > 250 ? "250px" : "auto");}
+.secondbox ul li {color: #666666; cursor: pointer; float: left; line-height: 32px; padding-left: 5px; width: 138px; background:#ffffff;}
+.secondbox ul li.selected {background: none repeat scroll 0 0 #CCCCCC;}
+
+/*dialog login css*/
+.dialogbox{width:800px; background:#ffffff;}
+.box_bar{width:800px;}
+.sidebar{width:4px; height:30px; float:left;}
+.midbar{width:792px; height:30px; line-height:30px; background:#ffffff url(http://www.pailezu.com/static/theme/newpl/images/tagsbg.jpg) repeat-x center bottom; float:left; position:relative;}
+.bartitle{padding-left:20px; background-position:-485px -41px; color:#ff4000;}
+.closetext{width:53px; height:28px; background-position:-178px -35px; display:block; position:absolute; top:-4px; right:0;}
+.boxmain{width:740px; padding:8px 15px 10px 25px;}
+.leftbox{width:335px; float:left; border-right:1px solid #aaaaaa; padding:0 36px 10px 0;}
+.leftbox h3,.rightbox h3{width:326px; color:#ff5500; font-size:14px; border-bottom:1px solid #e5e5e5; line-height:24px; margin:10px 0;}
+.box li{line-height:40px;}
+.box li .spantitle{width:50px; font-size:14px; color:#000000; text-align:left; display:inline-block; padding-right:5px;}
+.box li input{width:265px; height:30px; border:1px solid #969799; line-height:30px; color:#333333; padding-left:5px;}
+.box li input.ckb{width:16px; height:16px; border:0px; margin-right:2px;}
+.checkbox{width:18px; height:18px; background-position:-400px -10px; display:inline-block; margin-top:3px;}
+.agree{width:18px; height:17px; background-position:-423px -11px;}
+.rember{color:#000000; line-height:14px; display:inline-block;}
+.forget{margin-left:15px; display:inline-block; color:#376aa8;}
+.rightbox{width:348px; float:left; border:0px; padding:0; margin-left:20px; display:inline;}
+.box li input.reg_sub{width:85px; height:28px; border:0px; background-position:-300px -281px; cursor:pointer;}
+.box li input.login_sub{width:85px; height:28px; border:0px; background-position:-339px -372px; cursor:pointer;}
+.kong{width:20px;}
+.logtip{width:326px; border-bottom:1px solid #e5e5e5; font-size:14px; line-height:26px; margin:20px 0 10px 0; color:#585858;}
+.login_method{width:236px; margin:0 auto;}
+.login_method a{width:66px; height:27px; display:block; float:left; background:url(http://www.pailezu.com/static/theme/newpl/images/bg.png) no-repeat; margin:16px 10px 0 0; text-indent:-999999px;}
+.login_method a.qqlogin{background-position:0px -373px;}
+.login_method a.slllogin{background-position:-66px -373px;}
+.login_method a.zfblogin{background-position:-132px -373px;}
+.login_method a.bdlogin{background-position:-198px -373px;}
+.login_method a.sinalogin{background-position:-264px -373px;}
+
+
+/*right blocks*/
+.rightqqbefore,.rec_bar span,.tousuwq{background:url(http://www.pailezu.com/static/theme/newpl/images/icons.png) no-repeat;}
+.rightqqbefore,.rec_bar span{background:url(http://www.pailezu.com/static/theme/newpl/images/icons.png) no-repeat;}
+.rightdetail{width:230px; float:right;}
+.rightboxbar{width:228px; height:28px; background:#ffffff; border:1px solid #cccccc;}
+.notices{display:block; height:28px; background-position:0px -550px; margin-left:10px; line-height:28px; color:#808080; font-weight:bold; padding-left:21px;}
+.borderbox{width:206px; border:1px solid #cccccc; background:#ffffff; margin-top:3px;}
+.busbar{width:228px; height:28px; line-height:28px; text-align:center; color:#333333; font-family:"微软雅黑"; font-size:16px; border:1px solid #cccccc; background:#ffffff; margin-top:10px;}
+.busbox{width:206px; border:1px solid #cccccc; background:#ffffff url(http://www.pailezu.com/static/theme/newpl/images/bag.jpg) no-repeat 20px center; padding:13px 11px; line-height:20px; margin-top:3px;}
+.busbox p{ text-align:right; color:#666666; line-height:32px;}
+.busbox p a{color:#0080ff; text-decoration:underline;}
+.notice{color:#808080; padding:13px 11px; line-height:20px; background:#ffffff;}
+.marginbox{margin-top:10px;}
+.online{background-position:0px -575px;}
+.online em{font-weight:normal;}
+.telmod{width:127px; height:43px; border:1px solid #cccccc; background:url(http://www.pailezu.com/static/theme/newpl/images/telmod.jpg) no-repeat left center; padding:10px 0 0 79px;}
+.telmod p{color:#4d4d4d;}
+.telmod p.phone{font-size:18px; color:#ff4000; font-family:Arial, Helvetica, sans-serif;}
+.servicebox{padding:15px 11px 10px 11px;}
+.tousuwq{width:80px; display:block; height:28px; background-position:-23px -70px;  margin-left:10px; line-height:28px; color:#808080; font-weight:bold; padding-left:21px;}
+
+.rightqq{width:206px; padding:10px 0 0 0;}
+.rightqqbefore{width:63px; height:28px; line-height:28px; border:1px solid #cccccc; margin-right:6px; padding-left:35px; background-position:-11px 5px; display:block; float:left; color:#ff4000;}
+.rightqqafter{color:#3d9e0d; margin:0;}
+
+.servicebox p a{color:#0080ff; text-decoration:underline;}
+.servicetime{width:186px; height:25px; line-height:25px; color:#ffffff; background:#808080; padding:0 10px;}
+
+/*city*/
+.citybox{width:948px; border:1px solid #cccccc; margin:10px auto; background:#ffffff;}
+.city_title{width:912px; height:43px; line-height:37px; background:#ffffff url(http://www.pailezu.com/static/theme/newpl/images/tagsbg.jpg) repeat-x center bottom; padding:0 18px; color:#000000; font-size:14px;}
+.city_title a{font-size:24px; color:#ff4000; margin:3px; font-weight:bold; display:inline-block;}
+.topbox{width:912px; padding:12px 18px; border-bottom:1px sosolid #cccccc; border-top:1px solid #cccccc;}
+.lefthotspan{width:85px; float:left; color:#802000; font-weight:bold; font-size:16px; margin-top:2px;}
+.right_choose{width:820px; float:left;}
+.hotcity{color:#ff5500; display:inline-block; margin:2px 6px; font-size:16px;word-wrap:break-word; white-space:nowrap !important;}
+.letterspan{width:210px;}
+.letterchoose{width:695px; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#000000;}
+.letterchoose a{display:inline-block; margin:2px 7px;}
+.citylist{width:948px; padding-bottom:150px;}
+.citylist ul li{width:912px; padding:10px 18px; border-top:1px solid #cccccc; display:inline-block;}
+.letter{width:28px; height:28px; line-height:28px; background:url(http://www.pailezu.com/static/theme/newpl/images/tagsbg.jpg) repeat-x; border:1px solid #cccccc; float:left; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;}
+.citys{width:875px; float:left;}
+.citys a{display:inline-block; padding:4px 8px; margin:3px 5px; font-size:16px;word-wrap:break-word; white-space:nowrap !important;}
+.citys a:hover{color:#ffffff; background:#ff4000;}
+.libg{background:#f2f2f2;}
+.letter_current{color:#ff4000;}
+
+/*kuaidi*/
+.kdbox{width:990px; margin:10px auto; background:#ffffff;}
+.hotrec{width:980px; height:206px; border:5px solid #DFDFDF; position:relative;}
+.hoticon{background:url(http://www.pailezu.com/static/theme/newpl/images/tj_hot.gif) no-repeat; border-bottom:1px solid #EDEDED; color:#E85100; font-family:"微软雅黑"; font-size:14px; height:30px; line-height:30px; padding-left:35px;}
+.wrapper{height:171px; margin:0 5px; overflow:hidden; position:absolute; top:30px; width:970px;}
+.wrapper ul{margin:0; padding:0; position:absolute; top:0; height:169px; overflow:hidden; width:10000px;}
+.wrapper ul li{display:block; float:left; padding:10px 5px; text-align:center; width:184px;}
+.thumb{display:block;}
+.wrapper .thumb{border:1px solid #CCCCCC; padding:3px;}
+.wrapper .thumb:hover{border:1px solid #333333;}
+.wrapper ul li p{line-height:22px; color:#333333;}
+.c1{color:#D80000; font-family:Helvetica;}
+.t1{color:#999999; text-decoration:line-through;}
