@@ -1,0 +1,239 @@
+<!--{if $outtype == 'msg' }-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">提示信息</h2></div>
+		<div class="bm_c">{$_G['username']}，你好，{$msg_text}</div>
+	</div>
+<!--{/if}-->
+<!--还不是商家的-->
+<!--{if !$business_info && !$type}-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">商家管理</h2></div>
+		<div class="bm_c">
+			<!--{if $oldshop_num}-->
+				{$_G['username']}，你好，您现在一共有 {$oldshopnum} 个店铺，可以<a href="{$this_page}&type=join">申请</a>成为一卡通商家。
+			<!--{else}-->
+				{$_G['username']}，你好，您现在一个店铺也没有，申请不了一卡通的商家用户哦！
+			<!--{/if}-->
+
+		</div>
+	</div>
+<!--{/if}-->
+
+<!--{if $businessnum}-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">店铺管理</h2></div>
+		<div class="bm_c">
+			<div class="exfm" style="margin-top: 0;">
+				<table cellspacing="0" cellpadding="0">
+					<caption><h2 class="mbm xs2">【{$_G['username']}】商家信息</h2></caption>
+					<tr>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<table summary="店铺管理" cellspacing="0" cellpadding="0" class="dt bm mtm">
+				<caption><h2 class="mbm xs2"><a href="{$this_page}&type=editshop" class="xi2 xs1 xw0 y">申请新的商家&raquo;</a>商家列表</h2></caption>
+				<tr>
+					<th width="120">商家名称</th>
+					<th width="80">商家组</th>
+					<th width="80">总店</th>
+					<th width="80">分店数</th>
+					<th>详情</th>
+					<th width="40">状态</th>
+				</tr>
+				<!--{if $businessnum}-->
+					<!--{loop $business_list $businesslist}-->
+						<tr>
+							<td>{$businesslist[businessname]}</td>
+							<td>{$businessgroup_list[$businesslist[businessgroupid]][businessgroupname]}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>{$businesslist[status]}</td>
+						</tr>
+					<!--{/loop}-->
+				<!--{else}-->
+					<tr><td colspan="6"><p class="emp">目前没有店铺</p></td></tr>
+				<!--{/if}-->
+			</table>	
+		</div>
+	</div>
+<!--{/if}-->
+
+<!--选择商家组-->
+<!--{if !$business_info && $type == 'join' && $joinstep == 1 || $business_info && $type == 'upgroup' && $upgroupstep == 1}-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">选择商家组</h2></div>
+		<div class="bm_c">
+			<!--{loop $businessgroup_list $businessgroup}-->
+			<div class="c mtw bm">
+				<div class="bm_h cl"><h2>{$businessgroup[businessgroupname]}</h2></div>
+				<div class="block move-span">
+					<div class="dxb_bc">
+						<div class="module cl xl xl1">
+						<!--{if $businessgroup[businessgroup_text]}-->
+							{$businessgroup[businessgroup_text]}
+						<!--{else}-->
+							<div class="z">{$businessgroup[businessgroupico]}</div>
+							<div class="cl">
+							<div class="c ptm">入住费用：<span class="xi1">{$businessgroup[inshoufei]}元</span>&nbsp;&nbsp;初始金额：{$businessgroup[zhanghaoyue]}&nbsp;&nbsp;初始积分：{$businessgroup[zhanghaojifen]}&nbsp;&nbsp;收费周期：{$businessgroup[inshoufeiqixian]}天&nbsp;&nbsp;卡激活费用：{$businessgroup[cardfeiyong]}元</div>
+							<div class="c ptm">结算方式：{$businessgroup[xiaofei]}<!--{if enxiaofeitype}-->&nbsp;&nbsp;<span class="xi1">需要审核</span><!--{/if}--></div>
+							<div class="c ptm"><!--{if $businessgroup[enfendian]}-->可以创建分店<!--{else}-->不能创建分店<!--{/if}--><!--{if $businessgroup[enbusinessnum] > 1}-->&nbsp;&nbsp;可以创建{$businessgroup[enbusinessnum]}店铺<!--{/if}-->
+							<!--{if $businessgroup[dianzhang] ||$businessgroup[caiwu] ||$businessgroup[shouyin] }-->
+							&nbsp;&nbsp;可以创建：<!--{if $businessgroup[dianzhang]}-->&nbsp;&nbsp;店长<!--{/if}--><!--{if $businessgroup[caiwu]}-->&nbsp;&nbsp;财务<!--{/if}--><!--{if $businessgroup[shouyin]}-->&nbsp;&nbsp;收银员<!--{/if}-->
+							<!--{else}-->
+							&nbsp;&nbsp;不能创建店员
+							<!--{/if}-->
+							</div></div>
+							
+						<!--{/if}-->
+						</div>
+						<!--{if !$businessgroup[businessgroup_text]}-->
+						<div class="module cl xl xl1 hm pbm"><a href="{$this_page}&businessgroupid={$businessgroup[businessgroupid]}&joinstep=2&type=join"><img src="source/plugin/yiqixueba/template/yiqixueba/default/style/image/shenqingykt.jpg" width="160" height="30" /></a>
+						</div>
+						<!--{/if}-->
+					</div>
+				</div>
+			</div>
+			<!--{/loop}-->
+		</div>
+	</div>
+<!--{/if}-->
+
+<!--编辑信息编辑-->
+<!--{if !$business_info && $type == 'join' && $joinstep == 2 || $business_info && $type == 'edit'}-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">填写申请商家基本信息</h2></div>
+		<div class="bm_c">
+			<div class="exfm" style="margin-top: 0;">
+				<table cellspacing="0" cellpadding="0">
+					<caption><h2 class="mbm xs2">【{$bgroup_info[businessgroupname]}】基本信息</h2></caption>
+					<tr>
+						<th>费用情况:</th><td>入住费用：<span class="xi1">{$bgroup_info[inshoufei]}元</span>&nbsp;&nbsp;	初始金额：{$bgroup_info[zhanghaoyue]}&nbsp;&nbsp;
+					初始积分：{$bgroup_info[zhanghaojifen]}&nbsp;&nbsp;
+					收费周期：{$bgroup_info[inshoufeiqixian]}天&nbsp;&nbsp;
+					卡激活费用：{$bgroup_info[cardfeiyong]}元</td>
+					</tr>
+						<tr>
+						<th>结算方式:</th><td>{$bgroup_info[xiaofei]}<!--{if enxiaofeitype}--><span class="xi1">需要审核</span><!--{/if}--></td>
+					</tr>
+					</tr>
+						<tr>
+						<th>功能权限:</th><td>				<!--{if $bgroup_info[enfendian]}-->可以创建分店<!--{else}-->不能创建分店<!--{/if}-->
+					<!--{if $bgroup_info[enbusinessnum] > 1}-->&nbsp;&nbsp;可以创建{$bgroup_info[enbusinessnum]}店铺<!--{/if}-->
+					<!--{if $bgroup_info[dianzhang] ||$bgroup_info[caiwu] ||$bgroup_info[shouyin] }-->
+						&nbsp;&nbsp;可以创建：
+						<!--{if $bgroup_info[dianzhang]}-->&nbsp;&nbsp;店长<!--{/if}-->
+						<!--{if $bgroup_info[caiwu]}-->&nbsp;&nbsp;财务<!--{/if}-->
+						<!--{if $bgroup_info[shouyin]}-->&nbsp;&nbsp;收银员<!--{/if}-->
+						<!--{else}-->
+						&nbsp;&nbsp;不能创建店员
+					<!--{/if}--></td>
+					</tr>
+				</table>
+			</div>
+			<div class="bw bm" >
+				<form method="post" enctype="multipart/form-data" autocomplete="off" name="join" id="join" class="s_clear"  action="{$this_page}">
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<input type="hidden" name="businessgroupid" value="{$businessgroupid}">
+				<input type="hidden" name="joinsubmit" value="true" />
+				<input type="hidden" name="referer" value="{echo dreferer()}" />
+				<input type="hidden" name="handlekey" value="joinbusiness" />
+				<script src="static/js/calendar.js" type="text/javascript"></script>
+				<table cellspacing="0" cellpadding="0" class="tfm" summary="商家入住">
+					<tbody>
+						<tr>
+							<td colspan="3"><h1 class="xs2">填写商家基本信息</h1></td>
+						</tr>
+						<tr>
+							<th><strong class="rq y">*</strong>商家名称:</th>
+							<td>
+								<input type="text" name="businessname" class="px" tabindex="1" value="" />&nbsp;&nbsp;单位为单位全称，个人为真实姓名
+							</td>
+						</tr>
+						<tr>
+							<th><strong class="rq y">*</strong>联系人:</th>
+							<td>
+								<input type="text" name="relname" class="px" tabindex="2" value="" />
+							</td>
+						</tr>
+						<tr>
+							<th>近期照片:</th>
+							<td>
+								<input type="file" name="gerenphoto" class="pf" size="48" tabindex="3" value="" />&nbsp;&nbsp;<a href="plugin.php?id=yiqixueba&submod=ajax&ajaxtype=viewphoto&phototype=geren" id="geren" onclick="showWindow(this.id,  this.href,'get',0)" title="查看个人近期照片样本">查看个人近期照片样本</a>
+							</td>
+						</tr>
+						<tr>
+							<th><strong class="rq y">*</strong>出生年月:</th>
+							<td>
+								<input type="text" name="birthday" class="px" tabindex="4" value="" onclick="showcalendar(event, this)" />
+							</td>
+						</tr>
+						<tr>
+							<th><strong class="rq y">*</strong>性别:</th>
+							<td><div class="ftid">
+								<select name="sex"  id="sex" class="ps" tabindex="5"><option value="0">保密</option><option value="1">男</option><option value="2">女</option></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th><strong class="rq y">*</strong>电话:</th>
+							<td>
+								<input type="text" name="phone" class="px" tabindex="6" value="" />
+							</td>
+						</tr>
+						<tr>
+							<th><strong class="rq y">*</strong>地址:</th>
+							<td>
+								<input type="text" name="address" class="px" tabindex="7" value="" />
+							</td>
+						</tr>
+						<tr>
+							<th><strong class="rq y">*</strong>身份证号:</th>
+							<td>
+								<input type="text" name="shenfenno" class="px" tabindex="8" value="" />
+							</td>
+						</tr>
+						<tr>
+							<th>身份证图片:</th>
+							<td>
+								<input type="file" name="shenfenphoto" class="pf" size="46" tabindex="9" value="" />&nbsp;&nbsp;<a href="plugin.php?id=yiqixueba&submod=ajax&ajaxtype=viewphoto&phototype=shenfen" id="shenfen" onclick="showWindow(this.id,  this.href,'get',0)" title="查看身份证图片样本">查看身份证图片样本</a>
+							</td>
+						</tr>
+						<tr>
+							<th>商家简介:</th>
+							<td>
+								<textarea name="businesssummary" rows="8" cols="50" tabindex="10" value=""></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3"><hr class="l"></td>
+						</tr>
+						<tr>
+							<td colspan="3"><h1 class="xs2">会员卡购置信息</h1></td>
+						</tr>
+						<tr>
+							<th>会员卡种类:</th>
+							<td>
+								<select name="cardtype"  id="cardtype" class="ps" tabindex="11"><option value="">请选择会员卡种类</option>{$cardtype_option}</select>&nbsp;&nbsp;<a href="plugin.php?id=yiqixueba&submod=ajax&ajaxtype=viewcardtype" id="viewcardtype" onclick="showWindow(this.id,  this.href,'get',0)" title="查看会员卡种类介绍">查看介绍</a>
+							</td>
+						</tr>
+						<tr>
+							<th>会员卡数量:</th>
+							<td>
+								<input type="text" name="cardnum" class="px" size="46" tabindex="12" value="" />
+							</td>
+						</tr>
+						<tr>
+							<th>&nbsp;</th>
+							<td>
+							<input type="hidden" name="join" value="true"><button type="submit" class="pn pnc" tabindex="6"><strong>申请</strong></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				</form>
+			</div>
+		</div>
+	</div>
+<!--{/if}-->

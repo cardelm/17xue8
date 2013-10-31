@@ -1,0 +1,49 @@
+<!--{if !$type}-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">商品管理</h2></div>
+		<div class="bm_c">{$_G['username']}，你好，{$msg_text}</div>
+	</div>
+<!--{else}-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">商品管理</h2></div>
+		<div class="bm_c">
+			<div class="exfm" style="margin-top: 0;">
+				<table cellspacing="0" cellpadding="0">
+					<caption><h2 class="mbm xs2">【{$_G['username']}】基本信息</h2></caption>
+					<tr>
+						<th>费用情况:</th><td>入住费用：</td>
+					</tr>
+				</table>
+			</div>
+			<table summary="商品管理" cellspacing="0" cellpadding="0" class="dt bm mtm">
+				<caption><h2 class="mbm xs2">商品列表</h2></caption>
+				<tr>
+					<th width="120">商品名称</th>
+					<th width="80">价格</th>
+					<th width="80">库存</th>
+					<th width="80"></th>
+					<th>详情</th>
+					<th width="40">状态</th>
+					<th width="80">管理</th>
+				</tr>
+				<!--{if $goodsnum}-->
+					<!--{loop $goodslists $goodslist}-->
+						<tr>
+							<td>{$goodslist[goodsname]}</td>
+							<td>{$goodslist[goodspice]}</td>
+							<td>{$goodslist[goodsnum]}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>{$goodslist[status]}</td>
+							<td><a href="{$this_page}&type=editgoods&goodsid={$goodslist[goodsid]}">折扣设置</a></td>
+						</tr>
+					<!--{/loop}-->
+				<!--{else}-->
+					<tr><td colspan="6"><p class="emp">目前没有商品</p></td></tr>
+				<!--{/if}-->
+			</table>	
+		</div>
+	</div>
+<!--{/if}-->
+<!--{if $type == 'editgoods' }-->
+<!--{/if}-->

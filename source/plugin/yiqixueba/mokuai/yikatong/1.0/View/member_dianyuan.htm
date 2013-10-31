@@ -1,0 +1,117 @@
+<!--{if !$type}-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">店员管理</h2></div>
+		<div class="bm_c">{$_G['username']}，你好，{$msg_text}</div>
+		<div class="exfm" style="margin-top: 0;">
+			{$search_text}
+		</div>
+		<table summary="店员管理" cellspacing="0" cellpadding="0" class="dt bm">
+			<caption><h2 class="mbm xs2"><a href="{$this_page}&type=editdianyuan" class="xi2 xs1 xw0 y">添加店员&raquo;</a>店员列表</h2></caption>
+			<tr>
+				<th width="140" class="hm">店员</th>
+				<th class="hm">&nbsp;</th>
+
+			</tr>
+			<!--{if $dianyuannum}-->
+				<!--{loop $dianyuan_list $dianyuanlist}-->
+					<tr>
+						<td class="hm">{$dianyuanlist[dianyuanname]}</td>
+						<td class="hm">{$dianyuanlist[dianyuanname]}</td>
+
+					</tr>
+				<!--{/loop}-->
+			<!--{if $multi}--><tr><td colspan="2">{$multi}</td></tr><!--{/if}-->
+			<!--{else}-->
+				<tr><td colspan="4"><p class="emp">目前没有任何店员</p></td></tr>
+			<!--{/if}-->
+		</table>
+	</div>
+<!--{else}-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">店员管理</h2></div>
+		<div class="bm_c">
+			<div class="exfm" style="margin-top: 0;">
+				<table cellspacing="0" cellpadding="0">
+					<caption><h2 class="mbm xs2">【{$dianyuan_info[dianyuanname]}】基本信息</h2></caption>
+					<tr>
+						<th>费用情况:</th><td>入住费用：</td>
+					</tr>
+				</table>
+			</div>
+			<div class="bw bm" >
+				<form method="post" enctype="multipart/form-data" autocomplete="off" name="dianyuanform" id="dianyuanform" class="s_clear"  action="{$this_page}">
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<input type="hidden" name="shopid" value="{$shopid}">
+				<input type="hidden" name="dianyuansubmit" value="true" />
+				<input type="hidden" name="referer" value="{echo dreferer()}" />
+				<script src="static/js/calendar.js" type="text/javascript"></script>
+				<table cellspacing="0" cellpadding="0" class="tfm" summary="增加店员">
+						<tbody>
+							<tr>
+								<th><strong class="rq y">*</strong>用户名:</th>
+								<td>
+									<input type="text" name="username" id="username" class="px" size="36" tabindex="1" autocomplete="off" tabindex="1" value="{$dianyuan_info[username]}" onblur="ajaxget('plugin.php?id=yiqixueba&submod=ajax&ajaxtype=dianyuannamecheck&username='+this.value,'dianyuannamecheck','dianyuannamecheck');" />
+									<span id="dianyuannamecheck" class="xi1"></span>
+								</td>
+							</tr>
+							<tr>
+								<th>密码:</th>
+								<td><input type="text" name="password" id="password" class="px" size="36" autocomplete="off" tabindex="1" value="" />
+								</td>
+							</tr>
+							<tr>
+								<th><strong class="rq y">*</strong>店员种类:</th>
+								<td>
+								<select name="dianyuantype">
+									<option value="">请选择</option>
+									<option value="dianzhang" <!--{if $dianyuan_info[dianyuantype] =='dianzhang'}--> selected<!--{/if}-->>店长</option>
+									<option value="caiwu" <!--{if $dianyuan_info[dianyuantype] =='caiwu'}--> selected<!--{/if}-->>财务</option>
+									<option value="shouyin" <!--{if $dianyuan_info[dianyuantype] =='shouyin'}--> selected<!--{/if}-->>收银员</option>
+									<option value="cardxiaoshou" <!--{if $dianyuan_info[dianyuantype] =='cardxiaoshou'}--> selected<!--{/if}-->>卡销售员</option>
+								</select>
+								</td>
+							</tr>
+							<tr>
+								<th><strong class="rq y">*</strong>所属店铺:</th>
+								<td>
+								<select name="shopid">
+									<option value="">请选择</option>
+									<!--{loop $shops $shop}-->
+									<option value="{$shop[shopid]}">{$shop[shopname]}</option>
+									<!--{/loop}-->
+								</select>
+								</td>
+							</tr>
+							<tr>
+								<th><strong class="rq y">*</strong>联系人:</th>
+								<td><input type="text" name="lianxiren" id="lianxiren" class="px" size="36" autocomplete="off" value="{$dianyuan_info[lianxiren]}" />
+								</td>
+							</tr>
+							<tr>
+								<th><strong class="rq y">*</strong>电话:</th>
+								<td><input type="text" name="phone" id="phone" class="px" size="36" autocomplete="off" value="{$dianyuan_info[phone]}" />
+								</td>
+							</tr>
+							<tr>
+								<th>客服QQ:</th>
+								<td><input type="text" name="qq" id="qq" class="px" size="36" autocomplete="off" value="{$dianyuan_info[qq]}" />
+								</td>
+							</tr>
+							<tr>
+								<th>店员权限:</th>
+								<td><textarea name="dianyuaninqx" rows="10" cols="50">{$dianyuan_info[dianyuaninqx]}</textarea>
+								</td>
+							</tr>
+							<tr>
+								<th>&nbsp;</th>
+								<td>
+									<input type="hidden" name="dianyuansubmit" value="true"><button type="submit" class="pn pnc" tabindex="6"><strong>确定</strong></button>
+								</td>
+							</tr>
+						</tbody>
+				</table>
+				</form>
+			</div>
+		</div>
+	</div>
+<!--{/if}-->

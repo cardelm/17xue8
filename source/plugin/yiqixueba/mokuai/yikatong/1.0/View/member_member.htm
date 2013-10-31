@@ -1,0 +1,154 @@
+<p class="tbmu bw0">
+<!--{loop $topnavs $key $nav}-->
+	<!--{if $key != 0}--><span class="pipe">|</span><!--{/if}-->
+	<a <!--{if	$type==$nav[name]}-->class="a" <!--{/if}--> href="plugin.php?id=yiqixueba:manage&&man=yikatong&subman=member&type={$nav[name]}" hidefocus="true">{$nav[title]}</a>
+<!--{/loop}-->
+</p>
+<!--{if $type == 'search' }-->
+	<div class="bmw mtw">
+		<div class="hm bm_h"><h2 class="mbm xs2">会员管理</h2></div>
+		<div class="bm_c">{$_G['username']}，你好。{$msg_text}</div>
+		<div class="exfm" style="margin-top: 0;">
+			<form method="post" enctype="multipart/form-data" autocomplete="off" name="shopform" id="shopform" class="s_clear"  action="{$this_page}">
+			<input type="hidden" name="formhash" value="{FORMHASH}" />
+			<input type="hidden" name="searchsubmit" value="true" />
+			<input type="hidden" name="referer" value="{echo dreferer()}" />
+			<input type="hidden" name="handlekey" value="shop" />
+			<script src="static/js/calendar.js" type="text/javascript"></script>
+			<table cellspacing="0" cellpadding="0">
+				<tr>
+					<th>卡号：</th><td><input type="text" name="" size="12"></td>
+					<th>姓名：</th><td><input type="text" name="" size="8"></td>
+					<th>办卡时间：</th><td><input type="text" name="" size="10" onclick="showcalendar(event, this)">至<input type="text" name="" size="10" onclick="showcalendar(event, this)"></td>
+					<th>最近消费：</th><td><input type="text" name="" size="12"></td>
+					<td><input type="hidden" name="searchsubmit" value="true"><button type="submit" class="pn pnc" tabindex="6"><strong>搜索</strong></button></td>
+				</tr>
+				
+			</table>
+			</form>
+		</div>
+		<table summary="会员管理" cellspacing="0" cellpadding="0" class="dt bm">
+			<caption><h2 class="mbm xs2">会员列表</h2></caption>
+			<tr>
+				<th width="140" class="hm">会员</th>
+				<th class="hm">&nbsp;</th>
+
+			</tr>
+			<!--{if $membernum}-->
+				<!--{loop $member_lists $memberlist}-->
+					<tr>
+						<td class="hm">{$memberlist[membername]}</td>
+						<td class="hm">{$memberlist[membername]}</td>
+
+					</tr>
+				<!--{/loop}-->
+			<!--{if $multi}--><tr><td colspan="2">{$multi}</td></tr><!--{/if}-->
+			<!--{else}-->
+				<tr><td colspan="4"><p class="emp">目前没有任何会员</p></td></tr>
+			<!--{/if}-->
+		</table>
+	</div>
+
+<!--{elseif $type =='create'}-->
+	<!--{if !$cardcatid}-->
+		<div class="bmw mtw">
+			<div class="hm bm_h"><h2 class="mbm xs2">会员管理</h2></div>
+			<div class="bm_c">{$_G['username']}，你好，{$msg_text}</div>
+			<div class="bm_c">
+				<div class="exfm" style="margin-top: 0;">
+					<table cellspacing="0" cellpadding="0">
+						<caption><h2 class="mbm xs2">请选择会员卡种类</h2></caption>
+						<!--{loop $cardcat_lists $cardcatlist}-->
+						<tr>
+							<td rowspan="3" width="100">{$cardcatlist[cardcaticohtml]}</td><td rowspan="3" width="160">{$cardcatlist[cardcatdescription]}</td><th>会员卡名称：</th><td>{$cardcatlist[cardcatname]}</td><th>会员卡种类</th><td>{$cardcatlist[cardtype]}</td><th>剩余张数:</th><td>&nbsp;</td><td rowspan="3">&nbsp;<a href="{$this_page}&type=create&cardcatid={$cardcatlist[cardcatid]}">办理</a></td>
+						</tr>
+						<tr>
+							<th>卡内金额：</th><td>￥{$cardcatlist[cardjine]}元</td><th>卡内积分：</th><td>{$cardcatlist[cardjifen]}</td><th>会员卡费用：</th><td>￥{$cardcatlist[cardpice]}元</td>
+						</tr>
+						<tr>
+							<th>入住费用：</th><td>{$cardcatlist[cardjine]}</td><th>入住费用：</th><td>{$cardcatlist[cardjine]}</td><th>入住费用：</th><td>{$cardcatlist[cardjine]}</td>
+						</tr>
+						<!--{/loop}-->
+					</table>
+				</div>
+			</div>
+		</div>
+	<!--{else}-->
+		<div class="bmw mtw">
+			<div class="hm bm_h"><h2 class="mbm xs2">会员管理</h2></div>
+			<div class="bm_c">{$_G['username']}，你好，{$msg_text}</div>
+			<div class="bm_c">
+				<div class="exfm" style="margin-top: 0;">
+					<table cellspacing="0" cellpadding="0">
+						<caption><h2 class="mbm xs2">【{$shop_info[shopname]}】基本信息</h2></caption>
+						<tr>
+							<th>费用情况:</th><td>入住费用：</td>
+						</tr>
+					</table>
+				</div>
+				<div class="bw bm" >
+					<form method="post" enctype="multipart/form-data" autocomplete="off" name="shopform" id="shopform" class="s_clear"  action="{$this_page}">
+					<input type="hidden" name="formhash" value="{FORMHASH}" />
+					<!--{if $type == 'createfendian' }--><input type="hidden" name="upshopid" value="{$shopid}" /><!--{/if}-->
+					<input type="hidden" name="shopid" value="{$shopid}">
+					<input type="hidden" name="shopsubmit" value="true" />
+					<input type="hidden" name="referer" value="{echo dreferer()}" />
+					<input type="hidden" name="handlekey" value="shop" />
+					<script src="static/js/calendar.js" type="text/javascript"></script>
+					<table cellspacing="0" cellpadding="0" class="tfm" summary="商家入住">
+							<tbody>
+								<tr>
+									<th><strong class="rq y">*</strong>卡号:</th>
+									<td>
+										<!--{if $shopid}--><input type="hidden" name="shopid" value="{$shopid}"><!--{/if}-->
+										<input type="text" name="shopname" id="shopname" class="px" size="36" tabindex="1" autocomplete="off" tabindex="1" value="{$shop_info[shopname]}" />
+										<span id="shopnamecheck" class="xi1"></span>
+									</td>
+								</tr>
+								<tr>
+									<th><strong class="rq y">*</strong>姓名:</th>
+									<td>
+										<!--{if $shopid}--><input type="hidden" name="shopid" value="{$shopid}"><!--{/if}-->
+										<input type="text" name="shopname" id="shopname" class="px" size="36" tabindex="1" autocomplete="off" tabindex="1" value="{$shop_info[shopname]}" />
+										<span id="shopnamecheck" class="xi1"></span>
+									</td>
+								</tr>
+								<tr>
+									<th>电话</th>
+									<td><input type="text" name="shopalias" id="shopalias" class="px" size="36" autocomplete="off" tabindex="1" value="{$shop_info[shopalias]}" />
+									</td>
+								</tr>
+								<tr>
+									<th>手机</th>
+									<td><input type="text" name="shopalias" id="shopalias" class="px" size="36" autocomplete="off" tabindex="1" value="{$shop_info[shopalias]}" />
+									</td>
+								</tr>
+								<tr>
+									<th><strong class="rq y">*</strong>详细地址</th>
+									<td><input type="text" name="address" id="address" class="px" size="36" autocomplete="off" value="{$shop_info[address]}" />
+									</td>
+								</tr>
+								<tr>
+									<th><strong class="rq y">*</strong>联系电话</th>
+									<td><input type="text" name="phone" id="phone" class="px" size="36" autocomplete="off" value="{$shop_info[phone]}" />
+									</td>
+								</tr>
+								<tr>
+									<th>QQ号</th>
+									<td><input type="text" name="qq" id="qq" class="px" size="36" autocomplete="off" value="{$shop_info[qq]}" />
+									</td>
+								</tr>
+								<tr>
+									<th>&nbsp;</th>
+									<td>
+										<input type="hidden" name="submit" value="true"><button type="submit" class="pn pnc" tabindex="6"><strong>入住</strong></button>
+									</td>
+								</tr>
+							</tbody>
+					</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	<!--{/if}-->
+<!--{/if}-->

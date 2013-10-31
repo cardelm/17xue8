@@ -34,26 +34,32 @@ if(!getcookie('yiqixueba_login') ){
 	dsetcookie('yiqixueba_login','yes',900);
 }
 
+$this_page = 'plugin.php?'.$_SERVER['QUERY_STRING'];
+stripos($this_page,'subop=') ? $this_page = substr($this_page,0,stripos($this_page,'subop=')-1) : $this_page;
 
-
-$navs = C::t(GM('main_menus'))->fetch_all('member',0);
-$subnavs = array();
+$navs = getmembernav(2);
 $menuk = 0;
 foreach($navs as $mk=>$row ){
-	$sub_menu = C::t(GM('main_menus'))->fetch_all('member',$row['menuid']);
 	$menukk = 0;
-	foreach($sub_menu as $kk => $subrow ){
+	foreach($row['submenu'] as $kk => $subrow ){
 		if ( $menuk == 0 && $menukk == 0 && empty($submod) ){
-			$submod = $row['name'].'_'.$subrow['name'];
+			$submod = $mk.'_'.$kk;
 		}
 		list($m,$p) = explode("_",$submod);
-		if($m == $row['name']&& $menukk == 0 ){
-			$subnavs[] = $subrow;
+		if( $m==$mk && !$p && $menukk == 0){
+			$submod = $m.'_'.$kk;
+			$p = $kk;
 		}
-		if($submod == $row['name'].'_'.$subrow['name'] ){
+		if( $m == $mk){
+			$subnavs[$kk] = $subrow;
+		}
+		if($submod == $mk.'_'.$kk ){
 			require_once GC($subrow['modfile']);
 		}
+		$menukk++;
 	}
+	$menuk++;
 }
+
 include template(GV('main_member'));
 ?>

@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
+	<item id="ajax">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table"><![CDATA[
+						]]></item>
+		<item id="template"><![CDATA[
+						]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
+	<item id="member_base">
+		<item id="title"><![CDATA[基本信息]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="api">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table"><![CDATA[
+						]]></item>
+		<item id="template"><![CDATA[
+						]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
 	<item id="admincp_index">
 		<item id="title"><![CDATA[微信墙首页]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
@@ -9,39 +38,6 @@
 		<item id="template"><![CDATA[]]></item>
 		<item id="table"><![CDATA[]]></item>
 	</item>
-	<item id="ajax">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="api">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="function">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
 	<item id="member_bind">
 		<item id="title"><![CDATA[微信绑定]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
@@ -50,5 +46,27 @@
 						]]></item>
 		<item id="template"><![CDATA[]]></item>
 		<item id="table"><![CDATA[]]></item>
+	</item>
+	<item id="function">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table"><![CDATA[
+						]]></item>
+		<item id="template"><![CDATA[
+						]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
+	<item id="member_">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[Array]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[Array]]></item>
+		</item>
 	</item>
 </root>

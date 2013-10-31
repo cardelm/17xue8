@@ -1,0 +1,104 @@
+{$subtype}
+<!--{if $dianyuanid || $subtype == 'adddianyuan'}-->
+	<form method="post" autocomplete="off" id="adddianyuanform" name="adddianyuanform" action="plugin.php?id=yiqixueba:manage&man=yktdianzhu&subman=yktdianyuan&subtype=adddianyuan" >
+	<input type="hidden" name="referer" value="{echo dreferer()}" />
+	<input type="hidden" name="adddianyuansubmit" value="true" />
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	
+	<div class="c">
+	<table cellspacing="0" cellpadding="0" class="tfm">
+		<caption>
+			<h2 class="mbm xs2">增加店员</h2>
+		</caption>
+		<tr>
+			<th valign="top" width="60" class="avt"><strong class="rq y">*</strong>店铺</th>
+			<td valign="top"><!--{if $myshop_num == 1}-->{$myshoplist[0][shopname]}<input type="hidden" name="shopid" value="{$myshoplist[0][shopid]}"><!--{else}--><select name="shopid">{$myshopoption}</option><!--{/if}-->
+		</tr>
+		<tr>
+			<th valign="top" width="60" class="avt"><strong class="rq y">*</strong>用户名</th>
+			<td valign="top"><!--{if $dianyuanid}-->{$dianyuan_info[dyusername]}<input type="hidden" name="dianyuanid" value="{$dianyuanid}"><input type="hidden" name="dyusername" value="{$dianyuan_info[dyusername]}"><!--{else}--><input type="text" size="20"  class="px" name="dyusername" value="{$dianyuan_info[dyusername]}" onblur="ajaxget('plugin.php?id=yiqixueba&submod=ajax&ajaxtype=checkdianyuan&dyusername='+ this.value, 'checkdianyuan');"><div id="checkdianyuan"></div><!--{/if}--></td>
+			<td valign="top"></td>
+		</tr>
+		<!--{if $dianyuanid}-->
+		<tr>
+			<th valign="top" width="60" class="avt">密码</th>
+			<td valign="top"><input type="text" size="20"  class="px" name="dypass" value="" >不修改请留空</td>
+			<td valign="top"></td>
+		</tr>
+		<!--{/if}-->
+		<tr>
+			<th valign="top" width="60" class="avt"><strong class="rq y">*</strong>姓名</th>
+			<td valign="top"><input type="text" size="25" class="px" name="dyname" value="{$dianyuan_info[dyname]}"></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<th valign="top" width="60" class="avt">性别</th>
+			<td valign="top"><select name="dysex"><option value="0" <!--{if $dianyuan_info[dysex] == 0}--> selected<!--{/if}-->>保密</option><option value="1" <!--{if $dianyuan_info[dysex] == 1}--> selected<!--{/if}-->>男</option><option value="2" <!--{if $dianyuan_info[dysex] == 2}--> selected<!--{/if}-->>女</option></select></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<th valign="top" width="60" class="avt">电话</th>
+			<td valign="top"><input type="text" size="25" class="px" name="dyphone" value="{$dianyuan_info[dyphone]}"></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<th valign="top" width="60" class="avt"><strong class="rq y">*</strong>类型</th>
+			<td valign="top"><select name="dytype" onchange="ajaxget('plugin.php?id=yiqixueba&submod=ajax&ajaxtype=dyquanxian&dytype='+ this.value, 'dyquanxian');">{$dytypeoption}</select></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<th valign="top" width="60" class="avt"><strong class="rq y">*</strong>权限</th>
+			<td valign="top"><div id="dyquanxian">{$dyquanxian}</div></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<th valign="top" width="60" class="avt">状态</th>
+			<td valign="top"><input type="checkbox" name="status" value="1">开通</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="120">&nbsp;</td>
+			<td valign="top"><button type="submit" name="adddianyuansubmit" id="adddianyuansubmit" value="true" class="pn pnc"><strong><!--{if $dianyuanid}-->修改<!--{else}-->增加<!--{/if}--></strong></button></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		</table>
+		</div>
+		</form>
+<!--{else}-->
+	<table summary="店员管理" cellspacing="0" cellpadding="0" class="dt mtm">
+		<caption>
+			<h2 class="mbm xs2">
+			<a href="plugin.php?id=yiqixueba:manage&man=yktdianzhu&subman=yktdianyuan&subtype=adddianyuan" class="xi2 xs1 xw0 y">增加店员&raquo;</a>店员列表
+			</h2>
+		</caption>
+		<tr>
+			<th valign="top" width="60" class="avt">用户名</th>
+			<th width="120">所属店铺</th>
+			<th width="80">姓名</th>
+			<th width="80">电话</th>
+			<th width="80">性别</th>
+			<th width="80">类型</th>
+			<th>绩效</th>
+			<th width="40">状态</th>
+			<th width="100">管理</th>
+		</tr>
+		<!--{if $dianyuan_num}-->
+		<!--{loop $dianyuanlist $dylist}-->
+		<tr>
+			<td><a href="{$shoplist[shopurl]}">{$dylist[dyusername]}</a></td>
+			<td>{$dylist[dyshopname]}</td>
+			<td>{$dylist[dyname]}</td>
+			<td>{$dylist[dyphone]}</td>
+			<td>{$dylist[dysex]}</td>
+			<td>{$dylist[dytype]}</td>
+			<td>{$dylist[dyname]}</td>
+			<td>{$dylist[status]}</td>
+			<td><a href="plugin.php?id=yiqixueba:manage&man=yktdianzhu&subman=yktdianyuan&subtype=adddianyuan&dianyuanid={$dylist[dianyuanid]}">编辑</a></td>
+		</tr>
+		<!--{/loop}-->
+		<!--{else}-->
+		<tr><td colspan="8"><p class="emp">目前还没有店员，点击<a href="plugin.php?id=yiqixueba:manage&man=yktdianzhu&subman=yktdianyuan&subtype=adddianyuan">这里</a>增加店员</p></td></tr>
+		<!--{/if}-->
+	</table>
+<!--{/if}-->
+

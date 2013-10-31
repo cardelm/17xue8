@@ -1,1 +1,50 @@
-模块
+<!--{template common/header}-->
+<link rel="stylesheet" type="text/css" href="{$_G[setting][csspath]}data/cache/style_{STYLEID}_home_spacecp.css?{VERHASH}" />
+<div id="pt" class="bm cl">
+	<div class="z"><a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
+		<a href="plugin.php?id=yiqixueba:member">{$navtitle}</a> 
+	</div>
+</div>
+<div id="ct" class="ct2_a wp cl">
+	<div class="mn">
+		<div class="bm bw0 mdcp">
+		<!--{if $subnavs}-->
+		<ul class="tb cl">
+		<!--{loop $subnavs $subnav}-->
+			<li{if $subnav[name] == $p} class="a"{/if}><a href="plugin.php?id=yiqixueba&submod=main_mokuai&mod={$m}_{$subnav[name]}" hidefocus="true">{$subnav[title]}</a></li>
+		<!--{/loop}-->
+		</ul>
+		<!--{/if}-->
+		<div class="bm bw0">
+			<h1 class="mt">{$subnav[title]}</h1>
+			<P>&nbsp;</p>
+			<p><a href="plugin.php?id=yiqixueba&submod={$mod}" target="_blank">{lang yiqixueba:main_mokuai_open}</a></p>
+			<ul><li>ashdh</li><li>ashdh</li><li>ashdh</li></ul>
+		</div>
+		<!--{if $script == 'noperm'}-->
+			<div class="bm bw0">
+				<h1 class="mt">{lang yiqixueba:member_noperm_tips}</h1>
+				<p>{lang yiqixueba:member_noperm}</p>
+				<p class="notice">mod_notice</p>
+			</div>
+			
+		<!--{elseif !empty($subtpl)}-->
+			<!--{eval include(template($subtpl));}-->
+		<!--{/if}-->
+		</div>
+	</div>
+	<div class="appl">
+		<div class="tbn">
+			<h2 class="mt bbda">{$navtitle}</h2>
+			<ul>
+				<!--{loop $navs $nav}-->
+					<li{if $nav[name] == $m} class="a"{/if}><a href="plugin.php?id=yiqixueba&submod=main_mokuai&mod={$nav[name]}">{$nav[title]}</a></li>
+				<!--{/loop}-->
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="pbw"></div>
+
+<!--{template common/footer}-->

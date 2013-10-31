@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
+	<item id="api">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
+	<item id="function">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
 	<item id="admincp">
 		<item id="title"><![CDATA[]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="pages"><![CDATA[
 						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
+	</item>
+	<item id="ajax">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
 		<item id="pages"><![CDATA[
 						]]></item>
 	</item>
@@ -17,63 +58,12 @@
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="pages"><![CDATA[
 						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table"><![CDATA[]]></item>
-	</item>
-	<item id="admincp_member">
-		<item id="title"><![CDATA[会员管理]]></item>
-		<item id="displayorder"><![CDATA[2]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table">
-			<item id="0"><![CDATA[member]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
 		</item>
-	</item>
-	<item id="admincp_membergroup">
-		<item id="title"><![CDATA[会员组]]></item>
-		<item id="displayorder"><![CDATA[1]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
 		<item id="table">
-			<item id="0"><![CDATA[membergroup]]></item>
+			<item id="0"><![CDATA[]]></item>
 		</item>
-	</item>
-	<item id="admincp_mokuai">
-		<item id="title"><![CDATA[模块管理]]></item>
-		<item id="displayorder"><![CDATA[3]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table">
-			<item id="0"><![CDATA[mokuai]]></item>
-		</item>
-	</item>
-	<item id="admincp_setting">
-		<item id="title"><![CDATA[基础设置]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table">
-			<item id="0"><![CDATA[setting]]></item>
-		</item>
-	</item>
-	<item id="ajax">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
 	</item>
 	<item id="ajax_example">
 		<item id="title"><![CDATA[]]></item>
@@ -86,84 +76,20 @@
 		<item id="pages"><![CDATA[
 						]]></item>
 	</item>
-	<item id="api">
+	<item id="yiqixueba">
 		<item id="title"><![CDATA[]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
 		<item id="pages"><![CDATA[
 						]]></item>
 	</item>
 	<item id="api_example">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="api_install">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="basepage">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="function">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="member">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="member_index">
-		<item id="title"><![CDATA[基本信息]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table">
-			<item id="0"><![CDATA[member]]></item>
-		</item>
-	</item>
-	<item id="yiqixueba">
 		<item id="title"><![CDATA[]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
 		<item id="menu"><![CDATA[1]]></item>
@@ -183,17 +109,123 @@
 		<item id="template">
 			<item id="0"><![CDATA[index]]></item>
 		</item>
-		<item id="table"><![CDATA[]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
+	<item id="basepage">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
+	<item id="member">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="pages"><![CDATA[
+						]]></item>
+	</item>
+	<item id="api_install">
+		<item id="title"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[
+						]]></item>
+		<item id="template"><![CDATA[
+						]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
 	</item>
 	<item id="yiqixueba_mokuai">
 		<item id="title"><![CDATA[模块展示]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[0]]></item>
 		<item id="pages"><![CDATA[
 						]]></item>
 		<item id="template">
 			<item id="0"><![CDATA[mokuai]]></item>
 		</item>
-		<item id="table"><![CDATA[]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
+	<item id="member_index">
+		<item id="title"><![CDATA[基本信息]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[member]]></item>
+		</item>
+	</item>
+	<item id="admincp_setting">
+		<item id="title"><![CDATA[基础设置]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[setting]]></item>
+		</item>
+	</item>
+	<item id="admincp_mokuai">
+		<item id="title"><![CDATA[模块管理]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[mokuai]]></item>
+		</item>
+	</item>
+	<item id="admincp_membergroup">
+		<item id="title"><![CDATA[会员组]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[membergroup]]></item>
+		</item>
+	</item>
+	<item id="admincp_member">
+		<item id="title"><![CDATA[会员管理]]></item>
+		<item id="displayorder"><![CDATA[4]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[member]]></item>
+		</item>
 	</item>
 </root>

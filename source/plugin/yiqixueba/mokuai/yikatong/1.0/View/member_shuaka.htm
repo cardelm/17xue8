@@ -1,0 +1,94 @@
+<link rel="stylesheet" type="text/css" href="data/cache/style_1_home_spacecp.css?{VERHASH}" />
+<p class="tbmu bw0">
+	<!--{eval $k = 0;}-->
+	<!--{loop $xiaofei_list $key $xiaofei}-->
+		<!--{if $k != 0}-->
+			<span class="pipe">|</span>
+		<!--{/if}-->
+		<a{if $subop == $key} class="a"{/if} href="plugin.php?id=yiqixueba:manage&man=yikatong&subman=shuaka&subop={$key}" hidefocus="true">{$xiaofei}</a>
+		<!--{eval $k++;}-->
+	<!--{/loop}-->
+</p>
+<!--{if $goodsid}-->
+	<form method="post" autocomplete="off" id="shuakaform" name="shuakaform" action="plugin.php?id=yiqixueba:manage&man=yikatong&subman=shuaka&subop=jici&goodsid={$goodsid}" >
+	<input type="hidden" name="referer" value="{echo dreferer()}" />
+	<input type="hidden" name="shuakasubmit" value="true" />
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	<script src="static/js/calendar.js" type="text/javascript"></script>
+	<div class="c">
+	<table cellspacing="0" cellpadding="0" class="tfm">
+		<caption>
+			<h2 class="mbm xs2">【{$dangqian_op}】</h2>
+		</caption>
+		<tr>
+			<th valign="top" width="60" class="avt">商品名称</th>
+			<td valign="top">{$skgoods_info[goodsname]}</td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<th valign="top" width="60" class="avt">卡号</th>
+			<td valign="top"><input type="text" name="start" size="12" value="" style="padding: 2px 4px; line-height: 17px;"></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<th valign="top" width="60" class="avt">密码</th>
+			<td valign="top"><input type="password" name="start" size="12" value="" style="padding: 2px 4px; line-height: 17px;"></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="120">&nbsp;</td>
+			<td valign="top"><button type="submit" name="shuakasubmit" id="shuakasubmit" value="true" class="pn pnc"><strong>确定</strong></button></td>
+			<td valign="top">&nbsp;</td>
+		</tr>
+	</table>
+	</div>
+	</form>
+
+<!--{else}-->
+	<script type="text/javascript" src="{$_G[setting][jspath]}calendar.js?{VERHASH}"></script>
+	<form method="post" action="home.php?mod=spacecp&ac=credit&op=log">
+		<div class="exfm" style="margin-top: 0;">
+			<table cellspacing="0" cellpadding="0">
+				<tr>
+					<th>商品名称:</th>
+					<td>
+						<input type="text" name="starttime" class="px" size="20" value="$_GET[starttime]" />
+					</td>
+					<th>时间范围:</th>
+					<td>
+						<input type="text" name="starttime" class="px" size="11" value="$_GET[starttime]" onclick="showcalendar(event, this)" readonly="readonly" /> 至 <input type="text" name="endtime" class="px" size="11" value="$_GET[endtime]" readonly="readonly" onclick="showcalendar(event, this)" />
+					</td>
+					<td><button type="submit" class="pn" name="search" value="true"><strong>搜索</strong></button></td>
+				</tr>
+			</table>
+			<script type="text/javascript">
+				simulateSelect('exttype');
+				simulateSelect('income');
+				simulateSelect('optype');
+			</script>
+		</div>
+		<table summary="商品列表" cellspacing="0" cellpadding="0" class="dt">
+			<tr>
+				<th width="200">商品名称</th>
+				<th width="30">价格</th>
+				<th width="60">数量</th>
+				<th width="150">有效期</th>
+				<th>消费类型</th>
+				<th width="30">状态</th>
+				<th width="30">管理</th>
+			</tr>
+			<!--{loop $goodslist $value}-->
+			
+			<tr>
+				<td><a href="home.php?mod=spacecp&ac=credit&op=log&optype=$value['operation']">$value[goodsname]</a></td>
+				<td>$value[goodspice]</td>
+				<td>$value[goodsnum]</td>
+				<td>$value[start] - $value[end]</td>
+				<td>$value[dateline]</td>
+				<td>$value[dateline]</td>
+				<td><a href="plugin.php?id=yiqixueba:manage&man=yikatong&subman=shuaka&subop=jici&goodsid={$value[goodsid]}">刷卡</a></td>
+			</tr>
+			<!--{/loop}-->
+		</table>
+	</form>
+<!--{/if}-->

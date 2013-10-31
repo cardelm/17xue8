@@ -1,0 +1,24 @@
+<!--{if $cardid}-->
+<!--{else}-->
+	<form method="post" autocomplete="off" id="xiaofeiform" name="xiaofeiform" action="{$this_page}" >
+	<input type="hidden" name="referer" value="{echo dreferer()}" />
+	<input type="hidden" name="xiaofeisubmit" value="true" />
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	<div class="c">
+	<table cellspacing="0" cellpadding="0" class="tfm">
+		<caption><h2 class="mbm xs2">会员消费</h2></caption>
+		<tr><th valign="top" width="60" class="avt">卡号</th><td valign="top">
+	
+			<input type="text" class="ps" name="cardno">
+	
+		</td><td valign="top">&nbsp;</td></tr>
+		<tr><th valign="top" width="60" class="avt">密码</th><td valign="top">
+	
+			<input type="text" class="ps" name="cardpass">
+	
+		</td><td valign="top">&nbsp;</td></tr>
+		<tr><td width="120">&nbsp;</td><td valign="top"><button type="submit" name="xiaofeisubmit" id="xiaofeisubmit" value="true" class="pn pnc"><strong>确定</strong></button></td><td valign="top">&nbsp;</td></tr>
+	</table>
+	</div>
+	</form>
+<!--{/if}-->

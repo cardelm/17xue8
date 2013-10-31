@@ -1,0 +1,169 @@
+<!--{if $cardno}-->
+<div class="bmw mtw">
+<div class="hm bm_h"><h2 class="mbm xs2">{lang yiqixueba:member_shuaka_xiaofei}</h2></div>
+	<div class="bm_c">
+		<div class="exfm" style="margin-top: 0;">
+			<table cellspacing="0" cellpadding="0">
+				<tr>
+					<td>会员卡号:</td><td>{$cardno}</td>
+					<td>会员类型:</td><td>普通会员卡</td>
+					<td>卡内金额:</td><td>120</td>
+					<td>卡内积分:</td><td>2000</td>
+					<td>累计消费:</td><td>1100</td>
+				</tr>
+				<tr>
+					<td>会员姓名:</td><td>测试</td>
+					<td>联系电话:</td><td>12345678901</td>
+					<td>联系地址:</td><td>金卡是假的哈是的</td>
+					<td>加入日期:</td><td colspan="3">2013-06-22 11:12:34</td>
+				</tr>
+			</table>
+		</div>
+		<script src="static/js/calendar.js?oKu" type="text/javascript"></script>
+		<form method="post" action="{$this_page}">
+			<input type="hidden" name="referer" value="{echo dreferer()}" />
+			<input type="hidden" name="searchsubmit" value="true" />
+			<input type="hidden" name="formhash" value="{FORMHASH}" />
+			<input type="hidden" name="cardno" value="{$cardno}">
+			<div class="exfm" style="margin-top: 0;">
+				<table cellspacing="0" cellpadding="0">
+					<tr>
+						<th>商品搜索:</th>
+						<td>
+							<span class="ftid">
+								<input type="text" name="starttime" class="px" size="26" value="" />
+							</span>
+						</td>
+						<th>支付方式:</th>
+						<td>
+						<span class="ftid">
+						<select id="income" name="income" class="ps" width="60">
+						<option value="0" selected="selected">不限</option>
+						<option value="-1">亮卡打折</option>
+						<option value="1">计时消费</option>
+						<option value="1">年/月卡</option>
+						<option value="1">现金消费</option>
+						<option value="1">余额消费</option>
+						<option value="1">积分兑换</option>
+						</select>
+						</span>
+						</td>
+						<th>上架时间:</th>
+						<td>
+						<input type="text" name="starttime" class="px" size="11" value="" onclick="showcalendar(event, this)" readonly="readonly" /> 至 <input type="text" name="endtime" class="px" size="11" value="" readonly="readonly" onclick="showcalendar(event, this)" />
+						</td>
+						<th>&nbsp;</th>
+						<td><button type="submit" class="pn" name="search" value="true"><strong>查询</strong></button></td>
+					</tr>
+				</table>
+				<script type="text/javascript">
+				simulateSelect('exttype');
+				simulateSelect('income');
+				simulateSelect('optype');
+				</script>
+			</div>
+		</form>
+		<!--{if $goodsid}-->
+		<div class="exfm" style="margin-top: 0;">
+			<table cellspacing="0" cellpadding="0">
+				<tr>
+					<td>订单号:</td><td>1111111111111111</td>
+					<td>商品名称:</td><td>普通会员卡</td>
+					<td>消费方式:</td><td>亮卡打折</td>
+					<td>原价:</td><td>120</td>
+					<td>优惠价:</td><td>2000</td>
+					<td>赠送积分:</td><td>无</td>
+				</tr>
+			</table>
+		</div>
+			<form method="post" autocomplete="off" id="xiaofeiform" name="xiaofeiform" action="{$this_page}" >
+			<input type="hidden" name="referer" value="{echo dreferer()}" />
+			<input type="hidden" name="xiaofeisubmit" value="true" />
+			<input type="hidden" name="formhash" value="{FORMHASH}" />
+			<div class="c mtw">
+			<table cellspacing="0" cellpadding="0" class="tfm mtw">
+				<caption><h2 class="mbm xs2 hm">请输入交易密码</h2></caption>
+				<caption><h2 class="mbm xs2 hm"><input type="password" class="ps" name="cardno" value=""></h2></caption>
+				<caption><h2 class="mbm xs2 hm"><button type="submit" name="xiaofeisubmit" id="xiaofeisubmit" value="true" class="pn pnc"><strong>确认结账</strong></button></h2></caption>
+			</table>
+			</div>
+			</form>
+		<!--{else}-->
+
+		<div class="c mtw">
+		<table summary="搜索结果" cellspacing="0" cellpadding="0" class="dt mtm">
+			<!--{if $shopid}-->
+			<!--{else}-->
+			<caption>
+				<h2 class="mbm xs2">搜索结果</h2>
+				
+			</caption>
+			<tr>
+				<th width="120">商品名称</th>
+				<th width="80">消费方式</th>
+				<th width="80">原价</th>
+				<th width="80">现金</th>
+				<th>卡内余额</th>
+				<th>需要积分</th>
+				<th>积分赠送</th>
+				<th width="40">余额赠送</th>
+				<th width="80">管理</th>
+			</tr>
+			<tr>
+				<td><a href="{$shoplist[shopurl]}" target="_blank">啊就是大家as</a></td>
+				<td>亮卡打折</td>
+				<td>123</td>
+				<td>100</td>
+				<td>0</td>
+				<td>0</td>
+				<td>1000</td>
+				<td>5</td>
+				<td><a href="{$this_page}&cardno={$cardno}&goodsid=1">选择</a></td>
+			</tr>
+			<!--{if $myshop_num}-->
+			<!--{loop $myshoplist $shoplist}-->
+			<tr>
+				<td><a href="{$shoplist[shopurl]}" target="_blank">{$shoplist[shopname]}</a></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>{$shoplist[status]}</td>
+				<td><a href="">增加店长</a><span class="pipe">|</span><a href="">增加财务</a><span class="pipe">|</span><a href="">增加收银员</a></td>
+			</tr>
+			<!--{/loop}-->
+			<!--{else}-->
+			<tr><td colspan="6"><p class="emp">目前没有店铺</p></td></tr>
+			<!--{/if}-->
+
+
+			<!--{/if}-->
+		</table>
+		</div>
+		<!--{/if}-->
+
+
+
+
+
+
+	</div>
+</div>
+<!--{else}-->
+	<form method="post" autocomplete="off" id="xiaofeiform" name="xiaofeiform" action="{$this_page}" >
+	<input type="hidden" name="referer" value="{echo dreferer()}" />
+	<input type="hidden" name="xiaofeisubmit" value="true" />
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	<div class="c mtw">
+	<table cellspacing="0" cellpadding="0" class="tfm mtw">
+		<caption><h2 class="mbm xs2 hm">{lang yiqixueba:please_shuaka}</h2></caption>
+		<caption><h2 class="mbm xs2 hm"><input type="text" class="ps" name="cardno" value="abc00001"></h2></caption>
+		<caption><h2 class="mbm xs2 hm"><button type="submit" name="xiaofeisubmit" id="xiaofeisubmit" value="true" class="pn pnc"><strong>{lang yiqixueba:shuaka}</strong></button></h2></caption>
+	</table>
+	</div>
+	</form>
+	<div class="c mtw">{lang yiqixueba:shuaka_tips}
+	</div>
+<!--{/if}-->

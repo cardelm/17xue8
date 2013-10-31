@@ -1,5 +1,5 @@
 <!--{template common/header}-->
-<link rel="stylesheet" type="text/css" href="data/cache/style_1_home_spacecp.css?{VERHASH}" />
+<link rel="stylesheet" type="text/css" href="{$_G[setting][csspath]}data/cache/style_{STYLEID}_home_spacecp.css?{VERHASH}" />
 <div id="pt" class="bm cl">
 	<div class="z"><a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
 		<a href="plugin.php?id=yiqixueba:member">{$navtitle}</a> 
@@ -17,8 +17,8 @@
 		<!--{/if}-->
 		<!--{if $script == 'noperm'}-->
 			<div class="bm bw0">
-				<h1 class="mt">您没有权限</h1>
-				<p>权限不够</p>
+				<h1 class="mt">{lang yiqixueba:member_noperm_tips}</h1>
+				<p>{lang yiqixueba:member_noperm}</p>
 				<p class="notice">mod_notice</p>
 			</div>
 		<!--{elseif !empty($subtpl)}-->
@@ -31,7 +31,7 @@
 			<h2 class="mt bbda">{$navtitle}</h2>
 			<ul>
 				<!--{loop $navs $nav}-->
-					<li{if $nav[name] == $m} class="a"{/if}><a href="plugin.php?id=yiqixueba:member&submod={$nav[name]}_{$subnavs[0][name]}">{$nav[title]}</a></li>
+					<li{if $nav[name] == $m} class="a"{/if}><a href="plugin.php?id=yiqixueba:member&submod={$nav[name]}">{$nav[title]}</a></li>
 				<!--{/loop}-->
 				<li><a href="plugin.php?id=yiqixueba:member&submod=logout">{lang logout}</a></li>
 			</ul>

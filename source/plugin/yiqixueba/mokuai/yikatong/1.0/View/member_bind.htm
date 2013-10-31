@@ -1,0 +1,97 @@
+<!--{if $card_info[uid] == $_G[uid]}-->
+<div class="bmw mtw bw0">{$_G['username']} {lang yiqixueba:binded_tips} {$card_info[cardno]}</div>
+<!--{else}-->
+<div class="bmw mtw">
+	<div class="hm bm_h"><h2 class="mbm xs2">{lang yiqixueba:member_bind_header}</h2></div>
+	<div class="bm_c">{$_G['username']}{lang yiqixueba:bind_tips}<br />
+		<form method="post" autocomplete="off" id="cardform" name="cardform" action="{$this_page}" >
+		<input type="hidden" name="referer" value="{echo dreferer()}" />
+		<input type="hidden" name="cardsubmit" value="true" />
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<div class="c mtw">
+		<table cellspacing="0" cellpadding="0" class="tfm mtw">
+			<tbody>
+				<tr>
+					<th><strong class="rq y">*</strong>{lang yiqixueba:member_cardno}</th>
+					<td>
+						<input type="text" name="cardno" id="cardno" class="px" size="36" tabindex="1" autocomplete="off" tabindex="1"  />
+						
+					</td>
+				</tr>
+				<tr>
+					<th><strong class="rq y">*</strong>{lang yiqixueba:member_card_password}</th>
+					<td><input type="password" name="cardpass" id="cardpass" class="px" size="36" tabindex="1" autocomplete="off" tabindex="1" />
+						
+					</td>
+				</tr>
+				<tr><td colspan="2" class="hm"><button type="submit" name="cardsubmit" id="cardsubmit" value="true" class="pn pnc"><strong>{lang yiqixueba:submit}</strong></button></td></tr>
+			</tbody>
+		</table>
+		</form>
+	</div>
+		<hr class="1">
+		<div class="c mtw">
+		这里是需要付费激活的用户，已经输入卡号和激活密码的，商家又没有收取任何费用，而在这里进行激活后待付费的界面
+			<form id="addfundsform" name="addfundsform" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=credit&op=buy" onsubmit="ajaxpost(this.id, 'return_addfundsform');">
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<input type="hidden" name="addfundssubmit" value="true" />
+				<input type="hidden" name="handlekey" value="buycredit" />
+				<table cellspacing="0" cellpadding="0" class="tfm mtn">
+					<tr>
+						<th>请选择付费方式</th>
+						<td colspan="2">
+							<!--{if $_G[setting][ec_ratio] && ($_G[setting][ec_tenpay_bargainor] || $_G[setting][ec_tenpay_opentrans_chnid])}-->
+								<div class="mbm pbn bbda cl">
+									<div id="div#tenpayBankList"></div><span id="#bank_type_value"></span>
+									<link rel="stylesheet" type="text/css" href="http://union.tenpay.com/bankList/css_col3.css" />
+									<script type="text/javascript">
+										$('div#tenpayBankList').html = function(){$('div#tenpayBankList').innerHTML = htmlString.replace(/<span.+?\/span>/g, ''); };
+										$("#bank_type_value").val = function(){{if $_G[setting][card][open]}$('cardbox').style.display='none';if($('card_box_sec')){$('card_box_sec').style.display='none';}$('paybox').style.display='';{/if}};
+										appendscript('http://union.tenpay.com/bankList/bank.js', '');
+									</script>
+								</div>
+							<!--{/if}-->
+							<div class="long-logo mbw">
+								<ul>
+								<!--{if $_G[setting][ec_ratio] && $_G[setting][ec_account]}-->
+									<li class="z">
+										<input name="bank_type" type="radio" value="alipay" class="vm" id="apitype_alipay" $ecchecked onclick="checkValue(this)" /><label class="vm" style="margin-right:18px;width:135px;height:32px;background:#FFF url({STATICURL}image/common/alipay_logo.gif) no-repeat;border:1px solid #DDD;display:inline-block;" onclick="{if $_G[setting][card][open]}$('cardbox').style.display='none';if($('card_box_sec')){$('card_box_sec').style.display='none';}$('paybox').style.display='';{/if}" for="apitype_alipay"></label>
+									</li>
+								<!--{/if}-->
+								</ul>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<td colspan="2">
+							<button type="submit" name="addfundssubmit_btn" class="pn" id="addfundssubmit_btn" value="true"><em>确定</em></button>
+						</td>
+					</tr>
+
+				</table>
+			</form>
+			<span style="display: none" id="return_addfundsform"></span>
+			<script type="text/javascript">
+				function addcalcredit() {
+					var addfundamount = $('addfundamount').value.replace(/^0/, '');
+					var addfundamount = parseInt(addfundamount);
+					$('desamount').innerHTML = !isNaN(addfundamount) ? Math.ceil(((addfundamount / $_G[setting][ec_ratio]) * 100)) / 100 : 0;
+				}
+				<!--{if $_G[setting][card][open]}-->
+				function activatecardbox() {
+					$('apitype_card').checked=true;
+					$('cardbox').style.display='';
+					if($('card_box_sec')){
+						$('card_box_sec').style.display='';
+					}
+					$('paybox').style.display='none';
+				}
+				<!--{/if}-->
+			</script>
+		</div>
+		<hr class="1">
+		<div class="c mtw">其他情况，该页面将不显示</div>
+	</div>
+</div>
+<!--{/if}-->

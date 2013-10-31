@@ -2,6 +2,7 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
+
 $submod = getgpc('submod');
 $subop = getgpc('subop');
 

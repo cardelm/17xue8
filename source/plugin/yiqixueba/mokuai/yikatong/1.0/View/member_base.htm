@@ -1,0 +1,61 @@
+
+<div class="bmw mtw">
+	<div class="hm bm_h"><h2 class="mbm xs2">{lang yiqixueba:member_yikatong_welcome}</h2></div>
+	<div class="bm_c">{$_G['username']}{lang yiqixueba:member_yikatong_welcome_title}<br />
+	<UL>
+		{lang yiqixueba:member_yikatong_welcome_text}
+	</UL>
+	
+	
+	
+	
+	</div>
+</div>
+<!--{if $_G[adminid] == 1}-->
+	<div class="bm bw0 mtn mbn y"><strong>{lang yiqixueba:member_yikatong_welcome_edit}</strong><!--{loop $groups_t $key $group}--><span class="pipe">|</span><a href="{$this_page}&edit={$groups[$key]}">{$group}</a><!--{/loop}--></div>
+	<!--{if $edit_stauts}-->
+		<hr class="1">
+		<form method="post" autocomplete="off" id="editform" name="editform" action="{$this_page}" >
+		<input type="hidden" name="referer" value="{echo dreferer()}" />
+		<input type="hidden" name="editsubmit" value="true" />
+		<input type="hidden" name="edit" value="{$edit}" />
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<div class="c mtw">
+		<table cellspacing="0" cellpadding="0" class="tfm mtw">
+			<caption><h2 class="mbm xs2 hm">{lang yiqixueba:edit} {$dq_edit} {lang yiqixueba:welcome_info}</h2></caption>
+			<tr><td colspan="2" class="hm">
+				<script src="source/plugin/yiqixueba/template/kindeditor/kindeditor.js" type="text/javascript"></script>
+				<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/themes/default/default.css" />
+				<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/plugins/code/prettify.css" />
+				<script src="source/plugin/yiqixueba/template/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+				<script src="source/plugin/yiqixueba/template/kindeditor/prettify.js" type="text/javascript"></script>
+				<textarea name="welcome"  class="hm" style="width:780px;height:350px;visibility:hidden;">{$welcome}</textarea>
+			</td></tr>
+
+			<tr><td colspan="2" class="hm"><button type="submit" name="editform" id="editform" value="true" class="pn pnc"><strong>{lang yiqixueba:submit}</strong></button></td></tr>
+		</table>
+		</div>
+		</form>
+<script>
+	KindEditor.ready(function(K) {
+		var editor1 = K.create('textarea[name="welcome"]', {
+			cssPath : 'source/plugin/yiqixueba/template/kindeditor/plugins/code/prettify.css',
+			uploadJson : 'source/plugin/yiqixueba/template/kindeditor/upload_json.php',
+			items : ['source', '|', 'undo', 'redo', '|', 'preview', 'cut', 'copy', 'paste','plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright','justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript','superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/','formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold','italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage','flash', 'media',  'table', 'hr', 'emoticons','pagebreak','anchor', 'link', 'unlink', '|', 'about'],
+			afterCreate : function() {
+				var self = this;
+				K.ctrl(document, 13, function() {
+					self.sync();
+					K('form[name=editform]')[0].submit();
+				});
+				K.ctrl(self.edit.doc, 13, function() {
+					self.sync();
+					K('form[name=editform]')[0].submit();
+				});
+			}
+		});
+		prettyPrint();
+	});
+</script>		
+	<!--{/if}-->
+<!--{/if}-->
