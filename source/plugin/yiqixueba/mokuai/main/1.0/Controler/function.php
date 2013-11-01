@@ -2,10 +2,6 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-//$pages =dunserialize(C::t('common_setting')->fetch('yiqixueba_pages'));
-//$tables =dunserialize(C::t('common_setting')->fetch('yiqixueba_tables'));
-//$templates =dunserialize(C::t('common_setting')->fetch('yiqixueba_templates'));
-////
 //得到已安装模块信息
 function getmokuai(){
 	return C::t(GM('main_mokuai'))->range();

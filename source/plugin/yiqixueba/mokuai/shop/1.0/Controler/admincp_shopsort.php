@@ -2,117 +2,115 @@
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
+if(!submitcheck('submit')) {
+	showtips(lang('plugin/yiqixueba','shopsort_list_tips'));
+	showformheader($this_page.'&subop=shopsortlist');
+	showtableheader(lang('plugin/yiqixueba','shopsort_list'));
+	showsubtitle(array('', lang('plugin/yiqixueba','displayorder'),lang('plugin/yiqixueba','shopsortname'),lang('plugin/yiqixueba','shopsorttitle'),  ''));
 
-$this_page = substr($_SERVER['QUERY_STRING'],7,strlen($_SERVER['QUERY_STRING'])-7);
-stripos($this_page,'subop=') ? $this_page = substr($this_page,0,stripos($this_page,'subop=')-1) : $this_page;
-
-$subops = array('shopsortlist','shopsortedit');
-$subop = in_array($subop,$subops) ? $subop : $subops[0];
-
-$shopsortid = getgpc('shopsortid');
-$shopsort_info = C::t(GM('shop_shopsort'))->fetch($shopsortid);
-
-$sortupid = intval(getgpc('sortupid'));
-
-if($subop == 'shopsortlist') {
-	if(!submitcheck('submit')) {
-
-		showtips(lang('plugin/yiqixueba','shopsort_list_tips'));
-		showformheader($this_page.'&subop=shopsortlist');
-		showtableheader();
-
-		//////搜索内容
-		echo '<tr><td>';
-		//分类选择
-		$sortupid_select = '<select name="sortupid"><option value="0">'.lang('plugin/yiqixueba','shopsort_top').'</option>';
-		$shopsorts = C::t(GM('shop_shopsort'))->fetch_by_upids($sortupid);
-		foreach ($shopsorts as $k => $row ){
-			$sortupid_select .= '<option value="'.$row['shopsortid'].'" '.($sortupid == $row['shopsortid'] ? ' selected' :'').'>'.str_repeat("--",$row['sortlevel']-1).$row['sorttitle'].'</option>';
+	$shopsorts = C::t(GM('shop_shopsort'))->range();
+	foreach($shopsorts as $k=>$v ){
+		if($v['sortupid']==0){
+			$sorts[$v['shopsortid']] = $v;
+			foreach($shopsorts as $k1=>$v1 ){
+				if($v1['sortupid']==$v['shopsortid']){
+					$sorts[$v['shopsortid']]['subsort'][] = $v1;
+				}
+			}
+			$sorts[$v['shopsortid']]['subsort'] = array_sort($sorts[$v['shopsortid']]['subsort'],'displayorder','asc');
 		}
-		$sortupid_select .= '</select>';
-		echo '&nbsp;&nbsp;'.lang('plugin/yiqixueba','shopsort_select').'&nbsp;&nbsp;'.$sortupid_select;
-		echo "&nbsp;&nbsp;<input class=\"btn\" type=\"submit\" value=\"$lang[search]\" /></td></tr>";
-		//////搜索内容
-		showtablefooter();
-		showtableheader(lang('plugin/yiqixueba','shopsort_list'));
-		showsubtitle(array('', lang('plugin/yiqixueba','shopsortname'),lang('plugin/yiqixueba','shopsorttitle'), lang('plugin/yiqixueba','displayorder'), ''));
+	}
 
-		$shopsorts = C::t(GM('shop_shopsort'))->range();
-		dump($shopsorts);
-		foreach($shopsorts as $k=>$row ){
-			showtablerow('', array('class="td25"','class="td23"', 'class="td23"', 'class="td25"',''), array(
-				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[shopsortid]\">",
-				str_repeat("--",$row['sortlevel']-1).$row['sortname'],
-				str_repeat("--",$row['sortlevel']-1).$row['sorttitle'],
-				'<input type="text" class="txt" name="displayordernew['.$row['shopsortid'].']" value="'.$row['displayorder'].'" size="2" />',
-				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=shopsortedit&shopsortid=$row[shopsortid]\" class=\"act\">".lang('plugin/yiqixueba','edit')."</a>",
+	foreach($sorts as $k=>$row ){
+		showtablerow('', array('class="td25"','style="width:120px"','class="td23"', '', ''), array(
+			(count($row['subsort']) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$k.'\', this)">[+]</a>' : '').(count($row['subsort']) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[shopsortid]\" />"),
+			'<input type="text" name="displayordernew['.$row['shopsortid'].']" value="'.$row['displayorder'].'" size="2" />&nbsp;&nbsp;('.count($row['subsort']).')',
+			"<input type=\"text\" class=\"txt\" size=\"15\" name=\"namenew[$row[shopsortid]]\" value=\"".$row['sortname']."\">",
+			"<div><input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$row[shopsortid]]\" value=\"".$row['sorttitle']."\"><input type=\"hidden\" name=\"upsortid[$row[shopsortid]]\" value=\"0\"><a href=\"###\" onclick=\"addrowdirect=1;addrow(this, 1, '$row[shopsortid]')\" class=\"addchildboard\">".lang('plugin/yiqixueba','add_subsort')."</a></div>",
+
 		));
-		}
-		echo '<tr><td></td><td colspan="6"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=shopsortedit&upmokuai='.$upmokuai.'&sortupid='.$sortupid.'" class="addtr">'.lang('plugin/yiqixueba','add_shopsort').'</a></div></td></tr>';
-		showsubmit('submit','submit','del');
-		showtablefooter();
-		showformfooter();
-	}else{
-		if($idg = $_GET['delete']) {
-			$idg = dintval($idg, is_array($idg) ? true : false);
-			if($idg) {
-				DB::delete('yiqixueba_shop_shopsort', DB::field('shopsortid', $idg));
+			showtagheader('tbody', 'subnav_'.$k,false);
+			foreach ($row['subsort']  as $kk => $subrow ){
+				showtablerow('', array('class="td25"','style="width:120px"','class="td23"', '', ''), array(
+					"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$subrow[shopsortid]\">",
+					"<div class=\"board\"><input type=\"text\" name=\"displayordernew[$subrow[shopsortid]]\" value=\"$subrow[displayorder]\" size=\"2\" /></div>",
+					"<input type=\"text\" class=\"txt\" size=\"15\" name=\"namenew[$subrow[shopsortid]]\" value=\"".$subrow['sortname']."\">",
+					"<input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[$subrow[shopsortid]]\" value=\"".$subrow['sorttitle']."\"><input type=\"hidden\" name=\"upsortid[$subrow[shopsortid]]\" value=\"".$subrow['sortupid']."\">",
+				));
+			}
+			showtagfooter('tbody');
+	}
+	echo '<tr><td></td><td colspan="6"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_shopsort').'</a></div></td></tr>';
+	showsubmit('submit','submit','del');
+	showtablefooter();
+	showformfooter();
+		echo <<<EOT
+<script type="text/JavaScript">
+	var rowtypedata = [
+		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'], [1, '<input name="newname[]" value="" size="15" type="text" class="txt">'],[1, '<input name="newtitle[]" value="" size="15" type="text" class="txt">'],[2,'']],
+		[[1, '', 'td25'], [1,'<div class=\"board\"><input name="newdisplayorder[]" value="0" size="3" type="text" class="txt"></div>', 'td25'], [1, '<input name="newsubsortname[]" value="" size="15" type="text" class="txt">'],[1, '<input name="newsubsorttitle[]" value="" size="15" type="text" class="txt"><input type="hidden" name="newupsort[]" value="{1}" />'], [2,'']]
+	];
+</script>
+EOT;
+}else{
+		//版本删除
+		foreach( getgpc('delete') as $k=>$v ){
+			if($v){
+				C::t(GM('shop_shopsort'))->delete($v);
 			}
 		}
-		$displayordernew = $_GET['displayordernew'];
-		if(is_array($displayordernew)) {
-			foreach ( $displayordernew as $k=>$v) {
-				DB::update('yiqixueba_shop_shopsort',array('displayorder'=>intval($v)),array('shopsortid'=>$k));
+		//原数据提交更新仅一级分类数据
+		if(is_array($_GET['namenew'])) {
+			foreach($_GET['namenew'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$titlenew = trim(dhtmlspecialchars($_GET['titlenew'][$k]));
+				$displayordernew = intval($_GET['displayordernew'][$k]);
+				$upsortid = intval($_GET['upsortid'][$k]);
+				if($v && $titlenew){
+					$data['sortname'] = $v;
+					$data['sorttitle'] = $titlenew;
+					$data['displayorder'] = $displayordernew;
+					$data['sortupid'] = $upsortid;
+					C::t(GM('shop_shopsort'))->update($k,$data);
+				}
 			}
 		}
-		cpmsg(lang('plugin/yiqixueba_server', 'sort_edit_succeed'), 'action='.$this_page.'&subop=shopsortlist&sortupid='.$sortupid, 'succeed');
-	}
-}elseif($subop == 'shopsortedit') {
-	dump($shopsort_info);
-	if(!submitcheck('submit')) {
-		$sortupid = $shopsort_info['sortupid'] ? $shopsort_info['sortupid'] : $sortupid;
-		$sortupid_select = '<select name="sortupid"><option value="0">'.lang('plugin/yiqixueba','shopsort_top').'</option>';
-		$shopsorts = C::t(GM('shop_shopsort'))->fetch_by_upids($sortupid);
-		dump($shopsorts);
-		foreach ($shopsorts as $k => $row ){
-			$sortupid_select .= '<option value="'.$row['shopsortid'].'" '.($shopsort_info['sortupid'] == $row['shopsortid'] ? ' selected' :'').'>'.str_repeat("--",$row['sortlevel']-1).$row['sorttitle'].'</option>';
+		//新建一级分类
+		if(is_array($_GET['newname'])) {
+			foreach($_GET['newname'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$newtitle = trim(dhtmlspecialchars($_GET['newtitle'][$k]));
+				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+				if($v && $newtitle){
+					$data['sortname'] = $v;
+					$data['upmokuai'] = 0;
+					$data['sorttitle'] = $newtitle;
+					$data['sortlevel'] = 1;
+					$data['sortupid'] = 0;
+					$data['displayorder'] = $newdisplayorder;
+					$data['upids'] = '';
+					C::t(GM('shop_shopsort'))->insert($data);
+				}
+			}
 		}
-		$sortupid_select .= '</select>';
-
-
-		showtips(lang('plugin/yiqixueba','shopsort_edit_tips'));
-		showformheader($this_page.'&subop=shopsortedit','enctype');
-		showtableheader(lang('plugin/yiqixueba','shopsort_edit'));
-		$shopsortid ? showhiddenfields(array('shopsortid'=>$shopsortid)) : '';
-		$sortupid ? showhiddenfields(array('sortupid'=>$sortupid)) : '';
-		showsetting(lang('plugin/yiqixueba','sortupid'),'','',$sortupid_select,'',0,lang('plugin/yiqixueba','sortupid_comment'),'','',true);
-		showsetting(lang('plugin/yiqixueba','shopsortname'),'shopsortname',$shopsort_info['sortname'],'text','',0,lang('plugin/yiqixueba','shopsortname_comment'),'','',true);
-		showsetting(lang('plugin/yiqixueba','shopsorttitle'),'shopsorttitle',$shopsort_info['sorttitle'],'text','',0,lang('plugin/yiqixueba','shopsorttitle_comment'),'','',true);
-		//showsetting(lang('plugin/yiqixueba','displayorder'),'displayorder',$shopsort_info['displayorder'],'text','',0,lang('plugin/yiqixueba','displayorder_comment'),'','',true);
-		showsubmit('submit');
-		showtablefooter();
-		showformfooter();
-	}else{
-		if(!htmlspecialchars(trim($_GET['shopsortname']))) {
-			cpmsg(lang('plugin/yiqixueba','shopsortname_nonull'));
+		//新建二级分类
+		if(is_array($_GET['newsubsortname'])) {
+			foreach($_GET['newsubsortname'] as $k => $v) {
+				$v = dhtmlspecialchars(trim($v));
+				$newsubsorttitle = trim(dhtmlspecialchars($_GET['newsubsorttitle'][$k]));
+				$newupsort = intval($_GET['newupsort'][$k]);
+				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+				if($v && $newsubsorttitle){
+					$data['sortname'] = $v;
+					$data['upmokuai'] = 0;
+					$data['sorttitle'] = $newsubsorttitle;
+					$data['sortlevel'] = 2;
+					$data['sortupid'] = $newupsort;
+					$data['displayorder'] = $newdisplayorder;
+					$data['upids'] = '';
+					C::t(GM('shop_shopsort'))->insert($data);
+				}
+			}
 		}
-		$data = array();
-		$data['sortname'] = htmlspecialchars(trim($_GET['shopsortname']));
-		$data['sorttitle'] = htmlspecialchars(trim($_GET['shopsorttitle']));
-		$data['sortupid'] = intval($_GET['sortupid']);
-
-		$data['upids'] = intval($_GET['sortupid']) ? trim(C::t(GM('shop_shopsort'))->fetch_result_upids_by_shopsortid(intval($_GET['sortupid']))).'-'.intval($_GET['sortupid']) : intval($_GET['sortupid']);
-
-
-		$data['sortlevel'] = $data['sortupid'] ==0 ? 1 : (intval(C::t(GM('shop_shopsort'))->fetch_result_sortlevel_by_shopsortid(intval($data['sortupid'])))+1);
-		$data['displayorder'] = htmlspecialchars(trim($_GET['displayorder']));
-
-		if($shopsortid) {
-			C::t(GM('shop_shopsort'))->update($shopsortid,$data);
-		}else{
-			C::t(GM('shop_shopsort'))->insert($data);
-		}
-		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		cpmsg(lang('plugin/yiqixueba', 'shopsort_edit_succeed'), 'action='.$this_page.'&subop=shopsortlist', 'succeed');
-	}
+	cpmsg(lang('plugin/yiqixueba_server', 'sort_edit_succeed'), 'action='.$this_page, 'succeed');
 }

@@ -1,62 +1,30 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
-	<item id="admincp_example">
-		<item id="title"><![CDATA[例子页面]]></item>
-		<item id="displayorder"><![CDATA[100]]></item>
+	<item id="yiqixueba_view">
+		<item id="title"><![CDATA[浏览前台页面]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="pages"><![CDATA[
 						]]></item>
-		<item id="template"><![CDATA[]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[view]]></item>
+		</item>
 		<item id="table">
-			<item id="0"><![CDATA[example]]></item>
+			<item id="0"><![CDATA[]]></item>
 		</item>
 	</item>
-	<item id="admincp_index">
-		<item id="title"><![CDATA[后台首页]]></item>
+	<item id="function">
+		<item id="title"><![CDATA[]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
 		<item id="menu"><![CDATA[0]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table"><![CDATA[]]></item>
-	</item>
-	<item id="admincp_menu">
-		<item id="title"><![CDATA[菜单管理]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table"><![CDATA[]]></item>
-	</item>
-	<item id="admincp_mokuai">
-		<item id="title"><![CDATA[模块设计]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table"><![CDATA[]]></item>
-	</item>
-	<item id="admincp_site">
-		<item id="title"><![CDATA[站长管理]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
 		<item id="table">
-			<item id="0"><![CDATA[site]]></item>
+			<item id="0"><![CDATA[]]></item>
 		</item>
-	</item>
-	<item id="admincp_sitegroup">
-		<item id="title"><![CDATA[站长组]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
 		<item id="pages"><![CDATA[
 						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table"><![CDATA[]]></item>
 	</item>
 	<item id="ajax_example">
 		<item id="title"><![CDATA[]]></item>
@@ -80,6 +48,32 @@
 		<item id="pages"><![CDATA[
 						]]></item>
 	</item>
+	<item id="admincp_menu">
+		<item id="title"><![CDATA[菜单管理]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
+	<item id="admincp_index">
+		<item id="title"><![CDATA[后台首页]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
 	<item id="api_install">
 		<item id="title"><![CDATA[]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
@@ -91,25 +85,53 @@
 		<item id="pages"><![CDATA[
 						]]></item>
 	</item>
-	<item id="function">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="table"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[
-						]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-	</item>
-	<item id="member_example">
-		<item id="title"><![CDATA[例子页面]]></item>
-		<item id="displayorder"><![CDATA[100]]></item>
+	<item id="admincp_mokuai">
+		<item id="title"><![CDATA[模块设计]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="pages"><![CDATA[
 						]]></item>
 		<item id="template">
-			<item id="0"><![CDATA[example]]></item>
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
+	<item id="admincp_sitegroup">
+		<item id="title"><![CDATA[站长组]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+	</item>
+	<item id="admincp_site">
+		<item id="title"><![CDATA[站长管理]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
+		</item>
+		<item id="table">
+			<item id="0"><![CDATA[site]]></item>
+		</item>
+	</item>
+	<item id="admincp_example">
+		<item id="title"><![CDATA[例子页面]]></item>
+		<item id="displayorder"><![CDATA[100]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template">
+			<item id="0"><![CDATA[]]></item>
 		</item>
 		<item id="table">
 			<item id="0"><![CDATA[example]]></item>
@@ -128,15 +150,17 @@
 			<item id="0"><![CDATA[example]]></item>
 		</item>
 	</item>
-	<item id="yiqixueba_view">
-		<item id="title"><![CDATA[浏览前台页面]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
+	<item id="member_example">
+		<item id="title"><![CDATA[例子页面]]></item>
+		<item id="displayorder"><![CDATA[100]]></item>
 		<item id="menu"><![CDATA[1]]></item>
 		<item id="pages"><![CDATA[
 						]]></item>
 		<item id="template">
-			<item id="0"><![CDATA[view]]></item>
+			<item id="0"><![CDATA[example]]></item>
 		</item>
-		<item id="table"><![CDATA[]]></item>
+		<item id="table">
+			<item id="0"><![CDATA[example]]></item>
+		</item>
 	</item>
 </root>

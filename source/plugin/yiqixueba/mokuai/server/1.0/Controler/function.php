@@ -3,6 +3,14 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
+//服务端的程序更新,在服务端只要修改了源代码部分即时更新前端程序
+function server_update(){
+	require_once libfile('class/xml');
+	$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+	foreach($mokuais as $k=>$v ){
+	}
+}//end func
+////////////////////////////////////////////
 //直接通过mokuai模块目录读取mokuai数据
 function getmokuais(){
 	$mokuai_array = array();
@@ -33,6 +41,19 @@ function getmokuaivers($mokuainame){
 		}
 	}
 	return $mokuaiver_array;
+}//end func
+//得到程序文件
+function getmod($mokuai,$ver){
+	$modfile = array();
+	$pages_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler';
+	if ($handle = opendir($pages_dir)) {
+		while (false !== ($file = readdir($handle))) {
+			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "index.html") {
+				$modfile[] = substr($file,0,-4);
+			}
+		}
+	}
+	return $modfile;
 }//end func
 
 //更新模块xml数据
@@ -107,20 +128,7 @@ function deldir($dir) {
 		return false;
 	}
 }//end func
-//得到程序文件
-function getmod($mokuai,$ver){
-	$modfile = array();
-	$pages_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler';
-	if ($handle = opendir($pages_dir)) {
-		while (false !== ($file = readdir($handle))) {
-			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "index.html") {
-				$modfile[] = substr($file,0,-4);
-			}
-		}
-	}
-	return $modfile;
-}//end func
-//
+//写节点文件
 function writesourcefile($mokuai,$ver,$sourcename,$nodetype){
 	if($sourcename){
 		$newsourcefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler/'.$sourcename.'.php';
@@ -133,27 +141,35 @@ function writesourcefile($mokuai,$ver,$sourcename,$nodetype){
 		}
 	}
 }//end func
-//
+//写数据表文件
 function writetablefile($mokuai,$ver,$tablename,$nodetype){
-	if($tablename){
-		$newtablefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Modal/'.$tablename.'.php';
-		if(!file_exists($newtablefile)){
-			$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Modal/example.php');
-			$neirong_temp = str_replace("example",$tablename,$neirong_temp);
-			file_put_contents($newtablefile,$neirong_temp);
+	if(is_array($tablename)){
+		foreach($tablename as $k=>$v ){
+			if($v){
+				$newtablefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Modal/'.$v.'.php';
+				if(!file_exists($newtablefile)){
+					$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Modal/example.php');
+					$neirong_temp = str_replace("example",$v,$neirong_temp);
+					file_put_contents($newtablefile,$neirong_temp);
+				}
+			}
 		}
 	}
 }//end func
-//
+//写模板文件
 function writetemplatefile($mokuai,$ver,$templatename,$nodetype){
-	if($templatename){
-		$newtemplatefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/View/'.$nodetype.'_'.$templatename.'.htm';
-		if(!file_exists($newtemplatefile)){
-			file_put_contents($newtemplatefile,file_get_contents(MOKUAI_DIR.'/server/1.0/View/'.$nodetype.'_example.htm'));
+	if(is_array($templatename)){
+		foreach($templatename as $k=>$v ){
+			if($v){
+				$newtemplatefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/View/'.$nodetype.'_'.$v.'.htm';
+				if(!file_exists($newtemplatefile)){
+					file_put_contents($newtemplatefile,file_get_contents(MOKUAI_DIR.'/server/1.0/View/'.$nodetype.'_example.htm'));
+				}
+			}
 		}
 	}
 }//end func
-//
+//得到模块的文件名
 function get_mokuaipage($mokuai,$version,$ptype){
 	$mokuaiid_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$version.($ptype=='source'? '/Controler' : ($ptype=='template'? '/View' : '/Modal'));
 	if ($handle = opendir($mokuaiid_dir)) {

@@ -3,9 +3,6 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
 
-$this_page = substr($_SERVER['QUERY_STRING'],7,strlen($_SERVER['QUERY_STRING'])-7);
-stripos($this_page,'subop=') ? $this_page = substr($this_page,0,stripos($this_page,'subop=')-1) : $this_page;
-
 $subops = array('list','edit');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
@@ -48,8 +45,8 @@ EOT;
 		}
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba','edit_example_succeed'), 'action='.$this_page.'&subop=examplelist', 'succeed');
-	}	
-	
+	}
+
 }elseif($subop == 'edit') {
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','edit_example_tips'));
@@ -68,10 +65,10 @@ EOT;
 
 		showsetting(lang('plugin/yiqixueba','examplename'),'examplename',$example_info['examplename'],'text',$exampleid ?'readonly':'',0,lang('plugin/yiqixueba','examplename_comment'),'','',true);//text password number color
 
-		showsetting(lang('plugin/yiqixueba','exampletitle'),'exampletitle',$example_info['exampletitle'],'textarea','',0,lang('plugin/yiqixueba','exampletitle_comment'),'','',true);//textarea 
+		showsetting(lang('plugin/yiqixueba','exampletitle'),'exampletitle',$example_info['exampletitle'],'textarea','',0,lang('plugin/yiqixueba','exampletitle_comment'),'','',true);//textarea
 
 		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
-		showsetting(lang('plugin/yiqixueba','createtime'),'createtime',dgmdate($example_info['createtime'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar 
+		showsetting(lang('plugin/yiqixueba','createtime'),'createtime',dgmdate($example_info['createtime'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
 
 		showsetting(lang('plugin/yiqixueba','examplesort'),array('examplesort', array(
 			array(0, lang('plugin/yiqixueba','examplesort').'1'),
@@ -170,5 +167,5 @@ EOF;
 
 
 }
-	
+
 ?>

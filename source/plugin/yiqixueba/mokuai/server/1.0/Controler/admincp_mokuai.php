@@ -3,8 +3,6 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
 
-$this_page = substr($_SERVER['QUERY_STRING'],7,strlen($_SERVER['QUERY_STRING'])-7);
-stripos($this_page,'subop=') ? $this_page = substr($this_page,0,stripos($this_page,'subop=')-1) : $this_page;
 
 $subops = array('mokuailist','mokuaiedit','currentver','pagelist','pluginlang','mokuainode','nodeedit','nodeview');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
@@ -34,7 +32,6 @@ if($subop == 'mokuailist') {
 		showtableheader(lang('plugin/yiqixueba','server_mokuai_list'));
 		showsubtitle(array('', lang('plugin/yiqixueba','mokuai_name'),lang('plugin/yiqixueba','mokuai_description'),'','',lang('plugin/yiqixueba','status')));
 		foreach($mokuais as $mk=>$row ){
-
 			showtablerow('', array('class="td25"', 'class="td25"', 'style="width:350px"', 'style="width:45px"','','class="td25"'), array(
 				(is_array($row['version']) ? '<a href="javascript:;" class="right" onclick="toggle_group(\'subnav_'.$mk.'\', this)">['.(in_array($mk,$debugmks)? '-' : '+').']</a>' : '').(is_array($row['version']) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />"),
 
@@ -429,7 +426,6 @@ EOF;
 		}
 		return $select_div_array;
 	}
-
 	foreach($nodetypes as $k=>$v ){
 		$select_array[] = array($v,lang('plugin/yiqixueba','node_'.$v),getselectdivarray($v));
 	}
@@ -465,7 +461,6 @@ EOF;
 					if($v == 'yiqixueba'){
 						$view_link = "<a href=\"plugin.php?id=yiqixueba:yiqixueba&submod=server_view&subop=nodeview&biaoshi=$biaoshi&version=$version&nodetype=$nodetype&node=$nn\" target=\"_blank\">".lang('plugin/yiqixueba','view')."</a>";
 					}
-
 					showtablerow('', $subtitleclass, array(
 						"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$mk\" />",
 						"<input type=\"text\" size=\"3\" name=\"displayordernew[".$mk."]\" value=\"".intval($row['displayorder'])."\">",

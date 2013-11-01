@@ -23,7 +23,7 @@ legend {color:#333;}
 
 /* button */
 .btn_red_80, a.btn_red_80:hover {
-    background: url(shopping_cart.png) no-repeat scroll -125px -180px transparent;
+    background: url(http://www.pailezu.com/static/theme/newpl/images/shopping_cart.png) no-repeat scroll -125px -180px transparent;
     border: medium none;
     color: #F7F4F7;
     cursor: pointer;
@@ -40,7 +40,7 @@ legend {color:#333;}
 	height: 30px;
 	line-height: 30px;
 	border: none;
-	background: url(shopping_cart.png) no-repeat -125px -140px;
+	background: url(http://www.pailezu.com/static/theme/newpl/images/shopping_cart.png) no-repeat -125px -140px;
 	color: white;
 	font-size: 13px;
 	text-align: center;
@@ -53,7 +53,7 @@ legend {color:#333;}
 	height: 30px;
 	line-height: 30px;
 	border: none;
-	background: url(shopping_cart.png) no-repeat -144px -220px;
+	background: url(http://www.pailezu.com/static/theme/newpl/images/shopping_cart.png) no-repeat -144px -220px;
 	color: #555;
 	font-size: 13px;
 	text-align: center;
@@ -70,10 +70,10 @@ ul,li{padding:0; margin:0;}
 /*public start*/
 .red{color:red;}
 .f14{font-size:14px;}
-.hd_city,.city_arrow,.search,.nologin a.logonuser,.mouse_top,.mouse_bottom,.list_method a.current,.list_method a.currentup,.list_method a,.pages a.prev,.pages a.next,.tosee,.footlist p,.qqsale,.credit,.greensite,.safesite,.caifutong,.kefu,.tousu,.hezuo,.backToTop,.tobuy,.buybutton,.totalbuy em,.nomoney,.noreturn,.hasmoney,.hasreturn,.collect,.tabright em,.tabright a.current,.price_tags,.truck,.globe,.sendcity,.sendtime,.signtext,.watch,.plus,.minus,.zhifubao,.caifut,.topay,.warntips,.checkbox,.registe li input.reg_sub,.registe li input.login_sub,.detail_send_pos,.detail_send_ems,.detail_send_ran,.detail_send_cit,.detail_send_tim,.detail_send_pro,.saleoff,.box li input.reg_sub,.box li input.login_sub,.stepa,.sub_submit,.service_qqbox,.return,.servicetel,.retuanarr,.sevenbg,.qualitybg,.returnsbg,.buybutton:hover,.topay:hover,.list_method a.pricedown,.paylink,.paylink:hover,.notices,.online,.product_btn,.watchit,.seeit{background:url(bg.png) no-repeat;}
+.logo,.hd_city,.city_arrow,.search,.nologin a.logonuser,.mouse_top,.mouse_bottom,.list_method a.current,.list_method a.currentup,.list_method a,.pages a.prev,.pages a.next,.tosee,.footlist p,.qqsale,.credit,.greensite,.safesite,.caifutong,.kefu,.tousu,.hezuo,.backToTop,.tobuy,.buybutton,.totalbuy em,.nomoney,.noreturn,.hasmoney,.hasreturn,.collect,.tabright em,.tabright a.current,.price_tags,.truck,.globe,.sendcity,.sendtime,.signtext,.watch,.plus,.minus,.zhifubao,.caifut,.topay,.warntips,.checkbox,.registe li input.reg_sub,.registe li input.login_sub,.detail_send_pos,.detail_send_ems,.detail_send_ran,.detail_send_cit,.detail_send_tim,.detail_send_pro,.saleoff,.box li input.reg_sub,.box li input.login_sub,.stepa,.sub_submit,.service_qqbox,.return,.servicetel,.retuanarr,.sevenbg,.qualitybg,.returnsbg,.buybutton:hover,.topay:hover,.list_method a.pricedown,.paylink,.paylink:hover,.notices,.online,.product_btn,.watchit,.seeit{background:url(http://www.pailezu.com/static/theme/newpl/images/bg.png) no-repeat;}
 .extend{width:100%;}
 .nomalwidth{width:950px; margin:0 auto;}
-.headbg{width:100%; height:36px; line-height:36px; background:url(navbg.jpg) repeat-x; margin:20px 0 0 0;}
+.headbg{width:100%; height:36px; line-height:36px; background:url(http://www.pailezu.com/static/theme/newpl/images/navbg.jpg) repeat-x; margin:20px 0 0 0;}
 .logo_search{width:730px; padding:20px 0 0 0; float:left;}
 .logo{width:168px; height:77px; background-position:0px 0px; float:left;}
 .logo a{width:168px; height:77px; display:block;}
@@ -85,11 +85,11 @@ ul,li{padding:0; margin:0;}
 .goodwill{float:right; display:inline; margin-top:30px; position:relative;}
 .hd_login{width:252px; padding:5px; position:absolute; top:-30px; right:0;}
 .hd_login a{float:left; font-family:"微软雅黑"; color:#333333; margin:0 3px;}
-.hd_qq{height:22px; background:url(qq.png) no-repeat; padding-left:18px; color:#D80000;font-family:"微软雅黑"; float:left; margin:0 8px; position:relative; z-index:3; cursor:pointer; font-weight:bold;}
-.hd_login a.hd_kd{background:url(ico_kd.png) no-repeat; padding-left:23px;}
-.hd_login a.hd_sc{background:url(ico_sc.png) no-repeat; padding-left:23px; margin-left:6px;}
+.hd_qq{height:22px; background:url(http://www.pailezu.com/static/theme/newpl/images/qq.png) no-repeat; padding-left:18px; color:#D80000;font-family:"微软雅黑"; float:left; margin:0 8px; position:relative; z-index:3; cursor:pointer; font-weight:bold;}
+.hd_login a.hd_kd{background:url(http://www.pailezu.com/static/theme/newpl/images/ico_kd.png) no-repeat; padding-left:23px;}
+.hd_login a.hd_sc{background:url(http://www.pailezu.com/static/theme/newpl/images/ico_sc.png) no-repeat; padding-left:23px; margin-left:6px;}
 .hideqq{width:180px; background:#FFFAEE; border:1px solid #FF4000; padding:8px 0 8px 20px; position:absolute; right:-32px; top:18px;  position:absolute; display:none;}
-.hideqq a{background:url(qq.png) no-repeat; padding-left:20px; color:#333333; margin:0 5px;}
+.hideqq a{background:url(http://www.pailezu.com/static/theme/newpl/images/qq.png) no-repeat; padding-left:20px; color:#333333; margin:0 5px;}
 .goodwill dl{float:left; padding-top:12px;}
 .goodwill dl dt,.goodwill dl dd{border-right:1px solid #ccada3;}
 .goodwill dl dd{text-align:center; padding-top:5px;}
@@ -108,12 +108,12 @@ ul,li{padding:0; margin:0;}
 .hd_nav{float:left;}
 .hd_nav ul li{float:left; height:36px; line-height:36px; display:inline;}
 /*.hd_nav ul li a{width:83px; text-align:center; height:36px; line-height:36px; float:left; color:#ffffff; font-size:16px; font-weight:bold; margin:0 3px;}
-.hd_nav ul li a:hover,.hd_nav ul li a.current{width: 81px; height:34px; line-height:34px; color:#ffff00; background:url(navabg.jpg) repeat-x; border:1px solid #661201;}*/
+.hd_nav ul li a:hover,.hd_nav ul li a.current{width: 81px; height:34px; line-height:34px; color:#ffff00; background:url(http://www.pailezu.com/static/theme/newpl/images/navabg.jpg) repeat-x; border:1px solid #661201;}*/
 .hd_nav ul li a{text-align:center; height:36px; line-height:36px; float:left; color:#ffffff; font-size:16px; font-weight:bold; margin:0 3px; display:block;}
 .hd_nav ul li a.long{width:92px;}
 .hd_nav ul li a.short{width:55px;}
-.hd_nav ul li a.short:hover,.hd_nav ul li a.shortcur{width:53px; height:34px; line-height:34px; color:#ffff00; background:url(navabg.jpg) repeat-x; border:1px solid #661201;}
-.hd_nav ul li a.long:hover,.hd_nav ul li a.longcur{width:90px; height:34px; line-height:34px; color:#ffff00; background:url(navabg.jpg) repeat-x; border:1px solid #661201;}
+.hd_nav ul li a.short:hover,.hd_nav ul li a.shortcur{width:53px; height:34px; line-height:34px; color:#ffff00; background:url(http://www.pailezu.com/static/theme/newpl/images/navabg.jpg) repeat-x; border:1px solid #661201;}
+.hd_nav ul li a.long:hover,.hd_nav ul li a.longcur{width:90px; height:34px; line-height:34px; color:#ffff00; background:url(http://www.pailezu.com/static/theme/newpl/images/navabg.jpg) repeat-x; border:1px solid #661201;}
 .nav_right{float:right; font-size:14px; font-weight:bold; height:34px; line-height:34px;}
 .nologin{color:#ffffff;}
 .nologin,.logined{float:left;}
@@ -159,7 +159,7 @@ ul,li{padding:0; margin:0;}
 .banner_two{width:230px; height:90px; float:right;}
 /*public end*/
 
-.hottags{width:936px; height:28px; border:1px solid #cccccc; line-height:28px; color:#333333; padding-left:13px; background:url(tagsbg.jpg) repeat-x; margin-top:10px;}
+.hottags{width:936px; height:28px; border:1px solid #cccccc; line-height:28px; color:#333333; padding-left:13px; background:url(http://www.pailezu.com/static/theme/newpl/images/tagsbg.jpg) repeat-x; margin-top:10px;}
 .hottags span{font-weight:bold;}
 .hottags a{margin:0 8px; color:#333333;}
 .hottags a:hover,.hottags a.current{color:#ff4000;}
@@ -248,8 +248,8 @@ ul,li{padding:0; margin:0;}
 .backToTop{color:#000000; background-position:-66px -209px; padding:1px 0 0 20px; margin:4px 0 4px 3px; display:block; cursor:pointer;}
 
 
-.leftfloat{width:74px; height:321px; background:url(leftfloat.jpg) no-repeat right top; position:fixed; _position: absolute; top: 210px; left:20px; cursor: pointer; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)+122||0))); overflow:hidden; z-index:1000;}
-.allhover:hover,.allselect,.clothhover:hover,.clothselect,.foothover:hover,.footselect,.peishihover:hover,.peishiselect,.homehover:hover,.homeselect,.washhover:hover,.washselect,.facehover:hover,.faceselect,.foodhover:hover,.foodselect,.childhover:hover,.childselect,.dianhover:hover,.dianselect{background:url(selected.jpg)}
+.leftfloat{width:74px; height:321px; background:url(http://www.pailezu.com/static/theme/newpl/images/leftfloat.jpg) no-repeat right top; position:fixed; _position: absolute; top: 210px; left:20px; cursor: pointer; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)+122||0))); overflow:hidden; z-index:1000;}
+.allhover:hover,.allselect,.clothhover:hover,.clothselect,.foothover:hover,.footselect,.peishihover:hover,.peishiselect,.homehover:hover,.homeselect,.washhover:hover,.washselect,.facehover:hover,.faceselect,.foodhover:hover,.foodselect,.childhover:hover,.childselect,.dianhover:hover,.dianselect{background:url(http://www.pailezu.com/static/theme/newpl/images/selected.jpg)}
  
 .leftfloat ul li{width:74px; height:40px;}
 .leftfloat ul li a{width:74px; height:40px; display:block;}
@@ -303,8 +303,8 @@ ul,li{padding:0; margin:0;}
 .firstbox {width: 170px; float: left; margin-right: 10px;  position: relative; }
 .borderfirst { margin-right: 0;}
 .firstbox span {display: inline-block;  float: left;  width: 25px; margin-top:4px;}
-.firstbox p { background: url(selectarrow.jpg) no-repeat scroll right 1px transparent;  border: 1px solid #CCCCCC; display: inline-block;  float: left;  height: 23px;padding-left: 5px; width: 133px;}
-.firstbox p.selectup{background: url(selectup.jpg) no-repeat scroll right 1px transparent;}
+.firstbox p { background: url(http://www.pailezu.com/static/theme/newpl/images/selectarrow.jpg) no-repeat scroll right 1px transparent;  border: 1px solid #CCCCCC; display: inline-block;  float: left;  height: 23px;padding-left: 5px; width: 133px;}
+.firstbox p.selectup{background: url(http://www.pailezu.com/static/theme/newpl/images/selectup.jpg) no-repeat scroll right 1px transparent;}
 .firstbox p input { border: 0 none; color: #333333;height: 21px;line-height: 21px; width: 111px;}
 .secondbox {border:1px solid #cccccc; display: none;  left: 0; line-height: 22px; position: absolute; top: 22px; width: 138px;  z-index: 1000; background:#ffffff;}
 .secondbox h3 { color: #989898; height: 26px; line-height: 26px; padding-left: 5px; width: 138px;}
@@ -316,7 +316,7 @@ ul,li{padding:0; margin:0;}
 .dialogbox{width:800px; background:#ffffff;}
 .box_bar{width:800px;}
 .sidebar{width:4px; height:30px; float:left;}
-.midbar{width:792px; height:30px; line-height:30px; background:#ffffff url(tagsbg.jpg) repeat-x center bottom; float:left; position:relative;}
+.midbar{width:792px; height:30px; line-height:30px; background:#ffffff url(http://www.pailezu.com/static/theme/newpl/images/tagsbg.jpg) repeat-x center bottom; float:left; position:relative;}
 .bartitle{padding-left:20px; background-position:-485px -41px; color:#ff4000;}
 .closetext{width:53px; height:28px; background-position:-178px -35px; display:block; position:absolute; top:-4px; right:0;}
 .boxmain{width:740px; padding:8px 15px 10px 25px;}
@@ -336,7 +336,7 @@ ul,li{padding:0; margin:0;}
 .kong{width:20px;}
 .logtip{width:326px; border-bottom:1px solid #e5e5e5; font-size:14px; line-height:26px; margin:20px 0 10px 0; color:#585858;}
 .login_method{width:236px; margin:0 auto;}
-.login_method a{width:66px; height:27px; display:block; float:left; background:url(bg.png) no-repeat; margin:16px 10px 0 0; text-indent:-999999px;}
+.login_method a{width:66px; height:27px; display:block; float:left; background:url(http://www.pailezu.com/static/theme/newpl/images/bg.png) no-repeat; margin:16px 10px 0 0; text-indent:-999999px;}
 .login_method a.qqlogin{background-position:0px -373px;}
 .login_method a.slllogin{background-position:-66px -373px;}
 .login_method a.zfblogin{background-position:-132px -373px;}
@@ -345,21 +345,21 @@ ul,li{padding:0; margin:0;}
 
 
 /*right blocks*/
-.rightqqbefore,.rec_bar span,.tousuwq{background:url(icons.png) no-repeat;}
-.rightqqbefore,.rec_bar span{background:url(icons.png) no-repeat;}
+.rightqqbefore,.rec_bar span,.tousuwq{background:url(http://www.pailezu.com/static/theme/newpl/images/icons.png) no-repeat;}
+.rightqqbefore,.rec_bar span{background:url(http://www.pailezu.com/static/theme/newpl/images/icons.png) no-repeat;}
 .rightdetail{width:230px; float:right;}
 .rightboxbar{width:228px; height:28px; background:#ffffff; border:1px solid #cccccc;}
 .notices{display:block; height:28px; background-position:0px -550px; margin-left:10px; line-height:28px; color:#808080; font-weight:bold; padding-left:21px;}
 .borderbox{width:206px; border:1px solid #cccccc; background:#ffffff; margin-top:3px;}
 .busbar{width:228px; height:28px; line-height:28px; text-align:center; color:#333333; font-family:"微软雅黑"; font-size:16px; border:1px solid #cccccc; background:#ffffff; margin-top:10px;}
-.busbox{width:206px; border:1px solid #cccccc; background:#ffffff url(bag.jpg) no-repeat 20px center; padding:13px 11px; line-height:20px; margin-top:3px;}
+.busbox{width:206px; border:1px solid #cccccc; background:#ffffff url(http://www.pailezu.com/static/theme/newpl/images/bag.jpg) no-repeat 20px center; padding:13px 11px; line-height:20px; margin-top:3px;}
 .busbox p{ text-align:right; color:#666666; line-height:32px;}
 .busbox p a{color:#0080ff; text-decoration:underline;}
 .notice{color:#808080; padding:13px 11px; line-height:20px; background:#ffffff;}
 .marginbox{margin-top:10px;}
 .online{background-position:0px -575px;}
 .online em{font-weight:normal;}
-.telmod{width:127px; height:43px; border:1px solid #cccccc; background:url(telmod.jpg) no-repeat left center; padding:10px 0 0 79px;}
+.telmod{width:127px; height:43px; border:1px solid #cccccc; background:url(http://www.pailezu.com/static/theme/newpl/images/telmod.jpg) no-repeat left center; padding:10px 0 0 79px;}
 .telmod p{color:#4d4d4d;}
 .telmod p.phone{font-size:18px; color:#ff4000; font-family:Arial, Helvetica, sans-serif;}
 .servicebox{padding:15px 11px 10px 11px;}
@@ -374,7 +374,7 @@ ul,li{padding:0; margin:0;}
 
 /*city*/
 .citybox{width:948px; border:1px solid #cccccc; margin:10px auto; background:#ffffff;}
-.city_title{width:912px; height:43px; line-height:37px; background:#ffffff url(tagsbg.jpg) repeat-x center bottom; padding:0 18px; color:#000000; font-size:14px;}
+.city_title{width:912px; height:43px; line-height:37px; background:#ffffff url(http://www.pailezu.com/static/theme/newpl/images/tagsbg.jpg) repeat-x center bottom; padding:0 18px; color:#000000; font-size:14px;}
 .city_title a{font-size:24px; color:#ff4000; margin:3px; font-weight:bold; display:inline-block;}
 .topbox{width:912px; padding:12px 18px; border-bottom:1px sosolid #cccccc; border-top:1px solid #cccccc;}
 .lefthotspan{width:85px; float:left; color:#802000; font-weight:bold; font-size:16px; margin-top:2px;}
@@ -385,7 +385,7 @@ ul,li{padding:0; margin:0;}
 .letterchoose a{display:inline-block; margin:2px 7px;}
 .citylist{width:948px; padding-bottom:150px;}
 .citylist ul li{width:912px; padding:10px 18px; border-top:1px solid #cccccc; display:inline-block;}
-.letter{width:28px; height:28px; line-height:28px; background:url(tagsbg.jpg) repeat-x; border:1px solid #cccccc; float:left; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;}
+.letter{width:28px; height:28px; line-height:28px; background:url(http://www.pailezu.com/static/theme/newpl/images/tagsbg.jpg) repeat-x; border:1px solid #cccccc; float:left; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;}
 .citys{width:875px; float:left;}
 .citys a{display:inline-block; padding:4px 8px; margin:3px 5px; font-size:16px;word-wrap:break-word; white-space:nowrap !important;}
 .citys a:hover{color:#ffffff; background:#ff4000;}
@@ -395,7 +395,7 @@ ul,li{padding:0; margin:0;}
 /*kuaidi*/
 .kdbox{width:990px; margin:10px auto; background:#ffffff;}
 .hotrec{width:980px; height:206px; border:5px solid #DFDFDF; position:relative;}
-.hoticon{background:url(tj_hot.gif) no-repeat; border-bottom:1px solid #EDEDED; color:#E85100; font-family:"微软雅黑"; font-size:14px; height:30px; line-height:30px; padding-left:35px;}
+.hoticon{background:url(http://www.pailezu.com/static/theme/newpl/images/tj_hot.gif) no-repeat; border-bottom:1px solid #EDEDED; color:#E85100; font-family:"微软雅黑"; font-size:14px; height:30px; line-height:30px; padding-left:35px;}
 .wrapper{height:171px; margin:0 5px; overflow:hidden; position:absolute; top:30px; width:970px;}
 .wrapper ul{margin:0; padding:0; position:absolute; top:0; height:169px; overflow:hidden; width:10000px;}
 .wrapper ul li{display:block; float:left; padding:10px 5px; text-align:center; width:184px;}

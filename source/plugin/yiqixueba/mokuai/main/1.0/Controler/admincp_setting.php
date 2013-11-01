@@ -3,102 +3,54 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
 
-$this_page = substr($_SERVER['QUERY_STRING'],7,strlen($_SERVER['QUERY_STRING'])-7);
-stripos($this_page,'subop=') ? $this_page = substr($this_page,0,stripos($this_page,'subop=')-1) : $this_page;
-
-$subops = array('list','edit');
-$subop = in_array($subop,$subops) ? $subop : $subops[0];
-
-$settingid = getgpc('settingid');
-$setting_info = C::t(GM('main_setting'))->fetch($settingid);
-
-if($subop == 'list') {
-	if(!submitcheck('submit')) {
-		showtips(lang('plugin/yiqixueba','setting_list_tips'));
-		showformheader($this_page.'&subop=list');
-		showtableheader(lang('plugin/yiqixueba','setting_list'));
-		showsubtitle(array('', lang('plugin/yiqixueba','settingname'),lang('plugin/yiqixueba','settingtitle'),lang('plugin/yiqixueba','settingsort'),lang('plugin/yiqixueba','createtime'),lang('plugin/yiqixueba','status'),''));
-		$settings_row = C::t(GM('main_setting'))->range();
-		foreach($settings_row as $k=>$row ){
-			showtablerow('', array('class="td25"', 'class="td28"', 'class="td29"','class="td28"'), array(
-				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[settingid]\" />",
-				'<span class="bold">'.$row['settingname'].'</span>',
-				$row['settingtitle'],
-				$row['settingsort'],
-				dgmdate($row['createtime'],'d'),
-				"<input class=\"checkbox\" type=\"checkbox\" name=\"statusnew[".$row['settingid']."]\" value=\"1\" ".($row['status'] > 0 ? 'checked' : '').">",
-				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=edit&settingid=$row[settingid]\" >".lang('plugin/yiqixueba','edit')."</a>",
-			));
+if(!submitcheck('submit')) {
+	showtips(lang('plugin/yiqixueba','edit_setting_tips'));
+	showformheader($this_page,'enctype');
+	showtableheader(lang('plugin/yiqixueba','setting_option'));
+	$images = '';
+	if($setting_info['settingimages']!='') {
+		$images = str_replace('{STATICURL}', STATICURL, $setting_info['settingimages']);
+		if(!preg_match("/^".preg_quote(STATICURL, '/')."/i", $images) && !(($valueparse = parse_url($images)) && isset($valueparse['host']))) {
+			$images = $_G['setting']['attachurl'].'common/'.$setting_info['settingimages'].'?'.random(6);
 		}
-		echo '<tr><td></td><td colspan="4"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=edit" class="addtr" >'.lang('plugin/yiqixueba','add_new_setting').'</a></div></td></tr>';
-		echo '<tr><td></td><td colspan="4"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_base_setting').'</a></div></td></tr>';
-		showsubmit('submit', 'submit', 'del');
-		showtablefooter();
-		showformfooter();
-		echo <<<EOT
-<script type="text/JavaScript">
-	var rowtypedata = [
-		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'],[1, '<input name="newnode[]" value="" size="15" type="text">'],[1, '<input name="newtitle[]" value="" size="15" type="text">'],[4,'']],
-	];
-</script>
-EOT;
-	}else{
-		if($_GET['delete']) {
-			C::t(GM('main_setting'))->delete($_GET['delete']);
-		}
-		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		cpmsg(lang('plugin/yiqixueba','edit_setting_succeed'), 'action='.$this_page.'&subop=settinglist', 'succeed');
-	}	
-	
-}elseif($subop == 'edit') {
-	if(!submitcheck('submit')) {
-		showtips(lang('plugin/yiqixueba','edit_setting_tips'));
-		showformheader($this_page.'&subop=edit','enctype');
-		showtableheader(lang('plugin/yiqixueba','setting_option'));
-		$images = '';
-		if($setting_info['settingimages']!='') {
-			$images = str_replace('{STATICURL}', STATICURL, $setting_info['settingimages']);
-			if(!preg_match("/^".preg_quote(STATICURL, '/')."/i", $images) && !(($valueparse = parse_url($images)) && isset($valueparse['host']))) {
-				$images = $_G['setting']['attachurl'].'common/'.$setting_info['settingimages'].'?'.random(6);
-			}
-			$imageshtml = '<br /><label><input type="checkbox" class="checkbox" name="delete" value="yes" /> '.$lang['del'].'</label><br /><img src="'.$images.'" width="40" height="40"/>';
-		}
-		$settingid ? showhiddenfields(array('settingid'=>$settingid)) : '';
-		showsetting(lang('plugin/yiqixueba','settingstatus'),'status',$setting_info['status'],'radio','',0,lang('plugin/yiqixueba','settingstatus_comment'),'','',true);//radio
+		$imageshtml = '<br /><label><input type="checkbox" class="checkbox" name="delete" value="yes" /> '.$lang['del'].'</label><br /><img src="'.$images.'" width="40" height="40"/>';
+	}
+	$settingid ? showhiddenfields(array('settingid'=>$settingid)) : '';
+	showsetting(lang('plugin/yiqixueba','settingstatus'),'status',$setting_info['status'],'radio','',0,lang('plugin/yiqixueba','settingstatus_comment'),'','',true);//radio
 
-		showsetting(lang('plugin/yiqixueba','settingname'),'settingname',$setting_info['settingname'],'text',$settingid ?'readonly':'',0,lang('plugin/yiqixueba','settingname_comment'),'','',true);//text password number color
+	showsetting(lang('plugin/yiqixueba','settingname'),'settingname',$setting_info['settingname'],'text',$settingid ?'readonly':'',0,lang('plugin/yiqixueba','settingname_comment'),'','',true);//text password number color
 
-		showsetting(lang('plugin/yiqixueba','settingtitle'),'settingtitle',$setting_info['settingtitle'],'textarea','',0,lang('plugin/yiqixueba','settingtitle_comment'),'','',true);//textarea 
+	showsetting(lang('plugin/yiqixueba','settingtitle'),'settingtitle',$setting_info['settingtitle'],'textarea','',0,lang('plugin/yiqixueba','settingtitle_comment'),'','',true);//textarea
 
-		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
-		showsetting(lang('plugin/yiqixueba','createtime'),'createtime',dgmdate($setting_info['createtime'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar 
+	echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
+	showsetting(lang('plugin/yiqixueba','createtime'),'createtime',dgmdate($setting_info['createtime'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
 
-		showsetting(lang('plugin/yiqixueba','settingsort'),array('settingsort', array(
-			array(0, lang('plugin/yiqixueba','settingsort').'1'),
-			array(1, lang('plugin/yiqixueba','settingsort').'2'),
-			array(2, lang('plugin/yiqixueba','settingsort').'3'),
-			array(3, lang('plugin/yiqixueba','settingsort').'4')
-		)),$setting_info['settingsort'],'select','',0,lang('plugin/yiqixueba','settingsort_comment'),'','',true);//select  mradio mcheckbox mselect (binmcheckbox)
+	showsetting(lang('plugin/yiqixueba','settingsort'),array('settingsort', array(
+		array(0, lang('plugin/yiqixueba','settingsort').'1'),
+		array(1, lang('plugin/yiqixueba','settingsort').'2'),
+		array(2, lang('plugin/yiqixueba','settingsort').'3'),
+		array(3, lang('plugin/yiqixueba','settingsort').'4')
+	)),$setting_info['settingsort'],'select','',0,lang('plugin/yiqixueba','settingsort_comment'),'','',true);//select  mradio mcheckbox mselect (binmcheckbox)
 
 
-		showsetting(lang('plugin/yiqixueba','settingimages'),'settingimages',$setting_info['settingimages'],'file','',0,lang('plugin/yiqixueba','settingimages_comment').$imageshtml,'','',true);//file filetext
+	showsetting(lang('plugin/yiqixueba','settingimages'),'settingimages',$setting_info['settingimages'],'file','',0,lang('plugin/yiqixueba','settingimages_comment').$imageshtml,'','',true);//file filetext
 
-		showsetting(lang('plugin/yiqixueba','imagessize'), array('imagewidth', 'imageheight'), array(intval($imagewidth), intval($imageheight)), 'multiply','',0,lang('plugin/yiqixueba','imagessize_comment'),'','',true);//multiply daterange
+	showsetting(lang('plugin/yiqixueba','imagessize'), array('imagewidth', 'imageheight'), array(intval($imagewidth), intval($imageheight)), 'multiply','',0,lang('plugin/yiqixueba','imagessize_comment'),'','',true);//multiply daterange
 
-		showtablefooter();
-		showtableheader(lang('plugin/yiqixueba','description').':');
-		echo '<tr class="noborder" ><td colspan="2" >';
-		echo '<script src="source/plugin/yiqixueba/template/kindeditor/kindeditor.js" type="text/javascript"></script>';
-		echo '<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/themes/default/default.css" />';
-		echo '<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/plugins/code/prettify.css" />';
-		echo '<script src="source/plugin/yiqixueba/template/kindeditor/lang/zh_CN.js" type="text/javascript"></script>';
-		echo '<script src="source/plugin/yiqixueba/template/kindeditor/prettify.js" type="text/javascript"></script>';
-		echo '<textarea name="settingdescription" style="width:700px;height:200px;visibility:hidden;">'.$setting_info['description'].'</textarea>';
-		echo '</td></tr>';
-		showsubmit('submit');
-		showtablefooter();
-		showformfooter();
-		echo <<<EOF
+	showtablefooter();
+	showtableheader(lang('plugin/yiqixueba','description').':');
+	echo '<tr class="noborder" ><td colspan="2" >';
+	echo '<script src="source/plugin/yiqixueba/template/kindeditor/kindeditor.js" type="text/javascript"></script>';
+	echo '<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/themes/default/default.css" />';
+	echo '<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/plugins/code/prettify.css" />';
+	echo '<script src="source/plugin/yiqixueba/template/kindeditor/lang/zh_CN.js" type="text/javascript"></script>';
+	echo '<script src="source/plugin/yiqixueba/template/kindeditor/prettify.js" type="text/javascript"></script>';
+	echo '<textarea name="settingdescription" style="width:700px;height:200px;visibility:hidden;">'.$setting_info['description'].'</textarea>';
+	echo '</td></tr>';
+	showsubmit('submit');
+	showtablefooter();
+	showformfooter();
+	echo <<<EOF
 <script>
 	KindEditor.ready(function(K) {
 		var editor1 = K.create('textarea[name="settingdescription"]', {
@@ -121,54 +73,53 @@ EOT;
 	});
 </script>
 EOF;
-	} else {
-		$settingname = dhtmlspecialchars(trim($_GET['settingname']));
-		$settingtitle = strip_tags(trim($_GET['settingtitle']));
-		$status	= intval($_GET['status']);
-		$createtime	= strtotime($_GET['createtime']);
-		$description = dhtmlspecialchars(trim($_GET['description']));
-		$settingsort = trim($_GET['settingsort']);
+} else {
+	$settingname = dhtmlspecialchars(trim($_GET['settingname']));
+	$settingtitle = strip_tags(trim($_GET['settingtitle']));
+	$status	= intval($_GET['status']);
+	$createtime	= strtotime($_GET['createtime']);
+	$description = dhtmlspecialchars(trim($_GET['description']));
+	$settingsort = trim($_GET['settingsort']);
 
-		if(!$settingname){
-			cpmsg(lang('plugin/yiqixueba','settingname_invalid'), '', 'error');
-		}
-		if(!ispluginkey($settingname)) {
-			cpmsg(lang('plugin/yiqixueba','settingname_invalid'), '', 'error');
-		}
-		$ico = addslashes($_GET['settingimages']);
-		if($_FILES['settingimages']) {
-			$upload = new discuz_upload();
-			if($upload->init($_FILES['settingimages'], 'common') && $upload->save()) {
-				$ico = $upload->attach['attachment'];
-			}
-		}
-		if($_POST['delete'] && addslashes($_POST['settingimages'])) {
-			$valueparse = parse_url(addslashes($_POST['settingimages']));
-			if(!isset($valueparse['host']) && !strexists(addslashes($_POST['settingimages']), '{STATICURL}')) {
-				@unlink($_G['setting']['attachurl'].'common/'.addslashes($_POST['settingimages']));
-			}
-			$ico = '';
-		}
-		$data = array(
-			'settingname' => $settingname,
-			'settingtitle' => $settingtitle,
-			'description' => $description,
-			'settingimages' => $ico,
-			'settingsort' => $settingsort,
-			'status' => $status,
-			'createtime' => $createtime,
-		);
-		if($settingid){
-			$data['updatetime'] = time();
-			C::t(GM('main_setting'))->update($settingid,$data);
-		}else{
-			C::t(GM('main_setting'))->insert($data);
-		}
-		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		cpmsg(lang('plugin/yiqixueba','edit_setting_succeed'), 'action='.$this_page.'&subop=settinglist', 'succeed');
+	if(!$settingname){
+		cpmsg(lang('plugin/yiqixueba','settingname_invalid'), '', 'error');
 	}
-
-
+	if(!ispluginkey($settingname)) {
+		cpmsg(lang('plugin/yiqixueba','settingname_invalid'), '', 'error');
+	}
+	$ico = addslashes($_GET['settingimages']);
+	if($_FILES['settingimages']) {
+		$upload = new discuz_upload();
+		if($upload->init($_FILES['settingimages'], 'common') && $upload->save()) {
+			$ico = $upload->attach['attachment'];
+		}
+	}
+	if($_POST['delete'] && addslashes($_POST['settingimages'])) {
+		$valueparse = parse_url(addslashes($_POST['settingimages']));
+		if(!isset($valueparse['host']) && !strexists(addslashes($_POST['settingimages']), '{STATICURL}')) {
+			@unlink($_G['setting']['attachurl'].'common/'.addslashes($_POST['settingimages']));
+		}
+		$ico = '';
+	}
+	$data = array(
+		'settingname' => $settingname,
+		'settingtitle' => $settingtitle,
+		'description' => $description,
+		'settingimages' => $ico,
+		'settingsort' => $settingsort,
+		'status' => $status,
+		'createtime' => $createtime,
+	);
+	if($settingid){
+		$data['updatetime'] = time();
+		C::t(GM('main_setting'))->update($settingid,$data);
+	}else{
+		C::t(GM('main_setting'))->insert($data);
+	}
+	echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
+	cpmsg(lang('plugin/yiqixueba','edit_setting_succeed'), 'action='.$this_page.'&subop=settinglist', 'succeed');
 }
-	
+
+
+
 ?>
