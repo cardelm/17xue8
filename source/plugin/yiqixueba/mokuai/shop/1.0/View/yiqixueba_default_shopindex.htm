@@ -6,7 +6,7 @@
          </li>
 		 <!--{loop $sorts $sortsnav}-->
          <li>
-            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$sortsnav[shopsortid]}" class="{$sortsnav[sortname]} <!--{if $sid == $sortsnav[shopsortid]}--> {$sortsnav[sortselect]}<!--{/if}-->"></a>
+            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$sortsnav[goodssortid]}" class="{$sortsnav[sortname]} <!--{if $sid == $sortsnav[goodssortid]}--> {$sortsnav[sortselect]}<!--{/if}-->"></a>
          </li>
 		 <!--{/loop}-->
       </ul>
@@ -57,7 +57,7 @@
 					<div class="cls_title"><span>分类：</span></div>
 					<div class="cls_con">
 						<!--{loop $subsorts $subsortsnav}-->
-							<a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$subsortsnav[sortupid]}&subsid={$subsortsnav[shopsortid]}" <!--{if $subsid == $subsortsnav[shopsortid]}--> class="current"<!--{/if}-->>{$subsortsnav[sorttitle]}(1)</a>
+							<a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$subsortsnav[sortupid]}&subsid={$subsortsnav[goodssortid]}" <!--{if $subsid == $subsortsnav[goodssortid]}--> class="current"<!--{/if}-->>{$subsortsnav[sorttitle]}(1)</a>
 						<!--{/loop}-->
 					</div>
                </div>

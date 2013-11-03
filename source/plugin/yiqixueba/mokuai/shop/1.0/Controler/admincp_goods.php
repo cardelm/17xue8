@@ -6,6 +6,18 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 $subops = array('list','edit');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
+$goodssorts = api_indata('server_goodssort');
+$goodssorts = array_sort($goodssorts,'displayorder');
+foreach ( $goodssorts as $k => $v ){
+	if($v['sortupid']==0){
+		foreach ($goodssorts  as $k1 => $v1 ){
+			if($v1['sortupid'] == $v['goodssortid']){
+				$gsort[$v1['goodssortid']] = $v['sorttitle'].'--'.$v1['sorttitle'];
+			}
+		}
+	}
+}
+
 $goodsid = getgpc('goodsid');
 $goods_info = C::t(GM('shop_goods'))->fetch($goodsid);
 
@@ -21,7 +33,7 @@ if($subop == 'list') {
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[goodsid]\" />",
 				'<span class="bold">'.$row['goodsname'].'</span>',
 				$row['goodstitle'],
-				$row['goodssort'],
+				$gsort[$row['goodssort']],
 				dgmdate($row['createtime'],'d'),
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"statusnew[".$row['goodsid']."]\" value=\"1\" ".($row['status'] > 0 ? 'checked' : '').">",
 				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=edit&goodsid=$row[goodsid]\" >".lang('plugin/yiqixueba','edit')."</a>",
@@ -66,12 +78,14 @@ if($subop == 'list') {
 		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
 		showsetting(lang('plugin/yiqixueba','createtime'),'createtime',dgmdate($goods_info['createtime'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
 
-		showsetting(lang('plugin/yiqixueba','goodssort'),array('goodssort', array(
-			array(0, lang('plugin/yiqixueba','goodssort').'1'),
-			array(1, lang('plugin/yiqixueba','goodssort').'2'),
-			array(2, lang('plugin/yiqixueba','goodssort').'3'),
-			array(3, lang('plugin/yiqixueba','goodssort').'4')
-		)),$goods_info['goodssort'],'select','',0,lang('plugin/yiqixueba','goodssort_comment'),'','',true);//select  mradio mcheckbox mselect (binmcheckbox)
+		
+		$goodssort_select = '<select name="goodssort">';
+		foreach ( $gsort as $k => $v ){
+			$goodssort_select .= '<option value="'.$k.'" '.($goods_info['goodssort'] == $k ? ' selected':'').'>'.$v.'</option>';
+		}
+		$goodssort_select .= '';
+		
+		showsetting(lang('plugin/yiqixueba','goodssort'),'','',$goodssort_select,'',0,lang('plugin/yiqixueba','goodssort_comment'),'','',true);//select  mradio mcheckbox mselect (binmcheckbox)
 
 
 		showsetting(lang('plugin/yiqixueba','goodsimages'),'goodsimages',$goods_info['goodsimages'],'file','',0,lang('plugin/yiqixueba','goodsimages_comment').$imageshtml,'','',true);//file filetext

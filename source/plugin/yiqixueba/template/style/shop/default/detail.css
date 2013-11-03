@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-@import url("http://www.pailezu.com/static/theme/newpl/css/main.css");
+@import url("main.css");
 .mainbd{width:950px; margin:0 auto; padding-top:10px;}
 /*left */
 .leftdetail{width:710px; float:left;}

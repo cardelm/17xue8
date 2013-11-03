@@ -12,14 +12,14 @@
 		</item>
 		<item id="nodes">
 			<item id="0"><![CDATA[yikatong_yiqixueba_yktbind]]></item>
-			<item id="1"><![CDATA[main_yiqixueba_index]]></item>
-			<item id="2"><![CDATA[main_yiqixueba_mokuai]]></item>
-			<item id="3"><![CDATA[main_admincp_setting]]></item>
+			<item id="1"><![CDATA[main_admincp_index]]></item>
+			<item id="2"><![CDATA[main_yiqixueba_index]]></item>
+			<item id="3"><![CDATA[main_yiqixueba_mokuai]]></item>
 			<item id="4"><![CDATA[main_member_index]]></item>
-			<item id="5"><![CDATA[main_admincp_index]]></item>
-			<item id="6"><![CDATA[main_admincp_membergroup]]></item>
-			<item id="7"><![CDATA[main_admincp_member]]></item>
-			<item id="8"><![CDATA[main_admincp_mokuai]]></item>
+			<item id="5"><![CDATA[main_admincp_setting]]></item>
+			<item id="6"><![CDATA[main_admincp_mokuai]]></item>
+			<item id="7"><![CDATA[main_admincp_membergroup]]></item>
+			<item id="8"><![CDATA[main_admincp_member]]></item>
 		</item>
 		<item id="defaultmenu"><![CDATA[0]]></item>
 		<item id="unodes">
@@ -80,30 +80,30 @@
 					<item id="title"><![CDATA[主程序]]></item>
 					<item id="displayorder"><![CDATA[0]]></item>
 					<item id="submenu">
-						<item id="setting">
-							<item id="title"><![CDATA[基础设置]]></item>
-							<item id="displayorder"><![CDATA[0]]></item>
-							<item id="modfile"><![CDATA[main_admincp_setting]]></item>
-						</item>
 						<item id="index">
 							<item id="title"><![CDATA[平台首页]]></item>
 							<item id="displayorder"><![CDATA[0]]></item>
 							<item id="modfile"><![CDATA[main_admincp_index]]></item>
 						</item>
+						<item id="setting">
+							<item id="title"><![CDATA[基础设置]]></item>
+							<item id="displayorder"><![CDATA[1]]></item>
+							<item id="modfile"><![CDATA[main_admincp_setting]]></item>
+						</item>
+						<item id="mokuai">
+							<item id="title"><![CDATA[模块管理]]></item>
+							<item id="displayorder"><![CDATA[2]]></item>
+							<item id="modfile"><![CDATA[main_admincp_mokuai]]></item>
+						</item>
 						<item id="membergroup">
 							<item id="title"><![CDATA[会员组]]></item>
-							<item id="displayorder"><![CDATA[1]]></item>
+							<item id="displayorder"><![CDATA[3]]></item>
 							<item id="modfile"><![CDATA[main_admincp_membergroup]]></item>
 						</item>
 						<item id="member">
 							<item id="title"><![CDATA[会员管理]]></item>
-							<item id="displayorder"><![CDATA[2]]></item>
+							<item id="displayorder"><![CDATA[4]]></item>
 							<item id="modfile"><![CDATA[main_admincp_member]]></item>
-						</item>
-						<item id="mokuai">
-							<item id="title"><![CDATA[模块管理]]></item>
-							<item id="displayorder"><![CDATA[3]]></item>
-							<item id="modfile"><![CDATA[main_admincp_mokuai]]></item>
 						</item>
 					</item>
 				</item>

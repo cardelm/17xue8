@@ -2,6 +2,7 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
+$server_siteurl = 'http://localhost/web/17xue8/';
 //得到已安装模块信息
 function getmokuai(){
 	return C::t(GM('main_mokuai'))->range();
@@ -18,6 +19,7 @@ function getnodes(){
 //api_api_indata
 function api_indata($apiaction,$indata=array()){
 	global $_G,$server_siteurl;
+	
 	//if(fsockopen('www.wxq123.com', 80)){
 		$indata['sitekey'] = getsitekey();
 		$indata['siteurl'] = $_G['siteurl'];
@@ -40,6 +42,7 @@ function api_indata($apiaction,$indata=array()){
 
 //得到站长key值
 function getsitekey(){
+	return C::t('common_setting')->fetch('yiqixueba_siteurlkey');
 }
 
 //

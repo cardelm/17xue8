@@ -62,7 +62,7 @@ if($subop == 'sitegrouplist') {
 					$mktext[$k] .= '&nbsp;&nbsp;';
 				}
 			}
-			showtablerow('', array('class="td25"','class="td25"', 'style="width:100px"','style="width:100px"', 'valign="top" style="width:610px"','',''), array(
+			showtablerow('', array('class="td25"','class="td25"', 'style="width:100px"','style="width:100px"', 'valign="top" style="width:510px"','',''), array(
 				in_array($k,$systemgroups) ? '<input type="checkbox" class="checkbox" value="" disabled="disabled" />' : "<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$k\" />",
 				"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$k]\" value=\"".intval($row['displayorder'])."\">",
 				$k,
