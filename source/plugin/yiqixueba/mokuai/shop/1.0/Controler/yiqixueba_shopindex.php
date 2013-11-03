@@ -2,7 +2,7 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-dump($this_page);
+
 $sid = getgpc('sid');
 $subsid = getgpc('subsid');
 //参考网站http://www.pailezu.com/
@@ -10,7 +10,7 @@ $navtitle = lang('plugin/yiiqxueba','shop');
 
 $shopsorts = C::t(GM('shop_shopsort'))->range();
 
-
+$goods = C::t(GM('shop_goods'))->range();
 foreach($shopsorts as $k=>$v ){
 	if($v['sortupid']==0){
 		$sorts[$v['shopsortid']] = $v;

@@ -42,19 +42,20 @@ function getmokuaivers($mokuainame){
 	}
 	return $mokuaiver_array;
 }//end func
-//得到程序文件
-function getmod($mokuai,$ver){
-	$modfile = array();
-	$pages_dir = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler';
+//得到文件
+function getfilename($filedir){
+	$filenames = array();
+	$pages_dir = MOKUAI_DIR.'/'.$filedir;
 	if ($handle = opendir($pages_dir)) {
 		while (false !== ($file = readdir($handle))) {
 			if ($file != "." && $file != ".." && substr($file,0,1) != "." && $file != "index.html") {
-				$modfile[] = substr($file,0,-4);
+				$filenames[] = substr($file,0,-4);
 			}
 		}
 	}
-	return $modfile;
+	return $filenames;
 }//end func
+
 
 //更新模块xml数据
 function update_mokuai($biaoshi,$version,$mukauidata){
@@ -181,6 +182,7 @@ function get_mokuaipage($mokuai,$version,$ptype){
 	}
 	return $page_array;
 }//end func
+
 function getmokuailang($biaoshi,$version,$pagename){
 	$page_name = str_replace('source_','',$pagename).'.php';
 	$lang_text = file_get_contents(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/Controler/'.$page_name);
@@ -213,4 +215,115 @@ function getmokuailang($biaoshi,$version,$pagename){
 }
 
 
+
+
+
+//////////以后再用
+//
+function writenode($nodedata){
+	$nodedata = _nodedata_init($nodedata);
+	if($nodedata['nodetype'] == 'admincp'){
+		_writeadmincpnode($nodedata);
+	}elseif($nodedata['nodetype'] == 'yiqixueba'){
+		_writeyiqixuebanode($nodedata);
+	}
+	if($nodedata['nodetype'] == 'member'){
+		_writemembernode($nodedata);
+	}
+
+}//end func
+
+
+
+
+//
+function _pagedata_init($pagedata){
+
+	$pagetypes = array('admincp','yiqixueba','member','ajax','api','hook','plugin');
+	$datetypes = array('table','xml','config');
+	$optiontypes = array('setting','list','edit');
+	$listtypes = array('noadd','nodel','noorder','nopage','nosearch');
+
+	$pagedata['mokuai'] = $pagedata['mokuai'] ? $pagedata['mokuai'] : 'server';
+	$pagedata['version'] = $pagedata['version'] ? $pagedata['version'] : '1.0';
+
+	$pagedata['pagename'] = $pagedata['pagename'] ? $pagedata['pagename'] : 'example';
+
+	$pagedata['pagetype'] = $pagedata['pagetype'] ? $pagedata['pagetype'] : $pagetypes[0];
+
+	$pagedata['controlerdir'] = $pagedata['controlerdir'] ? $pagedata['controlerdir'] : MOKUAI_DIR.'/'.$pagedata['mokuai'].'/'.$pagedata['version'].'/Controler/';
+	$pagedata['modaldir'] = $pagedata['modal'] ? $pagedata['modal'] : MOKUAI_DIR.'/'.$pagedata['mokuai'].'/'.$pagedata['version'].'/Modal/';
+	$pagedata['viewdir'] = $pagedata['view'] ? $pagedata['view'] : MOKUAI_DIR.'/'.$pagedata['mokuai'].'/'.$pagedata['version'].'/View/';
+
+	$pagedata['controlerfile'] = $pagedata['controlerfile'] ? $pagedata['controlerfile'] : $pagedata['pagename'];
+
+	$pagedata['nodes'] = $pagedata['nodes'] ? $pagedata['nodes'] : array($pagedata['pagename'].'list',$pagedata['pagename'].'edit');
+	
+	if(is_array($pagedata['nodes'])){
+		foreach ($pagedata['nodes']  as $k => $v ){
+			if(!$v && !is_array($v)){
+				$pagedata['nodedata'][$v] = _pagedata_init($v);
+			}
+		}
+	}
+	
+	
+	$nodedata['optiontype'] = $nodedata['optiontype'] ? $nodedata['optiontype'] : $optiontypes[0];
+	if(!is_array($nodedata['optiontype']) && $nodedata['optiontype'] == 'list' || is_array($nodedata['optiontype']) && in_array('list',$nodedata['optiontype'])){
+		foreach ($listtypes  as $k => $v ){
+			$nodedata['listtype'][$v] = $nodedata['listtype'][$v] ? $nodedata['listtype'][$v] : false;
+		}
+	}
+
+	$nodedata['modalfile'] = $nodedata['modalfile'] ? $nodedata['modalfile'] : $nodedata['nodename'];
+	$nodedata['viewfile'] = $nodedata['viewfile'] ? $nodedata['viewfile'] : $nodedata['nodename'];
+
+
+	$nodedata['datetype'] = $nodedata['datetype'] ? $nodedata['datetype'] : $datetypes[0];
+
+	if(empty($nodedata['fields']) || !isset($nodedata['fields']) || !$nodedata['fields'] || !is_array($nodedata['fields'])){
+		$nodedata['fields'] = array(
+			array(
+				'name' => $nodedata['nodename'].'id',
+				'title' => 'exampleid',
+				'type' => 'int',
+				'length' => '8',
+				'xiaoshu' => '0',
+				'notnull' => true,
+				'unsigned' => true,
+				'primarykey' => true,
+				'orderdisplay' => 1,
+				'defaultvalue' => 'auto_increment',
+			),	
+			array(
+				'name' => $nodedata['nodename'].'name',
+				'title' => 'examplename',
+				'type' => 'char',
+				'length' => '20',
+				'xiaoshu' => '0',
+				'notnull' => true,
+				'primarykey' => false,
+				'orderdisplay' => 2,
+				'defaultvalue' => '',
+			),	
+		);
+	}
+
+	return $nodedata;
+}//end func
+//
+function _writeadmincpnode($nodedata){
+	dump($nodedata);
+	return $nodedata;
+}//end func
+//
+function _writeyiqixuebanode($nodedata){
+	dump($nodedata);
+	return $nodedata;
+}//end func
+//
+function _writemembernode($nodedata){
+	dump($nodedata);
+	return $nodedata;
+}//end func
 ?>

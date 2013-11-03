@@ -7,41 +7,13 @@
    <div class=" leftfloat">
        <ul>
          <li>
-            <a href="http://www.pailezu.com/index.php"  class="allhover 
-			 			allselect
-						" 			 select="allselect"
-			></a>
+            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex"  class="allhover<!--{if $sid}--> <!--{else}--> allselect<!--{/if}-->"<!--{if $sid}--> <!--{else}--> select="allselect"<!--{/if}-->></a>
          </li>
+		 <!--{loop $sorts $sortsnav}-->
          <li>
-            <a href="http://www.pailezu.com/index.php?gid=109&sid=8" class="clothhover 
-		    			" ></a>
+            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$sortsnav[shopsortid]}" class="{$sortsnav[sortname]} <!--{if $sid == $sortsnav[shopsortid]}--> {$sortsnav[sortselect]}<!--{/if}-->"></a>
          </li>
-         <li>
-            <a href="http://www.pailezu.com/index.php?gid=109&sid=820" class="foothover  
-			 			
-			" ></a>
-         </li>
-         <li>
-            <a href="http://www.pailezu.com/index.php?gid=63" class="peishihover  
-						"></a>
-         </li>
-         <li>
-            <a href="http://www.pailezu.com/index.php?gid=821" class="homehover  
-						"></a>
-         </li>
-         <li>
-            <a href="http://www.pailezu.com/index.php?gid=10" class="washhover  
-						
-			"></a>
-         </li>
-         <li>
-            <a href="http://www.pailezu.com/index.php?gid=819&sid=7" class="facehover  
-						"></a>
-         </li>
-         <li>
-            <a href="http://www.pailezu.com/index.php?gid=819&sid=138" class="foodhover 
-			 			"></a>
-         </li>
+		 <!--{/loop}-->
       </ul>
    </div>
    <!-- -->     
@@ -99,49 +71,27 @@ function goPage(page,id,count){
         <div class="mainbd clearfix">
       <div class="leftdetail">
         <div class="detailbox clearfix"> 
-          <h3 class="itemfrom">
-            今日团购：仅59元！享原价598元的2013孙俪同款秋冬潮流中跟机车短靴士女骑马丁靴女鞋女靴。耐磨橡胶底，经典色，潮流款，靴子中的野性贵族！          </h3>
+          <h3 class="itemfrom">{$goods_info[goodstitle]}</h3>
           <div class="item_title">
           </div>
           <div class="clearfix">
           <div class="iteminfo_bg clearfix">
             <div class="tobuy png_bg">
               <span>
-                <em>&yen;</em>59              </span>  
-          
-
-                 
-                                       <a href="http://www.pailezu.com/team/buy.php?id=50450" class="buybutton png_bg"></a>
-                                    
-
-
-
+                <em>&yen;</em>{$goods_info[newprice]}</span>  
+                <a href="http://www.pailezu.com/team/buy.php?id=50450" class="buybutton png_bg"></a>
             </div>
             <div class="item_price clearfix">
               <dl class="oraginal">
-                <dt>
-                  原价
-                </dt>
-                <dd>
-                  ¥598                </dd>
+                <dt>原价</dt><dd>¥{$goods_info[price]}</dd>
               </dl>
               <dl class="oraginal discount">
-                <dt>
-                  折扣
-                </dt>
-                <dd>
-                  0.99折
-                </dd>
+                <dt>折扣</dt><dd>{$goods_info[zhekou]}折</dd>
               </dl>
               <dl class="oraginal rest">
-                <dt>
-                  节省
-                </dt>
-                <dd>
-                  ¥539                </dd>
+                <dt>节省</dt><dd>¥{$goods_info[price]-$goods_info[newprice]}</dd>
               </dl>
             </div>
-              
             <div class="buycount">
               <p class="totalbuy">
                 <em class="png_bg">
@@ -387,27 +337,9 @@ function goPage(page,id,count){
                               </div>
               <!--tab_others end-->
               <div id="tab_detail" class="tab_info_box">
-
-
-                   
-
-                                                <div class="title_bar titbar_margin">本单详情</div>
-                                                                    <div class="digest">
-                    <br />
-                    。耐磨橡胶底，经典色，潮流款，靴子中的野性贵族！                  </div>
-                                                     
-                <div class="lazyload"><span style="font-family:Microsoft YaHei;font-size:16px;">【靴款品名】 骑士靴</span><br />
-<span style="font-family:Microsoft YaHei;font-size:16px;"> 【筒高】 短靴</span><br />
-<span style="font-family:Microsoft YaHei;font-size:16px;"> 【鞋头】 圆头</span><br />
-<span style="font-family:Microsoft YaHei;font-size:16px;"> 【跟高】 中跟(3-5cm)</span><br />
-<span style="font-family:Microsoft YaHei;font-size:16px;"> 【鞋跟形状】 方跟</span><br />
-<span style="font-family:Microsoft YaHei;font-size:16px;"> 【闭合方式】 套筒</span><br />
-<span style="font-family:Microsoft YaHei;font-size:16px;"> 【流行元素】 皮带扣</span><br />
-<span style="font-family:Microsoft YaHei;font-size:16px;"> 【制作工艺】 胶粘鞋</span><br />
-<span style="font-family:Microsoft YaHei;font-size:16px;"> 【颜色分类】 黑色（8059-8） 真皮(防水/防雨/防雪/防寒)&nbsp;</span><br />
-<span style="font-family:&quot;font-size:16px;"><span style="font-family:Microsoft YaHei;font-size:16px;"> 【尺码】 35 36 37 38 39 40</span><br />
-<span style="color:#E53333;font-family:Microsoft YaHei;font-size:16px;">【温馨提示】此款鞋尺码偏小，请拍大一码！</span><br />
-&nbsp;<img src="http://u2.awotuan.net/static/team/2013/1010/20131010164801_34330.jpg!detailwp" /><img src="http://u4.awotuan.net/static/team/2013/1010/20131010164820_73479.jpg!detailwp" /><img src="http://u5.awotuan.net/static/team/2013/1010/20131010164834_95756.jpg!detailwp" /><img src="http://u3.awotuan.net/static/team/2013/1010/20131010164841_19275.jpg!detailwp" /><img src="http://u4.awotuan.net/static/team/2013/1010/20131010164848_40585.jpg!detailwp" /><img src="http://u1.awotuan.net/static/team/2013/1010/20131010164856_13657.jpg!detailwp" /><img src="http://u5.awotuan.net/static/team/2013/1010/20131010164907_57737.jpg!detailwp" /><img src="http://u1.awotuan.net/static/team/2013/1010/20131010164914_92759.jpg!detailwp" /><img src="http://u1.awotuan.net/static/team/2013/1010/20131010164918_68567.jpg!detailwp" /><img src="http://u4.awotuan.net/static/team/2013/1010/20131010164935_49557.jpg!detailwp" /><img src="http://u5.awotuan.net/static/team/2013/1010/20131010164946_64678.jpg!detailwp" /><img src="http://u2.awotuan.net/static/team/2013/1010/20131010165009_13953.jpg!detailwp" /><img src="http://u4.awotuan.net/static/team/2013/1010/20131010165025_45217.jpg!detailwp" /><img src="http://u3.awotuan.net/static/team/2013/1010/20131010165056_47778.jpg!detailwp" /><img src="http://u1.awotuan.net/static/team/2013/1010/20131010165104_16139.jpg!detailwp" /><img src="http://u5.awotuan.net/static/team/2013/1010/20131010165123_55306.jpg!detailwp" /></span><br /></div>
+                    <div class="title_bar titbar_margin">本单详情</div>
+                        <div class="digest">{$goods_info[description]}
+                    </div>
                   
               </div>
               <!--tab_detail end-->
@@ -427,7 +359,7 @@ function goPage(page,id,count){
 					包装损坏或订购信息不相符，可拒收。有问题请联系派乐族，电话：400-0988-789</span></li></ul></div>                </div>
               </div>
               <!--tab_express end-->
-              			                <div id="tab_comment" class="tab_info_box express_box">
+              	<div id="tab_comment" class="tab_info_box express_box">
                 <div class="title_bar titbar_margin">
                   用户评论
                 </div>
@@ -510,15 +442,15 @@ function goPage(page,id,count){
                           </div>
             <!--bigbox end-->
             <div class="price_box clearfix">
-                <div class="product_price">&yen;<em>59</em></div>
+                <div class="product_price">&yen;<em>{$goods_info[newprice]}</em></div>
                 <div class="product_discount">
                     <dl>
                         <dt>原价</dt>
-                        <dd class="product_oraginal">&yen;<em class="arialfont">598</em></dd>
+                        <dd class="product_oraginal">&yen;<em class="arialfont">{$goods_info[price]}</em></dd>
                     </dl>
                     <dl>
                         <dt>折扣</dt>
-                        <dd><em class="rcolor">0.99</em>折</dd>
+                        <dd><em class="rcolor">{$goods_info[zhekou]}</em>折</dd>
                     </dl>
 
                      

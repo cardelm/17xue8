@@ -504,8 +504,8 @@ EOT;
 				$nodes[$k]['title'] = $v;
 				$nodes[$k]['displayorder'] = intval($_GET['displayordernew'][$k]);
 				$nodes[$k]['menu'] = intval($_GET['menunew'][$k]);
-				$nodes[$k]['table'] = is_array($nodes[$k]['table']) ? $nodes[$k]['table'] : explode(',',$tablenew) ;
-				$nodes[$k]['template'] = is_array($nodes[$k]['template']) ? $nodes[$k]['template'] :  explode(',',$templatenew) ;
+				$nodes[$k]['table'] = $tablenew ? explode(',',$tablenew) : $nodes[$k]['table'];
+				$nodes[$k]['template'] = $templatenew ? explode(',',$templatenew) : $nodes[$k]['template'];
 				list($nt,$nn) = explode("_",$k);
 				if($nt != 'global' && $nn){
 					writesourcefile($biaoshi,$version,$k,$nt);
@@ -591,12 +591,59 @@ EOT;
 
 	require_once $view_file;
 }elseif ($subop == 'nodeedit'){
+	$nodes = $nodes_temp = xml2array(file_get_contents(MOKUAI_DIR."/".$biaoshi."/".$version."/node.xml"));
+
 	$nodetype = trim($_GET['nodetype']);
 	$node = trim($_GET['node']);
-	dump($biaoshi);
-	dump($version);
-	dump($nodetype);
-	dump($node);
+	$step = max(1, intval($_GET['step']));
+	showsubmenusteps(lang('plugin/yiqixueba','mokuaisheji'), array(
+		array(lang('plugin/yiqixueba','mokuaisheji'), $step == 1),
+		array(lang('plugin/yiqixueba','mokuaisheji'), $step == 2),
+		array(lang('plugin/yiqixueba','mokuaisheji'), $step == 3)
+	));
+//	dump($biaoshi);
+//	dump($version);
+//	dump($nodetype);
+//	dump($node);
+//	dump($nodes[$nodetype.'_'.$node]);
+	if($step == 1){
+		if(!submitcheck('submit')) {
+			showtips(lang('plugin/yiqixueba','mokuai_node_tips'));
+			showformheader($this_page.'&subop=nodeedit&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype.'&node='.$node);
+			showtableheader(lang('plugin/yiqixueba','mokuai_info'));
+			showsubtitle(array('','display_order', lang('plugin/yiqixueba','subop_name'),lang('plugin/yiqixueba','subop_title'),lang('plugin/yiqixueba','subop_type')));
+			echo '<tr><td colspan="1"></td><td colspan="1"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_node').'</a></div></td></tr>';
+			showsubmit('submit');
+			showtablefooter();
+			showformfooter();
+			$suboptypes = array('list','edit','setting');
+			$subop_select = '<select name="">';
+			foreach ($suboptypes as $k => $v ){
+				$subop_select .= '<option value="'.$v.'">'.$v.'</option>';
+			}
+			$subop_select .= '</select>';
+			echo <<<EOT
+<script type="text/JavaScript">
+	var rowtypedata = [
+		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'],[1, '<input name="newname[]" value="" size="15" type="text">'],[1, '<input name="newtitle[]" value="" size="15" type="text">'],[1,'$subop_select'],[1,'']],
+	];
+</script>
+EOT;
+		}else{
+			//新建模块
+			if(is_array($_GET['newname'])) {
+				foreach($_GET['newname'] as $k => $v) {
+					$newtitle = trim(dhtmlspecialchars($_GET['newtitle'][$k]));
+					$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+					$nodes[$nodetype.'_'.$node][$v]['title'] = $newtitle;
+					$nodes[$nodetype.'_'.$node][$v]['displayorder'] = $newdisplayorder;
+					$nodes[$nodetype.'_'.$node][$v]['suboptype'] = 'list';
+				}
+			}
+			dump($nodes[$nodetype.'_'.$node]);
+		}
+
+	}
 	//cpmsg(lang('plugin/yiqixueba','edit_node_succeed'), 'action='.$this_page.'&&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype, 'succeed');
 }
 

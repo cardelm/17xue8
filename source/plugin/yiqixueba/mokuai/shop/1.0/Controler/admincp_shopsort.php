@@ -4,7 +4,7 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 }
 if(!submitcheck('submit')) {
 	showtips(lang('plugin/yiqixueba','shopsort_list_tips'));
-	showformheader($this_page.'&subop=shopsortlist');
+	showformheader($this_page);
 	showtableheader(lang('plugin/yiqixueba','shopsort_list'));
 	showsubtitle(array('', lang('plugin/yiqixueba','displayorder'),lang('plugin/yiqixueba','shopsortname'),lang('plugin/yiqixueba','shopsorttitle'),  ''));
 

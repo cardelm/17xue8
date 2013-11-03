@@ -1,0 +1,1210 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Threadtypes]]></item>
+	<item id="Version"><![CDATA[X3.1]]></item>
+	<item id="Time"><![CDATA[2013-11-02 10:53]]></item>
+	<item id="From"><![CDATA[一起学吧 (http://www.17xue8.cn/)]]></item>
+	<item id="Data">
+		<item id="0">
+			<item id="optionid"><![CDATA[76]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[3]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[需求户型]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fxqhx_5]]></item>
+			<item id="type"><![CDATA[select]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[2]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="status"><![CDATA[0]]></item>
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+			<item id="__rules">
+				<item id="choices"><![CDATA[1 = 1室1厅
+2 = 2室1厅
+3 = 2室2厅 
+4 = 3室1厅
+5 = 3室2厅
+6=商铺店面
+7=仓库车库
+9=地皮
+10=其他户型]]></item>
+				<item id="inputsize"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="1">
+			<item id="optionid"><![CDATA[77]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[10]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[需求地区]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fxqdq_5]]></item>
+			<item id="type"><![CDATA[select]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[2]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+			<item id="__rules">
+				<item id="choices"><![CDATA[1=临翔区
+2=凤庆县
+3=云县
+4=永德县
+5=镇康县
+6=双江县
+7=耿马县
+8=沧源县
+9=其它地区]]></item>
+				<item id="inputsize"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="2">
+			<item id="optionid"><![CDATA[78]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[103]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[邮箱]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fyx_5]]></item>
+			<item id="type"><![CDATA[email]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="rules"><![CDATA[N;]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[0]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[0]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="status"><![CDATA[0]]></item>
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="3">
+			<item id="optionid"><![CDATA[79]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[102]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[QQ]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fqq_5]]></item>
+			<item id="type"><![CDATA[number]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[0]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[0]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="status"><![CDATA[0]]></item>
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+			<item id="__rules">
+				<item id="maxnum"><![CDATA[]]></item>
+				<item id="minnum"><![CDATA[]]></item>
+				<item id="inputsize"><![CDATA[]]></item>
+				<item id="defaultvalue"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="4">
+			<item id="optionid"><![CDATA[80]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[101]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[联系电话]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Flxdh_5]]></item>
+			<item id="type"><![CDATA[number]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="permprompt"><![CDATA[请登录查看]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[0]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="status"><![CDATA[1]]></item>
+				<item id="mode"><![CDATA[2]]></item>
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+			<item id="__rules">
+				<item id="maxnum"><![CDATA[]]></item>
+				<item id="minnum"><![CDATA[]]></item>
+				<item id="inputsize"><![CDATA[]]></item>
+				<item id="defaultvalue"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="5">
+			<item id="optionid"><![CDATA[81]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[100]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="protect"><![CDATA[]]></item>
+			<item id="title"><![CDATA[联系人]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Flxr_5]]></item>
+			<item id="type"><![CDATA[text]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="rules"><![CDATA[]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[0]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+		</item>
+		<item id="6">
+			<item id="optionid"><![CDATA[82]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[11]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="protect"><![CDATA[]]></item>
+			<item id="title"><![CDATA[详细地址]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fxxdz_5]]></item>
+			<item id="type"><![CDATA[text]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="rules"><![CDATA[]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[0]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+		</item>
+		<item id="7">
+			<item id="optionid"><![CDATA[83]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[7]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[租金]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fzj_5]]></item>
+			<item id="type"><![CDATA[text]]></item>
+			<item id="unit"><![CDATA[月]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[0]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="status"><![CDATA[0]]></item>
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+			<item id="__rules">
+				<item id="maxlength"><![CDATA[]]></item>
+				<item id="inputsize"><![CDATA[]]></item>
+				<item id="profile"><![CDATA[]]></item>
+				<item id="defaultvalue"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="8">
+			<item id="optionid"><![CDATA[84]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[6]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[面积]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fmj_5]]></item>
+			<item id="type"><![CDATA[number]]></item>
+			<item id="unit"><![CDATA[平米]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[0]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="status"><![CDATA[0]]></item>
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+			<item id="__rules">
+				<item id="maxnum"><![CDATA[]]></item>
+				<item id="minnum"><![CDATA[]]></item>
+				<item id="inputsize"><![CDATA[]]></item>
+				<item id="defaultvalue"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="9">
+			<item id="optionid"><![CDATA[85]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[4]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[装修程度]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fzxcd_5]]></item>
+			<item id="type"><![CDATA[select]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[2]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="status"><![CDATA[0]]></item>
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+			<item id="__rules">
+				<item id="choices"><![CDATA[1 = 没装修
+2 = 简单装修
+3 = 中等装修
+4 = 精装修
+5 = 豪华装修
+]]></item>
+				<item id="inputsize"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="10">
+			<item id="optionid"><![CDATA[86]]></item>
+			<item id="classid"><![CDATA[3]]></item>
+			<item id="displayorder"><![CDATA[0]]></item>
+			<item id="expiration"><![CDATA[0]]></item>
+			<item id="title"><![CDATA[信息来源]]></item>
+			<item id="description"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="identifier"><![CDATA[Fxxly_5]]></item>
+			<item id="type"><![CDATA[select]]></item>
+			<item id="unit"><![CDATA[]]></item>
+			<item id="permprompt"><![CDATA[]]></item>
+			<item id="typeid"><![CDATA[7]]></item>
+			<item id="name"><![CDATA[房屋求租]]></item>
+			<item id="icon"><![CDATA[]]></item>
+			<item id="special"><![CDATA[1]]></item>
+			<item id="modelid"><![CDATA[0]]></item>
+			<item id="template"><![CDATA[<style type="text/css"> 
+/*版权：ARCHY，QQ：443022005，技术支持网站：云临网-临沧社区（www.haolincang.com）*/
+.phoneWrap{ background:url(static/zhanhelp/telphone.png) no-repeat 0 -42px; height:45px; padding-left:45px; line-height:45px; overflow:hidden; }
+.phoneWrap .tel{ margin-right:10px; font-size:24px; font-weight:700; }
+.orange,.orange a{ color:#d15500 }
+.liinfo { width:430px; height: auto; overflow:hidden; text-align:left; padding-top:10PX; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.lxliinfo { width:430px;  height:25px;  text-align:left;  padding-top:10px;  border-bottom:1px dashed #FAD6C8; font-size:16px; }
+.zliinfo { width:280px; height:25px; text-align:left; padding-top:10px; border-bottom:1px dashed #FAD6C8; font-size:16px; color:#666666; }
+.tipBottom{ color:#666666;margin:10px 10px 0; padding:6px 7px 6px 6px; vertical-align:bottom; }
+.tishi{ background:url(static/zhanhelp/zhuyi.gif) no-repeat 20px 50% #FFFFCC; border:1px solid #FAD6C8; padding:10px 10px 10px 60px; }
+.f14{ font-size:14px; }
+.s2, .s2 a { color:#FF5500; }
+.mt6{ margin-top:6px; }
+</style>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	     <td width="435" style="border-right: 1px dashed #fad6c8;">
+				<ul>
+                        <li class="liinfo">{Fxxly_5}：{Fxxly_5_value} {Fxxly_5_unit}</li>
+                        <li class="liinfo">{Fxqhx_5}：{Fxqhx_5_value} {Fxqhx_5_unit}</li>
+                        <li class="liinfo">{Fzxcd_5}：{Fzxcd_5_value} {Fzxcd_5_unit}</li>
+                        <li class="liinfo">{Fmj_5}：{Fmj_5_value} {Fmj_5_unit}</li>
+                        <li class="liinfo">{Fzj_5}：{Fzj_5_value} {Fzj_5_unit}</li>
+                        <li class="liinfo">{Fxqdq_5}：{Fxqdq_5_value} {Fxqdq_5_unit}</li>
+                        <li class="liinfo">{Fxxdz_5}：{Fxxdz_5_value} {Fxxdz_5_unit}</li>
+                        <li class="lxliinfo f14 s2">提示：联系我时请说是在【云临网-临沧社区】看到的！</li>
+				</ul>
+	    </td>
+	<td width="290" valign="top" align="middle">
+	   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+				<td align="middle">
+				<img width="300" height="100" align="middle" src="static/zhanhelp/fllogo.png">
+                 </td>
+		</tr>
+        <tr>
+              <td align="middle">
+				<ul>
+				   <li class="zliinfo"> <b><font color="red">联系信息</font></b>：</li>
+                                   <li class="zliinfo"><b>{Flxr_5}</b>：{Flxr_5_value} {Flxr_5_unit}</li>
+			          <li><div class="phoneWrap">
+			    	   <span class="tel orange">{Flxdh_5_value} {Flxdh_5_unit}</span><span></span>
+			           </div></li>
+				   <li class="zliinfo"> <b>{Fqq_5}</b>：{Fqq_5_value} {Fqq_5_unit}</li>
+				   <li class="zliinfo"> <b>{Fyx_5}</b>：{Fyx_5_value} {Fyx_5_unit}</li>
+				</ul>
+                           <br></td>
+                      </tr>
+           </table>
+              </td>
+         </tr>
+</table>
+
+<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="tipBottom">
+				<div class="tishi">
+				<b class="f14 s2">云临网-临沧社区<a href="http://www.haolincang.com/"></a>提醒您：</b> 
+				<div class="mt6 f14">
+                        1、以上信息均有网友自行发布，不代表本站任何立场。</br>
+                        2、[云临网]再次提醒您：请认真核实信息在进行交谈。 
+				</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+</table>]]></item>
+			<item id="stemplate"><![CDATA[]]></item>
+			<item id="ptemplate"><![CDATA[]]></item>
+			<item id="btemplate"><![CDATA[]]></item>
+			<item id="sortid"><![CDATA[7]]></item>
+			<item id="available"><![CDATA[1]]></item>
+			<item id="required"><![CDATA[1]]></item>
+			<item id="unchangeable"><![CDATA[1]]></item>
+			<item id="search"><![CDATA[2]]></item>
+			<item id="subjectshow"><![CDATA[1]]></item>
+			<item id="tpdescription"><![CDATA[]]></item>
+			<item id="ttdescription"><![CDATA[此版：只允许发布求租信息]]></item>
+			<item id="tpexpiration"><![CDATA[0]]></item>
+			<item id="ttexpiration"><![CDATA[0]]></item>
+			<item id="__protect">
+				<item id="usergroup"><![CDATA[]]></item>
+				<item id="verify"><![CDATA[]]></item>
+			</item>
+			<item id="__rules">
+				<item id="choices"><![CDATA[1 = 个人
+2 = 中介
+3 = 代发]]></item>
+				<item id="inputsize"><![CDATA[]]></item>
+			</item>
+		</item>
+	</item>
+</root>

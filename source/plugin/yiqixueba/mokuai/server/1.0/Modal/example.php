@@ -64,13 +64,6 @@ class table_example extends discuz_table{
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
 	}
-	public function fetch_by_exampleid($exampleid) {
-		$mokuai_info = array();
-		if($mokuaiid) {
-			$mokuai_info = DB::fetch_first('SELECT * FROM %t WHERE mokuaiid=%s', array($this->_table, $mokuaiid));
-		}
-		return $mokuai_info;
-	}
 
 }
 ?>

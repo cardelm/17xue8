@@ -23,7 +23,7 @@ DD_belatedPNG.fix('.png_bg');
 <div class="bigbg"><div class="nomalwidth clearfix">
     <div class="logo_search clearfix">
         <div class="logo png_bg"><!--{if !isset($_G['setting']['navlogos'][$mnid])}--><a href="{if $_G['setting']['domain']['app']['default']}http://{$_G['setting']['domain']['app']['default']}/{else}./{/if}" title="$_G['setting']['bbname']">{$_G['style']['boardlogo']}</a><!--{else}-->$_G['setting']['navlogos'][$mnid]<!--{/if}--></div>
-        <div class="hd_city png_bg"><a href="http://www.pailezu.com/city.php" class="city_arrow png_bg"> 全国</a></div>
+        <div class="hd_city png_bg"><a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopcity" class="city_arrow png_bg"> 全国</a></div>
         <div class="search">
             <form action="http://www.pailezu.com/index.php" name="search" method="get">
 			   <input type="text" value="请输入商品名称等关键词搜索..." name="searchName" class="keyword" onfocus="javascript:if(this.value=='请输入商品名称等关键词搜索...'){this.value=''}" onblur="javascript:if(this.value==''){this.value='请输入商品名称等关键词搜索...'}" />
@@ -77,7 +77,7 @@ $(function(){
         	<div class="hd_nav">
                 <ul>
 				     <!-- 头部导航条 -->
-                    <li><a href="http://www.pailezu.com/" class="short shortcur">首页</a></li>
+                    <li><a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex" class="short shortcur">首页</a></li>
 					<li><a href="http://www.pailezu.com/index.php?gid=109" class="long ">本地生活</a></li>
 					<li><a href="http://www.pailezu.com/index.php?gid=819" class="long">精品网购</a></li>
 					<li><a href="http://www.pailezu.com/index.php?gid=63" class="short">服饰</a></li>
