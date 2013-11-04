@@ -11,8 +11,8 @@ $goodssorts = array_sort($goodssorts,'displayorder');
 foreach ( $goodssorts as $k => $v ){
 	if($v['sortupid']==0){
 		foreach ($goodssorts  as $k1 => $v1 ){
-			if($v1['sortupid'] == $v['goodssortid']){
-				$gsort[$v1['goodssortid']] = $v['sorttitle'].'--'.$v1['sorttitle'];
+			if($v1['sortupid'] == $v['sortname']){
+				$gsort[$v1['sortname']] = $v['sorttitle'].'--'.$v1['sorttitle'];
 			}
 		}
 	}
@@ -78,13 +78,13 @@ if($subop == 'list') {
 		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
 		showsetting(lang('plugin/yiqixueba','createtime'),'createtime',dgmdate($goods_info['createtime'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
 
-		
+
 		$goodssort_select = '<select name="goodssort">';
 		foreach ( $gsort as $k => $v ){
 			$goodssort_select .= '<option value="'.$k.'" '.($goods_info['goodssort'] == $k ? ' selected':'').'>'.$v.'</option>';
 		}
 		$goodssort_select .= '';
-		
+
 		showsetting(lang('plugin/yiqixueba','goodssort'),'','',$goodssort_select,'',0,lang('plugin/yiqixueba','goodssort_comment'),'','',true);//select  mradio mcheckbox mselect (binmcheckbox)
 
 
@@ -139,9 +139,11 @@ EOF;
 		$goodssort = trim($_GET['goodssort']);
 
 		if(!$goodsname){
+			dump('no');
 			cpmsg(lang('plugin/yiqixueba','goodsname_invalid'), '', 'error');
 		}
-		if(!ispluginkey($goodsname)) {
+		if(ispluginkey($goodsname)) {
+			dump('sql');
 			cpmsg(lang('plugin/yiqixueba','goodsname_invalid'), '', 'error');
 		}
 		$ico = addslashes($_GET['goodsimages']);

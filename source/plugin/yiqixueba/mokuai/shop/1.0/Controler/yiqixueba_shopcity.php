@@ -15,5 +15,5 @@ if($cityname){
 }
 $navtitle = lang('plugin/yiiqxueba','shop');
 
-include template(GV('shop_yiqixueba_shopcity'));
+include template(GV('shop_yiqixueba_'.$temp.'_shopcity'));
 ?>

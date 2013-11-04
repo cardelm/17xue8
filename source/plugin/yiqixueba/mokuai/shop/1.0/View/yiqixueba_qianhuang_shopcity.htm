@@ -1,0 +1,43 @@
+<!--{eval include template(GV('shop_yiqixueba_qianhuang_shophead'));}-->
+<style>
+.letterchoose a:hover{color:rgb(255,63,0)}
+
+</style>
+<div class="citybox clearfix">
+	<div class="city_title">您好，派乐族猜您目前可能在 <a href="http://www.pailezu.com/city.php?ename=tangshan">唐山</a> ，点击进入 <a href="http://www.pailezu.com/city.php?ename=tangshan">唐山&gt;&gt;</a></div>
+    <div class="topbox clearfix">
+    	<span class="lefthotspan">热门城市：</span>
+        <div class="right_choose">
+		   			<a href="http://www.pailezu.com/city.php?ename=beijing" class="hotcity" >北京</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=changsha" class="hotcity" >长沙</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=chongqing" class="hotcity" >重庆</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=chengdu" class="hotcity" >成都</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=dongguan" class="hotcity" >东莞</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=guangzhou" class="hotcity" >广州</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=hangzhou" class="hotcity" >杭州</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=nanjing" class="hotcity" >南京</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=shanghai" class="hotcity" >上海</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=suzhou" class="hotcity" >苏州</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=shenzhen" class="hotcity" >深圳</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=tianjin" class="hotcity" >天津</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=wuhan" class="hotcity" >武汉</a>&nbsp;&nbsp;&nbsp;
+						<a href="http://www.pailezu.com/city.php?ename=xian" class="hotcity" >西安</a>&nbsp;&nbsp;&nbsp;
+			       </div>
+    </div>
+    <div class="citylist clearfix">
+    	<ul>
+		   	<!--{loop $citylist $key $suoxieist}-->	
+        	<li><span class="letter">{$key}</span>
+				<div class="citys">
+				<!--{loop $suoxieist $citylist}-->	
+			   		<a name="{$key}" href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopcity&cityname={$citylist['name']}">{$citylist['city']}</a>
+				<!--{/loop}--> 		
+			  </div>
+			</li>            
+			<!--{/loop}--> 		
+		</ul>
+    </div>
+  </div>
+ 
+<!--citybox end-->
+<!--{eval include template(GV('shop_yiqixueba_qianhuang_shopfooter'));}-->

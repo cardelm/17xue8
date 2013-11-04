@@ -182,7 +182,15 @@ function get_mokuaipage($mokuai,$version,$ptype){
 	}
 	return $page_array;
 }//end func
-
+//
+function getshoptemp(){
+	$shoptemps = array(
+				array('default', lang('plugin/yiqixueba','shoptemp_default')),
+				array('qianhuang', lang('plugin/yiqixueba','shoptemp_qianhuang')),
+				array('default1', lang('plugin/yiqixueba','shoptemp_default')),
+			);
+	return $shoptemps;
+}
 function getmokuailang($biaoshi,$version,$pagename){
 	$page_name = str_replace('source_','',$pagename).'.php';
 	$lang_text = file_get_contents(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/Controler/'.$page_name);
@@ -258,7 +266,7 @@ function _pagedata_init($pagedata){
 	$pagedata['controlerfile'] = $pagedata['controlerfile'] ? $pagedata['controlerfile'] : $pagedata['pagename'];
 
 	$pagedata['nodes'] = $pagedata['nodes'] ? $pagedata['nodes'] : array($pagedata['pagename'].'list',$pagedata['pagename'].'edit');
-	
+
 	if(is_array($pagedata['nodes'])){
 		foreach ($pagedata['nodes']  as $k => $v ){
 			if(!$v && !is_array($v)){
@@ -266,8 +274,8 @@ function _pagedata_init($pagedata){
 			}
 		}
 	}
-	
-	
+
+
 	$nodedata['optiontype'] = $nodedata['optiontype'] ? $nodedata['optiontype'] : $optiontypes[0];
 	if(!is_array($nodedata['optiontype']) && $nodedata['optiontype'] == 'list' || is_array($nodedata['optiontype']) && in_array('list',$nodedata['optiontype'])){
 		foreach ($listtypes  as $k => $v ){
@@ -294,7 +302,7 @@ function _pagedata_init($pagedata){
 				'primarykey' => true,
 				'orderdisplay' => 1,
 				'defaultvalue' => 'auto_increment',
-			),	
+			),
 			array(
 				'name' => $nodedata['nodename'].'name',
 				'title' => 'examplename',
@@ -305,7 +313,7 @@ function _pagedata_init($pagedata){
 				'primarykey' => false,
 				'orderdisplay' => 2,
 				'defaultvalue' => '',
-			),	
+			),
 		);
 	}
 

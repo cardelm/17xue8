@@ -2,6 +2,8 @@
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
+require_once libfile('class/xml');
+
 if(!submitcheck('submit')) {
 	showtips(lang('plugin/yiqixueba','shopsort_list_tips'));
 	showformheader($this_page);
@@ -9,6 +11,7 @@ if(!submitcheck('submit')) {
 	showsubtitle(array('', lang('plugin/yiqixueba','displayorder'),lang('plugin/yiqixueba','shopsortname'),lang('plugin/yiqixueba','shopsorttitle'),  ''));
 
 	$shopsorts = C::t(GM('shop_shopsort'))->range();
+	file_put_contents (MOKUAI_DIR."/server/1.0/Data/shopsort.xml",diconv(array2xml($shopsorts, 1),"UTF-8", $_G['charset']."//IGNORE"));
 	foreach($shopsorts as $k=>$v ){
 		if($v['sortupid']==0){
 			$sorts[$v['shopsortid']] = $v;
@@ -41,7 +44,7 @@ if(!submitcheck('submit')) {
 			showtagfooter('tbody');
 	}
 	echo '<tr><td></td><td colspan="6"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_shopsort').'</a></div></td></tr>';
-	showsubmit('submit','submit','del');
+	showsubmit('submit','submit','del','&nbsp;&nbsp;<a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=export">'.lang('plugin/yiqixueba','export').'</a>');
 	showtablefooter();
 	showformfooter();
 		echo <<<EOT
@@ -53,64 +56,65 @@ if(!submitcheck('submit')) {
 </script>
 EOT;
 }else{
-		//版本删除
-		foreach( getgpc('delete') as $k=>$v ){
-			if($v){
-				C::t(GM('shop_shopsort'))->delete($v);
+	//版本删除
+	foreach( getgpc('delete') as $k=>$v ){
+		if($v){
+			C::t(GM('shop_shopsort'))->delete($v);
+		}
+	}
+	//原数据提交更新仅一级分类数据
+	if(is_array($_GET['namenew'])) {
+		foreach($_GET['namenew'] as $k => $v) {
+			$v = dhtmlspecialchars(trim($v));
+			$titlenew = trim(dhtmlspecialchars($_GET['titlenew'][$k]));
+			$displayordernew = intval($_GET['displayordernew'][$k]);
+			$upsortid = intval($_GET['upsortid'][$k]);
+			if($v && $titlenew){
+				$data['sortname'] = $v;
+				$data['sorttitle'] = $titlenew;
+				$data['displayorder'] = $displayordernew;
+				$data['sortupid'] = $upsortid;
+				C::t(GM('shop_shopsort'))->update($k,$data);
 			}
 		}
-		//原数据提交更新仅一级分类数据
-		if(is_array($_GET['namenew'])) {
-			foreach($_GET['namenew'] as $k => $v) {
-				$v = dhtmlspecialchars(trim($v));
-				$titlenew = trim(dhtmlspecialchars($_GET['titlenew'][$k]));
-				$displayordernew = intval($_GET['displayordernew'][$k]);
-				$upsortid = intval($_GET['upsortid'][$k]);
-				if($v && $titlenew){
-					$data['sortname'] = $v;
-					$data['sorttitle'] = $titlenew;
-					$data['displayorder'] = $displayordernew;
-					$data['sortupid'] = $upsortid;
-					C::t(GM('shop_shopsort'))->update($k,$data);
-				}
+	}
+	//新建一级分类
+	if(is_array($_GET['newname'])) {
+		foreach($_GET['newname'] as $k => $v) {
+			$v = dhtmlspecialchars(trim($v));
+			$newtitle = trim(dhtmlspecialchars($_GET['newtitle'][$k]));
+			$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+			if($v && $newtitle){
+				$data['sortname'] = $v;
+				$data['upmokuai'] = 0;
+				$data['sorttitle'] = $newtitle;
+				$data['sortlevel'] = 1;
+				$data['sortupid'] = 0;
+				$data['displayorder'] = $newdisplayorder;
+				$data['upids'] = '';
+				C::t(GM('shop_shopsort'))->insert($data);
 			}
 		}
-		//新建一级分类
-		if(is_array($_GET['newname'])) {
-			foreach($_GET['newname'] as $k => $v) {
-				$v = dhtmlspecialchars(trim($v));
-				$newtitle = trim(dhtmlspecialchars($_GET['newtitle'][$k]));
-				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
-				if($v && $newtitle){
-					$data['sortname'] = $v;
-					$data['upmokuai'] = 0;
-					$data['sorttitle'] = $newtitle;
-					$data['sortlevel'] = 1;
-					$data['sortupid'] = 0;
-					$data['displayorder'] = $newdisplayorder;
-					$data['upids'] = '';
-					C::t(GM('shop_shopsort'))->insert($data);
-				}
+	}
+	//新建二级分类
+	if(is_array($_GET['newsubsortname'])) {
+		foreach($_GET['newsubsortname'] as $k => $v) {
+			$v = dhtmlspecialchars(trim($v));
+			$newsubsorttitle = trim(dhtmlspecialchars($_GET['newsubsorttitle'][$k]));
+			$newupsort = intval($_GET['newupsort'][$k]);
+			$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
+			if($v && $newsubsorttitle){
+				$data['sortname'] = $v;
+				$data['upmokuai'] = 0;
+				$data['sorttitle'] = $newsubsorttitle;
+				$data['sortlevel'] = 2;
+				$data['sortupid'] = $newupsort;
+				$data['displayorder'] = $newdisplayorder;
+				$data['upids'] = '';
+				C::t(GM('shop_shopsort'))->insert($data);
 			}
 		}
-		//新建二级分类
-		if(is_array($_GET['newsubsortname'])) {
-			foreach($_GET['newsubsortname'] as $k => $v) {
-				$v = dhtmlspecialchars(trim($v));
-				$newsubsorttitle = trim(dhtmlspecialchars($_GET['newsubsorttitle'][$k]));
-				$newupsort = intval($_GET['newupsort'][$k]);
-				$newdisplayorder = intval($_GET['newdisplayorder'][$k]);
-				if($v && $newsubsorttitle){
-					$data['sortname'] = $v;
-					$data['upmokuai'] = 0;
-					$data['sorttitle'] = $newsubsorttitle;
-					$data['sortlevel'] = 2;
-					$data['sortupid'] = $newupsort;
-					$data['displayorder'] = $newdisplayorder;
-					$data['upids'] = '';
-					C::t(GM('shop_shopsort'))->insert($data);
-				}
-			}
-		}
+	}
 	cpmsg(lang('plugin/yiqixueba_server', 'sort_edit_succeed'), 'action='.$this_page, 'succeed');
 }
+

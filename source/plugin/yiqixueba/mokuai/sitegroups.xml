@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
 	<item id="onMT9yme0Z">
-		<item id="name"><![CDATA[侧hi]]></item>
+		<item id="name"><![CDATA[测试]]></item>
 		<item id="installmokuai">
 			<item id="0"><![CDATA[main]]></item>
 		</item>
@@ -137,12 +137,12 @@
 			<item id="3"><![CDATA[yqxb]]></item>
 		</item>
 		<item id="nodes">
-			<item id="0"><![CDATA[shop_admincp_index]]></item>
-			<item id="1"><![CDATA[shop_member_index]]></item>
+			<item id="0"><![CDATA[shop_member_index]]></item>
+			<item id="1"><![CDATA[shop_admincp_shopsort]]></item>
 			<item id="2"><![CDATA[shop_admincp_shopgroup]]></item>
 			<item id="3"><![CDATA[shop_admincp_shopmodel]]></item>
 			<item id="4"><![CDATA[shop_admincp_shopfield]]></item>
-			<item id="5"><![CDATA[shop_admincp_shopsort]]></item>
+			<item id="5"><![CDATA[shop_admincp_index]]></item>
 			<item id="6"><![CDATA[shop_admincp_shop]]></item>
 			<item id="7"><![CDATA[shop_admincp_goods]]></item>
 			<item id="8"><![CDATA[shop_admincp_goodsmodel]]></item>
@@ -150,17 +150,27 @@
 			<item id="10"><![CDATA[wxq123_admincp_index]]></item>
 			<item id="11"><![CDATA[wxq123_member_bind]]></item>
 			<item id="12"><![CDATA[yikatong_yiqixueba_yktbind]]></item>
-			<item id="13"><![CDATA[yikatong_member_yktbind]]></item>
-			<item id="14"><![CDATA[yikatong_admincp_cardmanage]]></item>
+			<item id="13"><![CDATA[yikatong_admincp_cardmanage]]></item>
+			<item id="14"><![CDATA[yikatong_member_yktbind]]></item>
 			<item id="15"><![CDATA[yqxb_admincp_index]]></item>
-			<item id="16"><![CDATA[main_yiqixueba_index]]></item>
-			<item id="17"><![CDATA[main_yiqixueba_mokuai]]></item>
-			<item id="18"><![CDATA[main_admincp_setting]]></item>
-			<item id="19"><![CDATA[main_member_index]]></item>
+			<item id="16"><![CDATA[main_api]]></item>
+			<item id="17"><![CDATA[main_function]]></item>
+			<item id="18"><![CDATA[main_admincp]]></item>
+			<item id="19"><![CDATA[main_ajax]]></item>
 			<item id="20"><![CDATA[main_admincp_index]]></item>
-			<item id="21"><![CDATA[main_admincp_membergroup]]></item>
-			<item id="22"><![CDATA[main_admincp_member]]></item>
-			<item id="23"><![CDATA[main_admincp_mokuai]]></item>
+			<item id="21"><![CDATA[main_ajax_example]]></item>
+			<item id="22"><![CDATA[main_yiqixueba]]></item>
+			<item id="23"><![CDATA[main_api_example]]></item>
+			<item id="24"><![CDATA[main_yiqixueba_index]]></item>
+			<item id="25"><![CDATA[main_basepage]]></item>
+			<item id="26"><![CDATA[main_member]]></item>
+			<item id="27"><![CDATA[main_api_install]]></item>
+			<item id="28"><![CDATA[main_yiqixueba_mokuai]]></item>
+			<item id="29"><![CDATA[main_member_index]]></item>
+			<item id="30"><![CDATA[main_admincp_setting]]></item>
+			<item id="31"><![CDATA[main_admincp_mokuai]]></item>
+			<item id="32"><![CDATA[main_admincp_membergroup]]></item>
+			<item id="33"><![CDATA[main_admincp_member]]></item>
 		</item>
 		<item id="menus">
 			<item id="admincp">
@@ -392,6 +402,16 @@
 			<item id="main_admincp_membergroup"><![CDATA[main_admincp_membergroup]]></item>
 			<item id="main_admincp_member"><![CDATA[main_admincp_member]]></item>
 			<item id="main_admincp_mokuai"><![CDATA[main_admincp_mokuai]]></item>
+			<item id="main_api"><![CDATA[main_api]]></item>
+			<item id="main_function"><![CDATA[main_function]]></item>
+			<item id="main_admincp"><![CDATA[main_admincp]]></item>
+			<item id="main_ajax"><![CDATA[main_ajax]]></item>
+			<item id="main_ajax_example"><![CDATA[main_ajax_example]]></item>
+			<item id="main_yiqixueba"><![CDATA[main_yiqixueba]]></item>
+			<item id="main_api_example"><![CDATA[main_api_example]]></item>
+			<item id="main_basepage"><![CDATA[main_basepage]]></item>
+			<item id="main_member"><![CDATA[main_member]]></item>
+			<item id="main_api_install"><![CDATA[main_api_install]]></item>
 		</item>
 		<item id="unodes">
 			<item id="wxq123_admincp_index"><![CDATA[wxq123_admincp_index]]></item>
@@ -400,6 +420,10 @@
 			<item id="yikatong_member_yktbind"><![CDATA[yikatong_member_yktbind]]></item>
 			<item id="yikatong_admincp_cardmanage"><![CDATA[yikatong_admincp_cardmanage]]></item>
 			<item id="yqxb_admincp_index"><![CDATA[yqxb_admincp_index]]></item>
+		</item>
+		<item id="shoptemp">
+			<item id="0"><![CDATA[default]]></item>
+			<item id="1"><![CDATA[qianhuang]]></item>
 		</item>
 	</item>
 	<item id="QiMzl6m9o6">
@@ -418,12 +442,12 @@
 			<item id="4"><![CDATA[cheyouhui]]></item>
 		</item>
 		<item id="nodes">
-			<item id="0"><![CDATA[shop_admincp_index]]></item>
-			<item id="1"><![CDATA[shop_member_index]]></item>
+			<item id="0"><![CDATA[shop_member_index]]></item>
+			<item id="1"><![CDATA[shop_admincp_shopsort]]></item>
 			<item id="2"><![CDATA[shop_admincp_shopgroup]]></item>
 			<item id="3"><![CDATA[shop_admincp_shopmodel]]></item>
 			<item id="4"><![CDATA[shop_admincp_shopfield]]></item>
-			<item id="5"><![CDATA[shop_admincp_shopsort]]></item>
+			<item id="5"><![CDATA[shop_admincp_index]]></item>
 			<item id="6"><![CDATA[shop_admincp_shop]]></item>
 			<item id="7"><![CDATA[shop_admincp_goods]]></item>
 			<item id="8"><![CDATA[shop_admincp_goodsmodel]]></item>
@@ -431,21 +455,20 @@
 			<item id="10"><![CDATA[wxq123_admincp_index]]></item>
 			<item id="11"><![CDATA[wxq123_member_bind]]></item>
 			<item id="12"><![CDATA[yikatong_yiqixueba_yktbind]]></item>
-			<item id="13"><![CDATA[yikatong_member_yktbind]]></item>
-			<item id="14"><![CDATA[yikatong_admincp_cardmanage]]></item>
+			<item id="13"><![CDATA[yikatong_admincp_cardmanage]]></item>
+			<item id="14"><![CDATA[yikatong_member_yktbind]]></item>
 			<item id="15"><![CDATA[yqxb_admincp_index]]></item>
 			<item id="16"><![CDATA[cheyouhui_member_index]]></item>
-			<item id="17"><![CDATA[cheyouhui_admincp_test]]></item>
-			<item id="18"><![CDATA[cheyouhui_member_jiashizheng]]></item>
-			<item id="19"><![CDATA[cheyouhui_member_field]]></item>
+			<item id="17"><![CDATA[cheyouhui_member_jiashizheng]]></item>
+			<item id="18"><![CDATA[cheyouhui_member_field]]></item>
+			<item id="19"><![CDATA[main_admincp_index]]></item>
 			<item id="20"><![CDATA[main_yiqixueba_index]]></item>
 			<item id="21"><![CDATA[main_yiqixueba_mokuai]]></item>
-			<item id="22"><![CDATA[main_admincp_setting]]></item>
-			<item id="23"><![CDATA[main_member_index]]></item>
-			<item id="24"><![CDATA[main_admincp_index]]></item>
+			<item id="22"><![CDATA[main_member_index]]></item>
+			<item id="23"><![CDATA[main_admincp_setting]]></item>
+			<item id="24"><![CDATA[main_admincp_mokuai]]></item>
 			<item id="25"><![CDATA[main_admincp_membergroup]]></item>
 			<item id="26"><![CDATA[main_admincp_member]]></item>
-			<item id="27"><![CDATA[main_admincp_mokuai]]></item>
 		</item>
 		<item id="menus">
 			<item id="admincp">
@@ -755,6 +778,26 @@
 			<item id="25"><![CDATA[main_admincp_membergroup]]></item>
 			<item id="26"><![CDATA[main_admincp_member]]></item>
 			<item id="27"><![CDATA[main_admincp_mokuai]]></item>
+			<item id="shop_member_index"><![CDATA[shop_member_index]]></item>
+			<item id="shop_admincp_shopsort"><![CDATA[shop_admincp_shopsort]]></item>
+			<item id="shop_admincp_shopgroup"><![CDATA[shop_admincp_shopgroup]]></item>
+			<item id="shop_admincp_shopmodel"><![CDATA[shop_admincp_shopmodel]]></item>
+			<item id="shop_admincp_shopfield"><![CDATA[shop_admincp_shopfield]]></item>
+			<item id="shop_admincp_index"><![CDATA[shop_admincp_index]]></item>
+			<item id="shop_admincp_shop"><![CDATA[shop_admincp_shop]]></item>
+			<item id="shop_admincp_goods"><![CDATA[shop_admincp_goods]]></item>
+			<item id="shop_admincp_goodsmodel"><![CDATA[shop_admincp_goodsmodel]]></item>
+			<item id="shop_admincp_goodssort"><![CDATA[shop_admincp_goodssort]]></item>
+			<item id="wxq123_admincp_index"><![CDATA[wxq123_admincp_index]]></item>
+			<item id="wxq123_member_bind"><![CDATA[wxq123_member_bind]]></item>
+			<item id="main_admincp_index"><![CDATA[main_admincp_index]]></item>
+			<item id="main_yiqixueba_index"><![CDATA[main_yiqixueba_index]]></item>
+			<item id="main_yiqixueba_mokuai"><![CDATA[main_yiqixueba_mokuai]]></item>
+			<item id="main_member_index"><![CDATA[main_member_index]]></item>
+			<item id="main_admincp_setting"><![CDATA[main_admincp_setting]]></item>
+			<item id="main_admincp_mokuai"><![CDATA[main_admincp_mokuai]]></item>
+			<item id="main_admincp_membergroup"><![CDATA[main_admincp_membergroup]]></item>
+			<item id="main_admincp_member"><![CDATA[main_admincp_member]]></item>
 		</item>
 		<item id="unodes">
 			<item id="0"><![CDATA[shop_admincp_index]]></item>
@@ -785,6 +828,17 @@
 			<item id="25"><![CDATA[main_admincp_membergroup]]></item>
 			<item id="26"><![CDATA[main_admincp_member]]></item>
 			<item id="27"><![CDATA[main_admincp_mokuai]]></item>
+			<item id="yikatong_yiqixueba_yktbind"><![CDATA[yikatong_yiqixueba_yktbind]]></item>
+			<item id="yikatong_admincp_cardmanage"><![CDATA[yikatong_admincp_cardmanage]]></item>
+			<item id="yikatong_member_yktbind"><![CDATA[yikatong_member_yktbind]]></item>
+			<item id="yqxb_admincp_index"><![CDATA[yqxb_admincp_index]]></item>
+			<item id="cheyouhui_member_index"><![CDATA[cheyouhui_member_index]]></item>
+			<item id="cheyouhui_member_jiashizheng"><![CDATA[cheyouhui_member_jiashizheng]]></item>
+			<item id="cheyouhui_member_field"><![CDATA[cheyouhui_member_field]]></item>
+		</item>
+		<item id="shoptemp">
+			<item id="0"><![CDATA[default]]></item>
+			<item id="1"><![CDATA[qianhuang]]></item>
 		</item>
 	</item>
 	<item id="DAxEAvi2ie">

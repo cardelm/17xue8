@@ -185,14 +185,23 @@ if($subop == 'sitegrouplist') {
 					$sitegroups[$sitegroupid]['nodes'][] = $v.'_'.$k1;
 				}
 			}
+			if($v == 'shop'){
+				$shoptemp_s = 'yes';
+			}
 			showsetting($mokuais[$v]['name'].'-V'.$mokuais[$v]['currentversion'],array('nodes',$sitegroupnodes),$sitegroups[$sitegroupid]['nodes'],'mcheckbox','',0,'','','',true);
 
+		}
+		if($shoptemp_s == 'yes'){
+			showsetting(lang('plugin/yiqixueba','shoptemp'),array('shoptemp', getshoptemp()),$sitegroups[$sitegroupid]['shoptemp'],'mcheckbox','',0,'','','',true);
 		}
 		showsubmit('submit');
 		showtablefooter();
 		showformfooter();
 	} else {
 		$sitegroups[$sitegroupid]['nodes'] = $_POST['nodes'];
+		if($_POST['shoptemp']){
+			$sitegroups[$sitegroupid]['shoptemp'] = $_POST['shoptemp'];
+		}
 		foreach($_POST['nodes'] as $k=>$v ){
 			list($m,$t,$n) = explode("_",$v);
 			if(in_array($m,$sitegroups[$sitegroupid]['installmokuai'])){

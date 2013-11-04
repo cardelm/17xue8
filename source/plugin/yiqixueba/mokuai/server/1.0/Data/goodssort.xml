@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="clothhover">
+		<item id="sortname"><![CDATA[clothhover]]></item>
+		<item id="sorttitle"><![CDATA[餐饮]]></item>
+		<item id="sortupid"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+	</item>
+	<item id="chuancai">
+		<item id="sortname"><![CDATA[chuancai]]></item>
+		<item id="sorttitle"><![CDATA[川菜]]></item>
+		<item id="sortupid"><![CDATA[clothhover]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+	</item>
+	<item id="zizhucan">
+		<item id="sortname"><![CDATA[zizhucan]]></item>
+		<item id="sorttitle"><![CDATA[自助餐]]></item>
+		<item id="sortupid"><![CDATA[clothhover]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+	</item>
+	<item id="lucai">
+		<item id="sortname"><![CDATA[lucai]]></item>
+		<item id="sorttitle"><![CDATA[鲁菜]]></item>
+		<item id="sortupid"><![CDATA[clothhover]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+	</item>
+	<item id="foothover">
+		<item id="sortname"><![CDATA[foothover]]></item>
+		<item id="sorttitle"><![CDATA[娱乐]]></item>
+		<item id="sortupid"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+	</item>
+	<item id="dianying">
+		<item id="sortname"><![CDATA[dianying]]></item>
+		<item id="sorttitle"><![CDATA[电影]]></item>
+		<item id="sortupid"><![CDATA[foothover]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+	</item>
+	<item id="ktv">
+		<item id="sortname"><![CDATA[ktv]]></item>
+		<item id="sorttitle"><![CDATA[KTV]]></item>
+		<item id="sortupid"><![CDATA[foothover]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+	</item>
+	<item id="peishihover">
+		<item id="sortname"><![CDATA[peishihover]]></item>
+		<item id="sorttitle"><![CDATA[服装]]></item>
+		<item id="sortupid"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+	</item>
+	<item id="yimao">
+		<item id="sortname"><![CDATA[yimao]]></item>
+		<item id="sorttitle"><![CDATA[衣帽]]></item>
+		<item id="sortupid"><![CDATA[peishihover]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+	</item>
+	<item id="tongzhuang">
+		<item id="sortname"><![CDATA[tongzhuang]]></item>
+		<item id="sorttitle"><![CDATA[童装]]></item>
+		<item id="sortupid"><![CDATA[peishihover]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+	</item>
+	<item id="homehover">
+		<item id="sortname"><![CDATA[homehover]]></item>
+		<item id="sorttitle"><![CDATA[箱包]]></item>
+		<item id="sortupid"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+	</item>
+	<item id="washhover">
+		<item id="sortname"><![CDATA[washhover]]></item>
+		<item id="sorttitle"><![CDATA[家居]]></item>
+		<item id="sortupid"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[4]]></item>
+	</item>
+	<item id="jiajuriyong">
+		<item id="sortname"><![CDATA[jiajuriyong]]></item>
+		<item id="sorttitle"><![CDATA[家居日用]]></item>
+		<item id="sortupid"><![CDATA[washhover]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+	</item>
+	<item id="facehover">
+		<item id="sortname"><![CDATA[facehover]]></item>
+		<item id="sorttitle"><![CDATA[化妆]]></item>
+		<item id="sortupid"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[5]]></item>
+	</item>
+	<item id="sheying">
+		<item id="sortname"><![CDATA[sheying]]></item>
+		<item id="sorttitle"><![CDATA[摄影写真]]></item>
+		<item id="sortupid"><![CDATA[facehover]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+	</item>
+	<item id="foodhover">
+		<item id="sortname"><![CDATA[foodhover]]></item>
+		<item id="sorttitle"><![CDATA[数码]]></item>
+		<item id="sortupid"><![CDATA[]]></item>
+		<item id="displayorder"><![CDATA[6]]></item>
+	</item>
+	<item id="jiaju">
+		<item id="sortname"><![CDATA[jiaju]]></item>
+		<item id="sorttitle"><![CDATA[家具]]></item>
+		<item id="sortupid"><![CDATA[washhover]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+	</item>
+	<item id="pixiang">
+		<item id="sortname"><![CDATA[pixiang]]></item>
+		<item id="sorttitle"><![CDATA[皮箱]]></item>
+		<item id="sortupid"><![CDATA[homehover]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+	</item>
+	<item id="shouji">
+		<item id="sortname"><![CDATA[shouji]]></item>
+		<item id="sorttitle"><![CDATA[手机]]></item>
+		<item id="sortupid"><![CDATA[foodhover]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+	</item>
+</root>

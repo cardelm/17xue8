@@ -1,0 +1,114 @@
+<!--{eval include template(GV('shop_yiqixueba_qianhuang_shophead'));}-->
+   <div class=" leftfloat">
+       <ul>
+         <li>
+            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex"  class="allhover<!--{if $sid}--> <!--{else}--> allselect<!--{/if}-->"<!--{if $sid}--> <!--{else}--> select="allselect"<!--{/if}-->></a>
+         </li>
+		 <!--{loop $sorts $sortsnav}-->
+         <li>
+            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$sortsnav[sortname]}" class="{$sortsnav[sortname]} <!--{if $sid == $sortsnav[sortname]}--> {$sortsnav[sortselect]}<!--{/if}-->"></a>
+         </li>
+		 <!--{/loop}-->
+      </ul>
+   </div>
+   <!-- -->     
+   
+
+   <div class="extend">
+
+     
+      <div class="nomalwidth">
+	    
+                  <div class="banners clearfix">
+            <div class="banner_one" shopid="slide_container">
+               <ul>
+                  <li>
+                     <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex?event_shopid=38"><img src="http://www.pailezu.com/static/eb/img/adv/pzhongqiu.jpg" /></a>
+                  </li>
+
+               </ul>
+               <div class="mouse_direction">
+                  <div class="mouse_top">
+                  </div>
+                  <div class="mouse_bottom">
+                  </div>
+               </div>
+            </div>
+           
+            <div class="banner_two">
+               <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex?gshopid=821&sshopid=824"><img src="http://www.pailezu.com/static/eb/img/adv/banner-S-0428.jpg" /></a>
+            </div>
+         </div>            <!--banners end-->    
+            <div class="hottags">
+               <span>热门标签：</span>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=春夏新款"  class="">春夏新款</a>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=女鞋" class="">女鞋</a>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=连衣裙" class="">连衣裙</a>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=旅游" class="">旅游</a>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=自助餐" class="">自助餐</a>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=电影" class="">电影</a>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=KTV" class="">KTV</a>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=美发" class="">美发</a>
+               <a href="plugin.php?id=yiqixueba&submod=shop_shopindex?searchName=运动健身" class="">运动健身</a>
+            </div>
+            <!--hottags end-->
+            <div class="index_class clearfix">
+               <div class="first_class clearfix">
+					<div class="cls_title"><span>分类：</span></div>
+					<div class="cls_con">
+						<!--{loop $subsorts $subsortsnav}-->
+							<a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$subsortsnav[sortupid]}&subsid={$subsortsnav[sortname]}" <!--{if $subsid == $subsortsnav[sortname]}--> class="current"<!--{/if}-->>{$subsortsnav[sorttitle]}(1)</a>
+						<!--{/loop}-->
+					</div>
+               </div>
+            </div>
+         <!--index_class end-->
+         <div class="page clearfix">
+            <div class="list_method">
+               <span>
+                  排序方式：
+               </span>
+               <a class="png_bg defcol" href="plugin.php?id=yiqixueba&submod=shop_shopindex?gshopid=&sshopid=&searchName=&event_shopid=&brand_shopid=">默认</a>
+               <a class="png_bg " href="plugin.php?id=yiqixueba&submod=shop_shopindex?orderBy=rq&orderTag=desc&gshopid=&sshopid=&searchName=&event_shopid=&brand_shopid=">人气</a>
+               <a class="png_bg 	
+         pricedown	  
+			   			  
+			   " href="plugin.php?id=yiqixueba&submod=shop_shopindex?orderBy=jg&orderTag=desc&gshopid=&sshopid=&searchName=&event_shopid=&brand_shopid=">价格</a>
+            </div>
+            <div class=" pages">
+               <span>(共935条/21页)</span><a class="current" href="javascript:void(0);">1</a><a href="?page=2">2</a><a href="?page=3">3</a><a href="?page=4">4</a><a href="?page=5">5</a><a href="?page=6">6</a><a href="?page=7">7</a><a href="?page=8">8</a><a href="?page=9">9</a><a href="?page=10">10</a><a href="?page=2" class="png_bg next">下一页</a><a href="?page=21" class="last">末页</a>            </div>
+         </div>
+         <!--page end-->
+        <div class="goods clearfix">
+ 		<!--{loop $goods $key $goodslist}-->
+		
+            <div class="goodsborder <!--{if $key%3 == 2}--> norightmargin<!--{/if}-->">
+           		<div class="goods_list"  >               
+                   <div class="goods_img">
+                      <a href="plugin.php?id=yiqixueba&submod=shop_shoplist&gid={$goodslist[goodsid]}" target="_blank">				
+                      <img src="http://a.pailezu.net/static/theme/newpl/images/lazy_loading.gif" original="http://u3.awotuan.net/static/team/2013/1012/13815487923995.jpg!280X180" class="lazy_img" width="278" height="178" /></a>
+                   </div>
+                   <div class="goods_title">
+                      <a href="plugin.php?id=yiqixueba&submod=shop_shoplist&gid={$goodslist[goodsid]}" title="{$goodslist[goodstitle]}" target="_blank">{$goodslist[goodstitle]}</a>
+                   </div>
+                   <div class="goods_price clearfix">
+                      <span>&yen;{$goodslist[newprice]}</span>
+                      <a href="plugin.php?id=yiqixueba&submod=shop_shoplist&gid={$goodslist[goodsid]}" class="tosee png_bg" target="_blank"></a>
+                   </div>
+                   <div class="buycount clearfix">
+                      <span class="orignal_price">原价 &yen;{$goodslist[price]}</span>
+                      <span class="baught"><font>3758</font>人已购买
+                      </span>
+                   </div>
+            	</div>
+            </div>
+		<!--{/loop}-->
+        <!--goods end-->
+        </div>
+		<div style="clear:both"></div>
+        <div class="pages">
+            <span>(共935条/21页)</span><a class="current" href="javascript:void(0);">1</a><a href="?page=2">2</a><a href="?page=3">3</a><a href="?page=4">4</a><a href="?page=5">5</a><a href="?page=6">6</a><a href="?page=7">7</a><a href="?page=8">8</a><a href="?page=9">9</a><a href="?page=10">10</a><a href="?page=2" class="png_bg next">下一页</a><a href="?page=21" class="last">末页</a>         </div>
+         <!--nomalwidth end-->
+      </div>
+      <!--mainbd end-->
+<!--{eval include template(GV('shop_yiqixueba_qianhuang_shopfooter'));}-->
