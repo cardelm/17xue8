@@ -28,7 +28,7 @@ $goodsxmlfile = MOKUAI_DIR.'/shop/1.0/Data/lashou_'.$city.'.xml';
 $goodss = xml2array(file_get_contents($goodsxmlfile));
 $goodspages = getlashoupage($city);
 $citypage = $citypage ? $citypage : 1;
-$load_page0 = explode('&citypage=',$this_page);
+$load_page0 = explode('&city=',$this_page);
 $load_page = $_G['siteurl'].ADMINSCRIPT."?action=".$load_page0[0];
 $page = max(1, $_G['page']);
 $prepage = 20;

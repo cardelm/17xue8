@@ -2,8 +2,6 @@
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
-
-
 $subops = array('mokuailist','mokuaiedit','currentver','pagelist','pluginlang','mokuainode','nodeedit','nodeview');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
@@ -604,8 +602,9 @@ EOT;
 //	dump($biaoshi);
 //	dump($version);
 //	dump($nodetype);
+	$nodefile = $nodetype == 'global' ? $node : $nodetype.'_'.$node;
 //	dump($node);
-//	dump($nodes[$nodetype.'_'.$node]);
+	//dump($nodes);
 	if($step == 1){
 		if(!submitcheck('submit')) {
 			showtips(lang('plugin/yiqixueba','mokuai_node_tips'));
@@ -647,4 +646,6 @@ EOT;
 	//cpmsg(lang('plugin/yiqixueba','edit_node_succeed'), 'action='.$this_page.'&&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype, 'succeed');
 }
 
+
+node_init('main','1.0');
 ?>

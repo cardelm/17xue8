@@ -223,7 +223,80 @@ function getmokuailang($biaoshi,$version,$pagename){
 }
 
 
+//
+function node_init($biaoshi,$version){
+	require_once libfile('class/xml');
+	$nodes = xml2array(file_get_contents(MOKUAI_DIR."/".$biaoshi."/".$version."/node.xml"));
+	//$langfile = MOKUAI_DIR."/".$biaoshi."/".$version."/lang.php";
+	//include_once $langfile;
+	//dump($langfile);
+	//dump($plang);
+	foreach ($nodes as $k => $v ){
+		unset($nodes[$k]['table']);
+		unset($nodes[$k]['lang']);
+		unset($nodes[$k]['pages']);
+		unset($nodes[$k]['template']);
+		list($nt,$nn) = explode('_',$k);
+		$nodefile = MOKUAI_DIR."/".$biaoshi."/".$version."/Controler/".$k.'.php';
+		$node_text = file_get_contents($nodefile);
+		if($nt && $nn){
+			$ta0 = explode('C::t(GM(\'',$node_text);
+			foreach ($ta0  as $k1 => $v1 ){
+				if($k1!=0){
+					$ta1[$k1] = explode('\'))->',$v1);
+					if($ta1[$k1][0]){
+						$nodes[$k]['table'][$ta1[$k1][0]] = $ta1[$k1][0];
+					}
+					
+				}
+			}
+			$lsa0 = explode('lang(\'plugin/yiqixueba\',\'',$node_text);
+			foreach ( $lsa0 as $k1 => $v1 ){
+				if($k1!=0){
+					$lsa1[$k1] = explode('\')',$v1);
+					if($lsa1[$k1][0]){
+						$nodes[$k]['lang']['scriptlang'][$lsa1[$k1][0]] = lang('plugin/yiqixueba',$lsa1[$k1][0]);
+					}
+				}
+			}
+			$pa0 = explode('require_once GC(\'',$node_text);
+			foreach ( $pa0 as $k1 => $v1 ){
+				if($k1!=0){
+					$pa1[$k1] = explode('\')',$v1);
+					if($pa1[$k1][0]){
+						$nodes[$k]['pages'][$pa1[$k1][0]] = $pa1[$k1][0];
+					}
+				}
+			}
+			$ta0 = explode('include template(GV(\'',$node_text);
+			foreach ( $ta0 as $k1 => $v1 ){
+				if($k1!=0){
+					$ta1[$k1] = explode('\'))',$v1);
+					if($ta1[$k1][0]){
+						$nodes[$k]['template'][$ta1[$k1][0]] = $ta1[$k1][0];
+					}
+				}
+			}
+			foreach ( $nodes[$k]['template'] as $k2 => $v2 ){
+				list($m,$t,$n) = explode('_',$k2);
+				$tempfile = MOKUAI_DIR."/".$m."/".$version."/View/".$t.'_'.$n.'.htm';
+				$temp_text = file_get_contents($tempfile);
+				$lta0 = explode('{lang yiqixueba:',$temp_text);
+				foreach ( $lta0 as $k1 => $v1 ){
+					if($k1!=0){
+						$lta1[$k1] = explode('}',$v1);
+						if($lta1[$k1][0]){
+							$nodes[$k]['lang']['templatelang'][$lta1[$k1][0]] = $lta1[$k1][0];
+						}
+					}
+				}
 
+			}
+		}
+	}
+	dump($nodes);
+	return $nodes;
+}//end func
 
 
 //////////以后再用

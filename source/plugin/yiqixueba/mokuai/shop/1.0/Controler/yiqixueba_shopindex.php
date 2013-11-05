@@ -4,5 +4,5 @@ if(!defined('IN_DISCUZ')) {
 }
 
 
-include template(GV('server_yiqixueba_shopindex'));
+include template(GV('shop_yiqixueba_shopindex'));
 ?>

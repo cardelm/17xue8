@@ -2,34 +2,35 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-class table_shopsetting extends discuz_table{
+class table_main extends discuz_table{
 
-	public function __construct() {
-		$this->_table = 'shopsetting';
-		$this->_pk    = 'skey';
-		parent::__construct();
-	}
-
-	public function create() {
+	public function create($tablename,$fields) {
 		global $_G;
 		//////////////////////////
 		$fields = "
-			`skey` varchar(255) NOT NULL default '',
-			`svalue` text NOT NULL,
-			PRIMARY KEY  (`skey`)
+			`cityid` smallint(6) NOT NULL auto_increment,
+			`cityname` varchar(40) NOT NULL default '',
+			`citytitle` varchar(40) NOT NULL default '',
+			`citysort` varchar(40) NOT NULL default '',
+			`cityimages` varchar(40) NOT NULL default '',
+			`description` text NOT NULL,
+			`status` tinyint(1) NOT NULL default '0',
+			`createtime` int(10) unsigned NOT NULL,
+			`updatetime` int(10) unsigned NOT NULL,
+			PRIMARY KEY  (`cityid`)
 		";
 		//////////////////////
-		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
+		$query = DB::query("SHOW TABLES LIKE '%t'", array($tablename));
 		//$type = 'debug';
 		if($type){
-			DB::query('DROP TABLE '.DB::table($this->_table));
-			$create_table_sql = "CREATE TABLE ".DB::table($this->_table)." ($fields) TYPE=MyISAM;";
+			DB::query('DROP TABLE '.DB::table($tablename));
+			$create_table_sql = "CREATE TABLE ".DB::table($tablename)." ($fields) TYPE=MyISAM;";
 			$db = DB::object();
 			$create_table_sql = $this->syntablestruct($create_table_sql, $db->version() > '4.1', $_G['config']['db']['1']['dbcharset']);
 			DB::query($create_table_sql);
 		}else{
 			if(DB::num_rows($query) != 1) {
-				$create_table_sql = "CREATE TABLE ".DB::table($this->_table)." ($fields) TYPE=MyISAM;";
+				$create_table_sql = "CREATE TABLE ".DB::table($tablename)." ($fields) TYPE=MyISAM;";
 				$db = DB::object();
 				$create_table_sql = $this->syntablestruct($create_table_sql, $db->version() > '4.1', $_G['config']['db']['1']['dbcharset']);
 				DB::query($create_table_sql);
@@ -56,9 +57,6 @@ class table_shopsetting extends discuz_table{
 		} else {
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
-	}
-	public function skey_exists($skey) {
-		return DB::result_first('SELECT skey FROM %t WHERE skey=%s LIMIT 1', array($this->_table, $skey)) ? true : false;
 	}
 
 }

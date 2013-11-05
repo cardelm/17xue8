@@ -173,21 +173,21 @@ function update_lang($mokuainame,$mokuaiver){
 	if(!$nplang){
 		$nplang = $plang;
 	}
-		foreach($plang as $k => $v){
-			if($k != 'systemlang'){
-				foreach($v as $k1=>$v1){
-					//$plang[$k][$k1] = diconv($v1,"UTF-8", $_G['charset']."//IGNORE");
+	foreach($plang as $k => $v){
+		if($k != 'systemlang'){
+			foreach($v as $k1=>$v1){
+				//$plang[$k][$k1] = diconv($v1,"UTF-8", $_G['charset']."//IGNORE");
+			}
+			$nplang[$k] = array_merge($nplang[$k],$plang[$k]);
+		}else{
+			foreach($v as $k1=>$v1 ){
+				foreach($v1 as $k2=>$v2 ){
+					//$plang[$k][$k1][$k2] = diconv($v2,"UTF-8", $_G['charset']."//IGNORE");
 				}
-				$nplang[$k] = array_merge($nplang[$k],$plang[$k]);
-			}else{
-				foreach($v as $k1=>$v1 ){
-					foreach($v1 as $k2=>$v2 ){
-						//$plang[$k][$k1][$k2] = diconv($v2,"UTF-8", $_G['charset']."//IGNORE");
-					}
-					$nplang[$k][$k1] = array_merge($nplang[$k][$k1],$plang[$k][$k1]);
-				}
+				$nplang[$k][$k1] = array_merge($nplang[$k][$k1],$plang[$k][$k1]);
 			}
 		}
+	}
 	return $nplang;
 }//end func
 

@@ -114,4 +114,46 @@
 		<item id="sortupid"><![CDATA[foodhover]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
 	</item>
+	<item id="shoubiao">
+		<item id="sortname"><![CDATA[shoubiao]]></item>
+		<item id="sorttitle"><![CDATA[手表]]></item>
+		<item id="sortupid"><![CDATA[washhover]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+	</item>
+	<item id="jiushuiyinliao">
+		<item id="sortname"><![CDATA[jiushuiyinliao]]></item>
+		<item id="sorttitle"><![CDATA[酒水饮料]]></item>
+		<item id="sortupid"><![CDATA[clothhover]]></item>
+		<item id="displayorder"><![CDATA[5]]></item>
+	</item>
+	<item id="difangtechan">
+		<item id="sortname"><![CDATA[difangtechan]]></item>
+		<item id="sorttitle"><![CDATA[地方特产]]></item>
+		<item id="sortupid"><![CDATA[clothhover]]></item>
+		<item id="displayorder"><![CDATA[4]]></item>
+	</item>
+	<item id="qingjieyongpin">
+		<item id="sortname"><![CDATA[qingjieyongpin]]></item>
+		<item id="sorttitle"><![CDATA[清洁用品]]></item>
+		<item id="sortupid"><![CDATA[washhover]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+	</item>
+	<item id="zhubao">
+		<item id="sortname"><![CDATA[zhubao]]></item>
+		<item id="sorttitle"><![CDATA[珠宝首饰]]></item>
+		<item id="sortupid"><![CDATA[facehover]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+	</item>
+	<item id="nanxie">
+		<item id="sortname"><![CDATA[nanxie]]></item>
+		<item id="sorttitle"><![CDATA[男鞋]]></item>
+		<item id="sortupid"><![CDATA[peishihover]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+	</item>
+	<item id="gehujiankang">
+		<item id="sortname"><![CDATA[gehujiankang]]></item>
+		<item id="sorttitle"><![CDATA[个护健康]]></item>
+		<item id="sortupid"><![CDATA[foodhover]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+	</item>
 </root>

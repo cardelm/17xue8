@@ -2046,4 +2046,7 @@
 		<item id="url"><![CDATA[http://zunyi.lashou.com]]></item>
 		<item id="city"><![CDATA[遵义]]></item>
 	</item>
+	<item id="shij">
+		<item id="temppage"><![CDATA[1]]></item>
+	</item>
 </root>

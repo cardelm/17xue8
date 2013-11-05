@@ -6,9 +6,10 @@
 			<item id="0"><![CDATA[main]]></item>
 		</item>
 		<item id="upgrademokuai">
-			<item id="0"><![CDATA[wxq123]]></item>
-			<item id="1"><![CDATA[yikatong]]></item>
-			<item id="2"><![CDATA[yqxb]]></item>
+			<item id="0"><![CDATA[shop]]></item>
+			<item id="1"><![CDATA[wxq123]]></item>
+			<item id="2"><![CDATA[yikatong]]></item>
+			<item id="3"><![CDATA[yqxb]]></item>
 		</item>
 		<item id="nodes">
 			<item id="0"><![CDATA[yikatong_yiqixueba_yktbind]]></item>
