@@ -1,0 +1,2049 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="anqing">
+		<item id="url"><![CDATA[http://anqing.lashou.com]]></item>
+		<item id="city"><![CDATA[安庆]]></item>
+		<item id="pages"><![CDATA[66]]></item>
+		<item id="temppage"><![CDATA[66]]></item>
+	</item>
+	<item id="anyang">
+		<item id="url"><![CDATA[http://anyang.lashou.com]]></item>
+		<item id="city"><![CDATA[安阳]]></item>
+		<item id="pages"><![CDATA[36]]></item>
+	</item>
+	<item id="anshan">
+		<item id="url"><![CDATA[http://anshan.lashou.com]]></item>
+		<item id="city"><![CDATA[鞍山]]></item>
+	</item>
+	<item id="akesu">
+		<item id="url"><![CDATA[http://akesu.lashou.com]]></item>
+		<item id="city"><![CDATA[阿克苏]]></item>
+	</item>
+	<item id="ankang">
+		<item id="url"><![CDATA[http://ankang.lashou.com]]></item>
+		<item id="city"><![CDATA[安康]]></item>
+	</item>
+	<item id="anshun">
+		<item id="url"><![CDATA[http://anshun.lashou.com]]></item>
+		<item id="city"><![CDATA[安顺]]></item>
+	</item>
+	<item id="beijing">
+		<item id="url"><![CDATA[http://beijing.lashou.com]]></item>
+		<item id="city"><![CDATA[北京]]></item>
+		<item id="temppage"><![CDATA[86]]></item>
+	</item>
+	<item id="bengbu">
+		<item id="url"><![CDATA[http://bengbu.lashou.com]]></item>
+		<item id="city"><![CDATA[蚌埠]]></item>
+	</item>
+	<item id="baoding">
+		<item id="url"><![CDATA[http://baoding.lashou.com]]></item>
+		<item id="city"><![CDATA[保定]]></item>
+	</item>
+	<item id="baotou">
+		<item id="url"><![CDATA[http://baotou.lashou.com]]></item>
+		<item id="city"><![CDATA[包头]]></item>
+	</item>
+	<item id="baoji">
+		<item id="url"><![CDATA[http://baoji.lashou.com]]></item>
+		<item id="city"><![CDATA[宝鸡]]></item>
+	</item>
+	<item id="beihai">
+		<item id="url"><![CDATA[http://beihai.lashou.com]]></item>
+		<item id="city"><![CDATA[北海]]></item>
+	</item>
+	<item id="bazhong">
+		<item id="url"><![CDATA[http://bazhong.lashou.com]]></item>
+		<item id="city"><![CDATA[巴中]]></item>
+	</item>
+	<item id="baicheng">
+		<item id="url"><![CDATA[http://baicheng.lashou.com]]></item>
+		<item id="city"><![CDATA[白城]]></item>
+	</item>
+	<item id="baishan">
+		<item id="url"><![CDATA[http://baishan.lashou.com]]></item>
+		<item id="city"><![CDATA[白山]]></item>
+	</item>
+	<item id="baiyin">
+		<item id="url"><![CDATA[http://baiyin.lashou.com]]></item>
+		<item id="city"><![CDATA[白银]]></item>
+	</item>
+	<item id="baoshan">
+		<item id="url"><![CDATA[http://baoshan.lashou.com]]></item>
+		<item id="city"><![CDATA[保山]]></item>
+	</item>
+	<item id="baoting">
+		<item id="url"><![CDATA[http://baoting.lashou.com]]></item>
+		<item id="city"><![CDATA[保亭]]></item>
+	</item>
+	<item id="baoan">
+		<item id="url"><![CDATA[http://baoan.lashou.com]]></item>
+		<item id="city"><![CDATA[宝安]]></item>
+	</item>
+	<item id="benxi">
+		<item id="url"><![CDATA[http://benxi.lashou.com]]></item>
+		<item id="city"><![CDATA[本溪]]></item>
+	</item>
+	<item id="bijie">
+		<item id="url"><![CDATA[http://bijie.lashou.com]]></item>
+		<item id="city"><![CDATA[毕节]]></item>
+	</item>
+	<item id="binzhou">
+		<item id="url"><![CDATA[http://binzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[滨州]]></item>
+	</item>
+	<item id="bozhou">
+		<item id="url"><![CDATA[http://bozhou.lashou.com]]></item>
+		<item id="city"><![CDATA[亳州]]></item>
+	</item>
+	<item id="boluo">
+		<item id="url"><![CDATA[http://boluo.lashou.com]]></item>
+		<item id="city"><![CDATA[博罗]]></item>
+	</item>
+	<item id="chongqing">
+		<item id="url"><![CDATA[http://chongqing.lashou.com]]></item>
+		<item id="city"><![CDATA[重庆]]></item>
+	</item>
+	<item id="changchun">
+		<item id="url"><![CDATA[http://changchun.lashou.com]]></item>
+		<item id="city"><![CDATA[长春]]></item>
+	</item>
+	<item id="changsha">
+		<item id="url"><![CDATA[http://changsha.lashou.com]]></item>
+		<item id="city"><![CDATA[长沙]]></item>
+	</item>
+	<item id="chengdu">
+		<item id="url"><![CDATA[http://chengdu.lashou.com]]></item>
+		<item id="city"><![CDATA[成都]]></item>
+	</item>
+	<item id="changzhou">
+		<item id="url"><![CDATA[http://changzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[常州]]></item>
+	</item>
+	<item id="changshaxian">
+		<item id="url"><![CDATA[http://changshaxian.lashou.com]]></item>
+		<item id="city"><![CDATA[长沙县]]></item>
+	</item>
+	<item id="chaohu">
+		<item id="url"><![CDATA[http://chaohu.lashou.com]]></item>
+		<item id="city"><![CDATA[巢湖]]></item>
+	</item>
+	<item id="chizhou">
+		<item id="url"><![CDATA[http://chizhou.lashou.com]]></item>
+		<item id="city"><![CDATA[池州]]></item>
+	</item>
+	<item id="chifeng">
+		<item id="url"><![CDATA[http://chifeng.lashou.com]]></item>
+		<item id="city"><![CDATA[赤峰]]></item>
+	</item>
+	<item id="chuzhou">
+		<item id="url"><![CDATA[http://chuzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[滁州]]></item>
+	</item>
+	<item id="cangzhou">
+		<item id="url"><![CDATA[http://cangzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[沧州]]></item>
+	</item>
+	<item id="changde">
+		<item id="url"><![CDATA[http://changde.lashou.com]]></item>
+		<item id="city"><![CDATA[常德]]></item>
+	</item>
+	<item id="changping">
+		<item id="url"><![CDATA[http://changping.lashou.com]]></item>
+		<item id="city"><![CDATA[常平]]></item>
+	</item>
+	<item id="changshu">
+		<item id="url"><![CDATA[http://changshu.lashou.com]]></item>
+		<item id="city"><![CDATA[常熟]]></item>
+	</item>
+	<item id="changji">
+		<item id="url"><![CDATA[http://changji.lashou.com]]></item>
+		<item id="city"><![CDATA[昌吉]]></item>
+	</item>
+	<item id="changan">
+		<item id="url"><![CDATA[http://changan.lashou.com]]></item>
+		<item id="city"><![CDATA[长安]]></item>
+	</item>
+	<item id="changle">
+		<item id="url"><![CDATA[http://changle.lashou.com]]></item>
+		<item id="city"><![CDATA[长乐]]></item>
+	</item>
+	<item id="changzhi">
+		<item id="url"><![CDATA[http://changzhi.lashou.com]]></item>
+		<item id="city"><![CDATA[长治]]></item>
+	</item>
+	<item id="chaoyang">
+		<item id="url"><![CDATA[http://chaoyang.lashou.com]]></item>
+		<item id="city"><![CDATA[朝阳]]></item>
+	</item>
+	<item id="chaozhou">
+		<item id="url"><![CDATA[http://chaozhou.lashou.com]]></item>
+		<item id="city"><![CDATA[潮州]]></item>
+	</item>
+	<item id="chenzhou">
+		<item id="url"><![CDATA[http://chenzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[郴州]]></item>
+	</item>
+	<item id="chengde">
+		<item id="url"><![CDATA[http://chengde.lashou.com]]></item>
+		<item id="city"><![CDATA[承德]]></item>
+	</item>
+	<item id="chishui">
+		<item id="url"><![CDATA[http://chishui.lashou.com]]></item>
+		<item id="city"><![CDATA[赤水]]></item>
+	</item>
+	<item id="chuxiong">
+		<item id="url"><![CDATA[http://chuxiong.lashou.com]]></item>
+		<item id="city"><![CDATA[楚雄]]></item>
+	</item>
+	<item id="chunan">
+		<item id="url"><![CDATA[http://chunan.lashou.com]]></item>
+		<item id="city"><![CDATA[淳安]]></item>
+	</item>
+	<item id="cixi">
+		<item id="url"><![CDATA[http://cixi.lashou.com]]></item>
+		<item id="city"><![CDATA[慈溪]]></item>
+	</item>
+	<item id="conghua">
+		<item id="url"><![CDATA[http://conghua.lashou.com]]></item>
+		<item id="city"><![CDATA[从化]]></item>
+	</item>
+	<item id="changmutou">
+		<item id="url"><![CDATA[http://changmutou.lashou.com]]></item>
+		<item id="city"><![CDATA[樟木头]]></item>
+	</item>
+	<item id="dalian">
+		<item id="url"><![CDATA[http://dalian.lashou.com]]></item>
+		<item id="city"><![CDATA[大连]]></item>
+	</item>
+	<item id="daqing">
+		<item id="url"><![CDATA[http://daqing.lashou.com]]></item>
+		<item id="city"><![CDATA[大庆]]></item>
+	</item>
+	<item id="deyang">
+		<item id="url"><![CDATA[http://deyang.lashou.com]]></item>
+		<item id="city"><![CDATA[德阳]]></item>
+	</item>
+	<item id="dongguan">
+		<item id="url"><![CDATA[http://dongguan.lashou.com]]></item>
+		<item id="city"><![CDATA[东莞]]></item>
+	</item>
+	<item id="daan">
+		<item id="url"><![CDATA[http://daan.lashou.com]]></item>
+		<item id="city"><![CDATA[大安]]></item>
+	</item>
+	<item id="dafeng">
+		<item id="url"><![CDATA[http://dafeng.lashou.com]]></item>
+		<item id="city"><![CDATA[大丰]]></item>
+	</item>
+	<item id="dalang">
+		<item id="url"><![CDATA[http://dalang.lashou.com]]></item>
+		<item id="city"><![CDATA[大朗 ]]></item>
+	</item>
+	<item id="dali">
+		<item id="url"><![CDATA[http://dali.lashou.com]]></item>
+		<item id="city"><![CDATA[大理]]></item>
+	</item>
+	<item id="dalingshan">
+		<item id="url"><![CDATA[http://dalingshan.lashou.com]]></item>
+		<item id="city"><![CDATA[大岭山]]></item>
+	</item>
+	<item id="dashiqiao">
+		<item id="url"><![CDATA[http://dashiqiao.lashou.com]]></item>
+		<item id="city"><![CDATA[大石桥]]></item>
+	</item>
+	<item id="datong">
+		<item id="url"><![CDATA[http://datong.lashou.com]]></item>
+		<item id="city"><![CDATA[大同]]></item>
+	</item>
+	<item id="daxinganling">
+		<item id="url"><![CDATA[http://daxinganling.lashou.com]]></item>
+		<item id="city"><![CDATA[大兴安岭]]></item>
+	</item>
+	<item id="dazhou">
+		<item id="url"><![CDATA[http://dazhou.lashou.com]]></item>
+		<item id="city"><![CDATA[达州]]></item>
+	</item>
+	<item id="dandong">
+		<item id="url"><![CDATA[http://dandong.lashou.com]]></item>
+		<item id="city"><![CDATA[丹东]]></item>
+	</item>
+	<item id="danyang">
+		<item id="url"><![CDATA[http://danyang.lashou.com]]></item>
+		<item id="city"><![CDATA[丹阳]]></item>
+	</item>
+	<item id="dehui">
+		<item id="url"><![CDATA[http://dehui.lashou.com]]></item>
+		<item id="city"><![CDATA[德惠]]></item>
+	</item>
+	<item id="dezhou">
+		<item id="url"><![CDATA[http://dezhou.lashou.com]]></item>
+		<item id="city"><![CDATA[德州]]></item>
+	</item>
+	<item id="dengta">
+		<item id="url"><![CDATA[http://dengta.lashou.com]]></item>
+		<item id="city"><![CDATA[灯塔]]></item>
+	</item>
+	<item id="dengfeng">
+		<item id="url"><![CDATA[http://dengfeng.lashou.com]]></item>
+		<item id="city"><![CDATA[登封]]></item>
+	</item>
+	<item id="dengzhou">
+		<item id="url"><![CDATA[http://dengzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[邓州]]></item>
+	</item>
+	<item id="dingxi">
+		<item id="url"><![CDATA[http://dingxi.lashou.com]]></item>
+		<item id="city"><![CDATA[定西]]></item>
+	</item>
+	<item id="dingzhou">
+		<item id="url"><![CDATA[http://dingzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[定州]]></item>
+	</item>
+	<item id="donggang">
+		<item id="url"><![CDATA[http://donggang.lashou.com]]></item>
+		<item id="city"><![CDATA[东港]]></item>
+	</item>
+	<item id="dongtai">
+		<item id="url"><![CDATA[http://dongtai.lashou.com]]></item>
+		<item id="city"><![CDATA[东台]]></item>
+	</item>
+	<item id="dongyang">
+		<item id="url"><![CDATA[http://dongyang.lashou.com]]></item>
+		<item id="city"><![CDATA[东阳]]></item>
+	</item>
+	<item id="dongying">
+		<item id="url"><![CDATA[http://dongying.lashou.com]]></item>
+		<item id="city"><![CDATA[东营]]></item>
+	</item>
+	<item id="dujiangyan">
+		<item id="url"><![CDATA[http://dujiangyan.lashou.com]]></item>
+		<item id="city"><![CDATA[都江堰]]></item>
+	</item>
+	<item id="duyun">
+		<item id="url"><![CDATA[http://duyun.lashou.com]]></item>
+		<item id="city"><![CDATA[都匀]]></item>
+	</item>
+	<item id="dunhua">
+		<item id="url"><![CDATA[http://dunhua.lashou.com]]></item>
+		<item id="city"><![CDATA[敦化]]></item>
+	</item>
+	<item id="dunhuang">
+		<item id="url"><![CDATA[http://dunhuang.lashou.com]]></item>
+		<item id="city"><![CDATA[敦煌]]></item>
+	</item>
+	<item id="eerduosi">
+		<item id="url"><![CDATA[http://eerduosi.lashou.com]]></item>
+		<item id="city"><![CDATA[鄂尔多斯]]></item>
+	</item>
+	<item id="emeishan">
+		<item id="url"><![CDATA[http://emeishan.lashou.com]]></item>
+		<item id="city"><![CDATA[峨眉山]]></item>
+	</item>
+	<item id="ezhou">
+		<item id="url"><![CDATA[http://ezhou.lashou.com]]></item>
+		<item id="city"><![CDATA[鄂州]]></item>
+	</item>
+	<item id="enping">
+		<item id="url"><![CDATA[http://enping.lashou.com]]></item>
+		<item id="city"><![CDATA[恩平]]></item>
+	</item>
+	<item id="enshi">
+		<item id="url"><![CDATA[http://enshi.lashou.com]]></item>
+		<item id="city"><![CDATA[恩施]]></item>
+	</item>
+	<item id="erlianhaote">
+		<item id="url"><![CDATA[http://erlianhaote.lashou.com]]></item>
+		<item id="city"><![CDATA[二连浩特]]></item>
+	</item>
+	<item id="fuzhou">
+		<item id="url"><![CDATA[http://fuzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[福州]]></item>
+	</item>
+	<item id="foshan">
+		<item id="url"><![CDATA[http://foshan.lashou.com]]></item>
+		<item id="city"><![CDATA[佛山]]></item>
+	</item>
+	<item id="fuyangzj">
+		<item id="url"><![CDATA[http://fuyangzj.lashou.com]]></item>
+		<item id="city"><![CDATA[富阳]]></item>
+	</item>
+	<item id="fuzhoujx">
+		<item id="url"><![CDATA[http://fuzhoujx.lashou.com]]></item>
+		<item id="city"><![CDATA[抚州]]></item>
+	</item>
+	<item id="fuxin">
+		<item id="url"><![CDATA[http://fuxin.lashou.com]]></item>
+		<item id="city"><![CDATA[阜新]]></item>
+	</item>
+	<item id="fuyangah">
+		<item id="url"><![CDATA[http://fuyangah.lashou.com]]></item>
+		<item id="city"><![CDATA[阜阳]]></item>
+	</item>
+	<item id="fangchenggang">
+		<item id="url"><![CDATA[http://fangchenggang.lashou.com]]></item>
+		<item id="city"><![CDATA[防城港]]></item>
+	</item>
+	<item id="feidong">
+		<item id="url"><![CDATA[http://feidong.lashou.com]]></item>
+		<item id="city"><![CDATA[肥东县]]></item>
+	</item>
+	<item id="feixi">
+		<item id="url"><![CDATA[http://feixi.lashou.com]]></item>
+		<item id="city"><![CDATA[肥西县]]></item>
+	</item>
+	<item id="fengcheng">
+		<item id="url"><![CDATA[http://fengcheng.lashou.com]]></item>
+		<item id="city"><![CDATA[丰城]]></item>
+	</item>
+	<item id="fengchengln">
+		<item id="url"><![CDATA[http://fengchengln.lashou.com]]></item>
+		<item id="city"><![CDATA[凤城]]></item>
+	</item>
+	<item id="fenggang">
+		<item id="url"><![CDATA[http://fenggang.lashou.com]]></item>
+		<item id="city"><![CDATA[凤岗]]></item>
+	</item>
+	<item id="fenghua">
+		<item id="url"><![CDATA[http://fenghua.lashou.com]]></item>
+		<item id="city"><![CDATA[奉化]]></item>
+	</item>
+	<item id="fushun">
+		<item id="url"><![CDATA[http://fushun.lashou.com]]></item>
+		<item id="city"><![CDATA[抚顺]]></item>
+	</item>
+	<item id="fuquan">
+		<item id="url"><![CDATA[http://fuquan.lashou.com]]></item>
+		<item id="city"><![CDATA[福泉]]></item>
+	</item>
+	<item id="guangzhou">
+		<item id="url"><![CDATA[http://guangzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[广州]]></item>
+	</item>
+	<item id="guiyang">
+		<item id="url"><![CDATA[http://guiyang.lashou.com]]></item>
+		<item id="city"><![CDATA[贵阳]]></item>
+	</item>
+	<item id="ganzhou">
+		<item id="url"><![CDATA[http://ganzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[赣州]]></item>
+	</item>
+	<item id="guilin">
+		<item id="url"><![CDATA[http://guilin.lashou.com]]></item>
+		<item id="city"><![CDATA[桂林]]></item>
+	</item>
+	<item id="gaizhou">
+		<item id="url"><![CDATA[http://gaizhou.lashou.com]]></item>
+		<item id="city"><![CDATA[盖州]]></item>
+	</item>
+	<item id="gannan">
+		<item id="url"><![CDATA[http://gannan.lashou.com]]></item>
+		<item id="city"><![CDATA[甘南]]></item>
+	</item>
+	<item id="gaocheng">
+		<item id="url"><![CDATA[http://gaocheng.lashou.com]]></item>
+		<item id="city"><![CDATA[藁城]]></item>
+	</item>
+	<item id="gaoan">
+		<item id="url"><![CDATA[http://gaoan.lashou.com]]></item>
+		<item id="city"><![CDATA[高安]]></item>
+	</item>
+	<item id="gaoming">
+		<item id="url"><![CDATA[http://gaoming.lashou.com]]></item>
+		<item id="city"><![CDATA[高明]]></item>
+	</item>
+	<item id="gejiu">
+		<item id="url"><![CDATA[http://gejiu.lashou.com]]></item>
+		<item id="city"><![CDATA[个旧]]></item>
+	</item>
+	<item id="gongzhuling">
+		<item id="url"><![CDATA[http://gongzhuling.lashou.com]]></item>
+		<item id="city"><![CDATA[公主岭]]></item>
+	</item>
+	<item id="gongyi">
+		<item id="url"><![CDATA[http://gongyi.lashou.com]]></item>
+		<item id="city"><![CDATA[巩义]]></item>
+	</item>
+	<item id="guyuan">
+		<item id="url"><![CDATA[http://guyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[固原]]></item>
+	</item>
+	<item id="guigang">
+		<item id="url"><![CDATA[http://guigang.lashou.com]]></item>
+		<item id="city"><![CDATA[贵港]]></item>
+	</item>
+	<item id="haerbin">
+		<item id="url"><![CDATA[http://haerbin.lashou.com]]></item>
+		<item id="city"><![CDATA[哈尔滨]]></item>
+	</item>
+	<item id="haikou">
+		<item id="url"><![CDATA[http://haikou.lashou.com]]></item>
+		<item id="city"><![CDATA[海口]]></item>
+	</item>
+	<item id="hangzhou">
+		<item id="url"><![CDATA[http://hangzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[杭州]]></item>
+	</item>
+	<item id="hefei">
+		<item id="url"><![CDATA[http://hefei.lashou.com]]></item>
+		<item id="city"><![CDATA[合肥]]></item>
+	</item>
+	<item id="huhehaote">
+		<item id="url"><![CDATA[http://huhehaote.lashou.com]]></item>
+		<item id="city"><![CDATA[呼和浩特]]></item>
+	</item>
+	<item id="handan">
+		<item id="url"><![CDATA[http://handan.lashou.com]]></item>
+		<item id="city"><![CDATA[邯郸]]></item>
+	</item>
+	<item id="huzhou">
+		<item id="url"><![CDATA[http://huzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[湖州]]></item>
+	</item>
+	<item id="huludao">
+		<item id="url"><![CDATA[http://huludao.lashou.com]]></item>
+		<item id="city"><![CDATA[葫芦岛]]></item>
+	</item>
+	<item id="huadu">
+		<item id="url"><![CDATA[http://huadu.lashou.com]]></item>
+		<item id="city"><![CDATA[花都]]></item>
+	</item>
+	<item id="huaibei">
+		<item id="url"><![CDATA[http://huaibei.lashou.com]]></item>
+		<item id="city"><![CDATA[淮北]]></item>
+	</item>
+	<item id="huainan">
+		<item id="url"><![CDATA[http://huainan.lashou.com]]></item>
+		<item id="city"><![CDATA[淮南]]></item>
+	</item>
+	<item id="huangshan">
+		<item id="url"><![CDATA[http://huangshan.lashou.com]]></item>
+		<item id="city"><![CDATA[黄山]]></item>
+	</item>
+	<item id="huizhou">
+		<item id="url"><![CDATA[http://huizhou.lashou.com]]></item>
+		<item id="city"><![CDATA[惠州]]></item>
+	</item>
+	<item id="hami">
+		<item id="url"><![CDATA[http://hami.lashou.com]]></item>
+		<item id="city"><![CDATA[哈密]]></item>
+	</item>
+	<item id="haicheng">
+		<item id="url"><![CDATA[http://haicheng.lashou.com]]></item>
+		<item id="city"><![CDATA[海城]]></item>
+	</item>
+	<item id="hailaer">
+		<item id="url"><![CDATA[http://hailaer.lashou.com]]></item>
+		<item id="city"><![CDATA[海拉尔]]></item>
+	</item>
+	<item id="haining">
+		<item id="url"><![CDATA[http://haining.lashou.com]]></item>
+		<item id="city"><![CDATA[海宁]]></item>
+	</item>
+	<item id="hanzhong">
+		<item id="url"><![CDATA[http://hanzhong.lashou.com]]></item>
+		<item id="city"><![CDATA[汉中]]></item>
+	</item>
+	<item id="hancheng">
+		<item id="url"><![CDATA[http://hancheng.lashou.com]]></item>
+		<item id="city"><![CDATA[韩城]]></item>
+	</item>
+	<item id="helong">
+		<item id="url"><![CDATA[http://helong.lashou.com]]></item>
+		<item id="city"><![CDATA[和龙]]></item>
+	</item>
+	<item id="hetian">
+		<item id="url"><![CDATA[http://hetian.lashou.com]]></item>
+		<item id="city"><![CDATA[和田]]></item>
+	</item>
+	<item id="hechi">
+		<item id="url"><![CDATA[http://hechi.lashou.com]]></item>
+		<item id="city"><![CDATA[河池]]></item>
+	</item>
+	<item id="hejian">
+		<item id="url"><![CDATA[http://hejian.lashou.com]]></item>
+		<item id="city"><![CDATA[河间]]></item>
+	</item>
+	<item id="heyuan">
+		<item id="url"><![CDATA[http://heyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[河源]]></item>
+	</item>
+	<item id="heze">
+		<item id="url"><![CDATA[http://heze.lashou.com]]></item>
+		<item id="city"><![CDATA[菏泽]]></item>
+	</item>
+	<item id="hebi">
+		<item id="url"><![CDATA[http://hebi.lashou.com]]></item>
+		<item id="city"><![CDATA[鹤壁]]></item>
+	</item>
+	<item id="hegang">
+		<item id="url"><![CDATA[http://hegang.lashou.com]]></item>
+		<item id="city"><![CDATA[鹤岗]]></item>
+	</item>
+	<item id="heihe">
+		<item id="url"><![CDATA[http://heihe.lashou.com]]></item>
+		<item id="city"><![CDATA[黑河]]></item>
+	</item>
+	<item id="henshui">
+		<item id="url"><![CDATA[http://henshui.lashou.com]]></item>
+		<item id="city"><![CDATA[衡水]]></item>
+	</item>
+	<item id="henyang">
+		<item id="url"><![CDATA[http://henyang.lashou.com]]></item>
+		<item id="city"><![CDATA[衡阳]]></item>
+	</item>
+	<item id="houjie">
+		<item id="url"><![CDATA[http://houjie.lashou.com]]></item>
+		<item id="city"><![CDATA[厚街]]></item>
+	</item>
+	<item id="humen">
+		<item id="url"><![CDATA[http://humen.lashou.com]]></item>
+		<item id="city"><![CDATA[虎门]]></item>
+	</item>
+	<item id="huayin">
+		<item id="url"><![CDATA[http://huayin.lashou.com]]></item>
+		<item id="city"><![CDATA[华阴]]></item>
+	</item>
+	<item id="huadian">
+		<item id="url"><![CDATA[http://huadian.lashou.com]]></item>
+		<item id="city"><![CDATA[桦甸]]></item>
+	</item>
+	<item id="huaihua">
+		<item id="url"><![CDATA[http://huaihua.lashou.com]]></item>
+		<item id="city"><![CDATA[怀化]]></item>
+	</item>
+	<item id="huaian">
+		<item id="url"><![CDATA[http://huaian.lashou.com]]></item>
+		<item id="city"><![CDATA[淮安]]></item>
+	</item>
+	<item id="huanggang">
+		<item id="url"><![CDATA[http://huanggang.lashou.com]]></item>
+		<item id="city"><![CDATA[黄冈]]></item>
+	</item>
+	<item id="huangshi">
+		<item id="url"><![CDATA[http://huangshi.lashou.com]]></item>
+		<item id="city"><![CDATA[黄石]]></item>
+	</item>
+	<item id="huidong">
+		<item id="url"><![CDATA[http://huidong.lashou.com]]></item>
+		<item id="city"><![CDATA[惠东]]></item>
+	</item>
+	<item id="huichun">
+		<item id="url"><![CDATA[http://huichun.lashou.com]]></item>
+		<item id="city"><![CDATA[珲春]]></item>
+	</item>
+	<item id="jinan">
+		<item id="url"><![CDATA[http://jinan.lashou.com]]></item>
+		<item id="city"><![CDATA[济南]]></item>
+	</item>
+	<item id="jianjx">
+		<item id="url"><![CDATA[http://jianjx.lashou.com]]></item>
+		<item id="city"><![CDATA[吉安]]></item>
+	</item>
+	<item id="jilin">
+		<item id="url"><![CDATA[http://jilin.lashou.com]]></item>
+		<item id="city"><![CDATA[吉林]]></item>
+	</item>
+	<item id="jiamusi">
+		<item id="url"><![CDATA[http://jiamusi.lashou.com]]></item>
+		<item id="city"><![CDATA[佳木斯]]></item>
+	</item>
+	<item id="jiaxing">
+		<item id="url"><![CDATA[http://jiaxing.lashou.com]]></item>
+		<item id="city"><![CDATA[嘉兴]]></item>
+	</item>
+	<item id="jiangmen">
+		<item id="url"><![CDATA[http://jiangmen.lashou.com]]></item>
+		<item id="city"><![CDATA[江门]]></item>
+	</item>
+	<item id="jiangyin">
+		<item id="url"><![CDATA[http://jiangyin.lashou.com]]></item>
+		<item id="city"><![CDATA[江阴]]></item>
+	</item>
+	<item id="jiaozuo">
+		<item id="url"><![CDATA[http://jiaozuo.lashou.com]]></item>
+		<item id="city"><![CDATA[焦作]]></item>
+	</item>
+	<item id="jinjiang">
+		<item id="url"><![CDATA[http://jinjiang.lashou.com]]></item>
+		<item id="city"><![CDATA[晋江]]></item>
+	</item>
+	<item id="jinzhong">
+		<item id="url"><![CDATA[http://jinzhong.lashou.com]]></item>
+		<item id="city"><![CDATA[晋中]]></item>
+	</item>
+	<item id="jinhua">
+		<item id="url"><![CDATA[http://jinhua.lashou.com]]></item>
+		<item id="city"><![CDATA[金华]]></item>
+	</item>
+	<item id="jinzhou">
+		<item id="url"><![CDATA[http://jinzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[锦州]]></item>
+	</item>
+	<item id="jindezhen">
+		<item id="url"><![CDATA[http://jindezhen.lashou.com]]></item>
+		<item id="city"><![CDATA[景德镇]]></item>
+	</item>
+	<item id="jiujiang">
+		<item id="url"><![CDATA[http://jiujiang.lashou.com]]></item>
+		<item id="city"><![CDATA[九江]]></item>
+	</item>
+	<item id="jizhou">
+		<item id="url"><![CDATA[http://jizhou.lashou.com]]></item>
+		<item id="city"><![CDATA[冀州]]></item>
+	</item>
+	<item id="jimo">
+		<item id="url"><![CDATA[http://jimo.lashou.com]]></item>
+		<item id="city"><![CDATA[即墨]]></item>
+	</item>
+	<item id="jining">
+		<item id="url"><![CDATA[http://jining.lashou.com]]></item>
+		<item id="city"><![CDATA[济宁]]></item>
+	</item>
+	<item id="jiyuan">
+		<item id="url"><![CDATA[http://jiyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[济源]]></item>
+	</item>
+	<item id="jianjl">
+		<item id="url"><![CDATA[http://jianjl.lashou.com]]></item>
+		<item id="city"><![CDATA[集安]]></item>
+	</item>
+	<item id="jixi">
+		<item id="url"><![CDATA[http://jixi.lashou.com]]></item>
+		<item id="city"><![CDATA[鸡西]]></item>
+	</item>
+	<item id="jiayuguan">
+		<item id="url"><![CDATA[http://jiayuguan.lashou.com]]></item>
+		<item id="city"><![CDATA[嘉峪关]]></item>
+	</item>
+	<item id="jiande">
+		<item id="url"><![CDATA[http://jiande.lashou.com]]></item>
+		<item id="city"><![CDATA[建德]]></item>
+	</item>
+	<item id="jianhuxian">
+		<item id="url"><![CDATA[http://jianhuxian.lashou.com]]></item>
+		<item id="city"><![CDATA[建湖县]]></item>
+	</item>
+	<item id="jiangyan">
+		<item id="url"><![CDATA[http://jiangyan.lashou.com]]></item>
+		<item id="city"><![CDATA[姜堰]]></item>
+	</item>
+	<item id="jiangdu">
+		<item id="url"><![CDATA[http://jiangdu.lashou.com]]></item>
+		<item id="city"><![CDATA[江都]]></item>
+	</item>
+	<item id="jiangshan">
+		<item id="url"><![CDATA[http://jiangshan.lashou.com]]></item>
+		<item id="city"><![CDATA[江山]]></item>
+	</item>
+	<item id="jiaonan">
+		<item id="url"><![CDATA[http://jiaonan.lashou.com]]></item>
+		<item id="city"><![CDATA[胶南]]></item>
+	</item>
+	<item id="jiaohe">
+		<item id="url"><![CDATA[http://jiaohe.lashou.com]]></item>
+		<item id="city"><![CDATA[蛟河]]></item>
+	</item>
+	<item id="jieyang">
+		<item id="url"><![CDATA[http://jieyang.lashou.com]]></item>
+		<item id="city"><![CDATA[揭阳]]></item>
+	</item>
+	<item id="jieshou">
+		<item id="url"><![CDATA[http://jieshou.lashou.com]]></item>
+		<item id="city"><![CDATA[界首]]></item>
+	</item>
+	<item id="jincheng">
+		<item id="url"><![CDATA[http://jincheng.lashou.com]]></item>
+		<item id="city"><![CDATA[晋城]]></item>
+	</item>
+	<item id="jinzhouhb">
+		<item id="url"><![CDATA[http://jinzhouhb.lashou.com]]></item>
+		<item id="city"><![CDATA[晋州]]></item>
+	</item>
+	<item id="jinchang">
+		<item id="url"><![CDATA[http://jinchang.lashou.com]]></item>
+		<item id="city"><![CDATA[金昌]]></item>
+	</item>
+	<item id="jinggangshan">
+		<item id="url"><![CDATA[http://jinggangshan.lashou.com]]></item>
+		<item id="city"><![CDATA[井冈山]]></item>
+	</item>
+	<item id="jinghong">
+		<item id="url"><![CDATA[http://jinghong.lashou.com]]></item>
+		<item id="city"><![CDATA[景洪]]></item>
+	</item>
+	<item id="jingmen">
+		<item id="url"><![CDATA[http://jingmen.lashou.com]]></item>
+		<item id="city"><![CDATA[荆门]]></item>
+	</item>
+	<item id="jingzhou">
+		<item id="url"><![CDATA[http://jingzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[荆州]]></item>
+	</item>
+	<item id="jingjiang">
+		<item id="url"><![CDATA[http://jingjiang.lashou.com]]></item>
+		<item id="city"><![CDATA[靖江]]></item>
+	</item>
+	<item id="jiutai">
+		<item id="url"><![CDATA[http://jiutai.lashou.com]]></item>
+		<item id="city"><![CDATA[九台]]></item>
+	</item>
+	<item id="jiuquan">
+		<item id="url"><![CDATA[http://jiuquan.lashou.com]]></item>
+		<item id="city"><![CDATA[酒泉]]></item>
+	</item>
+	<item id="jurong">
+		<item id="url"><![CDATA[http://jurong.lashou.com]]></item>
+		<item id="city"><![CDATA[句容]]></item>
+	</item>
+	<item id="kunming">
+		<item id="url"><![CDATA[http://kunming.lashou.com]]></item>
+		<item id="city"><![CDATA[昆明]]></item>
+	</item>
+	<item id="kunshan">
+		<item id="url"><![CDATA[http://kunshan.lashou.com]]></item>
+		<item id="city"><![CDATA[昆山]]></item>
+	</item>
+	<item id="kashi">
+		<item id="url"><![CDATA[http://kashi.lashou.com]]></item>
+		<item id="city"><![CDATA[喀什]]></item>
+	</item>
+	<item id="kaili">
+		<item id="url"><![CDATA[http://kaili.lashou.com]]></item>
+		<item id="city"><![CDATA[凯里]]></item>
+	</item>
+	<item id="kaifeng">
+		<item id="url"><![CDATA[http://kaifeng.lashou.com]]></item>
+		<item id="city"><![CDATA[开封]]></item>
+	</item>
+	<item id="kaiping">
+		<item id="url"><![CDATA[http://kaiping.lashou.com]]></item>
+		<item id="city"><![CDATA[开平]]></item>
+	</item>
+	<item id="kelamayi">
+		<item id="url"><![CDATA[http://kelamayi.lashou.com]]></item>
+		<item id="city"><![CDATA[克拉玛依]]></item>
+	</item>
+	<item id="kuerle">
+		<item id="url"><![CDATA[http://kuerle.lashou.com]]></item>
+		<item id="city"><![CDATA[库尔勒]]></item>
+	</item>
+	<item id="kuitun">
+		<item id="url"><![CDATA[http://kuitun.lashou.com]]></item>
+		<item id="city"><![CDATA[奎屯]]></item>
+	</item>
+	<item id="lanzhou">
+		<item id="url"><![CDATA[http://lanzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[兰州]]></item>
+	</item>
+	<item id="laiwu">
+		<item id="url"><![CDATA[http://laiwu.lashou.com]]></item>
+		<item id="city"><![CDATA[莱芜]]></item>
+	</item>
+	<item id="lanxi">
+		<item id="url"><![CDATA[http://lanxi.lashou.com]]></item>
+		<item id="city"><![CDATA[兰溪]]></item>
+	</item>
+	<item id="leshan">
+		<item id="url"><![CDATA[http://leshan.lashou.com]]></item>
+		<item id="city"><![CDATA[乐山]]></item>
+	</item>
+	<item id="lianyungang">
+		<item id="url"><![CDATA[http://lianyungang.lashou.com]]></item>
+		<item id="city"><![CDATA[连云港]]></item>
+	</item>
+	<item id="liaocheng">
+		<item id="url"><![CDATA[http://liaocheng.lashou.com]]></item>
+		<item id="city"><![CDATA[聊城]]></item>
+	</item>
+	<item id="linfen">
+		<item id="url"><![CDATA[http://linfen.lashou.com]]></item>
+		<item id="city"><![CDATA[临汾]]></item>
+	</item>
+	<item id="linyi">
+		<item id="url"><![CDATA[http://linyi.lashou.com]]></item>
+		<item id="city"><![CDATA[临沂]]></item>
+	</item>
+	<item id="liuzhou">
+		<item id="url"><![CDATA[http://liuzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[柳州]]></item>
+	</item>
+	<item id="longyan">
+		<item id="url"><![CDATA[http://longyan.lashou.com]]></item>
+		<item id="city"><![CDATA[龙岩]]></item>
+	</item>
+	<item id="luzhou">
+		<item id="url"><![CDATA[http://luzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[泸州]]></item>
+	</item>
+	<item id="luoyang">
+		<item id="url"><![CDATA[http://luoyang.lashou.com]]></item>
+		<item id="city"><![CDATA[洛阳]]></item>
+	</item>
+	<item id="lasa">
+		<item id="url"><![CDATA[http://lasa.lashou.com]]></item>
+		<item id="city"><![CDATA[拉萨]]></item>
+	</item>
+	<item id="laibinqu">
+		<item id="url"><![CDATA[http://laibinqu.lashou.com]]></item>
+		<item id="city"><![CDATA[来宾区]]></item>
+	</item>
+	<item id="laiyang">
+		<item id="url"><![CDATA[http://laiyang.lashou.com]]></item>
+		<item id="city"><![CDATA[莱阳]]></item>
+	</item>
+	<item id="langfang">
+		<item id="url"><![CDATA[http://langfang.lashou.com]]></item>
+		<item id="city"><![CDATA[廊坊]]></item>
+	</item>
+	<item id="leling">
+		<item id="url"><![CDATA[http://leling.lashou.com]]></item>
+		<item id="city"><![CDATA[乐陵]]></item>
+	</item>
+	<item id="leping">
+		<item id="url"><![CDATA[http://leping.lashou.com]]></item>
+		<item id="city"><![CDATA[乐平]]></item>
+	</item>
+	<item id="leqing">
+		<item id="url"><![CDATA[http://leqing.lashou.com]]></item>
+		<item id="city"><![CDATA[乐清]]></item>
+	</item>
+	<item id="leiyang">
+		<item id="url"><![CDATA[http://leiyang.lashou.com]]></item>
+		<item id="city"><![CDATA[耒阳]]></item>
+	</item>
+	<item id="lengshuijiang">
+		<item id="url"><![CDATA[http://lengshuijiang.lashou.com]]></item>
+		<item id="city"><![CDATA[冷水江]]></item>
+	</item>
+	<item id="lijiang">
+		<item id="url"><![CDATA[http://lijiang.lashou.com]]></item>
+		<item id="city"><![CDATA[丽江]]></item>
+	</item>
+	<item id="lishui">
+		<item id="url"><![CDATA[http://lishui.lashou.com]]></item>
+		<item id="city"><![CDATA[丽水]]></item>
+	</item>
+	<item id="liling">
+		<item id="url"><![CDATA[http://liling.lashou.com]]></item>
+		<item id="city"><![CDATA[醴陵]]></item>
+	</item>
+	<item id="liaoyang">
+		<item id="url"><![CDATA[http://liaoyang.lashou.com]]></item>
+		<item id="city"><![CDATA[辽阳]]></item>
+	</item>
+	<item id="liaoyuan">
+		<item id="url"><![CDATA[http://liaoyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[辽源]]></item>
+	</item>
+	<item id="linan">
+		<item id="url"><![CDATA[http://linan.lashou.com]]></item>
+		<item id="city"><![CDATA[临安]]></item>
+	</item>
+	<item id="lincang">
+		<item id="url"><![CDATA[http://lincang.lashou.com]]></item>
+		<item id="city"><![CDATA[临沧]]></item>
+	</item>
+	<item id="linhai">
+		<item id="url"><![CDATA[http://linhai.lashou.com]]></item>
+		<item id="city"><![CDATA[临海]]></item>
+	</item>
+	<item id="linjiang">
+		<item id="url"><![CDATA[http://linjiang.lashou.com]]></item>
+		<item id="city"><![CDATA[临江]]></item>
+	</item>
+	<item id="linxia">
+		<item id="url"><![CDATA[http://linxia.lashou.com]]></item>
+		<item id="city"><![CDATA[临夏]]></item>
+	</item>
+	<item id="lingbao">
+		<item id="url"><![CDATA[http://lingbao.lashou.com]]></item>
+		<item id="city"><![CDATA[灵宝]]></item>
+	</item>
+	<item id="liuan">
+		<item id="url"><![CDATA[http://liuan.lashou.com]]></item>
+		<item id="city"><![CDATA[六安]]></item>
+	</item>
+	<item id="liupanshui">
+		<item id="url"><![CDATA[http://liupanshui.lashou.com]]></item>
+		<item id="city"><![CDATA[六盘水]]></item>
+	</item>
+	<item id="liuyang">
+		<item id="url"><![CDATA[http://liuyang.lashou.com]]></item>
+		<item id="city"><![CDATA[浏阳]]></item>
+	</item>
+	<item id="longnan">
+		<item id="url"><![CDATA[http://longnan.lashou.com]]></item>
+		<item id="city"><![CDATA[陇南]]></item>
+	</item>
+	<item id="longgang">
+		<item id="url"><![CDATA[http://longgang.lashou.com]]></item>
+		<item id="city"><![CDATA[龙岗]]></item>
+	</item>
+	<item id="longhua">
+		<item id="url"><![CDATA[http://longhua.lashou.com]]></item>
+		<item id="city"><![CDATA[龙华]]></item>
+	</item>
+	<item id="longjin">
+		<item id="url"><![CDATA[http://longjin.lashou.com]]></item>
+		<item id="city"><![CDATA[龙井]]></item>
+	</item>
+	<item id="longkou">
+		<item id="url"><![CDATA[http://longkou.lashou.com]]></item>
+		<item id="city"><![CDATA[龙口]]></item>
+	</item>
+	<item id="longmen">
+		<item id="url"><![CDATA[http://longmen.lashou.com]]></item>
+		<item id="city"><![CDATA[龙门]]></item>
+	</item>
+	<item id="longquan">
+		<item id="url"><![CDATA[http://longquan.lashou.com]]></item>
+		<item id="city"><![CDATA[龙泉]]></item>
+	</item>
+	<item id="luquan">
+		<item id="url"><![CDATA[http://luquan.lashou.com]]></item>
+		<item id="city"><![CDATA[鹿泉]]></item>
+	</item>
+	<item id="luohe">
+		<item id="url"><![CDATA[http://luohe.lashou.com]]></item>
+		<item id="city"><![CDATA[漯河]]></item>
+	</item>
+	<item id="lvliang">
+		<item id="url"><![CDATA[http://lvliang.lashou.com]]></item>
+		<item id="city"><![CDATA[吕梁]]></item>
+	</item>
+	<item id="maanshan">
+		<item id="url"><![CDATA[http://maanshan.lashou.com]]></item>
+		<item id="city"><![CDATA[马鞍山]]></item>
+	</item>
+	<item id="maoming">
+		<item id="url"><![CDATA[http://maoming.lashou.com]]></item>
+		<item id="city"><![CDATA[茂名]]></item>
+	</item>
+	<item id="mianyang">
+		<item id="url"><![CDATA[http://mianyang.lashou.com]]></item>
+		<item id="city"><![CDATA[绵阳]]></item>
+	</item>
+	<item id="mudanjiang">
+		<item id="url"><![CDATA[http://mudanjiang.lashou.com]]></item>
+		<item id="city"><![CDATA[牡丹江]]></item>
+	</item>
+	<item id="meihekou">
+		<item id="url"><![CDATA[http://meihekou.lashou.com]]></item>
+		<item id="city"><![CDATA[梅河口]]></item>
+	</item>
+	<item id="meizhou">
+		<item id="url"><![CDATA[http://meizhou.lashou.com]]></item>
+		<item id="city"><![CDATA[梅州]]></item>
+	</item>
+	<item id="meishan">
+		<item id="url"><![CDATA[http://meishan.lashou.com]]></item>
+		<item id="city"><![CDATA[眉山]]></item>
+	</item>
+	<item id="mengzhou">
+		<item id="url"><![CDATA[http://mengzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[孟州]]></item>
+	</item>
+	<item id="mengzi">
+		<item id="url"><![CDATA[http://mengzi.lashou.com]]></item>
+		<item id="city"><![CDATA[蒙自]]></item>
+	</item>
+	<item id="mingguang">
+		<item id="url"><![CDATA[http://mingguang.lashou.com]]></item>
+		<item id="city"><![CDATA[明光]]></item>
+	</item>
+	<item id="nanchang">
+		<item id="url"><![CDATA[http://nanchang.lashou.com]]></item>
+		<item id="city"><![CDATA[南昌]]></item>
+	</item>
+	<item id="nanjing">
+		<item id="url"><![CDATA[http://nanjing.lashou.com]]></item>
+		<item id="city"><![CDATA[南京]]></item>
+	</item>
+	<item id="nanning">
+		<item id="url"><![CDATA[http://nanning.lashou.com]]></item>
+		<item id="city"><![CDATA[南宁]]></item>
+	</item>
+	<item id="nanchong">
+		<item id="url"><![CDATA[http://nanchong.lashou.com]]></item>
+		<item id="city"><![CDATA[南充]]></item>
+	</item>
+	<item id="nantong">
+		<item id="url"><![CDATA[http://nantong.lashou.com]]></item>
+		<item id="city"><![CDATA[南通]]></item>
+	</item>
+	<item id="ningbo">
+		<item id="url"><![CDATA[http://ningbo.lashou.com]]></item>
+		<item id="city"><![CDATA[宁波]]></item>
+	</item>
+	<item id="nanan">
+		<item id="url"><![CDATA[http://nanan.lashou.com]]></item>
+		<item id="city"><![CDATA[南安]]></item>
+	</item>
+	<item id="nangong">
+		<item id="url"><![CDATA[http://nangong.lashou.com]]></item>
+		<item id="city"><![CDATA[南宫]]></item>
+	</item>
+	<item id="nanhai">
+		<item id="url"><![CDATA[http://nanhai.lashou.com]]></item>
+		<item id="city"><![CDATA[南海]]></item>
+	</item>
+	<item id="nankang">
+		<item id="url"><![CDATA[http://nankang.lashou.com]]></item>
+		<item id="city"><![CDATA[南康]]></item>
+	</item>
+	<item id="nanping">
+		<item id="url"><![CDATA[http://nanping.lashou.com]]></item>
+		<item id="city"><![CDATA[南平]]></item>
+	</item>
+	<item id="nanyang">
+		<item id="url"><![CDATA[http://nanyang.lashou.com]]></item>
+		<item id="city"><![CDATA[南阳]]></item>
+	</item>
+	<item id="neijiang">
+		<item id="url"><![CDATA[http://neijiang.lashou.com]]></item>
+		<item id="city"><![CDATA[内江]]></item>
+	</item>
+	<item id="ningde">
+		<item id="url"><![CDATA[http://ningde.lashou.com]]></item>
+		<item id="city"><![CDATA[宁德]]></item>
+	</item>
+	<item id="ningguo">
+		<item id="url"><![CDATA[http://ningguo.lashou.com]]></item>
+		<item id="city"><![CDATA[宁国]]></item>
+	</item>
+	<item id="panyu">
+		<item id="url"><![CDATA[http://panyu.lashou.com]]></item>
+		<item id="city"><![CDATA[番禺]]></item>
+	</item>
+	<item id="panjin">
+		<item id="url"><![CDATA[http://panjin.lashou.com]]></item>
+		<item id="city"><![CDATA[盘锦]]></item>
+	</item>
+	<item id="pingxiang">
+		<item id="url"><![CDATA[http://pingxiang.lashou.com]]></item>
+		<item id="city"><![CDATA[萍乡]]></item>
+	</item>
+	<item id="putian">
+		<item id="url"><![CDATA[http://putian.lashou.com]]></item>
+		<item id="city"><![CDATA[莆田]]></item>
+	</item>
+	<item id="panzhihua">
+		<item id="url"><![CDATA[http://panzhihua.lashou.com]]></item>
+		<item id="city"><![CDATA[攀枝花]]></item>
+	</item>
+	<item id="panshi">
+		<item id="url"><![CDATA[http://panshi.lashou.com]]></item>
+		<item id="city"><![CDATA[磐石]]></item>
+	</item>
+	<item id="peixian">
+		<item id="url"><![CDATA[http://peixian.lashou.com]]></item>
+		<item id="city"><![CDATA[沛县]]></item>
+	</item>
+	<item id="penglai">
+		<item id="url"><![CDATA[http://penglai.lashou.com]]></item>
+		<item id="city"><![CDATA[蓬莱]]></item>
+	</item>
+	<item id="peizhou">
+		<item id="url"><![CDATA[http://peizhou.lashou.com]]></item>
+		<item id="city"><![CDATA[邳州]]></item>
+	</item>
+	<item id="pingdingshan">
+		<item id="url"><![CDATA[http://pingdingshan.lashou.com]]></item>
+		<item id="city"><![CDATA[平顶山]]></item>
+	</item>
+	<item id="pingdu">
+		<item id="url"><![CDATA[http://pingdu.lashou.com]]></item>
+		<item id="city"><![CDATA[平度]]></item>
+	</item>
+	<item id="pingliang">
+		<item id="url"><![CDATA[http://pingliang.lashou.com]]></item>
+		<item id="city"><![CDATA[平凉]]></item>
+	</item>
+	<item id="poyang">
+		<item id="url"><![CDATA[http://poyang.lashou.com]]></item>
+		<item id="city"><![CDATA[鄱阳]]></item>
+	</item>
+	<item id="puer">
+		<item id="url"><![CDATA[http://puer.lashou.com]]></item>
+		<item id="city"><![CDATA[普洱]]></item>
+	</item>
+	<item id="pulandian">
+		<item id="url"><![CDATA[http://pulandian.lashou.com]]></item>
+		<item id="city"><![CDATA[普兰店]]></item>
+	</item>
+	<item id="puyang">
+		<item id="url"><![CDATA[http://puyang.lashou.com]]></item>
+		<item id="city"><![CDATA[濮阳]]></item>
+	</item>
+	<item id="qiqihaer">
+		<item id="url"><![CDATA[http://qiqihaer.lashou.com]]></item>
+		<item id="city"><![CDATA[齐齐哈尔]]></item>
+	</item>
+	<item id="qinhuangdao">
+		<item id="url"><![CDATA[http://qinhuangdao.lashou.com]]></item>
+		<item id="city"><![CDATA[秦皇岛]]></item>
+	</item>
+	<item id="qingyuan">
+		<item id="url"><![CDATA[http://qingyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[清远]]></item>
+	</item>
+	<item id="qingdao">
+		<item id="url"><![CDATA[http://qingdao.lashou.com]]></item>
+		<item id="city"><![CDATA[青岛]]></item>
+	</item>
+	<item id="quanzhou">
+		<item id="url"><![CDATA[http://quanzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[泉州]]></item>
+	</item>
+	<item id="qitaihe">
+		<item id="url"><![CDATA[http://qitaihe.lashou.com]]></item>
+		<item id="city"><![CDATA[七台河]]></item>
+	</item>
+	<item id="qianjiang">
+		<item id="url"><![CDATA[http://qianjiang.lashou.com]]></item>
+		<item id="city"><![CDATA[潜江]]></item>
+	</item>
+	<item id="qianan">
+		<item id="url"><![CDATA[http://qianan.lashou.com]]></item>
+		<item id="city"><![CDATA[迁安]]></item>
+	</item>
+	<item id="qinyang">
+		<item id="url"><![CDATA[http://qinyang.lashou.com]]></item>
+		<item id="city"><![CDATA[沁阳]]></item>
+	</item>
+	<item id="qinzhou">
+		<item id="url"><![CDATA[http://qinzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[钦州]]></item>
+	</item>
+	<item id="qingyang">
+		<item id="url"><![CDATA[http://qingyang.lashou.com]]></item>
+		<item id="city"><![CDATA[庆阳]]></item>
+	</item>
+	<item id="qingtongxia">
+		<item id="url"><![CDATA[http://qingtongxia.lashou.com]]></item>
+		<item id="city"><![CDATA[青铜峡]]></item>
+	</item>
+	<item id="qingzhou">
+		<item id="url"><![CDATA[http://qingzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[青州]]></item>
+	</item>
+	<item id="qufu">
+		<item id="url"><![CDATA[http://qufu.lashou.com]]></item>
+		<item id="city"><![CDATA[曲阜]]></item>
+	</item>
+	<item id="qujing">
+		<item id="url"><![CDATA[http://qujing.lashou.com]]></item>
+		<item id="city"><![CDATA[曲靖]]></item>
+	</item>
+	<item id="quzhou">
+		<item id="url"><![CDATA[http://quzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[衢州]]></item>
+	</item>
+	<item id="rizhao">
+		<item id="url"><![CDATA[http://rizhao.lashou.com]]></item>
+		<item id="city"><![CDATA[日照]]></item>
+	</item>
+	<item id="renhuai">
+		<item id="url"><![CDATA[http://renhuai.lashou.com]]></item>
+		<item id="city"><![CDATA[仁怀]]></item>
+	</item>
+	<item id="renqiu">
+		<item id="url"><![CDATA[http://renqiu.lashou.com]]></item>
+		<item id="city"><![CDATA[任丘]]></item>
+	</item>
+	<item id="rongcheng">
+		<item id="url"><![CDATA[http://rongcheng.lashou.com]]></item>
+		<item id="city"><![CDATA[荣成]]></item>
+	</item>
+	<item id="ruzhou">
+		<item id="url"><![CDATA[http://ruzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[汝州]]></item>
+	</item>
+	<item id="ruian">
+		<item id="url"><![CDATA[http://ruian.lashou.com]]></item>
+		<item id="city"><![CDATA[瑞安]]></item>
+	</item>
+	<item id="ruijin">
+		<item id="url"><![CDATA[http://ruijin.lashou.com]]></item>
+		<item id="city"><![CDATA[瑞金]]></item>
+	</item>
+	<item id="ruili">
+		<item id="url"><![CDATA[http://ruili.lashou.com]]></item>
+		<item id="city"><![CDATA[瑞丽]]></item>
+	</item>
+	<item id="shanghai">
+		<item id="url"><![CDATA[http://shanghai.lashou.com]]></item>
+		<item id="city"><![CDATA[上海]]></item>
+	</item>
+	<item id="shenyang">
+		<item id="url"><![CDATA[http://shenyang.lashou.com]]></item>
+		<item id="city"><![CDATA[沈阳]]></item>
+	</item>
+	<item id="shijiazhuang">
+		<item id="url"><![CDATA[http://shijiazhuang.lashou.com]]></item>
+		<item id="city"><![CDATA[石家庄]]></item>
+		<item id="pages"><![CDATA[52]]></item>
+		<item id="temppage"><![CDATA[52]]></item>
+	</item>
+	<item id="sanya">
+		<item id="url"><![CDATA[http://sanya.lashou.com]]></item>
+		<item id="city"><![CDATA[三亚]]></item>
+	</item>
+	<item id="shantou">
+		<item id="url"><![CDATA[http://shantou.lashou.com]]></item>
+		<item id="city"><![CDATA[汕头]]></item>
+	</item>
+	<item id="shangrao">
+		<item id="url"><![CDATA[http://shangrao.lashou.com]]></item>
+		<item id="city"><![CDATA[上饶]]></item>
+	</item>
+	<item id="shaoxing">
+		<item id="url"><![CDATA[http://shaoxing.lashou.com]]></item>
+		<item id="city"><![CDATA[绍兴]]></item>
+	</item>
+	<item id="shenzhen">
+		<item id="url"><![CDATA[http://shenzhen.lashou.com]]></item>
+		<item id="city"><![CDATA[深圳]]></item>
+	</item>
+	<item id="shishi">
+		<item id="url"><![CDATA[http://shishi.lashou.com]]></item>
+		<item id="city"><![CDATA[石狮]]></item>
+	</item>
+	<item id="shizuishan">
+		<item id="url"><![CDATA[http://shizuishan.lashou.com]]></item>
+		<item id="city"><![CDATA[石嘴山]]></item>
+	</item>
+	<item id="shunde">
+		<item id="url"><![CDATA[http://shunde.lashou.com]]></item>
+		<item id="city"><![CDATA[顺德]]></item>
+	</item>
+	<item id="suzhou">
+		<item id="url"><![CDATA[http://suzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[苏州]]></item>
+	</item>
+	<item id="sanhe">
+		<item id="url"><![CDATA[http://sanhe.lashou.com]]></item>
+		<item id="city"><![CDATA[三河]]></item>
+	</item>
+	<item id="sanmenxia">
+		<item id="url"><![CDATA[http://sanmenxia.lashou.com]]></item>
+		<item id="city"><![CDATA[三门峡]]></item>
+	</item>
+	<item id="sanming">
+		<item id="url"><![CDATA[http://sanming.lashou.com]]></item>
+		<item id="city"><![CDATA[三明]]></item>
+	</item>
+	<item id="sanshui">
+		<item id="url"><![CDATA[http://sanshui.lashou.com]]></item>
+		<item id="city"><![CDATA[三水]]></item>
+	</item>
+	<item id="shahe">
+		<item id="url"><![CDATA[http://shahe.lashou.com]]></item>
+		<item id="city"><![CDATA[沙河]]></item>
+	</item>
+	<item id="shanwei">
+		<item id="url"><![CDATA[http://shanwei.lashou.com]]></item>
+		<item id="city"><![CDATA[汕尾]]></item>
+	</item>
+	<item id="shangyu">
+		<item id="url"><![CDATA[http://shangyu.lashou.com]]></item>
+		<item id="city"><![CDATA[上虞]]></item>
+	</item>
+	<item id="shangluo">
+		<item id="url"><![CDATA[http://shangluo.lashou.com]]></item>
+		<item id="city"><![CDATA[商洛]]></item>
+	</item>
+	<item id="shangqiu">
+		<item id="url"><![CDATA[http://shangqiu.lashou.com]]></item>
+		<item id="city"><![CDATA[商丘]]></item>
+	</item>
+	<item id="shaoyang">
+		<item id="url"><![CDATA[http://shaoyang.lashou.com]]></item>
+		<item id="city"><![CDATA[邵阳]]></item>
+	</item>
+	<item id="shaoguan">
+		<item id="url"><![CDATA[http://shaoguan.lashou.com]]></item>
+		<item id="city"><![CDATA[韶关]]></item>
+	</item>
+	<item id="shaoshan">
+		<item id="url"><![CDATA[http://shaoshan.lashou.com]]></item>
+		<item id="city"><![CDATA[韶山]]></item>
+	</item>
+	<item id="sheyangxian">
+		<item id="url"><![CDATA[http://sheyangxian.lashou.com]]></item>
+		<item id="city"><![CDATA[射阳县]]></item>
+	</item>
+	<item id="shenzhou">
+		<item id="url"><![CDATA[http://shenzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[深州]]></item>
+	</item>
+	<item id="shengzhou">
+		<item id="url"><![CDATA[http://shengzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[嵊州]]></item>
+	</item>
+	<item id="shiyan">
+		<item id="url"><![CDATA[http://shiyan.lashou.com]]></item>
+		<item id="city"><![CDATA[十堰]]></item>
+	</item>
+	<item id="shihezi">
+		<item id="url"><![CDATA[http://shihezi.lashou.com]]></item>
+		<item id="city"><![CDATA[石河子]]></item>
+	</item>
+	<item id="shilong">
+		<item id="url"><![CDATA[http://shilong.lashou.com]]></item>
+		<item id="city"><![CDATA[石龙]]></item>
+	</item>
+	<item id="shouguang">
+		<item id="url"><![CDATA[http://shouguang.lashou.com]]></item>
+		<item id="city"><![CDATA[寿光]]></item>
+	</item>
+	<item id="shuyangxian">
+		<item id="url"><![CDATA[http://shuyangxian.lashou.com]]></item>
+		<item id="city"><![CDATA[沭阳县]]></item>
+	</item>
+	<item id="shulan">
+		<item id="url"><![CDATA[http://shulan.lashou.com]]></item>
+		<item id="city"><![CDATA[舒兰]]></item>
+	</item>
+	<item id="shuangliao">
+		<item id="url"><![CDATA[http://shuangliao.lashou.com]]></item>
+		<item id="city"><![CDATA[双辽]]></item>
+	</item>
+	<item id="shuangyashan">
+		<item id="url"><![CDATA[http://shuangyashan.lashou.com]]></item>
+		<item id="city"><![CDATA[双鸭山]]></item>
+	</item>
+	<item id="shuozhou">
+		<item id="url"><![CDATA[http://shuozhou.lashou.com]]></item>
+		<item id="city"><![CDATA[朔州]]></item>
+	</item>
+	<item id="sihui">
+		<item id="url"><![CDATA[http://sihui.lashou.com]]></item>
+		<item id="city"><![CDATA[四会]]></item>
+	</item>
+	<item id="siping">
+		<item id="url"><![CDATA[http://siping.lashou.com]]></item>
+		<item id="city"><![CDATA[四平]]></item>
+	</item>
+	<item id="songyuan">
+		<item id="url"><![CDATA[http://songyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[松原]]></item>
+	</item>
+	<item id="suqian">
+		<item id="url"><![CDATA[http://suqian.lashou.com]]></item>
+		<item id="city"><![CDATA[宿迁]]></item>
+	</item>
+	<item id="suzhouah">
+		<item id="url"><![CDATA[http://suzhouah.lashou.com]]></item>
+		<item id="city"><![CDATA[宿州]]></item>
+	</item>
+	<item id="suifenhe">
+		<item id="url"><![CDATA[http://suifenhe.lashou.com]]></item>
+		<item id="city"><![CDATA[绥芬河]]></item>
+	</item>
+	<item id="suihua">
+		<item id="url"><![CDATA[http://suihua.lashou.com]]></item>
+		<item id="city"><![CDATA[绥化]]></item>
+	</item>
+	<item id="suining">
+		<item id="url"><![CDATA[http://suining.lashou.com]]></item>
+		<item id="city"><![CDATA[遂宁]]></item>
+	</item>
+	<item id="suizhou">
+		<item id="url"><![CDATA[http://suizhou.lashou.com]]></item>
+		<item id="city"><![CDATA[随州]]></item>
+	</item>
+	<item id="tianjin">
+		<item id="url"><![CDATA[http://tianjin.lashou.com]]></item>
+		<item id="city"><![CDATA[天津]]></item>
+	</item>
+	<item id="taiyuan">
+		<item id="url"><![CDATA[http://taiyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[太原]]></item>
+	</item>
+	<item id="taian">
+		<item id="url"><![CDATA[http://taian.lashou.com]]></item>
+		<item id="city"><![CDATA[泰安]]></item>
+	</item>
+	<item id="tangshan">
+		<item id="url"><![CDATA[http://tangshan.lashou.com]]></item>
+		<item id="city"><![CDATA[唐山]]></item>
+	</item>
+	<item id="tongcheng">
+		<item id="url"><![CDATA[http://tongcheng.lashou.com]]></item>
+		<item id="city"><![CDATA[桐城]]></item>
+	</item>
+	<item id="tonglu">
+		<item id="url"><![CDATA[http://tonglu.lashou.com]]></item>
+		<item id="city"><![CDATA[桐庐]]></item>
+	</item>
+	<item id="tongling">
+		<item id="url"><![CDATA[http://tongling.lashou.com]]></item>
+		<item id="city"><![CDATA[铜陵]]></item>
+	</item>
+	<item id="taizhouzj">
+		<item id="url"><![CDATA[http://taizhouzj.lashou.com]]></item>
+		<item id="city"><![CDATA[台州]]></item>
+	</item>
+	<item id="taicang">
+		<item id="url"><![CDATA[http://taicang.lashou.com]]></item>
+		<item id="city"><![CDATA[太仓]]></item>
+	</item>
+	<item id="taixing">
+		<item id="url"><![CDATA[http://taixing.lashou.com]]></item>
+		<item id="city"><![CDATA[泰兴]]></item>
+	</item>
+	<item id="taizhousd">
+		<item id="url"><![CDATA[http://taizhousd.lashou.com]]></item>
+		<item id="city"><![CDATA[泰州]]></item>
+	</item>
+	<item id="tangxia">
+		<item id="url"><![CDATA[http://tangxia.lashou.com]]></item>
+		<item id="city"><![CDATA[塘厦]]></item>
+	</item>
+	<item id="taonan">
+		<item id="url"><![CDATA[http://taonan.lashou.com]]></item>
+		<item id="city"><![CDATA[洮南]]></item>
+	</item>
+	<item id="tengzhou">
+		<item id="url"><![CDATA[http://tengzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[滕州]]></item>
+	</item>
+	<item id="tianchang">
+		<item id="url"><![CDATA[http://tianchang.lashou.com]]></item>
+		<item id="city"><![CDATA[天长]]></item>
+	</item>
+	<item id="tianmen">
+		<item id="url"><![CDATA[http://tianmen.lashou.com]]></item>
+		<item id="city"><![CDATA[天门]]></item>
+	</item>
+	<item id="tianshui">
+		<item id="url"><![CDATA[http://tianshui.lashou.com]]></item>
+		<item id="city"><![CDATA[天水]]></item>
+	</item>
+	<item id="tieling">
+		<item id="url"><![CDATA[http://tieling.lashou.com]]></item>
+		<item id="city"><![CDATA[铁岭]]></item>
+	</item>
+	<item id="tongxiang">
+		<item id="url"><![CDATA[http://tongxiang.lashou.com]]></item>
+		<item id="city"><![CDATA[桐乡]]></item>
+	</item>
+	<item id="tonghua">
+		<item id="url"><![CDATA[http://tonghua.lashou.com]]></item>
+		<item id="city"><![CDATA[通化]]></item>
+	</item>
+	<item id="tongliaoshi">
+		<item id="url"><![CDATA[http://tongliaoshi.lashou.com]]></item>
+		<item id="city"><![CDATA[通辽市]]></item>
+	</item>
+	<item id="tongchuan">
+		<item id="url"><![CDATA[http://tongchuan.lashou.com]]></item>
+		<item id="city"><![CDATA[铜川]]></item>
+	</item>
+	<item id="tongren">
+		<item id="url"><![CDATA[http://tongren.lashou.com]]></item>
+		<item id="city"><![CDATA[铜仁]]></item>
+	</item>
+	<item id="tongshanxian">
+		<item id="url"><![CDATA[http://tongshanxian.lashou.com]]></item>
+		<item id="city"><![CDATA[铜山县]]></item>
+	</item>
+	<item id="tulufan">
+		<item id="url"><![CDATA[http://tulufan.lashou.com]]></item>
+		<item id="city"><![CDATA[吐鲁番]]></item>
+	</item>
+	<item id="tumen">
+		<item id="url"><![CDATA[http://tumen.lashou.com]]></item>
+		<item id="city"><![CDATA[图们]]></item>
+	</item>
+	<item id="wulumuqi">
+		<item id="url"><![CDATA[http://wulumuqi.lashou.com]]></item>
+		<item id="city"><![CDATA[乌鲁木齐]]></item>
+	</item>
+	<item id="wuhan">
+		<item id="url"><![CDATA[http://wuhan.lashou.com]]></item>
+		<item id="city"><![CDATA[武汉]]></item>
+	</item>
+	<item id="wanzhou">
+		<item id="url"><![CDATA[http://wanzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[万州]]></item>
+	</item>
+	<item id="weihai">
+		<item id="url"><![CDATA[http://weihai.lashou.com]]></item>
+		<item id="city"><![CDATA[威海]]></item>
+	</item>
+	<item id="weifang">
+		<item id="url"><![CDATA[http://weifang.lashou.com]]></item>
+		<item id="city"><![CDATA[潍坊]]></item>
+	</item>
+	<item id="wuzhong">
+		<item id="url"><![CDATA[http://wuzhong.lashou.com]]></item>
+		<item id="city"><![CDATA[吴忠]]></item>
+	</item>
+	<item id="wuxi">
+		<item id="url"><![CDATA[http://wuxi.lashou.com]]></item>
+		<item id="city"><![CDATA[无锡]]></item>
+	</item>
+	<item id="wuhu">
+		<item id="url"><![CDATA[http://wuhu.lashou.com]]></item>
+		<item id="city"><![CDATA[芜湖]]></item>
+	</item>
+	<item id="wafangdian">
+		<item id="url"><![CDATA[http://wafangdian.lashou.com]]></item>
+		<item id="city"><![CDATA[瓦房店]]></item>
+	</item>
+	<item id="wanning">
+		<item id="url"><![CDATA[http://wanning.lashou.com]]></item>
+		<item id="city"><![CDATA[万宁]]></item>
+	</item>
+	<item id="weinan">
+		<item id="url"><![CDATA[http://weinan.lashou.com]]></item>
+		<item id="city"><![CDATA[渭南]]></item>
+	</item>
+	<item id="wendeng">
+		<item id="url"><![CDATA[http://wendeng.lashou.com]]></item>
+		<item id="city"><![CDATA[文登]]></item>
+	</item>
+	<item id="wenshan">
+		<item id="url"><![CDATA[http://wenshan.lashou.com]]></item>
+		<item id="city"><![CDATA[文山]]></item>
+	</item>
+	<item id="wenling">
+		<item id="url"><![CDATA[http://wenling.lashou.com]]></item>
+		<item id="city"><![CDATA[温岭]]></item>
+	</item>
+	<item id="wenzhou">
+		<item id="url"><![CDATA[http://wenzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[温州]]></item>
+	</item>
+	<item id="wuhai">
+		<item id="url"><![CDATA[http://wuhai.lashou.com]]></item>
+		<item id="city"><![CDATA[乌海]]></item>
+	</item>
+	<item id="wulahaote">
+		<item id="url"><![CDATA[http://wulahaote.lashou.com]]></item>
+		<item id="city"><![CDATA[乌兰浩特]]></item>
+	</item>
+	<item id="wuzhishan">
+		<item id="url"><![CDATA[http://wuzhishan.lashou.com]]></item>
+		<item id="city"><![CDATA[五指山]]></item>
+	</item>
+	<item id="wujiang">
+		<item id="url"><![CDATA[http://wujiang.lashou.com]]></item>
+		<item id="city"><![CDATA[吴江]]></item>
+	</item>
+	<item id="wuyuan">
+		<item id="url"><![CDATA[http://wuyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[婺源]]></item>
+	</item>
+	<item id="wuzhou">
+		<item id="url"><![CDATA[http://wuzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[梧州]]></item>
+	</item>
+	<item id="wuan">
+		<item id="url"><![CDATA[http://wuan.lashou.com]]></item>
+		<item id="city"><![CDATA[武安]]></item>
+	</item>
+	<item id="wuwei">
+		<item id="url"><![CDATA[http://wuwei.lashou.com]]></item>
+		<item id="city"><![CDATA[武威]]></item>
+	</item>
+	<item id="wuyishan">
+		<item id="url"><![CDATA[http://wuyishan.lashou.com]]></item>
+		<item id="city"><![CDATA[武夷山]]></item>
+	</item>
+	<item id="xian">
+		<item id="url"><![CDATA[http://xian.lashou.com]]></item>
+		<item id="city"><![CDATA[西安]]></item>
+	</item>
+	<item id="xiamen">
+		<item id="url"><![CDATA[http://xiamen.lashou.com]]></item>
+		<item id="city"><![CDATA[厦门]]></item>
+	</item>
+	<item id="xianyang">
+		<item id="url"><![CDATA[http://xianyang.lashou.com]]></item>
+		<item id="city"><![CDATA[咸阳]]></item>
+	</item>
+	<item id="xiangyang">
+		<item id="url"><![CDATA[http://xiangyang.lashou.com]]></item>
+		<item id="city"><![CDATA[襄阳]]></item>
+	</item>
+	<item id="xuzhou">
+		<item id="url"><![CDATA[http://xuzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[徐州]]></item>
+	</item>
+	<item id="xuancheng">
+		<item id="url"><![CDATA[http://xuancheng.lashou.com]]></item>
+		<item id="city"><![CDATA[宣城]]></item>
+	</item>
+	<item id="xichang">
+		<item id="url"><![CDATA[http://xichang.lashou.com]]></item>
+		<item id="city"><![CDATA[西昌]]></item>
+	</item>
+	<item id="xining">
+		<item id="url"><![CDATA[http://xining.lashou.com]]></item>
+		<item id="city"><![CDATA[西宁]]></item>
+	</item>
+	<item id="xilinhaote">
+		<item id="url"><![CDATA[http://xilinhaote.lashou.com]]></item>
+		<item id="city"><![CDATA[锡林浩特]]></item>
+	</item>
+	<item id="xiantao">
+		<item id="url"><![CDATA[http://xiantao.lashou.com]]></item>
+		<item id="city"><![CDATA[仙桃]]></item>
+	</item>
+	<item id="xianning">
+		<item id="url"><![CDATA[http://xianning.lashou.com]]></item>
+		<item id="city"><![CDATA[咸宁]]></item>
+	</item>
+	<item id="xiangtan">
+		<item id="url"><![CDATA[http://xiangtan.lashou.com]]></item>
+		<item id="city"><![CDATA[湘潭]]></item>
+	</item>
+	<item id="xiangxiang">
+		<item id="url"><![CDATA[http://xiangxiang.lashou.com]]></item>
+		<item id="city"><![CDATA[湘乡]]></item>
+	</item>
+	<item id="xianggelila">
+		<item id="url"><![CDATA[http://xianggelila.lashou.com]]></item>
+		<item id="city"><![CDATA[香格里拉]]></item>
+	</item>
+	<item id="xiaogan">
+		<item id="url"><![CDATA[http://xiaogan.lashou.com]]></item>
+		<item id="city"><![CDATA[孝感]]></item>
+	</item>
+	<item id="xiaoshan">
+		<item id="url"><![CDATA[http://xiaoshan.lashou.com]]></item>
+		<item id="city"><![CDATA[萧山]]></item>
+	</item>
+	<item id="xinfeng">
+		<item id="url"><![CDATA[http://xinfeng.lashou.com]]></item>
+		<item id="city"><![CDATA[信丰]]></item>
+	</item>
+	<item id="xinyang">
+		<item id="url"><![CDATA[http://xinyang.lashou.com]]></item>
+		<item id="city"><![CDATA[信阳]]></item>
+	</item>
+	<item id="xinzhou">
+		<item id="url"><![CDATA[http://xinzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[忻州]]></item>
+	</item>
+	<item id="xinle">
+		<item id="url"><![CDATA[http://xinle.lashou.com]]></item>
+		<item id="city"><![CDATA[新乐]]></item>
+	</item>
+	<item id="xinmi">
+		<item id="url"><![CDATA[http://xinmi.lashou.com]]></item>
+		<item id="city"><![CDATA[新密]]></item>
+	</item>
+	<item id="xinmin">
+		<item id="url"><![CDATA[http://xinmin.lashou.com]]></item>
+		<item id="city"><![CDATA[新民]]></item>
+	</item>
+	<item id="xintai">
+		<item id="url"><![CDATA[http://xintai.lashou.com]]></item>
+		<item id="city"><![CDATA[新泰]]></item>
+	</item>
+	<item id="xinxiang">
+		<item id="url"><![CDATA[http://xinxiang.lashou.com]]></item>
+		<item id="city"><![CDATA[新乡]]></item>
+	</item>
+	<item id="xinyu">
+		<item id="url"><![CDATA[http://xinyu.lashou.com]]></item>
+		<item id="city"><![CDATA[新余]]></item>
+	</item>
+	<item id="xinzheng">
+		<item id="url"><![CDATA[http://xinzheng.lashou.com]]></item>
+		<item id="city"><![CDATA[新郑]]></item>
+	</item>
+	<item id="xinji">
+		<item id="url"><![CDATA[http://xinji.lashou.com]]></item>
+		<item id="city"><![CDATA[辛集]]></item>
+	</item>
+	<item id="xingcheng">
+		<item id="url"><![CDATA[http://xingcheng.lashou.com]]></item>
+		<item id="city"><![CDATA[兴城]]></item>
+	</item>
+	<item id="xinghua">
+		<item id="url"><![CDATA[http://xinghua.lashou.com]]></item>
+		<item id="city"><![CDATA[兴化]]></item>
+	</item>
+	<item id="xingping">
+		<item id="url"><![CDATA[http://xingping.lashou.com]]></item>
+		<item id="city"><![CDATA[兴平]]></item>
+	</item>
+	<item id="xingyang">
+		<item id="url"><![CDATA[http://xingyang.lashou.com]]></item>
+		<item id="city"><![CDATA[荥阳]]></item>
+	</item>
+	<item id="xingtai">
+		<item id="url"><![CDATA[http://xingtai.lashou.com]]></item>
+		<item id="city"><![CDATA[邢台]]></item>
+	</item>
+	<item id="xuchang">
+		<item id="url"><![CDATA[http://xuchang.lashou.com]]></item>
+		<item id="city"><![CDATA[许昌]]></item>
+	</item>
+	<item id="yinchuan">
+		<item id="url"><![CDATA[http://yinchuan.lashou.com]]></item>
+		<item id="city"><![CDATA[银川]]></item>
+	</item>
+	<item id="yanji">
+		<item id="url"><![CDATA[http://yanji.lashou.com]]></item>
+		<item id="city"><![CDATA[延吉]]></item>
+	</item>
+	<item id="yantai">
+		<item id="url"><![CDATA[http://yantai.lashou.com]]></item>
+		<item id="city"><![CDATA[烟台]]></item>
+	</item>
+	<item id="yangzhou">
+		<item id="url"><![CDATA[http://yangzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[扬州]]></item>
+	</item>
+	<item id="yangjiang">
+		<item id="url"><![CDATA[http://yangjiang.lashou.com]]></item>
+		<item id="city"><![CDATA[阳江]]></item>
+	</item>
+	<item id="yiwu">
+		<item id="url"><![CDATA[http://yiwu.lashou.com]]></item>
+		<item id="city"><![CDATA[义乌]]></item>
+	</item>
+	<item id="yichang">
+		<item id="url"><![CDATA[http://yichang.lashou.com]]></item>
+		<item id="city"><![CDATA[宜昌]]></item>
+	</item>
+	<item id="yichun">
+		<item id="url"><![CDATA[http://yichun.lashou.com]]></item>
+		<item id="city"><![CDATA[宜春]]></item>
+	</item>
+	<item id="yulingx">
+		<item id="url"><![CDATA[http://yulingx.lashou.com]]></item>
+		<item id="city"><![CDATA[玉林]]></item>
+	</item>
+	<item id="yuncheng">
+		<item id="url"><![CDATA[http://yuncheng.lashou.com]]></item>
+		<item id="city"><![CDATA[运城]]></item>
+	</item>
+	<item id="yaan">
+		<item id="url"><![CDATA[http://yaan.lashou.com]]></item>
+		<item id="city"><![CDATA[雅安]]></item>
+	</item>
+	<item id="yanzhou">
+		<item id="url"><![CDATA[http://yanzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[兖州]]></item>
+	</item>
+	<item id="yanan">
+		<item id="url"><![CDATA[http://yanan.lashou.com]]></item>
+		<item id="city"><![CDATA[延安]]></item>
+	</item>
+	<item id="yancheng">
+		<item id="url"><![CDATA[http://yancheng.lashou.com]]></item>
+		<item id="city"><![CDATA[盐城]]></item>
+	</item>
+	<item id="yantian">
+		<item id="url"><![CDATA[http://yantian.lashou.com]]></item>
+		<item id="city"><![CDATA[盐田]]></item>
+	</item>
+	<item id="yangzhong">
+		<item id="url"><![CDATA[http://yangzhong.lashou.com]]></item>
+		<item id="city"><![CDATA[扬中]]></item>
+	</item>
+	<item id="yangquan">
+		<item id="url"><![CDATA[http://yangquan.lashou.com]]></item>
+		<item id="city"><![CDATA[阳泉]]></item>
+	</item>
+	<item id="yima">
+		<item id="url"><![CDATA[http://yima.lashou.com]]></item>
+		<item id="city"><![CDATA[义马]]></item>
+	</item>
+	<item id="yizheng">
+		<item id="url"><![CDATA[http://yizheng.lashou.com]]></item>
+		<item id="city"><![CDATA[仪征]]></item>
+	</item>
+	<item id="yichunhlj">
+		<item id="url"><![CDATA[http://yichunhlj.lashou.com]]></item>
+		<item id="city"><![CDATA[伊春]]></item>
+	</item>
+	<item id="yibin">
+		<item id="url"><![CDATA[http://yibin.lashou.com]]></item>
+		<item id="city"><![CDATA[宜宾]]></item>
+	</item>
+	<item id="yixing">
+		<item id="url"><![CDATA[http://yixing.lashou.com]]></item>
+		<item id="city"><![CDATA[宜兴]]></item>
+	</item>
+	<item id="yiyang">
+		<item id="url"><![CDATA[http://yiyang.lashou.com]]></item>
+		<item id="city"><![CDATA[益阳]]></item>
+	</item>
+	<item id="yingkou">
+		<item id="url"><![CDATA[http://yingkou.lashou.com]]></item>
+		<item id="city"><![CDATA[营口]]></item>
+	</item>
+	<item id="yingtan">
+		<item id="url"><![CDATA[http://yingtan.lashou.com]]></item>
+		<item id="city"><![CDATA[鹰潭]]></item>
+	</item>
+	<item id="yongcheng">
+		<item id="url"><![CDATA[http://yongcheng.lashou.com]]></item>
+		<item id="city"><![CDATA[永城]]></item>
+	</item>
+	<item id="yongkang">
+		<item id="url"><![CDATA[http://yongkang.lashou.com]]></item>
+		<item id="city"><![CDATA[永康]]></item>
+	</item>
+	<item id="yuhang">
+		<item id="url"><![CDATA[http://yuhang.lashou.com]]></item>
+		<item id="city"><![CDATA[余杭]]></item>
+	</item>
+	<item id="yuyao">
+		<item id="url"><![CDATA[http://yuyao.lashou.com]]></item>
+		<item id="city"><![CDATA[余姚]]></item>
+	</item>
+	<item id="yulinsx">
+		<item id="url"><![CDATA[http://yulinsx.lashou.com]]></item>
+		<item id="city"><![CDATA[榆林]]></item>
+	</item>
+	<item id="yushu">
+		<item id="url"><![CDATA[http://yushu.lashou.com]]></item>
+		<item id="city"><![CDATA[榆树]]></item>
+	</item>
+	<item id="yuxi">
+		<item id="url"><![CDATA[http://yuxi.lashou.com]]></item>
+		<item id="city"><![CDATA[玉溪]]></item>
+	</item>
+	<item id="yuzhou">
+		<item id="url"><![CDATA[http://yuzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[禹州]]></item>
+	</item>
+	<item id="yueyang">
+		<item id="url"><![CDATA[http://yueyang.lashou.com]]></item>
+		<item id="city"><![CDATA[岳阳]]></item>
+	</item>
+	<item id="yunfu">
+		<item id="url"><![CDATA[http://yunfu.lashou.com]]></item>
+		<item id="city"><![CDATA[云浮]]></item>
+	</item>
+	<item id="zhengzhou">
+		<item id="url"><![CDATA[http://zhengzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[郑州]]></item>
+	</item>
+	<item id="zhanjiang">
+		<item id="url"><![CDATA[http://zhanjiang.lashou.com]]></item>
+		<item id="city"><![CDATA[湛江]]></item>
+	</item>
+	<item id="zhangzhou">
+		<item id="url"><![CDATA[http://zhangzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[漳州]]></item>
+	</item>
+	<item id="zhenjiang">
+		<item id="url"><![CDATA[http://zhenjiang.lashou.com]]></item>
+		<item id="city"><![CDATA[镇江]]></item>
+	</item>
+	<item id="zhongshan">
+		<item id="url"><![CDATA[http://zhongshan.lashou.com]]></item>
+		<item id="city"><![CDATA[中山]]></item>
+	</item>
+	<item id="zhoushan">
+		<item id="url"><![CDATA[http://zhoushan.lashou.com]]></item>
+		<item id="city"><![CDATA[舟山]]></item>
+	</item>
+	<item id="zhuzhou">
+		<item id="url"><![CDATA[http://zhuzhou.lashou.com]]></item>
+		<item id="city"><![CDATA[株洲]]></item>
+	</item>
+	<item id="zhuhai">
+		<item id="url"><![CDATA[http://zhuhai.lashou.com]]></item>
+		<item id="city"><![CDATA[珠海]]></item>
+	</item>
+	<item id="zhuozhou">
+		<item id="url"><![CDATA[http://zhuozhou.lashou.com]]></item>
+		<item id="city"><![CDATA[涿州]]></item>
+	</item>
+	<item id="zibo">
+		<item id="url"><![CDATA[http://zibo.lashou.com]]></item>
+		<item id="city"><![CDATA[淄博]]></item>
+	</item>
+	<item id="zaozhuang">
+		<item id="url"><![CDATA[http://zaozhuang.lashou.com]]></item>
+		<item id="city"><![CDATA[枣庄]]></item>
+	</item>
+	<item id="zengcheng">
+		<item id="url"><![CDATA[http://zengcheng.lashou.com]]></item>
+		<item id="city"><![CDATA[增城]]></item>
+	</item>
+	<item id="zhangjiagang">
+		<item id="url"><![CDATA[http://zhangjiagang.lashou.com]]></item>
+		<item id="city"><![CDATA[张家港]]></item>
+	</item>
+	<item id="zhangjiajie">
+		<item id="url"><![CDATA[http://zhangjiajie.lashou.com]]></item>
+		<item id="city"><![CDATA[张家界]]></item>
+	</item>
+	<item id="zhangjiakou">
+		<item id="url"><![CDATA[http://zhangjiakou.lashou.com]]></item>
+		<item id="city"><![CDATA[张家口]]></item>
+	</item>
+	<item id="zhangyi">
+		<item id="url"><![CDATA[http://zhangyi.lashou.com]]></item>
+		<item id="city"><![CDATA[张掖]]></item>
+	</item>
+	<item id="zhangshu">
+		<item id="url"><![CDATA[http://zhangshu.lashou.com]]></item>
+		<item id="city"><![CDATA[樟树]]></item>
+	</item>
+	<item id="zhangqiu">
+		<item id="url"><![CDATA[http://zhangqiu.lashou.com]]></item>
+		<item id="city"><![CDATA[章丘]]></item>
+	</item>
+	<item id="zhaotong">
+		<item id="url"><![CDATA[http://zhaotong.lashou.com]]></item>
+		<item id="city"><![CDATA[昭通]]></item>
+	</item>
+	<item id="zhaoqing">
+		<item id="url"><![CDATA[http://zhaoqing.lashou.com]]></item>
+		<item id="city"><![CDATA[肇庆]]></item>
+	</item>
+	<item id="zhenyuan">
+		<item id="url"><![CDATA[http://zhenyuan.lashou.com]]></item>
+		<item id="city"><![CDATA[镇远]]></item>
+	</item>
+	<item id="zhongwei">
+		<item id="url"><![CDATA[http://zhongwei.lashou.com]]></item>
+		<item id="city"><![CDATA[中卫]]></item>
+	</item>
+	<item id="zhoukou">
+		<item id="url"><![CDATA[http://zhoukou.lashou.com]]></item>
+		<item id="city"><![CDATA[周口]]></item>
+	</item>
+	<item id="zhucheng">
+		<item id="url"><![CDATA[http://zhucheng.lashou.com]]></item>
+		<item id="city"><![CDATA[诸城]]></item>
+	</item>
+	<item id="zhuji">
+		<item id="url"><![CDATA[http://zhuji.lashou.com]]></item>
+		<item id="city"><![CDATA[诸暨]]></item>
+	</item>
+	<item id="zhumadian">
+		<item id="url"><![CDATA[http://zhumadian.lashou.com]]></item>
+		<item id="city"><![CDATA[驻马店]]></item>
+	</item>
+	<item id="zhuanghe">
+		<item id="url"><![CDATA[http://zhuanghe.lashou.com]]></item>
+		<item id="city"><![CDATA[庄河]]></item>
+	</item>
+	<item id="zigong">
+		<item id="url"><![CDATA[http://zigong.lashou.com]]></item>
+		<item id="city"><![CDATA[自贡]]></item>
+	</item>
+	<item id="zunhua">
+		<item id="url"><![CDATA[http://zunhua.lashou.com]]></item>
+		<item id="city"><![CDATA[遵化]]></item>
+	</item>
+	<item id="zunyi">
+		<item id="url"><![CDATA[http://zunyi.lashou.com]]></item>
+		<item id="city"><![CDATA[遵义]]></item>
+	</item>
+</root>

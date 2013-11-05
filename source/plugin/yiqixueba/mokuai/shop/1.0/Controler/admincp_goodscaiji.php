@@ -3,143 +3,157 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
 
+require_once libfile('class/xml');
 $subops = array('list','edit');
 $subop = in_array($subop,$subops) ? $subop : $subops[0];
+$city = getgpc('city');
+$citypage = getgpc('citypage');
+$lashoucitys = getlashoucity();
 
-//$lashoucitys = getlashoucity();
-//getlashoupage($url)
-$url = 'http://anqing.lashou.com';
-$deallink = getdeallink($url);
-		$url = 'http://anqing.lashou.com/deal/'.$deallink[5].'.html';
-		$goodslist_text = file_get_contents($url);
-		$gp0 = explode('<div id="main">',$goodslist_text);
-		$gp1 = explode('<div class="sort" id="offline_sort" style="display:none">',$gp0[1]);
-		preg_match_all('|<a href="/cate.*</a>|',$gp1[0],$rsT);
-		foreach($rsT as $k1=>$v1 ){
-			foreach($v1 as $k2=>$v2 ){
-				$gp2 = explode('title="',$v2);
-				$gp3 = explode('/',trim(str_replace('"','',str_replace('<a href="/cate/','',$gp2[0]))));
-				$gp4 = explode('">',trim($gp2[1]));
-				if($gp3[0] =='all' && $gp3[1]){
-					$data['diqu']['name'] = str_replace('-all','',$gp3[1]);
-					$data['diqu']['title'] = trim($gp4[0]);
-				}else{
-					$data['fenlei'][] = array('name'=>trim($gp3[0]),'title'=>trim($gp4[0]));
+$cityxmlfile = MOKUAI_DIR.'/shop/1.0/Data/lashou_citys.xml';
+$citys = xml2array(file_get_contents($cityxmlfile));
+
+$city_select = '<select name="city">';
+$kk=0;
+foreach($lashoucitys as $k=>$v ){
+	if($kk==0 && !$city){
+		$city = $k;
+	}
+	$city_select .= '<option value="'.$k.'"'.($city ==$k ? ' selected' : '').'>'.$v['city'].'</option>';
+	$kk++;
+}
+$city_select .= '</select>';
+
+$goodsxmlfile = MOKUAI_DIR.'/shop/1.0/Data/lashou_'.$city.'.xml';
+$goodss = xml2array(file_get_contents($goodsxmlfile));
+$goodspages = getlashoupage($city);
+$citypage = $citypage ? $citypage : 1;
+$load_page0 = explode('&citypage=',$this_page);
+$load_page = $_G['siteurl'].ADMINSCRIPT."?action=".$load_page0[0];
+$page = max(1, $_G['page']);
+$prepage = 20;
+if($subop == 'list') {
+	if(getgpc('caiji')){
+
+		if(!$citys[$city]['temppage']){
+			$citys[$city]['temppage'] = $citypage;
+			file_put_contents ($cityxmlfile,diconv(array2xml($citys, 1),"UTF-8", $_G['charset']."//IGNORE"));
+		}
+		if($citys[$city]['temppage'] != $goodspages){
+			$citys[$city]['temppage'] = $citypage;
+			file_put_contents ($cityxmlfile,diconv(array2xml($citys, 1),"UTF-8", $_G['charset']."//IGNORE"));
+			$goodss = getpagelink($city,$citypage);
+			file_put_contents ($goodsxmlfile,diconv(array2xml($goodss, 1),"UTF-8", $_G['charset']."//IGNORE"));
+
+			cpmsg(lang('plugin/yiqixueba','goods_caiji_page').$lashoucitys[$city]['city'].'&nbsp;&nbsp;'.$citypage.'&nbsp;&nbsp;('.$citypage.'/'.$goodspages.')', $load_page."&city=".$city."&citypage=".($citypage+1).'&caiji=yes','loading', array('volume' => $volume));
+
+		}else{
+			$curid = '';
+			$num = 0;
+			foreach($goodss as $k=>$v ){
+				if(!$v['caiji']){
+					$curid = $k;
+					$num++;
 				}
 			}
-		}
-		$gp5 = explode('<span class="right">',$gp1[0]);
-		$gp6 = explode('</span',$gp5[1]);
-		$data['title'] = $gp6[0];
+			if($curid){
+				$curxmlfile = round((count($goodss)-$num)/300);
+				$goodss[$curid]['caiji'] = 1;
+				$goodss[$curid]['curxmlfile'] = $curxmlfile;
+				$goodslistxmlfile = MOKUAI_DIR.'/shop/1.0/Data/lashou_'.$city.'_'.$curxmlfile.'.xml';
+				$goodslist = xml2array(file_get_contents($goodslistxmlfile));
+				$goodslist[$curid] = getgoodscomment($curid);
+				file_put_contents ($goodsxmlfile,diconv(array2xml($goodss, 1),"UTF-8", $_G['charset']."//IGNORE"));
+				file_put_contents ($goodslistxmlfile,diconv(array2xml($goodslist, 1),"UTF-8", $_G['charset']."//IGNORE"));
 
-		$gp7 = explode('<div class="deal-intro">',$gp1[1]);
-		$gp8 = explode('<div class="deal-content">',$gp7[1]);
-		$data['subtitle'] = trim($gp8[0]);
-		$gp9 = explode('<p class="deal-price"><span>&yen;</span>',$gp8[1]);
-		$gp10 = explode('</p>',$gp9[1]);
-		$data['price'] = $gp10[0];
-		$gp11 = explode('<del class="left">&yen;',$gp10[1]);
-		$gp12 = explode('</del>',$gp11[1]);
-		$data['oldprice'] = $gp12[0];
-		$gp13 = explode('<div class="deal-time" time="',$gp8[1]);
-		$gp14 = explode('" id="time_over">',$gp13[1]);
-		$data['deal-time'] = $gp14[0];
-		$gp15 = explode('<ul class="com_adr ">',$gp8[1]);
-		$gp16 = explode('</ul>',$gp15[1]);
-		$gp17 = explode('=',$gp16[0]);
-		foreach($gp17 as $k2=>$v2 ){
-			//dump($v2);
-			if(substr($v2,0,7) == '"/shop/'){
-				$data['shoplink'] = str_replace('.html" class','',str_replace('"/shop/','',$v2));
+				cpmsg(lang('plugin/yiqixueba','goods_caiji_ing').$lashoucitys[$city]['city'].'&nbsp;&nbsp;'.$goodslist[$curid]['title'].'&nbsp;&nbsp;('.(count($goodss)-$num).'/'.count($goodss).')', $load_page."&city=".$city.'&caiji=yes','loading', array('volume' => $volume));
 
-			}elseif(substr($v2,0,7) == '"link">'){
-				$data['shopname'] = substr($v2,7,stripos($v2,'</a>')-7);
-			}elseif(substr($v2,0,19) == '"showmapwindow(\'0\','){
-				$gp18 = explode(',',$v2);
-				$data['shopditu']['x'] = str_replace("'",'',$gp18[1]);
-				$data['shopditu']['y'] = str_replace("'",'',$gp18[2]);
 			}
 		}
-		$gp19 = explode('<div class="prodetail" id="deal_lazyload">',$gp8[1]);
-		$gp20 = explode('<div id="detail-tag06" class="detail-buy">',$gp19[1]);
-		$data['comment'] = trim($gp20[0]);
-
-dump($data);
-//dump($gp20[0]);
-//dump($gp8[1]);
-
-if($subop == 'list') {
+	}
 	if(!submitcheck('submit')) {
+		if(count($goodss)>0){
+			$multipage = multi(count($goodss), $prepage, $page, ADMINSCRIPT."?action=".$this_page."&page=".$page);
+		}
 		showtips(lang('plugin/yiqixueba','goodscaiji_list_tips'));
 		showformheader($this_page.'&subop=list');
+		showtableheader('search');
+		echo '<tr><td>';
+		echo $city_select;
+		echo "&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=list&city=".$city."&caiji=yes\" target=\"_blank\">".lang('plugin/yiqixueba','lashou_goods_caiji')."</a>";
+		echo "&nbsp;&nbsp;<input class=\"btn\" type=\"submit\" value=\"$lang[search]\" /></td></tr>";
+		showtablefooter();
 		showtableheader(lang('plugin/yiqixueba','goodscaiji_list'));
-		showsubtitle(array('', lang('plugin/yiqixueba','goodscaijiname'),lang('plugin/yiqixueba','goodscaijititle'),lang('plugin/yiqixueba','goodscaijisort'),lang('plugin/yiqixueba','createtime'),lang('plugin/yiqixueba','status'),''));
+		showsubtitle(array('', lang('plugin/yiqixueba','goodsimg'),lang('plugin/yiqixueba','goodstitle'),lang('plugin/yiqixueba','goodsprice'),lang('plugin/yiqixueba','goodscaijisort'),lang('plugin/yiqixueba','dealtime'),lang('plugin/yiqixueba','shopname'),''));
+		$goodss_row = array_slice($goodss,count($goodss)-($page)*$prepage + 1,$prepage,true);
+		foreach($goodss_row as $k=>$row ){
+			if(!$goodslist_row[$row['curxmlfile']]){
+				$goodslist_row[$row['curxmlfile']] = xml2array(file_get_contents( MOKUAI_DIR.'/shop/1.0/Data/lashou_'.$city.'_'.$row['curxmlfile'].'.xml'));
+			}
+			$sort_text = '';
+			foreach($goodslist_row[$row['curxmlfile']][$k]['fenlei'] as $ks=>$vs ){
+				$sort_text .= '&nbsp;&nbsp;'.$vs['title'];
+			}
+			showtablerow('', array('class="td25"','class="td25"', 'class="td28"', 'class="td29"','class="td28"'), array(
+				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$k\" />",
+				'<a href="http://'.$city.'.lashou.com/deal/'.$k.'.html" target="_blank"><img src="'.$goodslist_row[$row['curxmlfile']][$k]['img'].'" width="110" height="70"/></a>',
+				'<span class="bold">'.$goodslist_row[$row['curxmlfile']][$k]['title'].'</span>',
+				$goodslist_row[$row['curxmlfile']][$k]['price'].'/'.$goodslist_row[$row['curxmlfile']][$k]['oldprice'],
+				$sort_text,
+				dgmdate($goodslist_row[$row['curxmlfile']][$k]['deal-time'],'d'),
+				$goodslist_row[$row['curxmlfile']][$k]['shopname'],
 
-		foreach($goodscaijis_row as $k=>$row ){
-			showtablerow('', array('class="td25"', 'class="td28"', 'class="td29"','class="td28"'), array(
-				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$row[goodscaijiid]\" />",
-				'<span class="bold">'.$row['goodscaijiname'].'</span>',
-				$row['goodscaijititle'],
-				$row['goodscaijisort'],
-				dgmdate($row['createtime'],'d'),
-				"<input class=\"checkbox\" type=\"checkbox\" name=\"statusnew[".$row['goodscaijiid']."]\" value=\"1\" ".($row['status'] > 0 ? 'checked' : '').">",
-				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=edit&goodscaijiid=$row[goodscaijiid]\" >".lang('plugin/yiqixueba','edit')."</a>",
+				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=edit&oldid=$k\" >".lang('plugin/yiqixueba','edit')."</a>",
 			));
 		}
-		echo '<tr><td></td><td colspan="4"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=edit" class="addtr" >'.lang('plugin/yiqixueba','add_new_goodscaiji').'</a></div></td></tr>';
-		echo '<tr><td></td><td colspan="4"><div><a href="###" onclick="addrow(this, 0, 0)" class="addtr">'.lang('plugin/yiqixueba','add_base_goodscaiji').'</a></div></td></tr>';
-		showsubmit('submit', 'submit', 'del');
+		showsubmit('submit', 'submit', 'del','',$multipage);
 		showtablefooter();
 		showformfooter();
-		echo <<<EOT
-<script type="text/JavaScript">
-	var rowtypedata = [
-		[[1, '', 'td25'], [1,'<input name="newdisplayorder[]" value="0" size="3" type="text" class="txt">', 'td25'],[1, '<input name="newnode[]" value="" size="15" type="text">'],[1, '<input name="newtitle[]" value="" size="15" type="text">'],[4,'']],
-	];
-</script>
-EOT;
 	}else{
-		if($_GET['delete']) {
-			C::t(GM('shop_goodscaiji'))->delete($_GET['delete']);
-		}
-		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		cpmsg(lang('plugin/yiqixueba','edit_goodscaiji_succeed'), 'action='.$this_page.'&subop=goodscaijilist', 'succeed');
 	}
 
 }elseif($subop == 'edit') {
+	$oldid = getgpc('oldid');
+	$goodsinfo = xml2array(file_get_contents(MOKUAI_DIR.'/shop/1.0/Data/lashou_'.$city.'_'.$goodss[$oldid]['curxmlfile'].'.xml'));
+	$goodssorts = api_indata('server_goodssort');
+	$goodssorts = array_sort($goodssorts,'displayorder');
+	foreach ( $goodssorts as $k => $v ){
+		if($v['sortupid']==0){
+			foreach ($goodssorts  as $k1 => $v1 ){
+				if($v1['sortupid'] == $v['sortname']){
+					$gsort[$v1['sortname']] = $v['sorttitle'].'--'.$v1['sorttitle'];
+				}
+			}
+		}
+	}
+	$goodssort_select = '<select name="goodssort">';
+	foreach ( $gsort as $k => $v ){
+		$goodssort_select .= '<option value="'.$k.'" '.($goods_info['goodssort'] == $k ? ' selected':'').'>'.$v.'</option>';
+	}
+	$goodssort_select .= '';
+	foreach($goodsinfo[$oldid]['fenlei'] as $ks=>$vs ){
+		$sort_text .= '&nbsp;&nbsp;'.$vs['title'];
+	}
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','edit_goodscaiji_tips'));
 		showformheader($this_page.'&subop=edit','enctype');
 		showtableheader(lang('plugin/yiqixueba','goodscaiji_option'));
-		$images = '';
-		if($goodscaiji_info['goodscaijiimages']!='') {
-			$images = str_replace('{STATICURL}', STATICURL, $goodscaiji_info['goodscaijiimages']);
-			if(!preg_match("/^".preg_quote(STATICURL, '/')."/i", $images) && !(($valueparse = parse_url($images)) && isset($valueparse['host']))) {
-				$images = $_G['setting']['attachurl'].'common/'.$goodscaiji_info['goodscaijiimages'].'?'.random(6);
-			}
-			$imageshtml = '<br /><label><input type="checkbox" class="checkbox" name="delete" value="yes" /> '.$lang['del'].'</label><br /><img src="'.$images.'" width="40" height="40"/>';
-		}
-		$goodscaijiid ? showhiddenfields(array('goodscaijiid'=>$goodscaijiid)) : '';
-		showsetting(lang('plugin/yiqixueba','goodscaijistatus'),'status',$goodscaiji_info['status'],'radio','',0,lang('plugin/yiqixueba','goodscaijistatus_comment'),'','',true);//radio
+		showhiddenfields(array('goodscaijiid'=>$oldid));
+		showsetting(lang('plugin/yiqixueba','goodscaijistatus'),'status',$goodsinfo[$oldid]['status'],'radio','',0,lang('plugin/yiqixueba','goodscaijistatus_comment'),'','',true);//radio
 
-		showsetting(lang('plugin/yiqixueba','goodscaijiname'),'goodscaijiname',$goodscaiji_info['goodscaijiname'],'text',$goodscaijiid ?'readonly':'',0,lang('plugin/yiqixueba','goodscaijiname_comment'),'','',true);//text password number color
+		showsetting(lang('plugin/yiqixueba','goodscaijiname'),'goodscaijiname',$goodsinfo[$oldid]['title'],'text','',0,lang('plugin/yiqixueba','goodscaijiname_comment'),'','',true);//text password number color
 
-		showsetting(lang('plugin/yiqixueba','goodscaijititle'),'goodscaijititle',$goodscaiji_info['goodscaijititle'],'textarea','',0,lang('plugin/yiqixueba','goodscaijititle_comment'),'','',true);//textarea
+		showsetting(lang('plugin/yiqixueba','price'),'price',$goodsinfo[$oldid]['oldprice'],'text','',0,lang('plugin/yiqixueba','price_comment'),'','',true);//price
+
+		showsetting(lang('plugin/yiqixueba','newprice'),'newprice',$goodsinfo[$oldid]['price'],'text','',0,lang('plugin/yiqixueba','newprice_comment'),'','',true);
 
 		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
-		showsetting(lang('plugin/yiqixueba','createtime'),'createtime',dgmdate($goodscaiji_info['createtime'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
+		showsetting(lang('plugin/yiqixueba','dealtime'),'dealtime',dgmdate($goodsinfo[$oldid]['deal-time'],'dt'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
 
-		showsetting(lang('plugin/yiqixueba','goodscaijisort'),array('goodscaijisort', array(
-			array(0, lang('plugin/yiqixueba','goodscaijisort').'1'),
-			array(1, lang('plugin/yiqixueba','goodscaijisort').'2'),
-			array(2, lang('plugin/yiqixueba','goodscaijisort').'3'),
-			array(3, lang('plugin/yiqixueba','goodscaijisort').'4')
-		)),$goodscaiji_info['goodscaijisort'],'select','',0,lang('plugin/yiqixueba','goodscaijisort_comment'),'','',true);//select  mradio mcheckbox mselect (binmcheckbox)
+		showsetting(lang('plugin/yiqixueba','goodssort'),'','',$goodssort_select,'',0,lang('plugin/yiqixueba','goodssort_comment').$sort_text,'','',true);
 
 
-		showsetting(lang('plugin/yiqixueba','goodscaijiimages'),'goodscaijiimages',$goodscaiji_info['goodscaijiimages'],'file','',0,lang('plugin/yiqixueba','goodscaijiimages_comment').$imageshtml,'','',true);//file filetext
-
-		showsetting(lang('plugin/yiqixueba','imagessize'), array('imagewidth', 'imageheight'), array(intval($imagewidth), intval($imageheight)), 'multiply','',0,lang('plugin/yiqixueba','imagessize_comment'),'','',true);//multiply daterange
+		showsetting(lang('plugin/yiqixueba','goodscaijiimages'),'','','<img src="'.$goodsinfo[$oldid]['img'].'" width="330" height="210"/>','',0,lang('plugin/yiqixueba','goodscaijiimages_comment'),'','',true);//file filetext
 
 		showtablefooter();
 		showtableheader(lang('plugin/yiqixueba','description').':');
@@ -149,7 +163,7 @@ EOT;
 		echo '<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/plugins/code/prettify.css" />';
 		echo '<script src="source/plugin/yiqixueba/template/kindeditor/lang/zh_CN.js" type="text/javascript"></script>';
 		echo '<script src="source/plugin/yiqixueba/template/kindeditor/prettify.js" type="text/javascript"></script>';
-		echo '<textarea name="goodscaijidescription" style="width:700px;height:200px;visibility:hidden;">'.$goodscaiji_info['description'].'</textarea>';
+		echo '<textarea name="goodscaijidescription" style="width:800px;height:900px;visibility:hidden;">'.$goodsinfo[$oldid]['comment'].'</textarea>';
 		echo '</td></tr>';
 		showsubmit('submit');
 		showtablefooter();

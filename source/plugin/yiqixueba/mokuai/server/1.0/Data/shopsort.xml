@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="1">
+		<item id="shopsortid"><![CDATA[1]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[clothhover]]></item>
+		<item id="sorttitle"><![CDATA[餐饮]]></item>
+		<item id="sortlevel"><![CDATA[1]]></item>
+		<item id="sortupid"><![CDATA[0]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="upids"><![CDATA[0]]></item>
+	</item>
+	<item id="2">
+		<item id="shopsortid"><![CDATA[2]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[foothover]]></item>
+		<item id="sorttitle"><![CDATA[娱乐]]></item>
+		<item id="sortlevel"><![CDATA[1]]></item>
+		<item id="sortupid"><![CDATA[0]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="9">
+		<item id="shopsortid"><![CDATA[9]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[peishihover]]></item>
+		<item id="sorttitle"><![CDATA[服装]]></item>
+		<item id="sortlevel"><![CDATA[1]]></item>
+		<item id="sortupid"><![CDATA[0]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="3">
+		<item id="shopsortid"><![CDATA[3]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[chuancai]]></item>
+		<item id="sorttitle"><![CDATA[川菜]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[1]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="10">
+		<item id="shopsortid"><![CDATA[10]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[homehover]]></item>
+		<item id="sorttitle"><![CDATA[箱包]]></item>
+		<item id="sortlevel"><![CDATA[1]]></item>
+		<item id="sortupid"><![CDATA[0]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="8">
+		<item id="shopsortid"><![CDATA[8]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[ktv]]></item>
+		<item id="sorttitle"><![CDATA[KTV]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[2]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="7">
+		<item id="shopsortid"><![CDATA[7]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[lucai]]></item>
+		<item id="sorttitle"><![CDATA[鲁菜]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[1]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="11">
+		<item id="shopsortid"><![CDATA[11]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[washhover]]></item>
+		<item id="sorttitle"><![CDATA[家居]]></item>
+		<item id="sortlevel"><![CDATA[1]]></item>
+		<item id="sortupid"><![CDATA[0]]></item>
+		<item id="displayorder"><![CDATA[4]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="12">
+		<item id="shopsortid"><![CDATA[12]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[facehover]]></item>
+		<item id="sorttitle"><![CDATA[化妆]]></item>
+		<item id="sortlevel"><![CDATA[1]]></item>
+		<item id="sortupid"><![CDATA[0]]></item>
+		<item id="displayorder"><![CDATA[5]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="13">
+		<item id="shopsortid"><![CDATA[13]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[foodhover]]></item>
+		<item id="sorttitle"><![CDATA[数码]]></item>
+		<item id="sortlevel"><![CDATA[1]]></item>
+		<item id="sortupid"><![CDATA[0]]></item>
+		<item id="displayorder"><![CDATA[6]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="14">
+		<item id="shopsortid"><![CDATA[14]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[zizhucan]]></item>
+		<item id="sorttitle"><![CDATA[自助餐]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[1]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="15">
+		<item id="shopsortid"><![CDATA[15]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[tongzhuang]]></item>
+		<item id="sorttitle"><![CDATA[童装]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[9]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="16">
+		<item id="shopsortid"><![CDATA[16]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[yimao]]></item>
+		<item id="sorttitle"><![CDATA[衣帽]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[9]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="17">
+		<item id="shopsortid"><![CDATA[17]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[dianying]]></item>
+		<item id="sorttitle"><![CDATA[电影]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[2]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="18">
+		<item id="shopsortid"><![CDATA[18]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[sheying]]></item>
+		<item id="sorttitle"><![CDATA[摄影写真]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[12]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="19">
+		<item id="shopsortid"><![CDATA[19]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[jiajuriyong]]></item>
+		<item id="sorttitle"><![CDATA[家居日用]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[11]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+	<item id="20">
+		<item id="shopsortid"><![CDATA[20]]></item>
+		<item id="upmokuai"><![CDATA[0]]></item>
+		<item id="sortname"><![CDATA[spcj]]></item>
+		<item id="sorttitle"><![CDATA[视频茶酒]]></item>
+		<item id="sortlevel"><![CDATA[2]]></item>
+		<item id="sortupid"><![CDATA[1]]></item>
+		<item id="displayorder"><![CDATA[4]]></item>
+		<item id="upids"><![CDATA[]]></item>
+	</item>
+</root>
