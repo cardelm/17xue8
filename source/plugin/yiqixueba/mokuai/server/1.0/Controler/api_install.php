@@ -18,11 +18,20 @@ if(!$site_info){
 	$data['installtime'] = time();
 	C::t(GM('server_site'))->insert($data);
 }
+
+$site_info = C::t(GM('server_site'))->fetch($indata['siteurl']);
+$outdata['sitekey'] = $site_info['sitekey'];
+
 require_once libfile('class/xml');
-
+update_sitegroup();
 $sitegroups = xml2array(file_get_contents(MOKUAI_DIR."/sitegroups.xml"));
+$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
 
-$outdata['mokuais'] = $sitegroups[$indata['sitegroup']]['installmokuai'];//从安装文件中的用户组得到安装初始模块
+
+$outdata['mokuaisi'] = $sitegroups[$indata['sitegroup']]['installmokuai'];
+$outdata['mokuais'] = $sitegroups[$indata['sitegroup']]['upgrademokuai'];
+$outdata['nodes'] = $sitegroups[$indata['sitegroup']]['nodes'];
+
 
 foreach ($sitegroups[$indata['sitegroup']]['nodes']  as $k => $v ){
 	list($m,$t,$n) = explode("_",$v);
@@ -39,9 +48,9 @@ foreach ($sitegroups[$indata['sitegroup']]['menus']  as $k => $v ){
 				$mk3 = random(10);
 				list($m,$t,$n) = explode("_",$v3['modfile']);
 				if(in_array($m,$sitegroups[$indata['sitegroup']]['installmokuai'])){
-					$outdata['menus'][$k][$mk1]['title'] = $v1['title'];
+					$outdata['menus'][$k][$mk1]['title'] = diconv($v1['title'],"UTF-8", $indata['charset']."//IGNORE");
 					$outdata['menus'][$k][$mk1]['displayorder'] = $v1['displayorder'];
-					$outdata['menus'][$k][$mk1]['submenu'][$mk3]['title'] = $v3['title'];
+					$outdata['menus'][$k][$mk1]['submenu'][$mk3]['title'] = diconv($v3['title'],"UTF-8", $indata['charset']."//IGNORE");
 					$outdata['menus'][$k][$mk1]['submenu'][$mk3]['displayorder'] = $v3['displayorder'];
 					$outdata['menus'][$k][$mk1]['submenu'][$mk3]['modfile'] = $v3['modfile'];
 				}

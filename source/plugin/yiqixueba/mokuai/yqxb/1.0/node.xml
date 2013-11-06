@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
-	<item id="admincp_index">
-		<item id="title"><![CDATA[学吧首页]]></item>
+	<item id="function">
+		<item id="title"><![CDATA[函数集]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
-		<item id="pages"><![CDATA[
-						]]></item>
-		<item id="template"><![CDATA[]]></item>
-		<item id="table"><![CDATA[]]></item>
-	</item>
-	<item id="ajax">
-		<item id="title"><![CDATA[]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[0]]></item>
 		<item id="table"><![CDATA[
 						]]></item>
 		<item id="template"><![CDATA[
@@ -21,9 +12,9 @@
 						]]></item>
 	</item>
 	<item id="api">
-		<item id="title"><![CDATA[]]></item>
+		<item id="title"><![CDATA[API]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[0]]></item>
 		<item id="table"><![CDATA[
 						]]></item>
 		<item id="template"><![CDATA[
@@ -31,15 +22,24 @@
 		<item id="pages"><![CDATA[
 						]]></item>
 	</item>
-	<item id="function">
-		<item id="title"><![CDATA[]]></item>
+	<item id="ajax">
+		<item id="title"><![CDATA[AJAX]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
-		<item id="menu"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[0]]></item>
 		<item id="table"><![CDATA[
 						]]></item>
 		<item id="template"><![CDATA[
 						]]></item>
 		<item id="pages"><![CDATA[
 						]]></item>
+	</item>
+	<item id="admincp_index">
+		<item id="title"><![CDATA[学吧首页]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="pages"><![CDATA[
+						]]></item>
+		<item id="template"><![CDATA[]]></item>
+		<item id="table"><![CDATA[]]></item>
 	</item>
 </root>

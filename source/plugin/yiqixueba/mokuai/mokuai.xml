@@ -11,6 +11,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="ico"><![CDATA[]]></item>
 				<item id="mokuaiinformation"><![CDATA[]]></item>
+				<item id="template"><![CDATA[0]]></item>
 			</item>
 		</item>
 		<item id="currentversion"><![CDATA[1.0]]></item>
@@ -20,7 +21,7 @@
 		<item id="displayorder"><![CDATA[1]]></item>
 		<item id="version">
 			<item id="1.0">
-				<item id="available"><![CDATA[1]]></item>
+				<item id="available"><![CDATA[0]]></item>
 				<item id="name"><![CDATA[服务端]]></item>
 				<item id="price"><![CDATA[50000]]></item>
 				<item id="description"><![CDATA[]]></item>
@@ -36,6 +37,12 @@
 		<item id="version">
 			<item id="1.0">
 				<item id="available"><![CDATA[0]]></item>
+				<item id="name"><![CDATA[商家联盟]]></item>
+				<item id="price"><![CDATA[1500]]></item>
+				<item id="template"><![CDATA[1]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="ico"><![CDATA[]]></item>
+				<item id="mokuaiinformation"><![CDATA[]]></item>
 			</item>
 		</item>
 		<item id="currentversion"><![CDATA[1.0]]></item>
@@ -46,6 +53,12 @@
 		<item id="version">
 			<item id="1.0">
 				<item id="available"><![CDATA[0]]></item>
+				<item id="name"><![CDATA[微信墙123]]></item>
+				<item id="price"><![CDATA[1500]]></item>
+				<item id="template"><![CDATA[1]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="ico"><![CDATA[]]></item>
+				<item id="mokuaiinformation"><![CDATA[]]></item>
 			</item>
 		</item>
 		<item id="currentversion"><![CDATA[1.0]]></item>
@@ -57,10 +70,11 @@
 			<item id="1.0">
 				<item id="available"><![CDATA[0]]></item>
 				<item id="name"><![CDATA[一卡通]]></item>
-				<item id="price"><![CDATA[]]></item>
+				<item id="price"><![CDATA[1500]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="ico"><![CDATA[]]></item>
 				<item id="mokuaiinformation"><![CDATA[]]></item>
+				<item id="template"><![CDATA[1]]></item>
 			</item>
 		</item>
 		<item id="currentversion"><![CDATA[1.0]]></item>
@@ -76,6 +90,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="ico"><![CDATA[]]></item>
 				<item id="mokuaiinformation"><![CDATA[]]></item>
+				<item id="template"><![CDATA[1]]></item>
 			</item>
 		</item>
 		<item id="currentversion"><![CDATA[1.0]]></item>
@@ -87,7 +102,17 @@
 			<item id="1.0">
 				<item id="available"><![CDATA[0]]></item>
 				<item id="name"><![CDATA[车友会]]></item>
-				<item id="price"><![CDATA[150]]></item>
+				<item id="price"><![CDATA[1500]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="ico"><![CDATA[]]></item>
+				<item id="mokuaiinformation"><![CDATA[]]></item>
+				<item id="template"><![CDATA[1]]></item>
+			</item>
+			<item id="2.0">
+				<item id="available"><![CDATA[0]]></item>
+				<item id="name"><![CDATA[车友会]]></item>
+				<item id="price"><![CDATA[]]></item>
+				<item id="template"><![CDATA[1]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="ico"><![CDATA[]]></item>
 				<item id="mokuaiinformation"><![CDATA[]]></item>

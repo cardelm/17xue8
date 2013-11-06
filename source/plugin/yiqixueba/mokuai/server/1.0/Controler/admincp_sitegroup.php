@@ -40,8 +40,10 @@ $sitegroups = array_sort($sitegroups,'displayorder');
 $sitegroupid = getgpc('sitegroupid');
 
 foreach($mokuais as $k=>$v ){
-	if(!in_array($k,array('main','server'))){
-		$mksettings[] = array($k,$v['name'].'V'.$v['currentversion']);
+	foreach($v['version'] as $k1=>$v1){
+		if($k != 'server' && !($k =='main' && $k1 == '1.0') ){
+			$mksettings[] = array($k.'_'.$k1,$v['name'].'V'.$k1);
+		}
 	}
 }
 
@@ -53,13 +55,15 @@ if($subop == 'sitegrouplist') {
 		showsubtitle(array('','display_order', lang('plugin/yiqixueba','sitegroup_id'),lang('plugin/yiqixueba','sitegroup_name'),lang('plugin/yiqixueba','sitegroup_access'),lang('plugin/yiqixueba','sitegroupmenu'),''));
 		foreach($sitegroups as $k=>$row ){
 			foreach($mokuais as $k1=>$v1 ){
-				if(in_array($k1,$row['installmokuai']) && $k1 != 'main' || in_array($k1,$row['upgrademokuai'] )){
-					if(in_array($k1,$row['installmokuai']) && in_array($k1,$row['upgrademokuai'])){
-						$mktext[$k] .= '<span class="bold">'.$v1['name'].'</span>';
-					}else{
-						$mktext[$k] .= $v1['name'];
+				foreach($v1['version'] as $k2=>$v2 ){
+					if(in_array($k1.'_'.$k2,$row['installmokuai']) && $k1.'_'.$k2 != 'main_1.0' || in_array($k1.'_'.$k2,$row['upgrademokuai'] )){
+						if(in_array($k1.'_'.$k2,$row['installmokuai']) && in_array($k1.'_'.$k2,$row['upgrademokuai'])){
+							$mktext[$k] .= '<span class="bold">'.$v1['name'].'V'.$k2.'</span>';
+						}else{
+							$mktext[$k] .= $v1['name'].'V'.$k2;
+						}
+						$mktext[$k] .= '&nbsp;&nbsp;';
 					}
-					$mktext[$k] .= '&nbsp;&nbsp;';
 				}
 			}
 			showtablerow('', array('class="td25"','class="td25"', 'style="width:100px"','style="width:100px"', 'valign="top" style="width:510px"','',''), array(
@@ -67,9 +71,9 @@ if($subop == 'sitegrouplist') {
 				"<input type=\"text\" class=\"txt\" size=\"2\" name=\"displayordernew[$k]\" value=\"".intval($row['displayorder'])."\">",
 				$k,
 				'<span class="bold">'.$row['name'].'</span>',
-				$k == $systemgroups[2] ? lang('plugin/yiqixueba','all_mokuai'):$mktext[$k],
+				in_array($k,$systemgroups) ? ($k != $systemgroups[0] ? lang('plugin/yiqixueba','all_mokuai') : lang('plugin/yiqixueba','no_mokuai')) : $mktext[$k],
 				$row['defaultmenu'] ? lang('plugin/yiqixueba','customize') : lang('plugin/yiqixueba','default'),
-				$k != $systemgroups[2] ? "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupmokuai&menus_type=$menus_type&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','sitegroupmokuai')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupnode&menus_type=$menus_type&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','sitegroupnode')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupmenu&menus_type=$menus_type&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','sitegroupmenu')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupexport&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','export')."</a>" : '',
+				(!in_array($k,$systemgroups) ? "<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupmokuai&menus_type=$menus_type&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','sitegroupmokuai')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupnode&menus_type=$menus_type&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','sitegroupnode')."</a>&nbsp;&nbsp;<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupmenu&menus_type=$menus_type&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','sitegroupmenu')."</a>&nbsp;&nbsp;" : '')."<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=sitegroupexport&sitegroupid=".$k."\" >".lang('plugin/yiqixueba','export')."</a>",
 			));
 		}
 		echo '<tr><td></td><td colspan="6"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=sitegroupmokuai" class="addtr" >'.lang('plugin/yiqixueba','add_sitegroup').'</a></div></td></tr>';
@@ -133,9 +137,9 @@ if($subop == 'sitegrouplist') {
 		}
 		$installmks = $_POST['installmokuai'];
 		if($installmks){
-			array_unshift($installmks,'main');
+			array_unshift($installmks,'main_1.0');
 		}else{
-			$installmks = array('main');
+			$installmks = array('main_1.0');
 		}
 		$sitegroups_temp = $sitegroups;
 		$sitegroups_temp[$sid]['name'] = $sitegroup_name;
@@ -175,8 +179,10 @@ if($subop == 'sitegrouplist') {
 		showtablefooter();
 		showtableheader(lang('plugin/yiqixueba','sitegroup_node_option'));
 		$initnodes = $sitegroups[$sitegroupid]['nodes'] ? 0 : 1;
+
 		foreach($enmokuais as $k=>$v ){
-			$nodes = xml2array(file_get_contents(MOKUAI_DIR.'/'.$v.'/'.$mokuais[$v]['currentversion'].'/node.xml'));
+			list($mk,$ver) = explode("_",$v);
+			$nodes = xml2array(file_get_contents(MOKUAI_DIR.'/'.$mk.'/'.$ver.'/node.xml'));
 			$sitegroupnodes = array();
 			foreach($nodes as $k1=>$v1){
 				list($k2,$v2) = explode('_',$k1);
@@ -188,7 +194,7 @@ if($subop == 'sitegrouplist') {
 			if($v == 'shop'){
 				$shoptemp_s = 'yes';
 			}
-			showsetting($mokuais[$v]['name'].'-V'.$mokuais[$v]['currentversion'],array('nodes',$sitegroupnodes),$sitegroups[$sitegroupid]['nodes'],'mcheckbox','',0,'','','',true);
+			showsetting($mokuais[$mk]['name'].'-V'.$ver,array('nodes',$sitegroupnodes),$sitegroups[$sitegroupid]['nodes'],'mcheckbox','',0,'','','',true);
 
 		}
 		if($shoptemp_s == 'yes'){
@@ -422,12 +428,12 @@ EOT;
 }elseif ($subop == 'sitegroupexport'){
 	$install_file = MOKUAI_DIR.'/'.diconv($sitegroups[$sitegroupid]['name'],$_G['charset'], "gb2312//IGNORE").'_install.php';
 	$install_text = "<?php\nif(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {\n\texit('Access Denied');\n}\n\nif(fsockopen('localhost', 80)){\n\t\$installdata = array();\n\trequire_once DISCUZ_ROOT.'/source/discuz_version.php';\n\t\$installdata['sitegroup'] = '$sitegroupid';\n\t\$installdata['charset'] = \$_G['charset'];\n\t\$installdata['clientip'] = \$_G['clientip'];\n\t\$installdata['siteurl'] = \$_G['siteurl'];\n\t\$installdata['version'] = DISCUZ_VERSION.'-'.DISCUZ_RELEASE.'-'.DISCUZ_FIXBUG;\n\t\$installdata = serialize(\$installdata);\n\t\$installdata = base64_encode(\$installdata);\n\t\$api_url = '".$_G['siteurl']."plugin.php?id=yiqixueba:api&apiaction=server_install&indata='.\$installdata.'&sign='.md5(md5(\$installdata));\n\t\$xml = @file_get_contents(\$api_url);\n\trequire_once libfile('class/xml');\n\t\$outdata = is_array(xml2array(\$xml)) ? xml2array(\$xml) : \$xml;\n}else{\n\texit(lang('plugin/yiqixueba','check_connection'));\n}\n?>";
-	//file_put_contents($install_file,$install_text);
+	file_put_contents($install_file,$install_text);
 
 	if($sitegroups[$sitegroupid]['defaultmenu']){
-		dump($sitegroups[$sitegroupid]['cmenus']);
+		//dump($sitegroups[$sitegroupid]['cmenus']);
 	}else{
-		dump($sitegroups[$sitegroupid]['menus']);
+		//dump($sitegroups[$sitegroupid]['menus']);
 	}
 
 

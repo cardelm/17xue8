@@ -222,6 +222,41 @@ function getmokuailang($biaoshi,$version,$pagename){
 	return $lang_arr;
 }
 
+//升级站长组
+function update_sitegroup(){
+	global $_G;
+	require_once libfile('class/xml');
+	$systemgroups = array('ViI7m2R9QM','QiMzl6m9o6','DAxEAvi2ie');
+	$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+	$sitegroups = $sitegroups_temp = xml2array(file_get_contents(MOKUAI_DIR."/sitegroups.xml"));
+	foreach($systemgroups as $k=>$v ){
+		unset($sitegroups_temp[$v]['installmokuai']);
+		unset($sitegroups_temp[$v]['upgrademokuai']);
+		unset($sitegroups_temp[$v]['nodes']);
+		$sitegroups_temp[$v]['installmokuai'][] = 'main_1.0';
+		$nodes = xml2array(file_get_contents(MOKUAI_DIR."/main/1.0/node.xml"));
+		foreach($nodes as $k2=>$v2 ){
+			$sitegroups_temp[$v]['nodes'][] = 'main_'.$k2;
+		}
+	}
+
+	foreach($mokuais as $k=>$v ){
+		foreach($v['version'] as $k1=>$v1 ){
+			$nodes = xml2array(file_get_contents(MOKUAI_DIR."/".$k."/".$k1."/node.xml"));
+			if($v1['available'] && $k != 'server'){
+				$sitegroups_temp['ViI7m2R9QM']['upgrademokuai'][] = $k.'_'.$k1;
+			}
+			if($k != 'server'){
+				$sitegroups_temp['QiMzl6m9o6']['upgrademokuai'][] = $k.'_'.$k1;
+			}
+			$sitegroups_temp['DAxEAvi2ie']['upgrademokuai'][] = $k.'_'.$k1;
+		}
+	}
+	if($sitegroups != $sitegroups_temp){
+		file_put_contents (MOKUAI_DIR."/sitegroups.xml",diconv(array2xml($sitegroups_temp, 1),"UTF-8", $_G['charset']."//IGNORE"));
+	}
+}
+
 
 //
 function node_init($biaoshi,$version){
@@ -247,7 +282,7 @@ function node_init($biaoshi,$version){
 					if($ta1[$k1][0]){
 						$nodes[$k]['table'][$ta1[$k1][0]] = $ta1[$k1][0];
 					}
-					
+
 				}
 			}
 			$lsa0 = explode('lang(\'plugin/yiqixueba\',\'',$node_text);
