@@ -181,11 +181,21 @@ EOT;
 			}
 			$icohtml = '<br /><label><input type="checkbox" class="checkbox" name="delete" value="yes" /> '.$lang['del'].'</label><br /><img src="'.$ico.'" width="40" height="40"/>';
 		}
-		showsetting(lang('plugin/yiqixueba','mokuai_biaoshi'),'mokuai_biaoshi',$biaoshi,'text','readonly',0,lang('plugin/yiqixueba','mokuai_biaoshi_comment'),'','',true);
-		showsetting(lang('plugin/yiqixueba','mokuai_name'),'name',$mokuais[$biaoshi]['name'],'text','readonly',0,lang('plugin/yiqixueba','mokuai_name_comment'),'','',true);
-		showsetting(lang('plugin/yiqixueba','mokuai_version'),'version',$version,'text','readonly',0,lang('plugin/yiqixueba','mokuai_version_comment'),'','',true);
-		showsetting(lang('plugin/yiqixueba','mokuai_price'),'price',$mokuai_info['price'],'text','',0,lang('plugin/yiqixueba','mokuai_price_comment'),'','',true);
-		showsetting(lang('plugin/yiqixueba','mokuai_template'),'template',$mokuai_info['template'],'radio','',0,lang('plugin/yiqixueba','mokuai_price_comment'),'','',true);
+		
+		showsetting(lang('plugin/yiqixueba','mokuai_biaoshi'),'mokuai_biaoshi',$biaoshi,'text','readonly',0,lang('plugin/yiqixueba','mokuai_biaoshi_comment'),'','',true);//模版标识
+		
+		showsetting(lang('plugin/yiqixueba','mokuai_name'),'name',$mokuais[$biaoshi]['name'],'text','readonly',0,lang('plugin/yiqixueba','mokuai_name_comment'),'','',true);//模版中文名称
+		
+		showsetting(lang('plugin/yiqixueba','mokuai_version'),'version',$version,'text','readonly',0,lang('plugin/yiqixueba','mokuai_version_comment'),'','',true);//版本
+		
+		showsetting(lang('plugin/yiqixueba','mokuai_price'),'price',$mokuai_info['price'],'text','',0,lang('plugin/yiqixueba','mokuai_price_comment'),'','',true);//价钱
+
+		showsetting(lang('plugin/yiqixueba','mokuai_template'),'template',$mokuai_info['template'],'radio',0,1,lang('plugin/yiqixueba','mokuai_template_comment'),'','',true);//是否使用模版
+
+		showsetting(lang('plugin/yiqixueba','mokuai_mobile'),'mobile',$mokuai_info['mobile'],'radio',0,1,lang('plugin/yiqixueba','mokuai_mobile_comment'),'','',true);//是否使用模版
+
+		showtagfooter('tbody');
+
 		showsetting(lang('plugin/yiqixueba','mokuai_description'),'description',$mokuai_info['description'],'textarea','',0,lang('plugin/yiqixueba','mokuai_description_comment'),'','',true);
 		showsetting(lang('plugin/yiqixueba','mokuai_ico'),'ico',$mokuai_info['ico'],'filetext','',0,lang('plugin/yiqixueba','mokuai_ico_comment').$icohtml,'','',true);
 		showtablefooter();
@@ -432,11 +442,6 @@ EOT;
 				$nodes[$k]['table'] = $tablenew ? explode(',',$tablenew) : $nodes[$k]['table'];
 				$nodes[$k]['template'] = $templatenew ? explode(',',$templatenew) : $nodes[$k]['template'];
 				list($nt,$nn) = explode("_",$k);
-				if($nt != 'global' && $nn){
-					//writesourcefile($biaoshi,$version,$k,$nt);
-					//writetablefile($biaoshi,$version,$nodes[$k]['table'],$nt);
-					//writetemplatefile($biaoshi,$version,$nodes[$k]['template'],$nt);
-				}
 			}
 		}
 		//新建模块
@@ -454,11 +459,6 @@ EOT;
 					$nodes[$nnk]['menu'] = $newmenu;
 					$nodes[$nnk]['table'] = $newtable ? explode(',',$newtable) :'';
 					$nodes[$nnk]['template'] = $newtemplate ? explode(',',$newtable) : '';
-					if($k != 'global' && $v1){
-						//writesourcefile($biaoshi,$version,$k.'_'.$v1,$k);
-						//writetablefile($biaoshi,$version,$nodes[$k.'_'.$v1]['table'],$k);
-						//writetemplatefile($biaoshi,$version,$nodes[$k.'_'.$v1]['template'],$k);
-					}
 				}
 			}
 		}
@@ -478,33 +478,26 @@ EOT;
 					}
 				}
 			}
-			//dump($tablenamedilenum);
-			//dump($templatenamedilenum);
 			@unlink(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/Controler/'.$v.'.php');
 			foreach($nodes[$nodefilename]['table'] as $k2=>$v2 ){
 				if($tablenamedilenum[$v2] == 1){
-					//dump(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/Modal/'.$v2.'.php');
 					@unlink(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/Modal/'.$nodes[$v]['table'].'.php');
 				}
 			}
 			foreach($nodes[$nodefilename]['template'] as $k2=>$v2 ){
 				if($templatenamedilenum[$v2] == 1){
-					//dump(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/View/'.$v2.'.htm');
 					@unlink(MOKUAI_DIR.'/'.$biaoshi.'/'.$version.'/View/'.$nodetype.'_'.$nodes[$v]['template'].'.htm');
 				}
 			}
 			unset($nodes[$v]);
 		}
-		//$nodes = array_sort($nodes,'displayorder','asc');
-		//$nodes_temp = $nodes;
 		if($nodes != $nodes_temp){
-			//$nodes = $nodes_temp;
+			dump($nodes);
 			$nodes = array_sort($nodes,'displayorder','asc');
 			//file_put_contents (MOKUAI_DIR."/".$biaoshi."/".$version."/node.xml",diconv(array2xml($nodes, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		}
-		dump($nodes);
-		//echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		//cpmsg(lang('plugin/yiqixueba','edit_node_succeed'), 'action='.$this_page.'&&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype, 'succeed');
+		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
+		cpmsg(lang('plugin/yiqixueba','edit_node_succeed'), 'action='.$this_page.'&&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype, 'succeed');
 	}
 }elseif ($subop == 'nodeview'){
 	dsetcookie('debugmokuai',$biaoshi);//人性化
@@ -577,13 +570,56 @@ EOT;
 //node_init('main','1.0');
 
 
-
+//通过节点类别得到显示的div，因多次调用，故作为函数的形式出现
 function getselectdivarray($nodetype){
 	global $nodetypes;
 	foreach($nodetypes as $k=>$v ){
 		$select_div_array['div_'.$v] = $nodetype == $v ? '' : 'none' ;
 	}
 	return $select_div_array;
-}
+}//end func
+
+//写节点文件
+function writesourcefile($mokuai,$ver,$sourcename,$nodetype){
+	$nodetype = $sourcename == $nodetype ? 'global' : $nodetype;
+	if($sourcename){
+		$newsourcefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler/'.$sourcename.'.php';
+		if(!file_exists($newsourcefile)){
+			list($nt,$nn) = explode('_',$sourcename);
+			$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Controler/'.$nodetype.'_example.php');
+			$neirong_temp = str_replace("server_example",$mokuai.'_'.$nn,$neirong_temp);
+			$neirong_temp = str_replace("example",$nn,$neirong_temp);
+			//file_put_contents($newsourcefile,$neirong_temp);
+		}
+	}
+}//end func
+//写数据表文件
+function writetablefile($mokuai,$ver,$tablename,$nodetype){
+	if(is_array($tablename)){
+		foreach($tablename as $k=>$v ){
+			if($v){
+				$newtablefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Modal/'.$v.'.php';
+				if(!file_exists($newtablefile)){
+					$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Modal/example.php');
+					$neirong_temp = str_replace("example",$v,$neirong_temp);
+					//file_put_contents($newtablefile,$neirong_temp);
+				}
+			}
+		}
+	}
+}//end func
+//写模板文件
+function writetemplatefile($mokuai,$ver,$templatename,$nodetype){
+	if(is_array($templatename)){
+		foreach($templatename as $k=>$v ){
+			if($v){
+				$newtemplatefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/View/'.$nodetype.'_'.$v.'.htm';
+				if(!file_exists($newtemplatefile)){
+					//file_put_contents($newtemplatefile,file_get_contents(MOKUAI_DIR.'/server/1.0/View/'.$nodetype.'_example.htm'));
+				}
+			}
+		}
+	}
+}//end func
 
 ?>
