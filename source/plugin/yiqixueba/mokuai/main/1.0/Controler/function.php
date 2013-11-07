@@ -3,6 +3,13 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 $server_siteurl = 'http://localhost/web/17xue8/';
+
+//得到前台模板
+function GT($temp_name){
+	global $temp;
+	list($mk,$tempname) = explode("_",$temp_name);
+	return GV($mk.'_yiqixueba_'.$temp.'_'.$tempname);
+}
 //得到已安装模块信息
 function getmokuai(){
 	return C::t(GM('main_mokuai'))->range();
@@ -19,7 +26,7 @@ function getnodes(){
 //api_api_indata
 function api_indata($apiaction,$indata=array()){
 	global $_G,$server_siteurl;
-	
+
 	//if(fsockopen('www.wxq123.com', 80)){
 		$indata['sitekey'] = getsitekey();
 		$indata['siteurl'] = $_G['siteurl'];
@@ -69,19 +76,21 @@ function getadmincpmenus($type = 1){
 	}
 	if($type == 2){
 		require_once libfile('class/xml');
-		$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+		$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/mokuai.xml"));
 		foreach($mokuais as $k=>$v ){
 			$topid = $k;
 			$admincpmenus[$topid]['title'] = $v['name'];
 			$admincpmenus[$topid]['displayorder'] = $v['displayorder'];
-			$node = xml2array(file_get_contents(MOKUAI_DIR."/".$k."/".$v['currentversion']."/node.xml"));
-			foreach($node as $k1=>$v1 ){
-				list($mt,$mn) = explode("_",$k1);
-				if($mt == 'admincp' && $mn && $v1['menu']){
-					$subid =$mn;
-					$admincpmenus[$topid]['submenu'][$subid]['title'] = $v1['title'];
-					$admincpmenus[$topid]['submenu'][$subid]['displayorder'] = $v1['displayorder'];
-					$admincpmenus[$topid]['submenu'][$subid]['modfile'] = $k.'_'.$k1;
+			foreach($v['version'] as $k2=>$v2 ){
+				$node = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/node_".$k."_".$k2.".xml"));
+				foreach($node as $k1=>$v1 ){
+					list($mt,$mn) = explode("_",$k1);
+					if($mt == 'admincp' && $mn && $v1['menu']){
+						$subid =$mn;
+						$admincpmenus[$topid]['submenu'][$subid]['title'] = $v1['title'];
+						$admincpmenus[$topid]['submenu'][$subid]['displayorder'] = $v1['displayorder'];
+						$admincpmenus[$topid]['submenu'][$subid]['modfile'] = $k.'_'.$k1;
+					}
 				}
 			}
 			$admincpmenus[$topid]['submenu'] = array_sort($admincpmenus[$topid]['submenu'],'displayorder','asc');

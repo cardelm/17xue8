@@ -10,11 +10,18 @@ if(getcookie('curcity')){
 }else{
 	$curcity = lang('plugin/yiqixueba','quanguocity');
 }
-$temp = 'qianhuang';
+$temp = C::t(GM('shop_shopsetting'))->fetch('shoptemplate');
 $styledir = 'source/plugin/yiqixueba/template/style/shop/'.$temp;
 $shopsorts = api_indata('server_goodssort');
 
-
+//$dznav = C::t('common_nav')->fetch_all_mainnav();
+foreach(C::t('common_nav')->fetch_all_mainnav() as $k=>$v ){
+	if($v['available']==1 ){
+		$dznav[$v['id']] = $v;
+	}
+}
+//dump($dznav);
+//dump($_G['setting']['navs']);
 foreach($shopsorts as $k=>$v ){
 	if($v['sortupid']==''){
 		$sorts[$v['sortname']] = $v;
@@ -33,5 +40,8 @@ foreach($shopsorts as $k=>$v ){
 			$subsorts = array_sort($subsorts,'displayorder','asc');
 		}
 	}
+}
+foreach($subsorts as $k1=>$v1 ){
+	$subsortcounts[$v1['sortname']] =  C::t(GM('shop_goods'))->count($v1['sortname']);
 }
 ?>

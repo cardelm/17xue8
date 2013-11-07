@@ -1,12 +1,12 @@
-<!--{eval include template(GV('shop_yiqixueba_qianhuang_shophead'));}-->
+<!--{eval include template(GT('shop_shophead'));}-->
    <div class=" leftfloat">
        <ul>
          <li>
-            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex"  class="allhover<!--{if $sid}--> <!--{else}--> allselect<!--{/if}-->"<!--{if $sid}--> <!--{else}--> select="allselect"<!--{/if}-->></a>
+            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_goodslist"  class="allhover<!--{if $sid}--> <!--{else}--> allselect<!--{/if}-->"<!--{if $sid}--> <!--{else}--> select="allselect"<!--{/if}-->></a>
          </li>
 		 <!--{loop $sorts $sortsnav}-->
          <li>
-            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$sortsnav[sortname]}" class="{$sortsnav[sortname]} <!--{if $sid == $sortsnav[sortname]}--> {$sortsnav[sortselect]}<!--{/if}-->"></a>
+            <a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_goodslist&sid={$sortsnav[sortname]}" class="{$sortsnav[sortname]} <!--{if $sid == $sortsnav[sortname]}--> {$sortsnav[sortselect]}<!--{/if}-->"></a>
          </li>
 		 <!--{/loop}-->
       </ul>
@@ -15,11 +15,8 @@
    
 
    <div class="extend">
-
-     
       <div class="nomalwidth">
-	    
-                  <div class="banners clearfix">
+        <div class="banners clearfix">
             <div class="banner_one" shopid="slide_container">
                <ul>
                   <li>
@@ -54,10 +51,18 @@
             <!--hottags end-->
             <div class="index_class clearfix">
                <div class="first_class clearfix">
-					<div class="cls_title"><span>分类：</span></div>
+					<div class="cls_title"><span>{lang yiqixueba:goodssort}</span></div>
 					<div class="cls_con">
 						<!--{loop $subsorts $subsortsnav}-->
-							<a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_shopindex&sid={$subsortsnav[sortupid]}&subsid={$subsortsnav[sortname]}" <!--{if $subsid == $subsortsnav[sortname]}--> class="current"<!--{/if}-->>{$subsortsnav[sorttitle]}(1)</a>
+							<a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_goodslist&sid={$subsortsnav[sortupid]}&subsid={$subsortsnav[sortname]}" <!--{if $subsid == $subsortsnav[sortname]}--> class="current"<!--{/if}-->>{$subsortsnav[sorttitle]}({$subsortcounts[$subsortsnav[sortname]]})</a>
+						<!--{/loop}-->
+					</div>
+               </div>
+               <div class="first_class clearfix">
+					<div class="cls_title"><span>{lang yiqixueba:diqu}</span></div>
+					<div class="cls_con">
+						<!--{loop $subsorts $subsortsnav}-->
+							<a href="{$_G[siteurl]}plugin.php?id=yiqixueba&submod=shop_goodslist&sid={$subsortsnav[sortupid]}&subsid={$subsortsnav[sortname]}" <!--{if $subsid == $subsortsnav[sortname]}--> class="current"<!--{/if}-->>{$subsortsnav[sorttitle]}({$subsortcounts[$subsortsnav[sortname]]})</a>
 						<!--{/loop}-->
 					</div>
                </div>
@@ -111,4 +116,4 @@
          <!--nomalwidth end-->
       </div>
       <!--mainbd end-->
-<!--{eval include template(GV('shop_yiqixueba_qianhuang_shopfooter'));}-->
+<!--{eval include template(GT('shop_shopfooter'));}-->

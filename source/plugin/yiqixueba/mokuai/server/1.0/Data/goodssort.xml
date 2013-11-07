@@ -126,12 +126,6 @@
 		<item id="sortupid"><![CDATA[clothhover]]></item>
 		<item id="displayorder"><![CDATA[5]]></item>
 	</item>
-	<item id="difangtechan">
-		<item id="sortname"><![CDATA[difangtechan]]></item>
-		<item id="sorttitle"><![CDATA[地方特产]]></item>
-		<item id="sortupid"><![CDATA[clothhover]]></item>
-		<item id="displayorder"><![CDATA[4]]></item>
-	</item>
 	<item id="qingjieyongpin">
 		<item id="sortname"><![CDATA[qingjieyongpin]]></item>
 		<item id="sorttitle"><![CDATA[清洁用品]]></item>
@@ -155,5 +149,11 @@
 		<item id="sorttitle"><![CDATA[个护健康]]></item>
 		<item id="sortupid"><![CDATA[foodhover]]></item>
 		<item id="displayorder"><![CDATA[1]]></item>
+	</item>
+	<item id="lingshitechan">
+		<item id="sortname"><![CDATA[lingshitechan]]></item>
+		<item id="sorttitle"><![CDATA[零食特产]]></item>
+		<item id="sortupid"><![CDATA[clothhover]]></item>
+		<item id="displayorder"><![CDATA[4]]></item>
 	</item>
 </root>

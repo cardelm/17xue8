@@ -60,6 +60,9 @@ class table_shopsetting extends discuz_table{
 	public function skey_exists($skey) {
 		return DB::result_first('SELECT skey FROM %t WHERE skey=%s LIMIT 1', array($this->_table, $skey)) ? true : false;
 	}
+	public function fetch($skey) {
+		return DB::result_first('SELECT svalue FROM %t WHERE skey=%s', array($this->_table, $skey));
+	}
 
 }
 ?>

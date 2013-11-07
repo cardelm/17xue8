@@ -2,7 +2,7 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-
+define('IN_SERVER', TRUE);
 //服务端的程序更新,在服务端只要修改了源代码部分即时更新前端程序
 function server_update(){
 	require_once libfile('class/xml');

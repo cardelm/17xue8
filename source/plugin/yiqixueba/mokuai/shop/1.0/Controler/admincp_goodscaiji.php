@@ -137,23 +137,25 @@ if($subop == 'list') {
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','edit_goodscaiji_tips'));
 		showformheader($this_page.'&subop=edit','enctype');
-		showtableheader(lang('plugin/yiqixueba','goodscaiji_option'));
+		showtableheader(lang('plugin/yiqixueba','goods_option'));
 		showhiddenfields(array('goodscaijiid'=>$oldid));
 		showsetting(lang('plugin/yiqixueba','goodscaijistatus'),'status',$goodsinfo[$oldid]['status'],'radio','',0,lang('plugin/yiqixueba','goodscaijistatus_comment'),'','',true);//radio
 
-		showsetting(lang('plugin/yiqixueba','goodscaijiname'),'goodscaijiname',$goodsinfo[$oldid]['title'],'text','',0,lang('plugin/yiqixueba','goodscaijiname_comment'),'','',true);//text password number color
+		showsetting(lang('plugin/yiqixueba','goodsjoin'),'goodsjoin','','radio','',0,lang('plugin/yiqixueba','goodscaijistatus_comment'),'','',true);//radio
+
+		showsetting(lang('plugin/yiqixueba','goodstitle'),'goodscaijiname',$goodsinfo[$oldid]['title'],'text','',0,lang('plugin/yiqixueba','goodscaijiname_comment'),'','',true);//text password number color
 
 		showsetting(lang('plugin/yiqixueba','price'),'price',$goodsinfo[$oldid]['oldprice'],'text','',0,lang('plugin/yiqixueba','price_comment'),'','',true);//price
 
 		showsetting(lang('plugin/yiqixueba','newprice'),'newprice',$goodsinfo[$oldid]['price'],'text','',0,lang('plugin/yiqixueba','newprice_comment'),'','',true);
 
 		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
-		showsetting(lang('plugin/yiqixueba','dealtime'),'dealtime',dgmdate($goodsinfo[$oldid]['deal-time'],'dt'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
+		showsetting(lang('plugin/yiqixueba','dealtime'),'dealtime',dgmdate($goodsinfo[$oldid]['deal-time'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
 
 		showsetting(lang('plugin/yiqixueba','goodssort'),'','',$goodssort_select,'',0,lang('plugin/yiqixueba','goodssort_comment').$sort_text,'','',true);
 
 
-		showsetting(lang('plugin/yiqixueba','goodscaijiimages'),'','','<img src="'.$goodsinfo[$oldid]['img'].'" width="330" height="210"/>','',0,lang('plugin/yiqixueba','goodscaijiimages_comment'),'','',true);//file filetext
+		showsetting(lang('plugin/yiqixueba','goodsimages'),'','','<img src="'.$goodsinfo[$oldid]['img'].'" width="330" height="210"/>','',0,lang('plugin/yiqixueba','goodscaijiimages_comment'),'','',true);//file filetext
 
 		showtablefooter();
 		showtableheader(lang('plugin/yiqixueba','description').':');

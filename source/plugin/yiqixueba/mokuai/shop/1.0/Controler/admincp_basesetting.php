@@ -27,7 +27,6 @@ if(!submitcheck('submit')) {
 			C::t(GM('shop_shopsetting'))->update($k,$data);
 		}
 	}
-
 	echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 	cpmsg(lang('plugin/yiqixueba','edit_basesetting_succeed'), 'action='.$this_page.'&subop=basesettinglist', 'succeed');
 }

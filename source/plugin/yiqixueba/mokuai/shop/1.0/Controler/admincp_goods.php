@@ -34,12 +34,12 @@ if($subop == 'list') {
 				'<span class="bold">'.$row['goodsname'].'</span>',
 				$row['goodstitle'],
 				$gsort[$row['goodssort']],
-				dgmdate($row['createtime'],'d'),
+				dgmdate($row['youxiaotime'],'d'),
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"statusnew[".$row['goodsid']."]\" value=\"1\" ".($row['status'] > 0 ? 'checked' : '').">",
 				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=edit&goodsid=$row[goodsid]\" >".lang('plugin/yiqixueba','edit')."</a>",
 			));
 		}
-		echo '<tr><td></td><td colspan="4"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=edit" class="addtr" >'.lang('plugin/yiqixueba','add_new_goods').'</a></div></td></tr>';
+		echo '<tr><td></td><td colspan="6"><div><a href="'.ADMINSCRIPT.'?action='.$this_page.'&subop=edit" class="addtr" >'.lang('plugin/yiqixueba','add_new_goods').'</a></div></td></tr>';
 		showsubmit('submit', 'submit', 'del');
 		showtablefooter();
 		showformfooter();
@@ -65,18 +65,21 @@ if($subop == 'list') {
 			$imageshtml = '<br /><label><input type="checkbox" class="checkbox" name="delete" value="yes" /> '.$lang['del'].'</label><br /><img src="'.$images.'" width="40" height="40"/>';
 		}
 		$goodsid ? showhiddenfields(array('goodsid'=>$goodsid)) : '';
-		showsetting(lang('plugin/yiqixueba','goodsstatus'),'status',$goods_info['status'],'radio','',0,lang('plugin/yiqixueba','goodsstatus_comment'),'','',true);//radio
 
-		showsetting(lang('plugin/yiqixueba','goodsname'),'goodsname',$goods_info['goodsname'],'text',$goodsid ?'readonly':'',0,lang('plugin/yiqixueba','goodsname_comment'),'','',true);//text password number color
+		showsetting(lang('plugin/yiqixueba','goodsstatus'),'status',$goods_info['status'],'radio','',0,lang('plugin/yiqixueba','goodsstatus_comment'),'','',true);//是否有效
 
-		showsetting(lang('plugin/yiqixueba','goodstitle'),'goodstitle',$goods_info['goodstitle'],'textarea','',0,lang('plugin/yiqixueba','goodstitle_comment'),'','',true);//textarea
+		showsetting(lang('plugin/yiqixueba','goodsname'),'goodsname',$goods_info['goodsname'],'text',$goodsid ?'readonly':'',0,lang('plugin/yiqixueba','goodsname_comment'),'','',true);//商品名称
 
-		showsetting(lang('plugin/yiqixueba','price'),'price',$goods_info['price'],'text','',0,lang('plugin/yiqixueba','price_comment'),'','',true);//price
+		showsetting(lang('plugin/yiqixueba','shopid'),'shopid',$goods_info['shopid'],'text',$goodsid ?'readonly':'',0,lang('plugin/yiqixueba','shopid_comment'),'','',true);//所属商家
 
-		showsetting(lang('plugin/yiqixueba','newprice'),'newprice',$goods_info['newprice'],'text','',0,lang('plugin/yiqixueba','newprice_comment'),'','',true);//newprice
+		showsetting(lang('plugin/yiqixueba','goodstitle'),'goodstitle',$goods_info['goodstitle'],'textarea','',0,lang('plugin/yiqixueba','goodstitle_comment'),'','',true);//商品标题
+
+		showsetting(lang('plugin/yiqixueba','price'),'price',$goods_info['price'],'text','',0,lang('plugin/yiqixueba','price_comment'),'','',true);//原价
+
+		showsetting(lang('plugin/yiqixueba','newprice'),'newprice',$goods_info['newprice'],'text','',0,lang('plugin/yiqixueba','newprice_comment'),'','',true);//折扣价
 
 		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
-		showsetting(lang('plugin/yiqixueba','createtime'),'createtime',dgmdate($goods_info['createtime'],'d'),'calendar','',0,lang('plugin/yiqixueba','createtime_comment'),'','',true);//calendar
+		showsetting(lang('plugin/yiqixueba','youxiaotime'),'youxiaotime',$goods_info['youxiaotime'] ? dgmdate($goods_info['youxiaotime'],'d') : dgmdate(time()+2592000,'d'),'calendar','',0,lang('plugin/yiqixueba','youxiaotime_comment'),'','',true);//到期日期
 
 
 		$goodssort_select = '<select name="goodssort">';
@@ -85,12 +88,10 @@ if($subop == 'list') {
 		}
 		$goodssort_select .= '';
 
-		showsetting(lang('plugin/yiqixueba','goodssort'),'','',$goodssort_select,'',0,lang('plugin/yiqixueba','goodssort_comment'),'','',true);//select  mradio mcheckbox mselect (binmcheckbox)
+		showsetting(lang('plugin/yiqixueba','goodssort'),'','',$goodssort_select,'',0,lang('plugin/yiqixueba','goodssort_comment'),'','',true);//商品分类
 
 
-		showsetting(lang('plugin/yiqixueba','goodsimages'),'goodsimages',$goods_info['goodsimages'],'file','',0,lang('plugin/yiqixueba','goodsimages_comment').$imageshtml,'','',true);//file filetext
-
-		showsetting(lang('plugin/yiqixueba','imagessize'), array('imagewidth', 'imageheight'), array(intval($imagewidth), intval($imageheight)), 'multiply','',0,lang('plugin/yiqixueba','imagessize_comment'),'','',true);//multiply daterange
+		showsetting(lang('plugin/yiqixueba','goodsimages'),'goodsimages',$goods_info['goodsimages'],'file','',0,lang('plugin/yiqixueba','goodscaijiimages_comment').$imageshtml,'','',true);//商品封面图片
 
 		showtablefooter();
 		showtableheader(lang('plugin/yiqixueba','description').':');
@@ -100,7 +101,7 @@ if($subop == 'list') {
 		echo '<link rel="stylesheet" href="source/plugin/yiqixueba/template/kindeditor/plugins/code/prettify.css" />';
 		echo '<script src="source/plugin/yiqixueba/template/kindeditor/lang/zh_CN.js" type="text/javascript"></script>';
 		echo '<script src="source/plugin/yiqixueba/template/kindeditor/prettify.js" type="text/javascript"></script>';
-		echo '<textarea name="goodsdescription" style="width:700px;height:200px;visibility:hidden;">'.$goods_info['description'].'</textarea>';
+		echo '<textarea name="goodsdescription" style="width:800px;height:900px;visibility:hidden;">'.$goods_info['description'].'</textarea>';
 		echo '</td></tr>';
 		showsubmit('submit');
 		showtablefooter();
@@ -133,8 +134,9 @@ EOF;
 		$goodstitle = strip_tags(trim($_GET['goodstitle']));
 		$status	= intval($_GET['status']);
 		$newprice	= intval($_GET['newprice']);
+		$shopid	= intval($_GET['shopid']);
 		$price	= intval($_GET['price']);
-		$createtime	= strtotime($_GET['createtime']);
+		$youxiaotime = strtotime($_GET['youxiaotime']);
 		$description = dhtmlspecialchars(trim($_GET['goodsdescription']));
 		$goodssort = trim($_GET['goodssort']);
 
@@ -161,6 +163,7 @@ EOF;
 			$ico = '';
 		}
 		$data = array(
+			'shopid' => $shopid,
 			'goodsname' => $goodsname,
 			'goodstitle' => $goodstitle,
 			'description' => $description,
@@ -169,12 +172,13 @@ EOF;
 			'status' => $status,
 			'newprice' => $newprice,
 			'price' => $price,
-			'createtime' => $createtime,
+			'youxiaotime' => $youxiaotime,
 		);
 		if($goodsid){
 			$data['updatetime'] = time();
 			C::t(GM('shop_goods'))->update($goodsid,$data);
 		}else{
+			//$data['createtime'] => time();
 			C::t(GM('shop_goods'))->insert($data);
 		}
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
