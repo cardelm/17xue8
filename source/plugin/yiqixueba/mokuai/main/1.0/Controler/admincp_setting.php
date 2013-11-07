@@ -112,9 +112,9 @@ EOF;
 	);
 	if($settingid){
 		$data['updatetime'] = time();
-		C::t(GM('main_setting'))->update($settingid,$data);
+		//C::t(GM('main_setting'))->update($settingid,$data);
 	}else{
-		C::t(GM('main_setting'))->insert($data);
+		//C::t(GM('main_setting'))->insert($data);
 	}
 	echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 	cpmsg(lang('plugin/yiqixueba','edit_setting_succeed'), 'action='.$this_page.'&subop=settinglist', 'succeed');

@@ -4,6 +4,10 @@ if(!defined('IN_DISCUZ')) {
 }
 $server_siteurl = 'http://localhost/web/17xue8/';
 
+//
+function checkupdate(){
+	$server_update = api_indata('checkupdate',array('mu'=>C::t(GM('main_setting'))->fetch('updatetime')));
+}//end func
 //得到前台模板
 function GT($temp_name){
 	global $temp;
@@ -27,6 +31,10 @@ function getnodes(){
 function api_indata($apiaction,$indata=array()){
 	global $_G,$server_siteurl;
 
+	list($mk,$op) = explode('_',$apiaction);
+	if(!$op){
+		$apiaction = 'server_'.$mk;
+	}
 	//if(fsockopen('www.wxq123.com', 80)){
 		$indata['sitekey'] = getsitekey();
 		$indata['siteurl'] = $_G['siteurl'];

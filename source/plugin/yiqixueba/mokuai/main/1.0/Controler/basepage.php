@@ -20,6 +20,12 @@ function GM($tablename){
 	return $table_file;
 }//
 //
+function GMX($tablename){
+	global $sitekey;
+	$table_file = '#yiqixueba#y_'.md5($sitekey.$tablename);
+	return $table_file;
+}//
+//
 function GV($templatename){
 	global $sitekey;
 	$template_file = 'yiqixueba:'.md5($sitekey.$templatename);

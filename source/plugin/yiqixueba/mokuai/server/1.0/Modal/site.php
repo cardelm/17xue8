@@ -20,6 +20,7 @@ class table_site extends discuz_table{
 			`version` char(50) NOT NULL,
 			`sitekey` char(32) NOT NULL,
 			`sitegroup` text(0) NOT NULL,
+			`mokuais` text(0) NOT NULL,
 			`installtime` int(10) unsigned NOT NULL,
 			`updatetime` int(10) unsigned NOT NULL,
 			PRIMARY KEY  (`siteurl`)

@@ -6,7 +6,7 @@ class table_setting extends discuz_table{
 
 	public function __construct() {
 		$this->_table = 'setting';
-		$this->_pk    = 'settingid';
+		$this->_pk    = 'skey';
 		parent::__construct();
 	}
 
@@ -14,22 +14,17 @@ class table_setting extends discuz_table{
 		global $_G;
 		//////////////////////////
 		$fields = "
-			`settingid` smallint(6) NOT NULL auto_increment,
-			`settingname` varchar(40) NOT NULL default '',
-			`settingtitle` varchar(40) NOT NULL default '',
-			`settingsort` varchar(40) NOT NULL default '',
-			`settingimages` varchar(40) NOT NULL default '',
-			`description` text NOT NULL,
-			`status` tinyint(1) NOT NULL default '0',
-			`createtime` int(10) unsigned NOT NULL,
-			`updatetime` int(10) unsigned NOT NULL,
-			PRIMARY KEY  (`settingid`)
+			`skey` varchar(255) NOT NULL default '',
+			`svalue` text NOT NULL,
+			PRIMARY KEY  (`skey`)
 		";
 		//////////////////////
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
 		//$type = 'debug';
 		if($type){
-			DB::query('DROP TABLE '.DB::table($this->_table));
+			if(DB::num_rows($query)) {
+				DB::query('DROP TABLE '.DB::table($this->_table));
+			}
 			$create_table_sql = "CREATE TABLE ".DB::table($this->_table)." ($fields) TYPE=MyISAM;";
 			$db = DB::object();
 			$create_table_sql = $this->syntablestruct($create_table_sql, $db->version() > '4.1', $_G['config']['db']['1']['dbcharset']);
@@ -64,12 +59,23 @@ class table_setting extends discuz_table{
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
 	}
-	public function fetch_by_settingid($settingid) {
-		$mokuai_info = array();
-		if($mokuaiid) {
-			$mokuai_info = DB::fetch_first('SELECT * FROM %t WHERE mokuaiid=%s', array($this->_table, $mokuaiid));
+	public function skey_exists($skey) {
+		return DB::result_first('SELECT skey FROM %t WHERE skey=%s LIMIT 1', array($this->_table, $skey)) ? true : false;
+	}
+	public function fetch($skey) {
+		return DB::result_first('SELECT svalue FROM %t WHERE skey=%s', array($this->_table, $skey));
+	}
+	public function update_batch($array) {
+		$settings = array();
+		foreach($array as $key => $value) {
+			$key = addslashes($key);
+			$value = addslashes(is_array($value) ? serialize($value) : $value);
+			$settings[] = "('$key', '$value')";
 		}
-		return $mokuai_info;
+		if($settings) {
+			return DB::query("REPLACE INTO ".DB::table(GM('main_setting'))." (`skey`, `svalue`) VALUES ".implode(',', $settings));
+		}
+		return false;
 	}
 
 }

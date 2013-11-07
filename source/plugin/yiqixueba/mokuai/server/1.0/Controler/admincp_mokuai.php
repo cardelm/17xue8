@@ -7,7 +7,7 @@ $subop = in_array($subop,$subops) ? $subop : $subops[0];
 
 //模块信息读取
 require_once libfile('class/xml');
-$mokuais = $mokuais_temp = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+$mokuais = $mokuais_temp = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/mokuai.xml"));
 $mokuais = array_sort($mokuais,'displayorder','desc');
 $biaoshi = getgpc('biaoshi');
 $version = strip_tags(trim(getgpc('version')));
