@@ -8,10 +8,13 @@
 				<item id="available"><![CDATA[0]]></item>
 				<item id="name"><![CDATA[主程序]]></item>
 				<item id="price"><![CDATA[0]]></item>
-				<item id="description"><![CDATA[]]></item>
+				<item id="description"><![CDATA[基础平台程序，采用模块形式，进行管理]]></item>
 				<item id="ico"><![CDATA[]]></item>
-				<item id="mokuaiinformation"><![CDATA[]]></item>
+				<item id="mokuaiinformation"><![CDATA[<h2 style="text-align:center;">
+	<strong>这里以后放一起学吧程序的简介</strong>
+</h2>]]></item>
 				<item id="template"><![CDATA[0]]></item>
+				<item id="mobile"><![CDATA[0]]></item>
 			</item>
 		</item>
 		<item id="currentversion"><![CDATA[1.0]]></item>

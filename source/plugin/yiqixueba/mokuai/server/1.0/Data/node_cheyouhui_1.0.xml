@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
+	<item id="global_function">
+		<item id="title"><![CDATA[函数集]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="admincp_index">
+		<item id="title"><![CDATA[车友首页]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
 	<item id="member_index">
 		<item id="title"><![CDATA[会员信息]]></item>
 		<item id="displayorder"><![CDATA[0]]></item>
@@ -7,11 +21,35 @@
 		<item id="template">
 			<item id="0"><![CDATA[index]]></item>
 		</item>
+		<item id="table"><![CDATA[]]></item>
+	</item>
+	<item id="global_ajax">
+		<item id="title"><![CDATA[AJAX]]></item>
+		<item id="displayorder"><![CDATA[0]]></item>
+		<item id="menu"><![CDATA[0]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="admincp_infotype">
+		<item id="title"><![CDATA[信息分类]]></item>
+		<item id="displayorder"><![CDATA[1]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
 	</item>
 	<item id="member_jiashizheng">
 		<item id="title"><![CDATA[车证信息]]></item>
 		<item id="displayorder"><![CDATA[1]]></item>
 		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="admincp_field">
+		<item id="title"><![CDATA[字段管理]]></item>
+		<item id="displayorder"><![CDATA[2]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
 	</item>
 	<item id="member_field">
 		<item id="title"><![CDATA[字段管理]]></item>
@@ -24,12 +62,25 @@
 			<item id="0"><![CDATA[table_cheyouhui_field]]></item>
 		</item>
 	</item>
-	<item id="global_ajax">
-		<item id="title"><![CDATA[AJAX]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
+	<item id="admincp_chezheng">
+		<item id="title"><![CDATA[信息管理]]></item>
+		<item id="displayorder"><![CDATA[3]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
 	</item>
-	<item id="global_function">
-		<item id="title"><![CDATA[函数集]]></item>
-		<item id="displayorder"><![CDATA[0]]></item>
+	<item id="admincp_member">
+		<item id="title"><![CDATA[会员管理]]></item>
+		<item id="displayorder"><![CDATA[4]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
+	</item>
+	<item id="admincp_group">
+		<item id="title"><![CDATA[会员组]]></item>
+		<item id="displayorder"><![CDATA[5]]></item>
+		<item id="menu"><![CDATA[1]]></item>
+		<item id="table"><![CDATA[]]></item>
+		<item id="template"><![CDATA[]]></item>
 	</item>
 </root>

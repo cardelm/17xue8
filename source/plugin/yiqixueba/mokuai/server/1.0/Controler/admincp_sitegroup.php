@@ -28,13 +28,13 @@ $menus_types = array('admincp','member','yiqixueba');
 $menus_type = in_array($menus_type,$menus_types) ? $menus_type : $menus_types[0];
 
 require_once libfile('class/xml');
-$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+$mokuais = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/mokuai.xml"));
 $mokuais = array_sort($mokuais,'displayorder');
 
 $menus = xml2array(file_get_contents(MOKUAI_DIR."/menus.xml"));
 $menus[$menus_type] = array_sort($menus[$menus_type],'displayorder');
 
-$sitegroups = xml2array(file_get_contents(MOKUAI_DIR."/sitegroups.xml"));
+$sitegroups = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/sitegroups.xml"));
 $sitegroups = array_sort($sitegroups,'displayorder');
 
 $sitegroupid = getgpc('sitegroupid');
@@ -93,7 +93,7 @@ if($subop == 'sitegrouplist') {
 			}
 		}
 		$sitegroups = array_sort($sitegroups,'displayorder');
-		file_put_contents (MOKUAI_DIR."/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
+		file_put_contents (MOKUAI_DIR."/server/1.0/Data/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba','edit_sitegroup_succeed'), 'action='.$this_page.'&subop=sitegrouplist', 'succeed');
 	}
@@ -152,7 +152,7 @@ if($subop == 'sitegrouplist') {
 		if($sitegroups_temp != $sitegroups){
 			$sitegroups = $sitegroups_temp;
 			$sitegroups = array_sort($sitegroups,'displayorder');
-			file_put_contents (MOKUAI_DIR."/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
+			file_put_contents (MOKUAI_DIR."/server/1.0/Data/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		}
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
 		cpmsg(lang('plugin/yiqixueba','sitegroup_select_mokuai_succeed'), 'action='.$this_page.'&subop=sitegrouplist', 'succeed');
@@ -221,7 +221,7 @@ if($subop == 'sitegrouplist') {
 			}
 		}
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		file_put_contents (MOKUAI_DIR."/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
+		file_put_contents (MOKUAI_DIR."/server/1.0/Data/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		cpmsg(lang('plugin/yiqixueba','sitegroup_select_node_succeed'), 'action='.$this_page.'&subop=sitegrouplist', 'succeed');
 	}
 }elseif ($subop == 'sitegroupmenu'){
@@ -415,14 +415,14 @@ EOT;
 				}
 				$cmenus[$menus_type] = array_sort($cmenus[$menus_type],'displayorder');
 				$sitegroups[$sitegroupid]['cmenus'][$menus_type] = $cmenus[$menus_type];
-				file_put_contents (MOKUAI_DIR."/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
+				file_put_contents (MOKUAI_DIR."/server/1.0/Data/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
 
 				cpmsg(lang('plugin/yiqixueba','menu_edit_succeed'), 'action='.$this_page.'&subop=sitegroupmenu&sitegroupid='.$sitegroupid.'&defaultmenu=1', 'succeed');
 			}
 		}
 		$sitegroups[$sitegroupid]['defaultmenu'] = intval($_GET['defaultmenu']);
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		file_put_contents (MOKUAI_DIR."/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
+		file_put_contents (MOKUAI_DIR."/server/1.0/Data/sitegroups.xml",diconv(array2xml($sitegroups, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		cpmsg(lang('plugin/yiqixueba','edit_sitegroup_succeed'), 'action='.$this_page.'&subop=sitegrouplist', 'succeed');
 	}
 }elseif ($subop == 'sitegroupexport'){

@@ -2,6 +2,7 @@
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
+
 require_once libfile('class/xml');
 $citys = $citys_temp = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/city.xml"));
 

@@ -19,7 +19,8 @@ class table_mokuai extends discuz_table{
 			`biaoshi` varchar(40) NOT NULL default '',
 			`version` varchar(20) NOT NULL default '',
 			`displayorder` smallint(6) NOT NULL,
-			`mokuaikey` varchar(32) NOT NULL,
+			`price` int(10) NOT NULL,
+			`description` varchar(255) NOT NULL,
 			`updatetime` int(10) unsigned NOT NULL,
 			`createtime` int(10) unsigned NOT NULL,
 			PRIMARY KEY  (`mokuaiid`)

@@ -4,7 +4,7 @@ if(!defined('IN_DISCUZ')) {
 }
 $systemgroups = array('ViI7m2R9QM','QiMzl6m9o6','DAxEAvi2ie');
 
-$site_info = C::t(GM('server_site'))->fetch($indata['siteurl']);
+$site_info = C::t(GM('server_site'))->fetch_by_siteurl($indata['siteurl']);
 
 if(!$site_info){
 	$data = array();
@@ -19,7 +19,7 @@ if(!$site_info){
 	C::t(GM('server_site'))->insert($data);
 }
 
-$site_info = C::t(GM('server_site'))->fetch($indata['siteurl']);
+$site_info = C::t(GM('server_site'))->fetch_by_siteurl($indata['siteurl']);
 $outdata['sitekey'] = $site_info['sitekey'];
 
 require_once libfile('class/xml');

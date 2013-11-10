@@ -32,4 +32,16 @@ function fieldparameterhtml($type,$data){
 	}
 	return $htmlout;
 }//end func
+
+//通过节点类别得到显示的div，因多次调用，故作为函数的形式出现
+function getselectdivarray($infotype){
+	global $infotypes;
+	foreach($infotypes as $k=>$v ){
+		if($v['status']){
+			$select_div_array['div_'.$v['infotypename']] = $infotype == $v['infotypename'] ? '' : 'none' ;
+		}
+	}
+	return $select_div_array;
+}//end func
+
 ?>

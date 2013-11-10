@@ -6,13 +6,14 @@ class table_site extends discuz_table{
 
 	public function __construct() {
 		$this->_table = 'site';
-		$this->_pk    = 'siteurl';
+		$this->_pk    = 'siteid';
 		parent::__construct();
 	}
 
 	public function create() {
 		global $_G;
 		$fields = "
+			`siteid` smallint(6) NOT NULL auto_increment,
 			`siteurl` varchar(255) NOT NULL,
 			`salt` char(6) NOT NULL,
 			`charset` char(20) NOT NULL,
@@ -23,10 +24,10 @@ class table_site extends discuz_table{
 			`mokuais` text(0) NOT NULL,
 			`installtime` int(10) unsigned NOT NULL,
 			`updatetime` int(10) unsigned NOT NULL,
-			PRIMARY KEY  (`siteurl`)
+			PRIMARY KEY  (`siteid`)
 		";
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
-		//$type = 'debug';
+		$type = 'debug';
 		if($type){
 			DB::query('DROP TABLE '.DB::table($this->_table));
 			$create_table_sql = "CREATE TABLE ".DB::table($this->_table)." ($fields) TYPE=MyISAM;";
@@ -62,6 +63,13 @@ class table_site extends discuz_table{
 		} else {
 			return preg_replace(array('/character set \w+/i', '/collate \w+/i', '/ENGINE=MEMORY/i', '/\s*DEFAULT CHARSET=\w+/is', '/\s*COLLATE=\w+/is', '/ENGINE=(\w+)(.*)/is'), array('', '', 'ENGINE=HEAP', '', '', 'TYPE=\\1\\2'), $sql);
 		}
+	}
+	public function fetch_by_siteurl($siteurl) {
+		$siteinfo = array();
+		if($siteurl) {
+			$siteinfo = DB::fetch_first('SELECT * FROM %t WHERE siteurl=%s', array($this->_table, $siteurl));
+		}
+		return $siteinfo;
 	}
 
 }

@@ -4,7 +4,7 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 }
 require_once libfile('class/xml');
 $shopsorts = $shopsorts_temp = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/goodssort.xml"));
- 
+
 if(!submitcheck('submit')) {
 	showtips(lang('plugin/yiqixueba','shopsort_list_tips'));
 	showformheader($this_page);

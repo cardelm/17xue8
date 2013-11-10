@@ -3,9 +3,9 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 $sitekey = C::t('common_setting')->fetch('yiqixueba_siteurlkey');
-//
+// 
 function GC($pagename){
-	global $sitekey;
+	global $sitekey,$curmokuai;
 	$page_filename = md5($sitekey.$pagename);
 	$page_file = DISCUZ_ROOT.'source/plugin/yiqixueba/pages/'.$page_filename;
 	$cache_filename = md5($sitekey.$page_filename.filemtime($page_file));
@@ -15,13 +15,7 @@ function GC($pagename){
 
 //
 function GM($tablename){
-	global $sitekey;
-	$table_file = '#yiqixueba#y_'.md5($sitekey.$tablename);
-	return $table_file;
-}//
-//
-function GMX($tablename){
-	global $sitekey;
+	global $sitekey,$curmokuai;
 	$table_file = '#yiqixueba#y_'.md5($sitekey.$tablename);
 	return $table_file;
 }//
