@@ -23,6 +23,7 @@ class table_field extends discuz_table{
 			`available` tinyint(1) NOT NULL,
 			`required` tinyint(1) NOT NULL,
 			`unchangeable` tinyint(1) NOT NULL,
+			`listdisplay` tinyint(1) NOT NULL,
 			`search` tinyint(1) NOT NULL,
 			`description` char(255) NOT NULL,
 			`expiration` text NOT NULL,
@@ -30,7 +31,7 @@ class table_field extends discuz_table{
 			`rules` text NOT NULL,
 			`permprompt` text NOT NULL,
 			`displayorder` smallint(6) NOT NULL,
-			PRIMARY KEY  (`fieldid`)
+			PRIMARY KEY  (`fieldid`)listdisplay
 		";
 		//////////////////////
 		$query = DB::query("SHOW TABLES LIKE '%t'", array($this->_table));
