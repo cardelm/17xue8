@@ -96,7 +96,7 @@ EOT;
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"unchangeablenew[$v[fieldid]]\" value=\"1\" ".($v['unchangeable'] ? " checked" : "" )." />",
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"listdisplay[$v[fieldid]]\" value=\"1\" ".($v['listdisplay'] ? " checked" : "" )." />",
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"searchnew[$v[fieldid]]\" value=\"1\" ".($v['search'] ? " checked" : "" )." />",
-				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=fieldedit&fieldid=$v[fieldid]\" >".lang('plugin/yiqixueba','edit')."</a>",
+				"<a href=\"".ADMINSCRIPT."?action=".$this_page."&subop=fieldedit&fieldid=".$v['fieldid']."&infotypeid=".$infotypeid."\" >".lang('plugin/yiqixueba','edit')."</a>",
 			));
 		}
 		echo '<tr><td></td><td colspan="10"><div><a href="###" onclick="addrow(this, 0,0)" class="addtr">'.$lang['threadtype_infotypes_add_option'].'</a></div></td></tr>';
@@ -175,7 +175,7 @@ EOT;
 			C::t(GM('cheyouhui_field'))->delete($_GET['delete']);
 		}
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		cpmsg(lang('plugin/yiqixueba','edit_field_succeed'), 'action='.$this_page.'&subop=field&infotypeid='.$cyhtable_info['infotypename'], 'succeed');
+		cpmsg(lang('plugin/yiqixueba','edit_field_succeed'), 'action='.$this_page.'&subop=field&infotypeid='.$infotypeid, 'succeed');
 	}
 
 
@@ -222,7 +222,7 @@ EOT;
 		));
 		showtablefooter();
 		showtableheader(lang('plugin/yiqixueba','field_option'));
-		$fieldid ? showhiddenfields(array('fieldid'=>$fieldid)) : '';
+		$fieldid ? showhiddenfields(array('fieldid'=>$fieldid,'infotypeid'=>$infotypeid)) : '';
 		showsetting('name', 'titlenew', $field_info['title'], 'text');
 		showsetting('threadtype_variable', 'namenew', $field_info['name'], 'text');
 		showsetting('type', '', '', $typeselect);
@@ -335,7 +335,7 @@ EOT;
 
 		C::t(GM('cheyouhui_field'))->update($fieldid,$data);
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		cpmsg(lang('plugin/yiqixueba','edit_field_succeed'), 'action='.$this_page.'&subop=field&infotypeid='.$cyhtable_info['infotypename'], 'succeed');
+		cpmsg(lang('plugin/yiqixueba','edit_field_succeed'), 'action='.$this_page.'&subop=field&infotypeid='.$infotypeid, 'succeed');
 	}
 }elseif($subop == 'shengcheng') {
 	//找到追加字段的方法，待定

@@ -106,11 +106,12 @@
 			<item id="1.0">
 				<item id="available"><![CDATA[0]]></item>
 				<item id="name"><![CDATA[车友会]]></item>
-				<item id="price"><![CDATA[1500]]></item>
+				<item id="price"><![CDATA[150]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="ico"><![CDATA[]]></item>
 				<item id="mokuaiinformation"><![CDATA[]]></item>
 				<item id="template"><![CDATA[1]]></item>
+				<item id="mobile"><![CDATA[0]]></item>
 			</item>
 			<item id="2.0">
 				<item id="available"><![CDATA[0]]></item>

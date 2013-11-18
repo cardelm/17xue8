@@ -61,7 +61,7 @@ function getfilename($filedir){
 function update_mokuai($biaoshi,$version,$mukauidata){
 	global $_G;
 	require_once libfile('class/xml');
-	$mokuais = $mokuais_temp = xml2array(file_get_contents(MOKUAI_DIR."/mokuai.xml"));
+	$mokuais = $mokuais_temp = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/mokuai.xml"));
 	if(!is_dir(MOKUAI_DIR.'/'.$biaoshi)){
 		$mokuais_temp[$biaoshi]['biaoshi'] = $biaoshi;
 		dmkdir(MOKUAI_DIR.'/'.$biaoshi);
@@ -85,7 +85,7 @@ function update_mokuai($biaoshi,$version,$mukauidata){
 	if($mokuais != $mokuais_temp){
 		$mokuais = $mokuais_temp;
 		$mokuais = array_sort($mokuais,'displayorder','asc');
-		file_put_contents (MOKUAI_DIR."/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
+		file_put_contents (MOKUAI_DIR."/server/1.0/Data/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
 	}
 
 }

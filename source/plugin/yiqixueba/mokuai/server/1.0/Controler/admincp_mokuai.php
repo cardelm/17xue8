@@ -23,6 +23,7 @@ if(getcookie('debugmokuai')){
 }
 
 
+
 if($subop == 'mokuailist') {
 	if(!submitcheck('submit')) {
 		showtips(lang('plugin/yiqixueba','server_mokuai_list_tips'));
@@ -402,10 +403,10 @@ EOT;
 		dump($mokuais_temp);
 		if($mokuais != $mokuais_temp){
 			$mokuais = $mokuais_temp;
-			//file_put_contents (MOKUAI_DIR."/server/1.0/Data/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
+			file_put_contents (MOKUAI_DIR."/server/1.0/Data/mokuai.xml",diconv(array2xml($mokuais, 1),"UTF-8", $_G['charset']."//IGNORE"));
 		}
 		echo '<style>.floattopempty { height: 30px !important; height: auto; } </style>';
-		//cpmsg(lang('plugin/yiqixueba','edit_template_succeed'), 'action='.$this_page.'&subop=templatelist', 'succeed');
+		cpmsg(lang('plugin/yiqixueba','edit_template_succeed'), 'action='.$this_page.'&subop=templatelist', 'succeed');
 	}
 }elseif ($subop == 'pluginlang'){
 	$nodes = $nodes_temp = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/node_".$biaoshi."_".$version.".xml"));
@@ -465,6 +466,7 @@ EOT;
 		}
 		$hook_select .= '</selelct>';
 		//节点类型的选择
+		dump(function_exists('getselectdivarray'));
 		foreach($nodetypes as $k=>$v ){
 			$select_array[] = array($v,lang('plugin/yiqixueba','node_'.$v),getselectdivarray($v));
 		}
@@ -690,75 +692,77 @@ EOT;
 	}
 	//cpmsg(lang('plugin/yiqixueba','edit_node_succeed'), 'action='.$this_page.'&&subop=mokuainode&biaoshi='.$biaoshi.'&version='.$version.'&nodetype='.$nodetype, 'succeed');
 }
-
-
-//node_init('main','1.0');
-
-
+//
+//
+////node_init('main','1.0');
+//
+//
 //通过节点类别得到显示的div，因多次调用，故作为函数的形式出现
 function getselectdivarray($nodetype){
 	global $nodetypes;
 	foreach($nodetypes as $k=>$v ){
-		$select_div_array['div_'.$v] = $nodetype == $v ? '' : 'none' ;
+		if($v['status']){
+			$select_div_array['div_'.$v] = $nodetype == $v ? '' : 'none' ;
+		}
 	}
 	return $select_div_array;
 }//end func
-
-//写节点文件
-function writesourcefile($mokuai,$ver,$sourcename,$nodetype){
-	$nodetype = $sourcename == $nodetype ? 'global' : $nodetype;
-	if($sourcename){
-		$newsourcefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler/'.$sourcename.'.php';
-		if(!file_exists($newsourcefile)){
-			list($nt,$nn) = explode('_',$sourcename);
-			$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Controler/'.$nodetype.'_example.php');
-			$neirong_temp = str_replace("server_example",$mokuai.'_'.$nn,$neirong_temp);
-			$neirong_temp = str_replace("example",$nn,$neirong_temp);
-			//file_put_contents($newsourcefile,$neirong_temp);
-		}
-	}
-}//end func
-//写数据表文件
-function writetablefile($mokuai,$ver,$tablename,$nodetype){
-	if(is_array($tablename)){
-		foreach($tablename as $k=>$v ){
-			if($v){
-				$newtablefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Modal/'.$v.'.php';
-				if(!file_exists($newtablefile)){
-					$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Modal/example.php');
-					$neirong_temp = str_replace("example",$v,$neirong_temp);
-					//file_put_contents($newtablefile,$neirong_temp);
-				}
-			}
-		}
-	}
-}//end func
-//写模板文件
-function writetemplatefile($mokuai,$ver,$templatename,$nodetype){
-	if(is_array($templatename)){
-		foreach($templatename as $k=>$v ){
-			if($v){
-				$newtemplatefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/View/'.$nodetype.'_'.$v.'.htm';
-				if(!file_exists($newtemplatefile)){
-					//file_put_contents($newtemplatefile,file_get_contents(MOKUAI_DIR.'/server/1.0/View/'.$nodetype.'_example.htm'));
-				}
-			}
-		}
-	}
-}//end func
 //
-function update_node($biaoshi,$version){
-	$nodes = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/node_".$biaoshi."_".$version.".xml"));
-	foreach($nodes as $k=>$v ){
-		list($nt,$nn) = explode('_',$k);
-		$cfile = MOKUAI_DIR."/".$biaoshi."/".$version."/Controler/".($nt == 'global' ? $nn : $k).".php";
-		$example_file = MOKUAI_DIR."/server/1.0/Example/".$nt."_example.php";
-		if(!file_exists($cfile) && file_exists($example_file)){
-			$neirong_temp = file_get_contents($example_file);
-			$neirong_temp = str_replace("server",$biaoshi,$neirong_temp);
-			$neirong_temp = str_replace("example",$nn,$neirong_temp);
-			file_put_contents($cfile,$neirong_temp);
-		}
-	}
-}
+////写节点文件
+//function writesourcefile($mokuai,$ver,$sourcename,$nodetype){
+//	$nodetype = $sourcename == $nodetype ? 'global' : $nodetype;
+//	if($sourcename){
+//		$newsourcefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Controler/'.$sourcename.'.php';
+//		if(!file_exists($newsourcefile)){
+//			list($nt,$nn) = explode('_',$sourcename);
+//			$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Controler/'.$nodetype.'_example.php');
+//			$neirong_temp = str_replace("server_example",$mokuai.'_'.$nn,$neirong_temp);
+//			$neirong_temp = str_replace("example",$nn,$neirong_temp);
+//			//file_put_contents($newsourcefile,$neirong_temp);
+//		}
+//	}
+//}//end func
+////写数据表文件
+//function writetablefile($mokuai,$ver,$tablename,$nodetype){
+//	if(is_array($tablename)){
+//		foreach($tablename as $k=>$v ){
+//			if($v){
+//				$newtablefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/Modal/'.$v.'.php';
+//				if(!file_exists($newtablefile)){
+//					$neirong_temp = file_get_contents(MOKUAI_DIR.'/server/1.0/Modal/example.php');
+//					$neirong_temp = str_replace("example",$v,$neirong_temp);
+//					//file_put_contents($newtablefile,$neirong_temp);
+//				}
+//			}
+//		}
+//	}
+//}//end func
+////写模板文件
+//function writetemplatefile($mokuai,$ver,$templatename,$nodetype){
+//	if(is_array($templatename)){
+//		foreach($templatename as $k=>$v ){
+//			if($v){
+//				$newtemplatefile = MOKUAI_DIR.'/'.$mokuai.'/'.$ver.'/View/'.$nodetype.'_'.$v.'.htm';
+//				if(!file_exists($newtemplatefile)){
+//					//file_put_contents($newtemplatefile,file_get_contents(MOKUAI_DIR.'/server/1.0/View/'.$nodetype.'_example.htm'));
+//				}
+//			}
+//		}
+//	}
+//}//end func
+////
+//function update_node($biaoshi,$version){
+//	$nodes = xml2array(file_get_contents(MOKUAI_DIR."/server/1.0/Data/node_".$biaoshi."_".$version.".xml"));
+//	foreach($nodes as $k=>$v ){
+//		list($nt,$nn) = explode('_',$k);
+//		$cfile = MOKUAI_DIR."/".$biaoshi."/".$version."/Controler/".($nt == 'global' ? $nn : $k).".php";
+//		$example_file = MOKUAI_DIR."/server/1.0/Example/".$nt."_example.php";
+//		if(!file_exists($cfile) && file_exists($example_file)){
+//			$neirong_temp = file_get_contents($example_file);
+//			$neirong_temp = str_replace("server",$biaoshi,$neirong_temp);
+//			$neirong_temp = str_replace("example",$nn,$neirong_temp);
+//			file_put_contents($cfile,$neirong_temp);
+//		}
+//	}
+//}
 ?>
